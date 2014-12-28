@@ -12,6 +12,12 @@
 		27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B21A48BDC900CC7CA6 /* CategoryView.swift */; };
 		27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */; };
 		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
+		27B371691A50B73100A113AB /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371681A50B73100A113AB /* PersonalView.swift */; };
+		27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716A1A50B73D00A113AB /* LifestyleView.swift */; };
+		27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716C1A50B77B00A113AB /* MoneyView.swift */; };
+		27B3716F1A50B78500A113AB /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716E1A50B78500A113AB /* HealthView.swift */; };
+		27B371711A50B78F00A113AB /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371701A50B78F00A113AB /* WorkView.swift */; };
+		27B371731A50B79500A113AB /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371721A50B79500A113AB /* LoveView.swift */; };
 		27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C21A48710F008ACC14 /* AppDelegate.swift */; };
 		27D411C51A48710F008ACC14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C41A48710F008ACC14 /* ViewController.swift */; };
 		27D411C81A48710F008ACC14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C61A48710F008ACC14 /* Main.storyboard */; };
@@ -41,6 +47,12 @@
 		27A542B21A48BDC900CC7CA6 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		27A713CC1A48754600344431 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		27B371681A50B73100A113AB /* PersonalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
+		27B3716A1A50B73D00A113AB /* LifestyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifestyleView.swift; sourceTree = "<group>"; };
+		27B3716C1A50B77B00A113AB /* MoneyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
+		27B3716E1A50B78500A113AB /* HealthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		27B371701A50B78F00A113AB /* WorkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
+		27B371721A50B79500A113AB /* LoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		27D411BD1A48710F008ACC14 /* The Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D411C11A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D411C21A48710F008ACC14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				27A542B21A48BDC900CC7CA6 /* CategoryView.swift */,
+				27B371681A50B73100A113AB /* PersonalView.swift */,
+				27B3716A1A50B73D00A113AB /* LifestyleView.swift */,
+				27B3716C1A50B77B00A113AB /* MoneyView.swift */,
+				27B3716E1A50B78500A113AB /* HealthView.swift */,
+				27B371701A50B78F00A113AB /* WorkView.swift */,
+				27B371721A50B79500A113AB /* LoveView.swift */,
 			);
 			name = "Category Views";
 			sourceTree = "<group>";
@@ -311,16 +329,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */,
 				27F29EA71A48B7A300E4B696 /* RoundButton.swift in Sources */,
+				27B3716F1A50B78500A113AB /* HealthView.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
+				27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */,
 				27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */,
+				27B371731A50B79500A113AB /* LoveView.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
 				27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */,
+				27B371711A50B78F00A113AB /* WorkView.swift in Sources */,
+				27B371691A50B73100A113AB /* PersonalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

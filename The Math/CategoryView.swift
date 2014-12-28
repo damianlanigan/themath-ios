@@ -21,6 +21,7 @@ class CategoryView: UIView {
     required init(coder aDecoder: NSCoder) {
         self.category = Category(type: .Love)
         super.init(coder: aDecoder)
+        backgroundColor = UIColor.colorForCategoryType(category.type)
     }
 
 }
