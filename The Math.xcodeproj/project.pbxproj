@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
+		27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
+		27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B21A48BDC900CC7CA6 /* CategoryView.swift */; };
+		27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */; };
+		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
+		27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C21A48710F008ACC14 /* AppDelegate.swift */; };
+		27D411C51A48710F008ACC14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C41A48710F008ACC14 /* ViewController.swift */; };
+		27D411C81A48710F008ACC14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C61A48710F008ACC14 /* Main.storyboard */; };
+		27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C91A48710F008ACC14 /* Images.xcassets */; };
+		27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D411CB1A48710F008ACC14 /* LaunchScreen.xib */; };
+		27D411D91A48710F008ACC14 /* The_MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411D81A48710F008ACC14 /* The_MathTests.swift */; };
+		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
+		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
+		27F29EA71A48B7A300E4B696 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F29EA61A48B7A300E4B696 /* RoundButton.swift */; };
+		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27D411D31A48710F008ACC14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27D411B51A48710F008ACC14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27D411BC1A48710F008ACC14;
+			remoteInfo = "The Math";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C8547030B110DFB6DF08D49 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A542AE1A48BA4300CC7CA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		27A542B01A48BAFA00CC7CA6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		27A542B21A48BDC900CC7CA6 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
+		27A713CC1A48754600344431 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		27D411BD1A48710F008ACC14 /* The Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D411C11A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27D411C21A48710F008ACC14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27D411C41A48710F008ACC14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27D411C71A48710F008ACC14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27D411C91A48710F008ACC14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		27D411CC1A48710F008ACC14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		27D411D21A48710F008ACC14 /* The MathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The MathTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D411D71A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27D411D81A48710F008ACC14 /* The_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MathTests.swift; sourceTree = "<group>"; };
+		27D411E41A48715D008ACC14 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
+		27F29EA61A48B7A300E4B696 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27D411BA1A48710F008ACC14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27D411CF1A48710F008ACC14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03AB71A64CC21D0A2B5A4514 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C8547030B110DFB6DF08D49 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27A542B41A48BDDC00CC7CA6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				27D411E41A48715D008ACC14 /* UIViewController.swift */,
+				27A542B01A48BAFA00CC7CA6 /* Colors.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		27B371671A50B6A100A113AB /* Category Views */ = {
+			isa = PBXGroup;
+			children = (
+				27A542B21A48BDC900CC7CA6 /* CategoryView.swift */,
+			);
+			name = "Category Views";
+			sourceTree = "<group>";
+		};
+		27D411B41A48710F008ACC14 = {
+			isa = PBXGroup;
+			children = (
+				27D411BF1A48710F008ACC14 /* The Math */,
+				27D411D51A48710F008ACC14 /* The MathTests */,
+				27D411BE1A48710F008ACC14 /* Products */,
+				3C44C9792FDD9DBF99705956 /* Pods */,
+				03AB71A64CC21D0A2B5A4514 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		27D411BE1A48710F008ACC14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27D411BD1A48710F008ACC14 /* The Math.app */,
+				27D411D21A48710F008ACC14 /* The MathTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27D411BF1A48710F008ACC14 /* The Math */ = {
+			isa = PBXGroup;
+			children = (
+				27D411C21A48710F008ACC14 /* AppDelegate.swift */,
+				27D411C41A48710F008ACC14 /* ViewController.swift */,
+				27D411E61A487315008ACC14 /* MoodViewController.swift */,
+				27A713CC1A48754600344431 /* JournalViewController.swift */,
+				27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */,
+				27F29EA61A48B7A300E4B696 /* RoundButton.swift */,
+				27B371671A50B6A100A113AB /* Category Views */,
+				27A542AE1A48BA4300CC7CA6 /* Category.swift */,
+				27A542B41A48BDDC00CC7CA6 /* Extensions */,
+				27D411C61A48710F008ACC14 /* Main.storyboard */,
+				27D411CB1A48710F008ACC14 /* LaunchScreen.xib */,
+				27D411C91A48710F008ACC14 /* Images.xcassets */,
+				27D411C01A48710F008ACC14 /* Supporting Files */,
+			);
+			path = "The Math";
+			sourceTree = "<group>";
+		};
+		27D411C01A48710F008ACC14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27D411C11A48710F008ACC14 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27D411D51A48710F008ACC14 /* The MathTests */ = {
+			isa = PBXGroup;
+			children = (
+				27D411D81A48710F008ACC14 /* The_MathTests.swift */,
+				27D411D61A48710F008ACC14 /* Supporting Files */,
+			);
+			path = "The MathTests";
+			sourceTree = "<group>";
+		};
+		27D411D61A48710F008ACC14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27D411D71A48710F008ACC14 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3C44C9792FDD9DBF99705956 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B49602A05B8896501A44F70E /* Pods.debug.xcconfig */,
+				305714F6D9DCEB558838C92F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27D411BC1A48710F008ACC14 /* The Math */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "The Math" */;
+			buildPhases = (
+				29616D3D01325CBCCB4AE1E0 /* Check Pods Manifest.lock */,
+				27D411B91A48710F008ACC14 /* Sources */,
+				27D411BA1A48710F008ACC14 /* Frameworks */,
+				27D411BB1A48710F008ACC14 /* Resources */,
+				C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "The Math";
+			productName = "The Math";
+			productReference = 27D411BD1A48710F008ACC14 /* The Math.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27D411D11A48710F008ACC14 /* The MathTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "The MathTests" */;
+			buildPhases = (
+				27D411CE1A48710F008ACC14 /* Sources */,
+				27D411CF1A48710F008ACC14 /* Frameworks */,
+				27D411D01A48710F008ACC14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27D411D41A48710F008ACC14 /* PBXTargetDependency */,
+			);
+			name = "The MathTests";
+			productName = "The MathTests";
+			productReference = 27D411D21A48710F008ACC14 /* The MathTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27D411B51A48710F008ACC14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Mike Kavouras";
+				TargetAttributes = {
+					27D411BC1A48710F008ACC14 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					27D411D11A48710F008ACC14 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 27D411BC1A48710F008ACC14;
+					};
+				};
+			};
+			buildConfigurationList = 27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "The Math" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27D411B41A48710F008ACC14;
+			productRefGroup = 27D411BE1A48710F008ACC14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27D411BC1A48710F008ACC14 /* The Math */,
+				27D411D11A48710F008ACC14 /* The MathTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27D411BB1A48710F008ACC14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
+				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
+				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27D411D01A48710F008ACC14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29616D3D01325CBCCB4AE1E0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27D411B91A48710F008ACC14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27F29EA71A48B7A300E4B696 /* RoundButton.swift in Sources */,
+				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
+				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
+				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
+				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
+				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
+				27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */,
+				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
+				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
+				27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27D411CE1A48710F008ACC14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27D411D91A48710F008ACC14 /* The_MathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27D411D41A48710F008ACC14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27D411BC1A48710F008ACC14 /* The Math */;
+			targetProxy = 27D411D31A48710F008ACC14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27D411C61A48710F008ACC14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27D411C71A48710F008ACC14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27D411CB1A48710F008ACC14 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27D411CC1A48710F008ACC14 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27D411DA1A48710F008ACC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27D411DB1A48710F008ACC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27D411DD1A48710F008ACC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B49602A05B8896501A44F70E /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "The Math/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		27D411DE1A48710F008ACC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 305714F6D9DCEB558838C92F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "The Math/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		27D411E01A48710F008ACC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "The MathTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+			};
+			name = Debug;
+		};
+		27D411E11A48710F008ACC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "The MathTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "The Math" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27D411DA1A48710F008ACC14 /* Debug */,
+				27D411DB1A48710F008ACC14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "The Math" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27D411DD1A48710F008ACC14 /* Debug */,
+				27D411DE1A48710F008ACC14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "The MathTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27D411E01A48710F008ACC14 /* Debug */,
+				27D411E11A48710F008ACC14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27D411B51A48710F008ACC14 /* Project object */;
+}
