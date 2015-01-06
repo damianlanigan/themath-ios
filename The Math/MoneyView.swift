@@ -10,10 +10,18 @@ import UIKit
 
 class MoneyView: CategoryView {
 
+    init() {
+        super.init(category: Category(type: .Money))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-        //        category = Category(type: .Lifestyle)
         super.init(coder: aDecoder)
     }
-
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Money)
+        nameLabel.text = "Money"
+    }
 
 }

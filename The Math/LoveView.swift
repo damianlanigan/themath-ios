@@ -10,9 +10,18 @@ import UIKit
 
 class LoveView: CategoryView {
 
+    init() {
+        super.init(category: Category(type: .Love))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-        //        category = Category(type: .Lifestyle)
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Love)
+        nameLabel.text = "Love"
     }
 
 }

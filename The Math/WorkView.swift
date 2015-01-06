@@ -9,10 +9,19 @@
 import UIKit
 
 class WorkView: CategoryView {
-
+    
+    init() {
+        super.init(category: Category(type: .Work))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-        //        category = Category(type: .Lifestyle)
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Work)
+        nameLabel.text = "Work"
     }
 
 }

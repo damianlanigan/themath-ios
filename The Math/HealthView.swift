@@ -10,9 +10,18 @@ import UIKit
 
 class HealthView: CategoryView {
 
+    init() {
+        super.init(category: Category(type: .Health))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-        //        category = Category(type: .Lifestyle)
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Health)
+        nameLabel.text = "Health"
     }
 
 }

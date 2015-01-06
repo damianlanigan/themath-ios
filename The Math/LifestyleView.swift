@@ -10,9 +10,18 @@ import UIKit
 
 class LifestyleView: CategoryView {
 
+    init() {
+        super.init(category: Category(type: .Lifestyle))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-//        category = Category(type: .Lifestyle)
         super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Lifestyle)
+        nameLabel.text = "Lifestyle"
     }
 
 }

@@ -10,11 +10,18 @@ import UIKit
 
 class PersonalView: CategoryView {
     
-    let category: Category
-
+    init() {
+        super.init(category: Category(type: .Personal))
+    }
+    
     required init(coder aDecoder: NSCoder) {
-        category = Category(type: .Personal)
         super.init(coder: aDecoder)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        category = Category(type: .Personal)
+        nameLabel.text = "Self"
     }
 
 }

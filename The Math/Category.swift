@@ -20,23 +20,13 @@ enum CategoryType {
 struct Category {
     
     let color: UIColor
-
     let name: String
-    
     let type: CategoryType
     
     init(type: CategoryType) {
         color = UIColor.colorForCategoryType(type)
         self.type = type
         name = ""
-    }
-    
-    func nameForType(type: CategoryType) -> String {
-        return ""
-    }
-    
-    func colorForType(type: CategoryType) -> UIColor {
-        return UIColor.whiteColor()
     }
     
 }

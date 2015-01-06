@@ -10,18 +10,22 @@ import UIKit
 
 class CategoryView: UIView {
     
-    let category: Category
+    var category: Category
+    
+    @IBOutlet var nameLabel: UILabel!
     
     init(category: Category) {
         self.category = category
         super.init()
-        backgroundColor = UIColor.colorForCategoryType(category.type)
     }
     
     required init(coder aDecoder: NSCoder) {
         self.category = Category(type: .Love)
         super.init(coder: aDecoder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         backgroundColor = UIColor.colorForCategoryType(category.type)
     }
-
 }
