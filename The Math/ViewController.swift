@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, JournalViewControllerDelegate {
 
     @IBOutlet weak var subviewContainerView: UIView!
     
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     private func loadJournalController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         journalViewController = storyboard.instantiateViewControllerWithIdentifier("JournalViewController") as? JournalViewController
+        journalViewController?.delegate = self
         _addContentViewController(journalViewController!, toView: subviewContainerView)
     }
     
@@ -89,6 +90,20 @@ class ViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return onMood ? .LightContent : .Default
+    }
+    
+    func didBeginEditingMood() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.journalButton.alpha = 0.0
+            self.moodButton.alpha = 0.0
+        })
+    }
+    
+    func didEndEditingMood() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.journalButton.alpha = 1.0
+            self.moodButton.alpha = 0.45
+        })
     }
 }
 

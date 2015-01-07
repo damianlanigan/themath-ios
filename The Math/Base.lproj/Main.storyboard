@@ -91,10 +91,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-aa-d42" customClass="PersonalView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOk-xe-eoS">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOk-xe-eoS">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLF-Ip-S0A" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -163,10 +163,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-9u-Vhf" customClass="LifestyleView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-bG-tpi">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-bG-tpi">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uip-Cc-2Ex" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -235,10 +235,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocA-ba-R2k" customClass="MoneyView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aR-uY-Cg4">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aR-uY-Cg4">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDW-QJ-ngz" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -307,10 +307,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-hj-H13" customClass="HealthView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-5b-z1h">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-5b-z1h">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ou-Qgn" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -379,10 +379,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-j7-R0p" customClass="WorkView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-qh-IvY">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-qh-IvY">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwh-Ax-SPN" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -451,10 +451,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaF-0k-U7h" customClass="LoveView" customModule="The_Math" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-XU-Heq">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-XU-Heq">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-rb-Q2b" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
@@ -683,18 +683,113 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weD-5q-3I1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMV-GX-ycc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-SJ-QoF">
+                                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LyT-aV-MiM">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="LqE-I4-VLm"/>
+                                                    <constraint firstAttribute="height" constant="50" id="TXa-nk-1gb"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="LqE-I4-VLm"/>
+                                                        <exclude reference="TXa-nk-1gb"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="LqE-I4-VLm"/>
+                                                        <include reference="TXa-nk-1gb"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3i-H5-h1L">
+                                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="LyT-aV-MiM" secondAttribute="trailing" constant="26" id="Qll-Dq-xr2"/>
+                                            <constraint firstAttribute="centerY" secondItem="LyT-aV-MiM" secondAttribute="centerY" id="Ruf-Ux-qKF"/>
+                                            <constraint firstItem="fMk-SJ-QoF" firstAttribute="leading" secondItem="gMV-GX-ycc" secondAttribute="leading" constant="26" id="Ugf-P4-f7F"/>
+                                            <constraint firstItem="LyT-aV-MiM" firstAttribute="leading" secondItem="e3i-H5-h1L" secondAttribute="trailing" constant="8" id="crm-nm-iWe"/>
+                                            <constraint firstAttribute="centerY" secondItem="fMk-SJ-QoF" secondAttribute="centerY" id="nPe-Wv-vnk"/>
+                                            <constraint firstAttribute="centerY" secondItem="e3i-H5-h1L" secondAttribute="centerY" id="uQQ-HR-4Cs"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="fMk-SJ-QoF"/>
+                                                <exclude reference="LyT-aV-MiM"/>
+                                                <exclude reference="e3i-H5-h1L"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="Ugf-P4-f7F"/>
+                                                <exclude reference="nPe-Wv-vnk"/>
+                                                <exclude reference="uQQ-HR-4Cs"/>
+                                                <exclude reference="Qll-Dq-xr2"/>
+                                                <exclude reference="Ruf-Ux-qKF"/>
+                                                <exclude reference="crm-nm-iWe"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="fMk-SJ-QoF"/>
+                                                <include reference="LyT-aV-MiM"/>
+                                                <include reference="e3i-H5-h1L"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="Ugf-P4-f7F"/>
+                                                <include reference="nPe-Wv-vnk"/>
+                                                <include reference="uQQ-HR-4Cs"/>
+                                                <include reference="Qll-Dq-xr2"/>
+                                                <include reference="Ruf-Ux-qKF"/>
+                                                <include reference="crm-nm-iWe"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="gMV-GX-ycc" firstAttribute="top" secondItem="weD-5q-3I1" secondAttribute="top" id="kyw-o2-Ton"/>
+                                    <constraint firstItem="gMV-GX-ycc" firstAttribute="leading" secondItem="weD-5q-3I1" secondAttribute="leading" id="lgP-RI-TEV"/>
+                                    <constraint firstAttribute="trailing" secondItem="gMV-GX-ycc" secondAttribute="trailing" id="mxg-uR-tif"/>
+                                    <constraint firstAttribute="bottom" secondItem="gMV-GX-ycc" secondAttribute="bottom" id="wdm-bd-zGv"/>
                                     <constraint firstAttribute="height" constant="80" id="x3v-LC-zAa"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="gMV-GX-ycc"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="x3v-LC-zAa"/>
+                                        <exclude reference="kyw-o2-Ton"/>
+                                        <exclude reference="lgP-RI-TEV"/>
+                                        <exclude reference="mxg-uR-tif"/>
+                                        <exclude reference="wdm-bd-zGv"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="gMV-GX-ycc"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <include reference="x3v-LC-zAa"/>
+                                        <include reference="kyw-o2-Ton"/>
+                                        <include reference="lgP-RI-TEV"/>
+                                        <include reference="mxg-uR-tif"/>
+                                        <include reference="wdm-bd-zGv"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -746,10 +841,14 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="categoryLabel" destination="fMk-SJ-QoF" id="cpQ-kN-MTs"/>
                         <outlet property="healthView" destination="2wP-hj-H13" id="sMF-f9-3OK"/>
                         <outlet property="lifestyleView" destination="m1c-9u-Vhf" id="LRK-kM-ixu"/>
                         <outlet property="loveView" destination="yaF-0k-U7h" id="iAU-ES-uIb"/>
                         <outlet property="moneyView" destination="ocA-ba-R2k" id="bhq-Db-6Mt"/>
+                        <outlet property="moodDescriptionLabel" destination="e3i-H5-h1L" id="x2L-xJ-Ui6"/>
+                        <outlet property="moodDescriptionView" destination="gMV-GX-ycc" id="lWn-PA-wB9"/>
+                        <outlet property="moodImageView" destination="LyT-aV-MiM" id="PJa-mZ-ln0"/>
                         <outlet property="personalView" destination="gTB-aa-d42" id="XXr-BB-V9n"/>
                         <outlet property="workView" destination="bsW-j7-R0p" id="iYe-4q-8Gn"/>
                     </connections>

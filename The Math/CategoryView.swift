@@ -9,7 +9,9 @@
 import UIKit
 
 protocol CategoryViewDelegate {
-    func moodSelectedForCategory(mood: Mood, category: Category)
+    func moodChangedForCategory(mood: Mood, category: Category)
+    func didBeginMoodChangeForCategory(category: Category)
+    func didEndMoodChangeForCategory(category: Category)
 }
 
 class CategoryView: UIView {
@@ -54,7 +56,12 @@ class CategoryView: UIView {
         let maxDistance = 100.0
         
         if gesture.state == .Began {
+            delegate?.didBeginMoodChangeForCategory(category)
             originalY = gesture.view!.center.y
+            
+            UIView.animateWithDuration(0.4, animations: {
+                self.nameLabel.alpha = 1.0
+            })
         }
         
         if gesture.state == .Changed {
@@ -65,19 +72,28 @@ class CategoryView: UIView {
             
             if distance > 0 {
                 if distance >= 40 {
-                    delegate?.moodSelectedForCategory(.Great, category: category)
+                    delegate?.moodChangedForCategory(.Great, category: category)
                 } else if distance >= 0 {
-                    delegate?.moodSelectedForCategory(.Good, category: category)
+                    delegate?.moodChangedForCategory(.Good, category: category)
                 }
             } else {
                 if distance <= -40 {
-                    delegate?.moodSelectedForCategory(.Horrible, category: category)
+                    delegate?.moodChangedForCategory(.Horrible, category: category)
                 } else if distance < 0 {
-                    delegate?.moodSelectedForCategory(.Bad, category: category)
+                    delegate?.moodChangedForCategory(.Bad, category: category)
                 }
             }
             
             gesture.view!.center = CGPoint(x: x, y: originalY + (y * 0.36))
+        }
+        
+        if gesture.state == .Ended {
+            delegate?.didEndMoodChangeForCategory(category)
+            
+            UIView.animateWithDuration(0.2, animations: {
+                self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY)
+                self.nameLabel.alpha = 0.5
+            })
         }
     }
 }

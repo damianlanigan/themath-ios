@@ -101,6 +101,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		274FB6C91A5CE0E7006C7C5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27B371671A50B6A100A113AB /* Category Views */,
+				27F29EA61A48B7A300E4B696 /* RoundButton.swift */,
+				2708DEE61A5C462900D99A28 /* RoundView.swift */,
+				2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		27A542B41A48BDDC00CC7CA6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,11 +171,8 @@
 				27D411C41A48710F008ACC14 /* ViewController.swift */,
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
 				27A713CC1A48754600344431 /* JournalViewController.swift */,
-				27F29EA61A48B7A300E4B696 /* RoundButton.swift */,
-				2708DEE61A5C462900D99A28 /* RoundView.swift */,
-				2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */,
 				27C078391A5AF20C007E0BDF /* Model */,
-				27B371671A50B6A100A113AB /* Category Views */,
+				274FB6C91A5CE0E7006C7C5C /* Views */,
 				27A542B41A48BDDC00CC7CA6 /* Extensions */,
 				27D411C61A48710F008ACC14 /* Main.storyboard */,
 				27D411CB1A48710F008ACC14 /* LaunchScreen.xib */,
