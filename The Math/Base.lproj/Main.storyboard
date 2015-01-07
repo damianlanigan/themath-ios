@@ -68,6 +68,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="moodTrigger" destination="Ckz-iq-MDT" id="Tpe-Ok-wI0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
