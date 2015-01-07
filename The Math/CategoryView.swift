@@ -39,6 +39,7 @@ class CategoryView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         backgroundColor = UIColor.colorForCategoryType(category.type)
+        sliderView.sliderCategoryIconView.image = UIImage.imageForCategoryType(category.type)
     }
     
     override func awakeFromNib() {

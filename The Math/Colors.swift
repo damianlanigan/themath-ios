@@ -14,9 +14,9 @@ extension UIColor {
     class func colorForCategoryType(type: CategoryType) -> UIColor {
         switch type {
         case .Personal:
-            return UIColor.category_blueColor()
-        case .Lifestyle:
             return UIColor.category_orangeColor()
+        case .Lifestyle:
+            return UIColor.category_blueColor()
         case .Money:
             return UIColor.category_greenColor()
         case .Health:

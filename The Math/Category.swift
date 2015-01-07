@@ -9,7 +9,7 @@
 import UIKit
 
 enum CategoryType: String {
-    case Personal = "Personal"
+    case Personal = "Self"
     case Lifestyle = "Lifestyle"
     case Money = "Money"
     case Health = "Health"

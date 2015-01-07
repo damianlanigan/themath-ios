@@ -58,7 +58,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
     }
     
     func didEndMoodChangeForCategory(category: Category) {
-        delegate?.didEndEditingMood()
+//        delegate?.didEndEditingMood()
         UIView.animateWithDuration(0.2, animations: {
             self.moodDescriptionView.alpha = 0.0
         })

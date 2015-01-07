@@ -9,6 +9,8 @@
 import UIKit
 
 class CategorySliderView: RoundView {
+    
+    @IBOutlet var sliderCategoryIconView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
