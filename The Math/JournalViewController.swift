@@ -13,7 +13,7 @@ protocol JournalViewControllerDelegate {
     func didEndEditingMood()
 }
 
-class JournalViewController: UIViewController, CategoryViewDelegate {
+class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
     
     @IBOutlet weak var personalView: PersonalView!
     @IBOutlet weak var lifestyleView: LifestyleView!
@@ -52,7 +52,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
     }
     
     @IBAction func addCommentButtonTapped(sender: AnyObject) {
-        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as JournalAddDetailsViewController
+        viewController.delegate = self
+        presentViewController(viewController, animated: true, completion: nil)
     }
 
     private func presentOpportunityToAddDetails() {
@@ -86,6 +89,15 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
     
     func cleanup() {
         delegate?.didEndEditingMood()
+    }
+    
+    
+    // MARK: <JournalAddDetailsViewControllerDelegate>
+    
+    func didSaveJournalDetails() {
+        dismissViewControllerAnimated(true, completion: {
+            self.hideOpportityToAddDetails()
+        })
     }
     
     
