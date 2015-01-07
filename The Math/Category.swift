@@ -8,20 +8,20 @@
 
 import UIKit
 
-enum CategoryType {
-    case Personal
-    case Lifestyle
-    case Money
-    case Health
-    case Work
-    case Love
+enum CategoryType: String {
+    case Personal = "Personal"
+    case Lifestyle = "Lifestyle"
+    case Money = "Money"
+    case Health = "Health"
+    case Work = "Work"
+    case Love = "Love"
 }
 
-enum Mood {
-    case Horrible
-    case Bad
-    case Good
-    case Great
+enum Mood: String {
+    case Horrible = "Horrible"
+    case Bad = "Bad"
+    case Good = "Good"
+    case Great = "Great"
 }
 
 struct Category {

@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol CategoryViewDelegate {
+    func moodSelectedForCategory(mood: Mood, category: Category)
+}
+
 class CategoryView: UIView {
     
     var originalY: CGFloat = 0.0
     
     var category: Category
+    
+    var delegate: CategoryViewDelegate?
 
     @IBOutlet var nameLabel: UILabel!
     
@@ -59,15 +65,15 @@ class CategoryView: UIView {
             
             if distance > 0 {
                 if distance >= 40 {
-                    println("great")
+                    delegate?.moodSelectedForCategory(.Great, category: category)
                 } else if distance >= 0 {
-                    println("good")
+                    delegate?.moodSelectedForCategory(.Good, category: category)
                 }
             } else {
                 if distance <= -40 {
-                    println("horrible")
+                    delegate?.moodSelectedForCategory(.Horrible, category: category)
                 } else if distance < 0 {
-                    println("bad")
+                    delegate?.moodSelectedForCategory(.Bad, category: category)
                 }
             }
             
