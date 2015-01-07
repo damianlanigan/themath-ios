@@ -9,18 +9,24 @@
 import UIKit
 
 protocol CategoryViewDelegate {
-    func moodChangedForCategory(mood: Mood, category: Category)
+    func didChangeMoodForCategory(mood: Mood, category: Category)
     func didBeginMoodChangeForCategory(category: Category)
-    func didEndMoodChangeForCategory(category: Category)
+    func didEndMoodChangeForCategory(mood: Mood, category: Category)
+    func didCancelMoodChange()
 }
 
-class CategoryView: UIView {
+class CategoryView: UIView, CategorySliderViewDelegate {
     
     var originalY: CGFloat = 0.0
     
     var category: Category
-    
     var delegate: CategoryViewDelegate?
+    
+    var levelImageView: UIImageView?
+    
+    var currentMood: Mood = .Neutral
+    
+    var didSlide = false
 
     @IBOutlet var nameLabel: UILabel!
     
@@ -44,12 +50,25 @@ class CategoryView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        sliderView.delegate = self
         setupSlideGesture()
     }
-    
+
     private func setupSlideGesture() {
         let gesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panSliderView:")
         sliderView.addGestureRecognizer(gesture)
+    }
+    
+    private func cleanup() {
+        didSlide = false
+        if let view = levelImageView {
+            UIView.animateWithDuration(0.2, animations: {
+                view.alpha = 0.0
+                }, completion: { (done: Bool) -> Void in
+                    view.removeFromSuperview()
+            })
+        }
     }
     
     func panSliderView(gesture: UIPanGestureRecognizer) {
@@ -57,44 +76,84 @@ class CategoryView: UIView {
         let maxDistance = 100.0
         
         if gesture.state == .Began {
-            delegate?.didBeginMoodChangeForCategory(category)
             originalY = gesture.view!.center.y
             
             UIView.animateWithDuration(0.4, animations: {
                 self.nameLabel.alpha = 1.0
             })
+            
+            didSlide = true
         }
         
         if gesture.state == .Changed {
             let x = gesture.view!.center.x
             let y = gesture.translationInView(gesture.view!).y
         
-            let distance = y * 0.36 * -1
-            
-            if distance > 0 {
-                if distance >= 40 {
-                    delegate?.moodChangedForCategory(.Great, category: category)
-                } else if distance >= 0 {
-                    delegate?.moodChangedForCategory(.Good, category: category)
+            let distance = y * 0.5 * -1
+
+            if distance > 30 {
+                if distance >= 78 {
+                    currentMood = .Great
+                } else if distance >= 38 {
+                    currentMood = .Good
+                }
+            } else if distance < -30 {
+                if distance <= -78 {
+                    currentMood = .Horrible
+                } else if distance < 38 {
+                    currentMood = .Bad
                 }
             } else {
-                if distance <= -40 {
-                    delegate?.moodChangedForCategory(.Horrible, category: category)
-                } else if distance < 0 {
-                    delegate?.moodChangedForCategory(.Bad, category: category)
-                }
+                currentMood = .Neutral
             }
+            delegate?.didChangeMoodForCategory(currentMood, category: category)
+
             
-            gesture.view!.center = CGPoint(x: x, y: originalY + (y * 0.36))
+            gesture.view!.center = CGPoint(x: x, y: originalY + (y * 0.5))
         }
         
         if gesture.state == .Ended {
-            delegate?.didEndMoodChangeForCategory(category)
+            if currentMood == .Neutral {
+                delegate?.didCancelMoodChange()
+            } else {
+                delegate?.didEndMoodChangeForCategory(currentMood, category: category)
+            }
             
             UIView.animateWithDuration(0.2, animations: {
                 self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY)
                 self.nameLabel.alpha = 0.5
             })
+            
+            cleanup()
+        }
+    }
+    
+    
+    // MARK: <CategorySliderViewDelegate>
+    
+    func sliderTouchesBegan() {
+        delegate?.didBeginMoodChangeForCategory(category)
+
+        currentMood = .Neutral
+        delegate?.didChangeMoodForCategory(currentMood, category: category)
+        
+        let levels = UIImage(named: "ratingLevels")
+        levelImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 160))
+        levelImageView!.center = sliderView.center
+        levelImageView!.image = levels
+        levelImageView!.alpha = 0.0
+        
+        insertSubview(levelImageView!, belowSubview: sliderView)
+        
+        UIView.animateWithDuration(0.4, animations: {
+            self.levelImageView!.alpha = 1.0
+        })
+    }
+    
+    func sliderTouchesEnded() {
+        if !didSlide {
+            delegate?.didCancelMoodChange()
+            cleanup()
         }
     }
 }

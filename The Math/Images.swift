@@ -35,6 +35,8 @@ extension UIImage {
             return UIImage.moodAsset("1")
         case .Bad:
             return UIImage.moodAsset("2")
+        case .Neutral:
+            return UIImage.moodAsset("0")
         case .Good:
             return UIImage.moodAsset("3")
         case .Great:

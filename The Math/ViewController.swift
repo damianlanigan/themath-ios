@@ -93,17 +93,20 @@ class ViewController: UIViewController, JournalViewControllerDelegate {
     }
     
     func didBeginEditingMood() {
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             self.journalButton.alpha = 0.0
             self.moodButton.alpha = 0.0
-        })
+            }) { (done: Bool) -> Void in
+                return()
+        }
     }
     
     func didEndEditingMood() {
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             self.journalButton.alpha = 1.0
             self.moodButton.alpha = 0.45
-        })
+        }) { (done: Bool) -> Void in
+            return()
+        }
     }
 }
-

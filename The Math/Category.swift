@@ -20,6 +20,7 @@ enum CategoryType: String {
 enum Mood: String {
     case Horrible = "Horrible"
     case Bad = "Bad"
+    case Neutral = ""
     case Good = "Good"
     case Great = "Great"
 }

@@ -29,6 +29,9 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
     @IBOutlet weak var moodDescriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var youreFeelingLabel: UILabel!
+    @IBOutlet weak var additionalFeelingTextLabel: UILabel!
+    
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
     
     var delegate: JournalViewControllerDelegate?
@@ -48,6 +51,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
         hideOpportityToAddDetails()
     }
     
+    @IBAction func addCommentButtonTapped(sender: AnyObject) {
+        
+    }
+
     private func presentOpportunityToAddDetails() {
         commentViewTopConstraint.constant = 20
         UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.9, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
@@ -71,8 +78,6 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
             self.overlayView.alpha = 0.0
             
             }) { (done: Bool) -> Void in
-                
-                self.delegate?.didEndEditingMood()
                 return()
         }
 
@@ -86,9 +91,13 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
     
     // MARK: <CategoryViewDelegate>
     
-    func moodChangedForCategory(mood: Mood, category: Category) {
+    func didChangeMoodForCategory(mood: Mood, category: Category) {
         moodImageView.image = UIImage.imageForMood(mood)
-        moodDescriptionLabel.text = "Feeling \(mood.rawValue)"
+        if mood == .Neutral {
+            moodDescriptionLabel.text = ""
+        } else {
+            moodDescriptionLabel.text = "Feeling \(mood.rawValue)"
+        }
         categoryLabel.text = category.type.rawValue
     }
     
@@ -99,7 +108,19 @@ class JournalViewController: UIViewController, CategoryViewDelegate {
         })
     }
     
-    func didEndMoodChangeForCategory(category: Category) {
+    func didEndMoodChangeForCategory(mood: Mood, category: Category) {
+        youreFeelingLabel.text = "Feeling \(mood.rawValue) in \(category.type.rawValue)"
+        additionalFeelingTextLabel.text = "A little bit of encouraging copy"
+        view.layoutIfNeeded()
         presentOpportunityToAddDetails()
+    }
+    
+    func didCancelMoodChange() {
+        
+        UIView.animateWithDuration(0.2, animations: {
+            self.moodDescriptionView.alpha = 0.0
+        })
+
+        self.delegate?.didEndEditingMood()
     }
 }

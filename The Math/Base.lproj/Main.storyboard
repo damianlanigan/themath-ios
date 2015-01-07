@@ -681,7 +681,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-0v-9dn">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <state key="normal">
+                                                <state key="normal" image="ratingLevels">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -1123,6 +1123,9 @@
                                                         <include reference="7FI-a0-HMt"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="addCommentButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="Hu4-RW-eBb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1281,6 +1284,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="additionalFeelingTextLabel" destination="zvz-Sk-gQk" id="ppB-52-Z9e"/>
                         <outlet property="categoryLabel" destination="fMk-SJ-QoF" id="cpQ-kN-MTs"/>
                         <outlet property="commentViewTopConstraint" destination="N4f-fz-bM7" id="VEl-Vn-ZWJ"/>
                         <outlet property="healthView" destination="2wP-hj-H13" id="sMF-f9-3OK"/>
@@ -1293,6 +1297,7 @@
                         <outlet property="overlayView" destination="SVE-yG-5xG" id="5MF-9W-9qJ"/>
                         <outlet property="personalView" destination="gTB-aa-d42" id="XXr-BB-V9n"/>
                         <outlet property="workView" destination="bsW-j7-R0p" id="iYe-4q-8Gn"/>
+                        <outlet property="youreFeelingLabel" destination="g6c-d3-gfv" id="3av-hy-uiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nri-9R-aOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1449,4 +1454,7 @@
             <point key="canvasLocation" x="376.5" y="340.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ratingLevels" width="40" height="160"/>
+    </resources>
 </document>
