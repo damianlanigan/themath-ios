@@ -17,6 +17,13 @@ enum CategoryType {
     case Love
 }
 
+enum Mood {
+    case Horrible
+    case Bad
+    case Good
+    case Great
+}
+
 struct Category {
     
     let color: UIColor

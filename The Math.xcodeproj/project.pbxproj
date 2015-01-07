@@ -13,7 +13,6 @@
 		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
 		27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
 		27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B21A48BDC900CC7CA6 /* CategoryView.swift */; };
-		27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */; };
 		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
 		27B371691A50B73100A113AB /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371681A50B73100A113AB /* PersonalView.swift */; };
 		27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716A1A50B73D00A113AB /* LifestyleView.swift */; };
@@ -51,7 +50,6 @@
 		27A542AE1A48BA4300CC7CA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		27A542B01A48BAFA00CC7CA6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27A542B21A48BDC900CC7CA6 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		27A713CC1A48754600344431 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		27B371681A50B73100A113AB /* PersonalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 		27B3716A1A50B73D00A113AB /* LifestyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifestyleView.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				27D411C41A48710F008ACC14 /* ViewController.swift */,
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
 				27A713CC1A48754600344431 /* JournalViewController.swift */,
-				27A542B71A48C32500CC7CA6 /* CategorySelectionTableViewController.swift */,
 				27F29EA61A48B7A300E4B696 /* RoundButton.swift */,
 				2708DEE61A5C462900D99A28 /* RoundView.swift */,
 				2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */,
@@ -357,7 +354,6 @@
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
 				27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */,
 				2708DEE91A5C465B00D99A28 /* CategorySliderView.swift in Sources */,
-				27A542B81A48C32500CC7CA6 /* CategorySelectionTableViewController.swift in Sources */,
 				27B371731A50B79500A113AB /* LoveView.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,

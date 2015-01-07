@@ -29,8 +29,25 @@ extension UIImage {
 
     }
     
+    class func imageForMood(mood: Mood) -> UIImage {
+        switch mood {
+        case .Horrible:
+            return UIImage.moodAsset("1")
+        case .Bad:
+            return UIImage.moodAsset("2")
+        case .Good:
+            return UIImage.moodAsset("3")
+        case .Great:
+            return UIImage.moodAsset("4")
+        }
+    }
+    
     class func categoryAsset(name: String) -> UIImage {
         return UIImage(named: "categoryIcon_\(name)")!
+    }
+    
+    class func moodAsset(name: String) -> UIImage {
+        return UIImage(named: "ratingIcon_\(name)")!
     }
 
 }
