@@ -60,7 +60,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
 
     private func presentOpportunityToAddDetails() {
         commentViewTopConstraint.constant = 20
-        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.9, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.8, delay: 0.2, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             
             self.view.layoutIfNeeded()
             self.overlayView.alpha = 1.0
@@ -75,7 +75,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     private func hideOpportityToAddDetails() {
         commentViewTopConstraint.constant = -181
-        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.9, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+        UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             
             self.view.layoutIfNeeded()
             self.overlayView.alpha = 0.0
@@ -88,6 +88,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     func cleanup() {
+        
         delegate?.didEndEditingMood()
     }
     

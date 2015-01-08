@@ -119,9 +119,11 @@ class CategoryView: UIView, CategorySliderViewDelegate {
                 delegate?.didEndMoodChangeForCategory(currentMood, category: category)
             }
             
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .CurveEaseOut, animations: {
                 self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY)
                 self.nameLabel.alpha = 0.5
+                }, completion: { (done: Bool) -> Void in
+                    return()
             })
             
             cleanup()
