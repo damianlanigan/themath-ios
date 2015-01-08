@@ -860,7 +860,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-0v-9dn">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <state key="normal" image="ratingLevels">
+                                                <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -1634,7 +1634,4 @@
             <point key="canvasLocation" x="376.5" y="340.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="ratingLevels" width="40" height="160"/>
-    </resources>
 </document>

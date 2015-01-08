@@ -140,7 +140,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         delegate?.didChangeMoodForCategory(currentMood, category: category)
         
         let levels = UIImage(named: "ratingLevels")
-        levelImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 160))
+        levelImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 172))
         levelImageView!.center = sliderView.center
         levelImageView!.image = levels
         levelImageView!.alpha = 0.0
@@ -148,7 +148,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         insertSubview(levelImageView!, belowSubview: sliderView)
         
         UIView.animateWithDuration(0.4, animations: {
-            self.levelImageView!.alpha = 1.0
+            self.levelImageView!.alpha = 0.5
         })
     }
     
