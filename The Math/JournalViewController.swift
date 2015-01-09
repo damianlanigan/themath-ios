@@ -88,7 +88,6 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     func cleanup() {
-        
         delegate?.didEndEditingMood()
     }
     
@@ -125,11 +124,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         youreFeelingLabel.text = "Feeling \(mood.rawValue) in \(category.type.rawValue)"
         additionalFeelingTextLabel.text = "A little bit of encouraging copy"
         view.layoutIfNeeded()
-        presentOpportunityToAddDetails()
+//        presentOpportunityToAddDetails()
     }
     
     func didCancelMoodChange() {
-        
         UIView.animateWithDuration(0.2, animations: {
             self.moodDescriptionView.alpha = 0.0
         })

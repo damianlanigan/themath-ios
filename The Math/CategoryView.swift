@@ -113,20 +113,24 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         }
         
         if gesture.state == .Ended {
+            var offset = currentMood == .Bad || currentMood == .Horrible ? 15 : -15
+
             if currentMood == .Neutral {
                 delegate?.didCancelMoodChange()
+                offset = 0
             } else {
                 delegate?.didEndMoodChangeForCategory(currentMood, category: category)
             }
-            
+
+            println(offset)
             UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .CurveEaseOut, animations: {
-                self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY)
+                self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY + CGFloat(offset))
                 self.nameLabel.alpha = 0.5
                 }, completion: { (done: Bool) -> Void in
                     return()
             })
             
-            cleanup()
+//            cleanup()
         }
     }
     
