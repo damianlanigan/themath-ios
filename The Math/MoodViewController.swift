@@ -21,13 +21,16 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
     
-    var circle = CAShapeLayer()
+    let AnimationKey = "MoodAnimation"
+    
+    let circle = CAShapeLayer()
+    let touchPoint = CAShapeLayer()
     var timer: NSTimer?
     var currentTime: CFTimeInterval = 0.0
     var multiplier: CFTimeInterval = 1.0
     
     let animationDuration: CFTimeInterval = 20.0
-    let initialRadius: CGFloat = 46.0
+    let initialRadius: CGFloat = 40.0
     let animationSpeed: CFTimeInterval = 0.3
     
     let startColor = UIColor.mood_startColor()
@@ -48,22 +51,40 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
         contentView.alpha = 0.0
         
-        createNewMood()
-    }
-    
-    private func createNewMood() {
-        UIView.animateWithDuration(1.4, delay: 0.8, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+        UIView.animateWithDuration(1.4, delay: 0.8, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
             self.contentView.alpha = 1.0
             }) { (done: Bool) -> Void in
                 return()
         }
+        
+    }
+    
+    func createNewMood() {
+        
+        currentTime = 0.0
+        circle.timeOffset = 0.0
+        
+        let radius: CGFloat = 40.0
+        let rect: CGRect = CGRect(x: 0, y: 0, width: radius * 2.0, height: radius * 2.0)
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.duration = 0.25
+        animation.fromValue = circle.presentationLayer().path
+        animation.toValue = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        animation.delegate = self
+        
+        circle.speed = 1.0
+        circle.addAnimation(animation, forKey: AnimationKey)
+        
+        circle.path = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        
+        let aTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "addGrowAnimation", userInfo: nil, repeats: false)
     }
     
     private func createAndAddTouchPoint() {
         let touchRadius: CGFloat = initialRadius - 4.0
         let touchRect: CGRect = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
-        let touchPoint = CAShapeLayer()
+
         touchPoint.rasterizationScale = UIScreen.mainScreen().scale
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
@@ -88,11 +109,18 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         contentView.layer.addSublayer(circle)
         
+        addGrowAnimation()
+    }
+    
+    func addGrowAnimation() {
+        
+        circle.removeAllAnimations()
+        
         let morph: CABasicAnimation = CABasicAnimation(keyPath: "path")
         morph.duration = animationDuration
         morph.fromValue = circle.path
         morph.toValue   = toPath()
-        circle.addAnimation(morph, forKey: "path")
+        circle.addAnimation(morph, forKey: AnimationKey)
         
         circle.speed = 0.0;
     }
@@ -112,6 +140,29 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         }
         
         view.backgroundColor = currentColor
+    }
+    
+    func cleanup() {
+        let radius: CGFloat = 20.0
+        let rect: CGRect = CGRect(x: 20, y: 20, width: radius * 2.0, height: radius * 2.0)
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.duration = 0.20
+        animation.fromValue = circle.presentationLayer().path
+        animation.toValue = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        animation.delegate = self
+        
+        circle.speed = 1.0
+        circle.addAnimation(animation, forKey: AnimationKey)
+        
+        circle.path = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        
+        UIView.animateWithDuration(1.6, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.view.backgroundColor = UIColor.mood_blueColor()
+            }) { (done: Bool) -> Void in
+                return()
+        }
+        
+        let aTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "createNewMood", userInfo: nil, repeats: false)
     }
     
     private func toPath() -> CGPath {
@@ -154,46 +205,26 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     func moodViewTouchesBegan() {
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.touchPoint.opacity = 0.5
+            self.touchPoint.transform = CATransform3DMakeScale(0.9, 0.9, 0.9)
+            }) { (done: Bool) -> Void in
+                return()
+        }
     }
     
     func moodViewTouchesEnded() {
         timer?.invalidate()
         
-        UIView.animateWithDuration(0.2, delay: 0.1, options: .CurveEaseIn, animations: {
-            self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.1, 0.1))
-            self.contentView.alpha = 0.0
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.touchPoint.opacity = 1.0
+            self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
             }) { (done: Bool) -> Void in
-                self.circle.timeOffset = 0.0
-                self.currentTime = 0.0
-                self.createNewMood()
                 return()
         }
         
-        UIView.animateWithDuration(1.0, animations: {
-            self.view.backgroundColor = UIColor.mood_blueColor()
-        })
-        
-//        let center = instructionLabel.center.y + 106.0
-//        let path = UIBezierPath()
-//        path.moveToPoint(CGPoint(x: view.center.x - 6.0, y: center - 6))
-//        
-//        let shape = CAShapeLayer()
-//        shape.path = path.CGPath
-//        shape.strokeColor = UIColor.whiteColor().CGColor
-//        shape.lineWidth = 3.0
-//        shape.lineCap = kCALineCapRound
-//        shape.fillColor = UIColor.clearColor().CGColor
-//        view.layer.addSublayer(shape)
-//        
-//        let otherPath = UIBezierPath()
-//        otherPath.moveToPoint(CGPoint(x: view.center.x - 6.0, y: center - 6))
-//        otherPath.addLineToPoint(CGPoint(x: view.center.x, y: center))
-//        otherPath.addLineToPoint(CGPoint(x: view.center.x + 10.0, y: center - 12))
-//        
-//        let animation: CABasicAnimation = CABasicAnimation(keyPath: "path")
-//        animation.duration = 3
-//        animation.fromValue = path.CGPath
-//        animation.toValue = otherPath.CGPath
-//        shape.addAnimation(animation, forKey: "path")
+        let aTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "cleanup", userInfo: nil, repeats: false)
     }
+    
 }
