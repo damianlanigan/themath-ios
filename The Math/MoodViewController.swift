@@ -119,8 +119,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         currentTime += animationSpeed * multiplier
         circle.timeOffset = currentTime
         
-        println(currentTime)
-        println(circle.timeOffset)
         let perc: CGFloat = CGFloat(currentTime / animationDuration)
         let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
 

@@ -1,1 +1,2 @@
-pod 'Reveal-iOS-SDK'
+pod 'AFNetworking', '~> 2.5'
+# pod 'Reveal-iOS-SDK'
