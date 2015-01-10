@@ -73,32 +73,19 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-fm-FUU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record you mood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-fm-FUU">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOa-1e-f1z">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="l2S-iq-kEm" secondAttribute="centerX" id="1XL-Iy-oij"/>
-                                    <constraint firstItem="B4i-fm-FUU" firstAttribute="top" secondItem="oOa-1e-f1z" secondAttribute="bottom" constant="8" id="7di-Yw-lhu">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
-                                    </constraint>
-                                    <constraint firstAttribute="centerX" secondItem="oOa-1e-f1z" secondAttribute="centerX" id="L4b-az-cVd"/>
                                     <constraint firstAttribute="centerY" secondItem="l2S-iq-kEm" secondAttribute="centerY" id="St5-jg-1PU"/>
                                     <constraint firstItem="l2S-iq-kEm" firstAttribute="top" secondItem="B4i-fm-FUU" secondAttribute="bottom" constant="20" id="TcD-PQ-5gn"/>
                                     <constraint firstItem="l2S-iq-kEm" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" id="Wzv-bd-7uA"/>
-                                    <constraint firstItem="B4i-fm-FUU" firstAttribute="top" secondItem="oOa-1e-f1z" secondAttribute="bottom" constant="8" id="bSs-if-veb">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
-                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="B4i-fm-FUU" secondAttribute="centerX" id="doh-pG-Sde"/>
                                     <constraint firstAttribute="trailing" secondItem="l2S-iq-kEm" secondAttribute="trailing" id="uXy-hm-QCO"/>
                                 </constraints>
@@ -106,36 +93,28 @@
                                     <mask key="subviews">
                                         <exclude reference="l2S-iq-kEm"/>
                                         <exclude reference="B4i-fm-FUU"/>
-                                        <exclude reference="oOa-1e-f1z"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="doh-pG-Sde"/>
                                         <exclude reference="1XL-Iy-oij"/>
                                         <exclude reference="St5-jg-1PU"/>
                                         <exclude reference="TcD-PQ-5gn"/>
                                         <exclude reference="Wzv-bd-7uA"/>
                                         <exclude reference="uXy-hm-QCO"/>
-                                        <exclude reference="L4b-az-cVd"/>
-                                        <exclude reference="7di-Yw-lhu"/>
-                                        <exclude reference="bSs-if-veb"/>
-                                        <exclude reference="doh-pG-Sde"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="l2S-iq-kEm"/>
                                         <include reference="B4i-fm-FUU"/>
-                                        <include reference="oOa-1e-f1z"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="doh-pG-Sde"/>
                                         <include reference="1XL-Iy-oij"/>
                                         <include reference="St5-jg-1PU"/>
                                         <include reference="TcD-PQ-5gn"/>
                                         <include reference="Wzv-bd-7uA"/>
                                         <include reference="uXy-hm-QCO"/>
-                                        <include reference="L4b-az-cVd"/>
-                                        <include reference="7di-Yw-lhu"/>
-                                        <include reference="bSs-if-veb"/>
-                                        <include reference="doh-pG-Sde"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -154,10 +133,10 @@
                                 <exclude reference="Trb-Sw-z9Q"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Aam-Ld-Bwn"/>
                                 <exclude reference="HVT-uX-Met"/>
                                 <exclude reference="ZYf-cB-roT"/>
                                 <exclude reference="duO-PQ-xt7"/>
-                                <exclude reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -165,16 +144,15 @@
                                 <include reference="Trb-Sw-z9Q"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Aam-Ld-Bwn"/>
                                 <include reference="HVT-uX-Met"/>
                                 <include reference="ZYf-cB-roT"/>
                                 <include reference="duO-PQ-xt7"/>
-                                <include reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="contentView" destination="l2S-iq-kEm" id="Hvv-dS-Dpc"/>
-                        <outlet property="feelingLabel" destination="oOa-1e-f1z" id="OoO-UT-7JF"/>
                         <outlet property="instructionLabel" destination="B4i-fm-FUU" id="KP8-uU-v3h"/>
                         <outlet property="moodTrigger" destination="fhD-kS-Xfa" id="InW-JK-uQQ"/>
                     </connections>

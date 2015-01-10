@@ -33,7 +33,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     let startColor = UIColor.mood_startColor()
     let endColor = UIColor.mood_endColor()
     
-    @IBOutlet weak var feelingLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
     
     override func viewDidLoad() {
@@ -43,6 +42,25 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         view.backgroundColor = UIColor.mood_blueColor()
         
+        createAndAddTouchPoint()
+        createAndAddMoodCircle()
+        
+        contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        contentView.alpha = 0.0
+        
+        createNewMood()
+    }
+    
+    private func createNewMood() {
+        UIView.animateWithDuration(1.4, delay: 0.8, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.contentView.alpha = 1.0
+            }) { (done: Bool) -> Void in
+                return()
+        }
+    }
+    
+    private func createAndAddTouchPoint() {
         let touchRadius: CGFloat = initialRadius - 4.0
         let touchRect: CGRect = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         let touchPoint = CAShapeLayer()
@@ -54,7 +72,9 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         touchPoint.fillColor = UIColor.whiteColor().colorWithAlphaComponent(1.0).CGColor
         
         contentView.layer.addSublayer(touchPoint)
-        
+    }
+    
+    private func createAndAddMoodCircle() {
         let radius: CGFloat = initialRadius
         let rect: CGRect = CGRect(x: 0, y: 0, width: radius * 2.0, height: radius * 2.0)
         circle.rasterizationScale = UIScreen.mainScreen().scale
@@ -64,6 +84,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         circle.path = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
         circle.fillColor = UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
         circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(0.8).CGColor
+        circle.lineWidth = 2.0
         
         contentView.layer.addSublayer(circle)
         
@@ -74,7 +95,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         circle.addAnimation(morph, forKey: "path")
         
         circle.speed = 0.0;
-
     }
     
     func update() {
@@ -138,5 +158,42 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     func moodViewTouchesEnded() {
         timer?.invalidate()
+        
+        UIView.animateWithDuration(0.2, delay: 0.1, options: .CurveEaseIn, animations: {
+            self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.1, 0.1))
+            self.contentView.alpha = 0.0
+            }) { (done: Bool) -> Void in
+                self.circle.timeOffset = 0.0
+                self.currentTime = 0.0
+                self.createNewMood()
+                return()
+        }
+        
+        UIView.animateWithDuration(1.0, animations: {
+            self.view.backgroundColor = UIColor.mood_blueColor()
+        })
+        
+//        let center = instructionLabel.center.y + 106.0
+//        let path = UIBezierPath()
+//        path.moveToPoint(CGPoint(x: view.center.x - 6.0, y: center - 6))
+//        
+//        let shape = CAShapeLayer()
+//        shape.path = path.CGPath
+//        shape.strokeColor = UIColor.whiteColor().CGColor
+//        shape.lineWidth = 3.0
+//        shape.lineCap = kCALineCapRound
+//        shape.fillColor = UIColor.clearColor().CGColor
+//        view.layer.addSublayer(shape)
+//        
+//        let otherPath = UIBezierPath()
+//        otherPath.moveToPoint(CGPoint(x: view.center.x - 6.0, y: center - 6))
+//        otherPath.addLineToPoint(CGPoint(x: view.center.x, y: center))
+//        otherPath.addLineToPoint(CGPoint(x: view.center.x + 10.0, y: center - 12))
+//        
+//        let animation: CABasicAnimation = CABasicAnimation(keyPath: "path")
+//        animation.duration = 3
+//        animation.fromValue = path.CGPath
+//        animation.toValue = otherPath.CGPath
+//        shape.addAnimation(animation, forKey: "path")
     }
 }
