@@ -28,8 +28,10 @@ extension UIColor {
         }
     }
     
+    // MARK: Category
+    
     class func category_blueColor() -> UIColor {
-        return UIColor(red:0.141, green:0.537, blue:0.906, alpha:1)
+        return UIColor(red: 0.117, green:0.478, blue:0.992, alpha:1)
     }
     
     class func category_lightBlueColor() -> UIColor {
@@ -50,5 +52,19 @@ extension UIColor {
     
     class func category_pinkColor() -> UIColor {
         return UIColor(red:1.000, green:0.000, blue:0.510, alpha:1)
+    }
+    
+    // MARK: Mood
+    
+    class func mood_blueColor() -> UIColor {
+        return UIColor.category_blueColor()
+    }
+    
+    class func mood_startColor() -> UIColor {
+        return UIColor(red:0.065, green:0.149, blue:0.151, alpha:1)
+    }
+    
+    class func mood_endColor() -> UIColor {
+        return UIColor(red:0.274, green:0.88, blue:0.099, alpha:1)
     }
 }

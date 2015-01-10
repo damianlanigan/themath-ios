@@ -10,6 +10,7 @@
 		2708DEE31A5C334800D99A28 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE21A5C334800D99A28 /* Images.swift */; };
 		2708DEE71A5C462900D99A28 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE61A5C462900D99A28 /* RoundView.swift */; };
 		2708DEE91A5C465B00D99A28 /* CategorySliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */; };
+		279AA1141A60629C00ADA43F /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279AA1131A60629C00ADA43F /* MoodView.swift */; };
 		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
 		27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
 		27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B21A48BDC900CC7CA6 /* CategoryView.swift */; };
@@ -28,7 +29,6 @@
 		27D411D91A48710F008ACC14 /* The_MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411D81A48710F008ACC14 /* The_MathTests.swift */; };
 		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
-		27F29EA71A48B7A300E4B696 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F29EA61A48B7A300E4B696 /* RoundButton.swift */; };
 		27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,7 @@
 		2708DEE21A5C334800D99A28 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		2708DEE61A5C462900D99A28 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySliderView.swift; sourceTree = "<group>"; };
+		279AA1131A60629C00ADA43F /* MoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		27A542AE1A48BA4300CC7CA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		27A542B01A48BAFA00CC7CA6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27A542B21A48BDC900CC7CA6 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		27D411D81A48710F008ACC14 /* The_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MathTests.swift; sourceTree = "<group>"; };
 		27D411E41A48715D008ACC14 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
-		27F29EA61A48B7A300E4B696 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalAddDetailsViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				27B371671A50B6A100A113AB /* Category Views */,
-				27F29EA61A48B7A300E4B696 /* RoundButton.swift */,
 				2708DEE61A5C462900D99A28 /* RoundView.swift */,
+				279AA1131A60629C00ADA43F /* MoodView.swift */,
 				2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */,
 			);
 			name = Views;
@@ -355,11 +355,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */,
-				27F29EA71A48B7A300E4B696 /* RoundButton.swift in Sources */,
 				27B3716F1A50B78500A113AB /* HealthView.swift in Sources */,
 				2708DEE31A5C334800D99A28 /* Images.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
+				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
