@@ -10,7 +10,7 @@
         <!--Mood View Controller-->
         <scene sceneID="gEC-aI-V49">
             <objects>
-                <viewController storyboardIdentifier="MoodViewController" id="CdC-KQ-2Ua" customClass="MoodViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoodViewController" id="CdC-KQ-2Ua" customClass="MoodViewController" customModule="How_Am_I_Doing_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vfV-EI-tAv"/>
                         <viewControllerLayoutGuide type="bottom" id="6a3-RQ-uH2"/>
@@ -25,7 +25,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-iq-kEm" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhD-kS-Xfa" customClass="MoodView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhD-kS-Xfa" customClass="MoodView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -175,6 +175,7 @@
                                 <exclude reference="THm-LS-P10"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Aam-Ld-Bwn"/>
                                 <exclude reference="JIK-DA-wUc"/>
                                 <exclude reference="M9G-BK-2nh"/>
                                 <exclude reference="oLq-rG-3wO"/>
@@ -182,7 +183,6 @@
                                 <exclude reference="UBF-kU-8MR"/>
                                 <exclude reference="ZYf-cB-roT"/>
                                 <exclude reference="duO-PQ-xt7"/>
-                                <exclude reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -191,6 +191,7 @@
                                 <include reference="THm-LS-P10"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Aam-Ld-Bwn"/>
                                 <include reference="JIK-DA-wUc"/>
                                 <include reference="M9G-BK-2nh"/>
                                 <include reference="oLq-rG-3wO"/>
@@ -198,7 +199,6 @@
                                 <include reference="UBF-kU-8MR"/>
                                 <include reference="ZYf-cB-roT"/>
                                 <include reference="duO-PQ-xt7"/>
-                                <include reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                     </view>
@@ -217,7 +217,7 @@
         <!--Journal Add Details View Controller-->
         <scene sceneID="i2Q-fK-bD2">
             <objects>
-                <viewController storyboardIdentifier="JournalAddDetailsViewController" id="S9c-PN-3kY" customClass="JournalAddDetailsViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalAddDetailsViewController" id="S9c-PN-3kY" customClass="JournalAddDetailsViewController" customModule="How_Am_I_Doing_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g5n-FT-Ppg"/>
                         <viewControllerLayoutGuide type="bottom" id="W2t-fc-lPm"/>
@@ -393,7 +393,7 @@
         <!--Journal View Controller-->
         <scene sceneID="XJj-7P-gUn">
             <objects>
-                <viewController storyboardIdentifier="JournalViewController" id="fTm-Vk-pUw" customClass="JournalViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalViewController" id="fTm-Vk-pUw" customClass="JournalViewController" customModule="How_Am_I_Doing_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cAX-33-ji5"/>
                         <viewControllerLayoutGuide type="bottom" id="18V-cw-eaw"/>
@@ -405,7 +405,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-15-04h" userLabel="Categories">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-aa-d42" customClass="LifestyleView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-aa-d42" customClass="LifestyleView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOk-xe-eoS">
@@ -414,7 +414,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLF-Ip-S0A" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLF-Ip-S0A" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eN-k9-IYD">
@@ -538,7 +538,7 @@
                                             <outlet property="sliderView" destination="GLF-Ip-S0A" id="NTM-Lj-qQJ"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-9u-Vhf" customClass="PersonalView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-9u-Vhf" customClass="PersonalView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-bG-tpi">
@@ -547,7 +547,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uip-Cc-2Ex" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uip-Cc-2Ex" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-cS-Whf">
@@ -636,7 +636,7 @@
                                             <outlet property="sliderView" destination="uip-Cc-2Ex" id="y42-e7-FDt"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocA-ba-R2k" customClass="MoneyView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocA-ba-R2k" customClass="MoneyView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aR-uY-Cg4">
@@ -645,7 +645,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDW-QJ-ngz" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDW-QJ-ngz" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Taw-ZE-qh5">
@@ -734,7 +734,7 @@
                                             <outlet property="sliderView" destination="uDW-QJ-ngz" id="bkG-AE-zkm"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-hj-H13" customClass="HealthView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wP-hj-H13" customClass="HealthView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-5b-z1h">
@@ -743,7 +743,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ou-Qgn" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ou-Qgn" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wuw-65-5gh">
@@ -832,7 +832,7 @@
                                             <outlet property="sliderView" destination="kbf-ou-Qgn" id="IX9-RX-ii1"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-j7-R0p" customClass="WorkView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-j7-R0p" customClass="WorkView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-qh-IvY">
@@ -841,7 +841,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwh-Ax-SPN" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwh-Ax-SPN" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="can-N4-5Lo">
@@ -930,7 +930,7 @@
                                             <outlet property="sliderView" destination="Iwh-Ax-SPN" id="zy1-q8-BhC"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaF-0k-U7h" customClass="LoveView" customModule="The_Math" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaF-0k-U7h" customClass="LoveView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-XU-Heq">
@@ -939,7 +939,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-rb-Q2b" customClass="CategorySliderView" customModule="The_Math" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-rb-Q2b" customClass="CategorySliderView" customModule="How_Am_I_Doing_" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z7a-Eg-AqT">
@@ -1668,7 +1668,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="How_Am_I_Doing_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>

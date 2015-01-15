@@ -1,4 +1,6 @@
 //
+//  👨
+//
 //  MoodViewController.swift
 //  The Math
 //
@@ -23,7 +25,7 @@ enum MoodPhase: String {
 class MoodViewController: UIViewController, MoodViewDelegate {
     
     
-    ////////////////////////////////////////
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: INSTANCE VARIABLES
 
@@ -34,7 +36,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var moodLabel: UILabel!
     
-    // constants 
+    // MARK: constants
     
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 20.0
@@ -61,11 +63,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         return CGRect(x: finalOrigin.x, y: finalOrigin.y, width: self.finalRadius * 2.0, height: self.finalRadius * 2.0)
     }()
 
-    // state
+    // MARK: state
     
     private var currentTime: CFTimeInterval = 0.0
     private var firstAppearance = true
-    private var setup = false
+    private var isSetup = false
     
     private var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
@@ -74,10 +76,10 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     var delegate: MoodViewControllerDelegate?
     
     
-    ////////////////////////////////////////
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
     
-    ////////////////////////////////////////
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: LIFE CYCLE
 
@@ -87,9 +89,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
         moodTrigger.delegate = self
         
-        view.backgroundColor = UIColor.mood_blueColor()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        setup()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -105,36 +105,49 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
             createNewMood()
 
-            setup = true
+            isSetup = true
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
-    ////////////////////////////////////////
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
 
-    private func createNewMood() {
-        UIView.animateWithDuration(1.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-            self.contentView.alpha = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
+    
+    // MARK: SETUP
+    
+    
+    // MARK: viewcontroller
+    
+    private func setup() {
+        view.backgroundColor = UIColor.mood_blueColor()
+        setupObservers()
+    }
+    
+    private func setupObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
+    // MARK: mood 
+    
     private func createAndAddTouchPoint() {
         let touchRadius: CGFloat = initialRadius - spaceBetweenTouchPointAndMoodCircle
         let touchRect: CGRect = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         touchPoint.rasterizationScale = UIScreen.mainScreen().scale
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
-
+        
         touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y)
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
         touchPoint.fillColor = UIColor.whiteColor().colorWithAlphaComponent(1.0).CGColor
-
+        
         view.layer.addSublayer(touchPoint)
     }
-
+    
     private func createAndAddMoodCircle() {
         circle.rasterizationScale = UIScreen.mainScreen().scale
         circle.shouldRasterize = true
@@ -144,10 +157,38 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         circle.fillColor = UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
         circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(0.8).CGColor
         circle.lineWidth = 3.0
-
+        
         contentView.layer.addSublayer(circle)
-
+        
         addGrowAnimation()
+    }
+
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: NOTIFICATIONS
+    
+    
+    func applicationDidEnterForeground() {
+        if isSetup {
+            addGrowAnimation()
+        }
+    }
+
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    
+    private func createNewMood() {
+        UIView.animateWithDuration(1.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.contentView.alpha = 1.0
+            }) { (done: Bool) -> Void in
+                return()
+        }
     }
 
     func addGrowAnimation() {
@@ -177,6 +218,12 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         moodLabel.text = moodStringForAnimationPercentage(perc)
     }
+    
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: UTILITY
+
     
     private func moodStringForAnimationPercentage(percentage: CGFloat) -> String {
         let perc = percentage * 100
@@ -224,14 +271,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         return num > num2 ? ceil - val : floor + val
     }
 
-    func applicationDidEnterForeground() {
-        if setup {
-            addGrowAnimation()
-        }
-    }
     
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <MoodViewDelegate>
 
-    // MARK: MoodViewDelegate
 
     func moodViewTouchesBegan() {
         
@@ -287,4 +331,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             self.view.backgroundColor = UIColor.mood_blueColor()
         })
     }
+
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 }
