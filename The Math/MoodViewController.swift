@@ -38,7 +38,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 20.0
-    private let animationSpeed: CFTimeInterval = 0.2
+    private let animationSpeed: CFTimeInterval = 0.15
     
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
     
@@ -113,7 +113,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     ////////////////////////////////////////
 
     private func createNewMood() {
-        UIView.animateWithDuration(1.4, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+        UIView.animateWithDuration(1.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
             self.contentView.alpha = 1.0
             }) { (done: Bool) -> Void in
@@ -181,13 +181,13 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     private func moodStringForAnimationPercentage(percentage: CGFloat) -> String {
         let perc = percentage * 100
         switch perc {
-        case 0...25:
+        case 0...30:
             return "Terrible"
-        case 26...50:
+        case 30.1...55:
             return "Meh"
-        case 51...75:
+        case 55.1...80:
             return "Pretty Good"
-        case 76...100:
+        case 80.1...100:
             return "Great"
         default:
             return "Meh"
