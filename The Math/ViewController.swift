@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, JournalViewControllerDelegate {
+class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate {
 
     @IBOutlet weak var subviewContainerView: UIView!
     
@@ -38,6 +38,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate {
     private func loadMoodController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         moodViewController = storyboard.instantiateViewControllerWithIdentifier("MoodViewController") as? MoodViewController
+        moodViewController?.delegate = self
         _addContentViewController(moodViewController!, toView: subviewContainerView)
     }
     
@@ -107,6 +108,25 @@ class ViewController: UIViewController, JournalViewControllerDelegate {
             self.moodButton.alpha = 0.45
         }) { (done: Bool) -> Void in
             return()
+        }
+    }
+    
+    // MARK: <MoodViewControllerDelegate>
+    
+    func didBeginNewMood() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.journalButton.alpha = 0.0
+            self.moodButton.alpha = 0.0
+        })
+
+    }
+    
+    func didEndNewMood() {
+        UIView.animateWithDuration(0.2, delay: 0.2, options: .CurveLinear, animations: {
+            self.journalButton.alpha = 11.0
+            self.moodButton.alpha = 1.0
+            }) { (done: Bool) -> Void in
+                return()
         }
     }
 }

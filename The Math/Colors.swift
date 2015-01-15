@@ -61,10 +61,10 @@ extension UIColor {
     }
     
     class func mood_startColor() -> UIColor {
-        return UIColor(red:0.065, green:0.149, blue:0.151, alpha:1)
+        return UIColor(red:0.041, green:0.159, blue:0.337, alpha:1)
     }
     
     class func mood_endColor() -> UIColor {
-        return UIColor(red:0.274, green:0.88, blue:0.099, alpha:1)
+        return UIColor(red:0.157, green:0.7, blue:0.947, alpha:1)
     }
 }

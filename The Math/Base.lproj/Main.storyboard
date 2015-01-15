@@ -73,7 +73,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record you mood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-fm-FUU">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record you mood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-fm-FUU">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -121,36 +121,84 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THm-LS-P10">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgT-1I-wOH">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="HgT-1I-wOH" secondAttribute="centerX" id="QyN-rP-h33"/>
+                                    <constraint firstAttribute="centerY" secondItem="HgT-1I-wOH" secondAttribute="centerY" id="onN-WW-5ha"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="HgT-1I-wOH"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="QyN-rP-h33"/>
+                                        <exclude reference="onN-WW-5ha"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="HgT-1I-wOH"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="QyN-rP-h33"/>
+                                        <include reference="onN-WW-5ha"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.41960784309999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="Trb-Sw-z9Q" secondAttribute="bottom" id="Aam-Ld-Bwn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Trb-Sw-z9Q" secondAttribute="trailing" constant="-16" id="HVT-uX-Met"/>
+                            <constraint firstItem="THm-LS-P10" firstAttribute="leading" secondItem="dMA-By-fQC" secondAttribute="leadingMargin" constant="-16" id="JIK-DA-wUc"/>
+                            <constraint firstItem="THm-LS-P10" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" id="M9G-BK-2nh"/>
+                            <constraint firstItem="Trb-Sw-z9Q" firstAttribute="top" secondItem="THm-LS-P10" secondAttribute="bottom" id="UBF-kU-8MR"/>
                             <constraint firstItem="Trb-Sw-z9Q" firstAttribute="leading" secondItem="dMA-By-fQC" secondAttribute="leadingMargin" constant="-16" id="ZYf-cB-roT"/>
                             <constraint firstItem="Trb-Sw-z9Q" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="60" id="duO-PQ-xt7">
                                 <variation key="heightClass=regular-widthClass=compact" constant="80"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="THm-LS-P10" secondAttribute="trailing" constant="-16" id="oLq-rG-3wO"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Trb-Sw-z9Q"/>
+                                <exclude reference="THm-LS-P10"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Aam-Ld-Bwn"/>
+                                <exclude reference="JIK-DA-wUc"/>
+                                <exclude reference="M9G-BK-2nh"/>
+                                <exclude reference="oLq-rG-3wO"/>
                                 <exclude reference="HVT-uX-Met"/>
+                                <exclude reference="UBF-kU-8MR"/>
                                 <exclude reference="ZYf-cB-roT"/>
                                 <exclude reference="duO-PQ-xt7"/>
+                                <exclude reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Trb-Sw-z9Q"/>
+                                <include reference="THm-LS-P10"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Aam-Ld-Bwn"/>
+                                <include reference="JIK-DA-wUc"/>
+                                <include reference="M9G-BK-2nh"/>
+                                <include reference="oLq-rG-3wO"/>
                                 <include reference="HVT-uX-Met"/>
+                                <include reference="UBF-kU-8MR"/>
                                 <include reference="ZYf-cB-roT"/>
                                 <include reference="duO-PQ-xt7"/>
+                                <include reference="Aam-Ld-Bwn"/>
                             </mask>
                         </variation>
                     </view>
@@ -158,6 +206,7 @@
                         <outlet property="containerView" destination="Trb-Sw-z9Q" id="Iqt-vg-4yE"/>
                         <outlet property="contentView" destination="l2S-iq-kEm" id="Hvv-dS-Dpc"/>
                         <outlet property="instructionLabel" destination="B4i-fm-FUU" id="KP8-uU-v3h"/>
+                        <outlet property="moodLabel" destination="HgT-1I-wOH" id="TID-ed-PuY"/>
                         <outlet property="moodTrigger" destination="fhD-kS-Xfa" id="InW-JK-uQQ"/>
                     </connections>
                 </viewController>
