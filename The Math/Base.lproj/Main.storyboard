@@ -457,57 +457,27 @@
                                                     <outlet property="sliderCategoryIconView" destination="9eN-k9-IYD" id="yaj-A9-boL"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j73-mi-Mao">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="XgN-5U-2R7">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="3"/>
-                                                    </constraint>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="XgN-5U-2R7"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="XgN-5U-2R7"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.094233000325999683" green="0.34309724800127339" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="jOk-xe-eoS" firstAttribute="top" secondItem="j73-mi-Mao" secondAttribute="bottom" constant="327" id="1Wx-2b-bzg">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="325"/>
-                                            </constraint>
                                             <constraint firstAttribute="trailing" secondItem="GLF-Ip-S0A" secondAttribute="trailing" constant="4" id="3gG-r8-OG0"/>
                                             <constraint firstAttribute="trailing" secondItem="jOk-xe-eoS" secondAttribute="trailing" id="8Nj-LK-ZcW"/>
-                                            <constraint firstAttribute="trailing" secondItem="j73-mi-Mao" secondAttribute="trailing" id="8UP-7s-1to"/>
                                             <constraint firstAttribute="centerX" secondItem="GLF-Ip-S0A" secondAttribute="centerX" id="BQc-Ud-ZQ8"/>
                                             <constraint firstAttribute="centerY" secondItem="GLF-Ip-S0A" secondAttribute="centerY" id="LBB-Yr-RJF"/>
                                             <constraint firstItem="GLF-Ip-S0A" firstAttribute="leading" secondItem="gTB-aa-d42" secondAttribute="leading" constant="3" id="QoK-vD-tl1"/>
                                             <constraint firstAttribute="bottom" secondItem="jOk-xe-eoS" secondAttribute="bottom" constant="8" id="hYy-U2-1ot"/>
-                                            <constraint firstItem="j73-mi-Mao" firstAttribute="leading" secondItem="gTB-aa-d42" secondAttribute="leading" id="nTs-UV-eY8"/>
-                                            <constraint firstItem="j73-mi-Mao" firstAttribute="top" secondItem="gTB-aa-d42" secondAttribute="top" constant="350" id="oBd-qd-APj"/>
                                             <constraint firstItem="jOk-xe-eoS" firstAttribute="leading" secondItem="gTB-aa-d42" secondAttribute="leading" id="xlv-Nx-dGo"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="jOk-xe-eoS"/>
                                                 <exclude reference="GLF-Ip-S0A"/>
-                                                <exclude reference="j73-mi-Mao"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="3gG-r8-OG0"/>
                                                 <exclude reference="BQc-Ud-ZQ8"/>
                                                 <exclude reference="LBB-Yr-RJF"/>
                                                 <exclude reference="QoK-vD-tl1"/>
-                                                <exclude reference="8UP-7s-1to"/>
-                                                <exclude reference="nTs-UV-eY8"/>
-                                                <exclude reference="oBd-qd-APj"/>
-                                                <exclude reference="1Wx-2b-bzg"/>
                                                 <exclude reference="8Nj-LK-ZcW"/>
                                                 <exclude reference="hYy-U2-1ot"/>
                                                 <exclude reference="xlv-Nx-dGo"/>
@@ -517,17 +487,12 @@
                                             <mask key="subviews">
                                                 <include reference="jOk-xe-eoS"/>
                                                 <include reference="GLF-Ip-S0A"/>
-                                                <include reference="j73-mi-Mao"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="3gG-r8-OG0"/>
                                                 <include reference="BQc-Ud-ZQ8"/>
                                                 <include reference="LBB-Yr-RJF"/>
                                                 <include reference="QoK-vD-tl1"/>
-                                                <include reference="8UP-7s-1to"/>
-                                                <include reference="nTs-UV-eY8"/>
-                                                <include reference="oBd-qd-APj"/>
-                                                <include reference="1Wx-2b-bzg"/>
                                                 <include reference="8Nj-LK-ZcW"/>
                                                 <include reference="hYy-U2-1ot"/>
                                                 <include reference="xlv-Nx-dGo"/>
