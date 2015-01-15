@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 The Lanigan. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 The Lanigan. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.15145903825759888" green="0.3415876030921936" blue="0.61338573694229126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -21,11 +21,14 @@
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Am I Doing" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
                             <rect key="frame" x="20" y="140" width="441" height="43"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="32"/>
                             <color key="textColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="-77" y="155" width="441" height="39"/>
+                            </variation>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
                             <rect key="frame" x="180" y="8" width="120" height="120"/>
                         </imageView>
                     </subviews>
@@ -46,30 +49,31 @@
                             <exclude reference="WVX-u4-Na3"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="1qj-WX-6rz"/>
-                            <exclude reference="6hh-zx-VpW"/>
-                            <exclude reference="WBy-LY-diZ"/>
                             <exclude reference="M4S-eD-wtR"/>
                             <exclude reference="aSQ-gl-u6F"/>
                             <exclude reference="bfJ-zo-bqk"/>
                             <exclude reference="qfl-BQ-bh6"/>
                             <exclude reference="uRa-4M-d3X"/>
+                            <exclude reference="1qj-WX-6rz"/>
+                            <exclude reference="6hh-zx-VpW"/>
+                            <exclude reference="WBy-LY-diZ"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="97" y="139" width="286" height="202"/>
                         <mask key="subviews">
                             <include reference="kId-c2-rCX"/>
                             <include reference="WVX-u4-Na3"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="1qj-WX-6rz"/>
-                            <include reference="6hh-zx-VpW"/>
-                            <include reference="WBy-LY-diZ"/>
                             <include reference="M4S-eD-wtR"/>
                             <include reference="aSQ-gl-u6F"/>
                             <include reference="bfJ-zo-bqk"/>
                             <include reference="qfl-BQ-bh6"/>
                             <include reference="uRa-4M-d3X"/>
+                            <include reference="1qj-WX-6rz"/>
+                            <include reference="6hh-zx-VpW"/>
+                            <include reference="WBy-LY-diZ"/>
                         </mask>
                     </variation>
                 </view>
