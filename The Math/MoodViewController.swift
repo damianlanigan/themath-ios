@@ -49,8 +49,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         if firstAppearance {
             firstAppearance = false
@@ -81,7 +81,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         touchPoint.rasterizationScale = UIScreen.mainScreen().scale
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
-        touchPoint.position = CGPoint(x: view.center.x, y: contentView.center.y + 50)
+        
+        touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y)
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
         touchPoint.fillColor = UIColor.whiteColor().colorWithAlphaComponent(1.0).CGColor
         
