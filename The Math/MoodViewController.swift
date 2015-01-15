@@ -21,32 +21,66 @@ enum MoodPhase: String {
 }
 
 class MoodViewController: UIViewController, MoodViewDelegate {
+    
+    
+    ////////////////////////////////////////
+    
+    // MARK: INSTANCE VARIABLES
+
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var moodLabel: UILabel!
-
-    private var circle = CAShapeLayer()
-    private var touchPoint = CAShapeLayer()
-    private var timer: NSTimer?
-    var delegate: MoodViewControllerDelegate?
     
-    private var currentTime: CFTimeInterval = 0.0
+    // constants 
+    
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 20.0
-    private let initialRadius: CGFloat = 36.0
-    private let animationSpeed: CFTimeInterval = 0.3
+    private let animationSpeed: CFTimeInterval = 0.2
+    
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
-
+    
     private let startColor = UIColor.mood_startColor()
     private let endColor = UIColor.mood_endColor()
+    
+    private var numberOfMoods = 4
+    
+    private let gutter: CGFloat = 14.0
+    private let initialRadius: CGFloat = 36.0
+    private lazy var initialRect: CGRect = {
+        return CGRect(x: 0, y: 0, width: self.initialRadius * 2.0, height: self.initialRadius * 2.0)
+    }()
+    private lazy var finalRadius: CGFloat = {
+        return self.view.frame.size.width / 2.0 - self.gutter
+    }()
+    private lazy var finalRect: CGRect = {
+        let x: CGFloat = -(self.view.frame.size.width / 2.0 - (self.initialRadius + self.gutter))
+        let finalOrigin = CGPoint(x: x, y: x)
+        return CGRect(x: finalOrigin.x, y: finalOrigin.y, width: self.finalRadius * 2.0, height: self.finalRadius * 2.0)
+    }()
 
+    // state
+    
+    private var currentTime: CFTimeInterval = 0.0
     private var firstAppearance = true
     private var setup = false
     
-    private var numberOfMoods = 4
+    private var circle = CAShapeLayer()
+    private var touchPoint = CAShapeLayer()
+    private var timer: NSTimer?
+    
+    var delegate: MoodViewControllerDelegate?
+    
+    
+    ////////////////////////////////////////
+
+    
+    ////////////////////////////////////////
+    
+    // MARK: LIFE CYCLE
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +108,9 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             setup = true
         }
     }
+    
+    
+    ////////////////////////////////////////
 
     private func createNewMood() {
         UIView.animateWithDuration(1.4, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
@@ -99,13 +136,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     }
 
     private func createAndAddMoodCircle() {
-        let radius: CGFloat = initialRadius
-        let rect: CGRect = CGRect(x: 0, y: 0, width: radius * 2.0, height: radius * 2.0)
         circle.rasterizationScale = UIScreen.mainScreen().scale
         circle.shouldRasterize = true
-        circle.frame = CGRect(x: 0, y: 0, width: radius * 2.0, height: radius * 2.0)
+        circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
         circle.position = CGPoint(x: view.center.x, y: view.center.x)
-        circle.path = UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
         circle.fillColor = UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
         circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(0.8).CGColor
         circle.lineWidth = 3.0
@@ -129,9 +164,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         currentTime += animationSpeed * multiplier
         circle.timeOffset = currentTime
 
-        let perc: CGFloat = CGFloat(currentTime / animationDuration)
-        let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
-
         if circle.timeOffset <= 0.0 || circle.timeOffset >= animationDuration {
             let newValue = circle.timeOffset <= 0.0 ? 0.0 : animationDuration
             currentTime = newValue
@@ -139,16 +171,31 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             multiplier *= -1
         }
 
+        let perc: CGFloat = CGFloat(currentTime / animationDuration)
+        let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
         view.backgroundColor = currentColor
+        
+        moodLabel.text = moodStringForAnimationPercentage(perc)
+    }
+    
+    private func moodStringForAnimationPercentage(percentage: CGFloat) -> String {
+        let perc = percentage * 100
+        switch perc {
+        case 0...25:
+            return "Terrible"
+        case 26...50:
+            return "Meh"
+        case 51...75:
+            return "Pretty Good"
+        case 76...100:
+            return "Great"
+        default:
+            return "Meh"
+        }
     }
 
     private func toPath() -> CGPath {
-        let gutter: CGFloat = 14.0
-        let radius: CGFloat = view.frame.size.width / 2.0 - gutter
-        let x: CGFloat = -(view.frame.size.width / 2.0 - (initialRadius + gutter))
-        let finalOrigin = CGPoint(x: x, y: x)
-        let rect: CGRect = CGRect(x: finalOrigin.x, y: finalOrigin.y, width: radius * 2.0, height: radius * 2.0)
-        return UIBezierPath(roundedRect: rect, cornerRadius: radius).CGPath
+        return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
     }
 
     private func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
@@ -182,7 +229,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             addGrowAnimation()
         }
     }
-
+    
 
     // MARK: MoodViewDelegate
 
@@ -211,8 +258,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         delegate?.didEndNewMood()
         
         timer?.invalidate()
-
-        // bug: state doesnt get reset when app moves to background
 
         UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
