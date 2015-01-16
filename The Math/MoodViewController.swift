@@ -68,7 +68,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         let path = NSBundle.mainBundle().pathForResource("magic", ofType: "sks")
         if let p = path {
             let node: SKEmitterNode? = NSKeyedUnarchiver.unarchiveObjectWithFile(p) as? SKEmitterNode
-            node?.hidden = true
+            node?.alpha = 0.0
             node?.particleColorSequence = nil
             return node
         }
@@ -353,7 +353,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
     func moodViewTouchesBegan() {
         
-        effect?.hidden = false
+        UIView.animateWithDuration(0.2, animations: {
+            self.effect?.alpha = 1.0
+            return()
+        })
+
         
         delegate?.didBeginNewMood()
         
@@ -376,8 +380,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     func moodViewTouchesEnded() {
         
         delegate?.didEndNewMood()
-        
-        effect?.hidden = true
         
         timer?.invalidate()
         
@@ -412,15 +414,19 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         // cleanup particle simulation
         
-        effect?.particleBirthRate = startBirthrate
-        effect?.particleLifetime = startLifetime
-        effect?.particleLifetimeRange = startLifetimeRange
-        effect?.particlePositionRange = CGVector(dx: startPosition.x, dy: startPosition.y)
-        effect?.particleSpeed = startSpeed
-        effect?.particleSpeedRange = startSpeedRange
-        
-        effect?.particleColor = particleStartColor
-
+        UIView.animateWithDuration(0.2, animations: {
+            self.effect?.alpha = 0.0
+            return()
+            }) { (done: Bool) -> Void in
+                self.effect?.particleBirthRate = self.startBirthrate
+                self.effect?.particleLifetime = self.startLifetime
+                self.effect?.particleLifetimeRange = self.startLifetimeRange
+                self.effect?.particlePositionRange = CGVector(dx: self.startPosition.x, dy: self.startPosition.y)
+                self.effect?.particleSpeed = self.startSpeed
+                self.effect?.particleSpeedRange = self.startSpeedRange
+                self.effect?.particleColor = self.particleStartColor
+                return()
+        }
     }
 
     
