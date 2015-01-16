@@ -41,7 +41,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 20.0
-    private let animationSpeed: CFTimeInterval = 0.2
+    private let animationSpeed: CFTimeInterval = 0.1
     
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
     
@@ -82,15 +82,15 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     private let startBirthrate: CGFloat = 47.6
     private let endBirthrate: CGFloat = 400.0
-    private let startLifetime: CGFloat = 4.0
-    private let endLifetime: CGFloat = 2
+    private let startLifetime: CGFloat = 0.5
+    private let endLifetime: CGFloat = 0.7
     private let startLifetimeRange: CGFloat = 0.0
-    private let endLifetimeRange: CGFloat = 6.0
+    private let endLifetimeRange: CGFloat = 0.7
     private let startPosition = CGPoint(x: 0, y: 0)
     private let endPosition = CGPoint(x: 300, y: 430)
     private let startSpeed: CGFloat = 0.0
-    private let startSpeedRange: CGFloat = 200.0
     private let endSpeed: CGFloat = 20.0
+    private let startSpeedRange: CGFloat = 200.0
     private let endSpeedRange: CGFloat = 600.0
 
     // MARK: state
@@ -279,6 +279,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         var positionRangeX = numbers(startPosition.x, num2: endPosition.x, perc: percentage)
         var positionRangeY = numbers(startPosition.y, num2: endPosition.y, perc: percentage)
         var positionRange = CGPoint(x: positionRangeX, y: positionRangeY)
+        
         var speed = numbers(startSpeed, num2: endSpeed, perc: percentage)
         var speedRange = numbers(startSpeedRange, num2: endSpeedRange, perc: percentage)
         
@@ -287,7 +288,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         effect?.particleLifetimeRange = lifetimeRange
         effect?.particlePositionRange = CGVector(dx: positionRange.x, dy: positionRange.y)
         effect?.particleSpeed = speed
-        effect?.particleSpeedRange
+        effect?.particleSpeedRange = speedRange
         
         effect?.particleColor = colorAtPercentage(particleStartColor, color2: particleEndColor, perc: percentage)
     }
@@ -379,6 +380,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         effect?.hidden = true
         
         timer?.invalidate()
+        
 
         UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
@@ -407,6 +409,18 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         UIView.animateWithDuration(1.0, animations: {
             self.view.backgroundColor = UIColor.mood_blueColor()
         })
+        
+        // cleanup particle simulation
+        
+        effect?.particleBirthRate = startBirthrate
+        effect?.particleLifetime = startLifetime
+        effect?.particleLifetimeRange = startLifetimeRange
+        effect?.particlePositionRange = CGVector(dx: startPosition.x, dy: startPosition.y)
+        effect?.particleSpeed = startSpeed
+        effect?.particleSpeedRange = startSpeedRange
+        
+        effect?.particleColor = particleStartColor
+
     }
 
     
