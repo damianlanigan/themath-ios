@@ -31,6 +31,8 @@
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
 		27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
+		E5A93CE91A699D890005D152 /* magic.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5A93CE71A699D890005D152 /* magic.sks */; };
+		E5A93CEA1A699D890005D152 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A93CE81A699D890005D152 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalAddDetailsViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E5A93CE71A699D890005D152 /* magic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = magic.sks; sourceTree = "<group>"; };
+		E5A93CE81A699D890005D152 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
 				27A713CC1A48754600344431 /* JournalViewController.swift */,
 				27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */,
+				E5A93CEB1A699E290005D152 /* Particles */,
 				27C078391A5AF20C007E0BDF /* Model */,
 				274FB6C91A5CE0E7006C7C5C /* Views */,
 				27A542B41A48BDDC00CC7CA6 /* Extensions */,
@@ -217,6 +222,15 @@
 				305714F6D9DCEB558838C92F /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5A93CEB1A699E290005D152 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				E5A93CE71A699D890005D152 /* magic.sks */,
+				E5A93CE81A699D890005D152 /* spark.png */,
+			);
+			name = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +316,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A93CEA1A699D890005D152 /* spark.png in Resources */,
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
+				E5A93CE91A699D890005D152 /* magic.sks in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
@@ -557,7 +573,6 @@
 		27D411E01A48710F008ACC14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -569,14 +584,13 @@
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "How Am I Doing?Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Am I Doing?.app/How Am I Doing?";
 			};
 			name = Debug;
 		};
 		27D411E11A48710F008ACC14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -584,7 +598,7 @@
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "How Am I Doing?Tests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Am I Doing?.app/How Am I Doing?";
 			};
 			name = Release;
 		};

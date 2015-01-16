@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 protocol MoodViewControllerDelegate {
     func didBeginNewMood()
@@ -36,7 +37,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var moodLabel: UILabel!
     
-    // MARK: constants
+    // MARK: constants (kinda)
     
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 20.0
@@ -61,6 +62,16 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         let x: CGFloat = -(self.view.frame.size.width / 2.0 - (self.initialRadius + self.gutter))
         let finalOrigin = CGPoint(x: x, y: x)
         return CGRect(x: finalOrigin.x, y: finalOrigin.y, width: self.finalRadius * 2.0, height: self.finalRadius * 2.0)
+    }()
+    
+    private lazy var effect: SKEmitterNode? = {
+        let path = NSBundle.mainBundle().pathForResource("magic", ofType: "sks")
+        if let p = path {
+            let node: SKEmitterNode? = NSKeyedUnarchiver.unarchiveObjectWithFile(p) as? SKEmitterNode
+            node?.hidden = true
+            return node
+        }
+        return nil
     }()
 
     // MARK: state
@@ -91,6 +102,12 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         setup()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+    }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -99,7 +116,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             firstAppearance = false
             createAndAddTouchPoint()
             createAndAddMoodCircle()
-
+            setupParticleEffect()
+            
             contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
             contentView.alpha = 0.4
 
@@ -125,7 +143,24 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     private func setup() {
         view.backgroundColor = UIColor.mood_blueColor()
+        
         setupObservers()
+    }
+    
+    private func setupParticleEffect() {
+        let sceneView: SKView = SKView(frame: view.bounds)
+        sceneView.allowsTransparency = true
+        
+        let scene = SKScene(size: view.frame.size)
+        scene.backgroundColor = UIColor(red: 255/255.0, green: 176/255.0, blue: 33/255.0, alpha: 1.0)
+        
+        if let e = effect {
+            scene.addChild(e)
+            e.position = CGPoint(x: contentView.frame.size.width / 2.0, y: contentView.center.y)
+        }
+        
+        sceneView.presentScene(scene)
+        view.insertSubview(sceneView, belowSubview: containerView)
     }
     
     private func setupObservers() {
@@ -203,19 +238,18 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
     func update() {
         currentTime += animationSpeed * multiplier
-        circle.timeOffset = currentTime
+//        circle.timeOffset = currentTime
 
-        if circle.timeOffset <= 0.0 || circle.timeOffset >= animationDuration {
+        if currentTime <= 0.0 || currentTime >= animationDuration {
             let newValue = circle.timeOffset <= 0.0 ? 0.0 : animationDuration
             currentTime = newValue
-            circle.timeOffset = newValue
+//            circle.timeOffset = newValue
             multiplier *= -1
         }
 
         let perc: CGFloat = CGFloat(currentTime / animationDuration)
         let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
         view.backgroundColor = currentColor
-        
         moodLabel.text = moodStringForAnimationPercentage(perc)
     }
     
@@ -279,6 +313,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
     func moodViewTouchesBegan() {
         
+        effect?.hidden = false
+        
         delegate?.didBeginNewMood()
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -290,16 +326,18 @@ class MoodViewController: UIViewController, MoodViewDelegate {
                 return()
         }
         
-        UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.moodLabel.alpha = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
+//        UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveLinear, animations: {
+//            self.moodLabel.alpha = 1.0
+//            }) { (done: Bool) -> Void in
+//                return()
+//        }
     }
 
     func moodViewTouchesEnded() {
         
         delegate?.didEndNewMood()
+        
+        effect?.hidden = true
         
         timer?.invalidate()
 
@@ -310,9 +348,9 @@ class MoodViewController: UIViewController, MoodViewDelegate {
                 return()
         }
         
-        UIView.animateWithDuration(0.2, animations: {
-            self.moodLabel.alpha = 0.0
-        })
+//        UIView.animateWithDuration(0.2, animations: {
+//            self.moodLabel.alpha = 0.0
+//        })
         
         UIView.animateWithDuration(0.6, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.1, 0.1))
