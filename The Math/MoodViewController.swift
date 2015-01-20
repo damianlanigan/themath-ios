@@ -26,11 +26,11 @@ enum MoodPhase: String {
 class MoodViewController: UIViewController, MoodViewDelegate {
     
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
+    // ------------------------- \\
     // MARK: INSTANCE VARIABLES
+    // ------------------------- \\
 
-
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
@@ -68,7 +68,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         let path = NSBundle.mainBundle().pathForResource("magic", ofType: "sks")
         if let p = path {
             let node: SKEmitterNode? = NSKeyedUnarchiver.unarchiveObjectWithFile(p) as? SKEmitterNode
-            node?.alpha = 0.0
             node?.particleColorSequence = nil
             return node
         }
@@ -76,6 +75,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     }()
     
     // MARK: constants - particle simulation
+    
+    private let sceneView: SKView = SKView()
     
     private let particleStartColor = UIColor.particle_startColor()
     private let particleEndColor = UIColor.particle_endColor()
@@ -104,15 +105,12 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     private var timer: NSTimer?
     
     var delegate: MoodViewControllerDelegate?
-    
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
+    // ------------------------- \\
     // MARK: LIFE CYCLE
-
+    // ------------------------- \\
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,13 +125,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
         if firstAppearance {
             firstAppearance = false
+            
             createAndAddTouchPoint()
             createAndAddMoodCircle()
             setupParticleEffect()
             
-            contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-            contentView.alpha = 0.4
-
             createNewMood()
 
             isSetup = true
@@ -145,23 +141,28 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     }
     
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-
-    
+    // ------------------------- \\
     // MARK: SETUP
+    // ------------------------- \\
     
     
     // MARK: viewcontroller
     
     private func setup() {
         view.backgroundColor = UIColor.mood_blueColor()
+        contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        contentView.alpha = 0.4
         
         setupObservers()
     }
     
+    private func setupObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
     private func setupParticleEffect() {
-        let sceneView: SKView = SKView(frame: view.bounds)
+        sceneView.frame = view.bounds
+        sceneView.alpha = 0.0
         sceneView.allowsTransparency = true
         sceneView.backgroundColor = UIColor.clearColor()
         
@@ -170,19 +171,15 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         if let e = effect {
             scene.addChild(e)
-            e.position = CGPoint(x: contentView.frame.size.width / 2.0, y: contentView.center.y)
+            e.position = CGPoint(x: view.frame.size.width / 2.0, y: contentView.center.y)
             e.particleColor = UIColor.particle_startColor()
         }
         
         sceneView.presentScene(scene)
         view.insertSubview(sceneView, belowSubview: containerView)
     }
-    
-    private func setupObservers() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
-    }
 
-    // MARK: mood 
+    // MARK: mood
     
     private func createAndAddTouchPoint() {
         let touchRadius: CGFloat = initialRadius - spaceBetweenTouchPointAndMoodCircle
@@ -212,14 +209,11 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         addGrowAnimation()
     }
-
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
+    // ------------------------- \\
     // MARK: NOTIFICATIONS
+    // ------------------------- \\
     
     
     func applicationDidEnterForeground() {
@@ -228,10 +222,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         }
     }
 
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    
     private func createNewMood() {
         UIView.animateWithDuration(1.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
@@ -246,7 +236,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         morph.duration = animationDuration
         morph.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
         morph.fromValue = circle.path
-        morph.toValue   = toPath()
+        morph.toValue   = UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
         circle.addAnimation(morph, forKey: "path")
 
         circle.speed = 0.0;
@@ -254,34 +244,30 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
     func update() {
         currentTime += animationSpeed * multiplier
-//        circle.timeOffset = currentTime
 
         if currentTime <= 0.0 || currentTime >= animationDuration {
-            let newValue = currentTime <= 0.0 ? 0.0 : animationDuration
-            currentTime = newValue
-//            circle.timeOffset = newValue
+            currentTime = currentTime <= 0.0 ? 0.0 : animationDuration
             multiplier *= -1
         }
+        
+        circle.timeOffset = currentTime
 
         let perc: CGFloat = CGFloat(currentTime / animationDuration)
-        let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
-        view.backgroundColor = currentColor
-        moodLabel.text = moodStringForAnimationPercentage(perc)
         
+        view.backgroundColor = colorAtPercentage(startColor, color2: endColor, percentage: perc)
+        moodLabel.text = moodStringForAnimationPercentage(perc)
         updateParticleSimulation(perc)
     }
     
     private func updateParticleSimulation(percentage: CGFloat) {
-        var birthrate = numbers(startBirthrate, num2: endBirthrate, perc: percentage)
-        var lifetime = numbers(startLifetime, num2: endLifetime, perc: percentage)
-        var lifetimeRange = numbers(startLifetimeRange, num2: endLifetimeRange, perc: percentage)
-        
-        var positionRangeX = numbers(startPosition.x, num2: endPosition.x, perc: percentage)
-        var positionRangeY = numbers(startPosition.y, num2: endPosition.y, perc: percentage)
+        var birthrate = valueForPercentage(startBirthrate, num2: endBirthrate, perc: percentage)
+        var lifetime = valueForPercentage(startLifetime, num2: endLifetime, perc: percentage)
+        var lifetimeRange = valueForPercentage(startLifetimeRange, num2: endLifetimeRange, perc: percentage)
+        var positionRangeX = valueForPercentage(startPosition.x, num2: endPosition.x, perc: percentage)
+        var positionRangeY = valueForPercentage(startPosition.y, num2: endPosition.y, perc: percentage)
         var positionRange = CGPoint(x: positionRangeX, y: positionRangeY)
-        
-        var speed = numbers(startSpeed, num2: endSpeed, perc: percentage)
-        var speedRange = numbers(startSpeedRange, num2: endSpeedRange, perc: percentage)
+        var speed = valueForPercentage(startSpeed, num2: endSpeed, perc: percentage)
+        var speedRange = valueForPercentage(startSpeedRange, num2: endSpeedRange, perc: percentage)
         
         effect?.particleBirthRate = birthrate
         effect?.particleLifetime = lifetime
@@ -289,15 +275,14 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         effect?.particlePositionRange = CGVector(dx: positionRange.x, dy: positionRange.y)
         effect?.particleSpeed = speed
         effect?.particleSpeedRange = speedRange
-        
-        effect?.particleColor = colorAtPercentage(particleStartColor, color2: particleEndColor, perc: percentage)
+        effect?.particleColor = colorAtPercentage(particleStartColor, color2: particleEndColor, percentage: percentage)
     }
     
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
+    // ------------------------- \\
     // MARK: UTILITY
-
+    // ------------------------- \\
+    
     
     private func moodStringForAnimationPercentage(percentage: CGFloat) -> String {
         let perc = percentage * 100
@@ -315,50 +300,37 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         }
     }
 
-    private func toPath() -> CGPath {
-        return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
-    }
+    private func colorAtPercentage(color1: UIColor, color2: UIColor, percentage: CGFloat) -> UIColor {
+        let firstComponents = CGColorGetComponents(color1.CGColor)
+        let secondComponents = CGColorGetComponents(color2.CGColor)
 
-    private func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
-        let firstComp = CGColorGetComponents(color1.CGColor)
-        let secondComp = CGColorGetComponents(color2.CGColor)
-
-        let red1 = firstComp[0]
-        let red2 = secondComp[0]
-        let newRed = numbers(red1, num2: red2, perc: perc)
-
-        let green1 = firstComp[1]
-        let green2 = secondComp[1]
-        let newGreen = numbers(green1, num2: green2, perc: perc)
-
-        let blue1 = firstComp[2]
-        let blue2 = secondComp[2]
-        let newBlue = numbers(blue1, num2: blue2, perc: perc)
+        let newRed = valueForPercentage(firstComponents[0], num2: secondComponents[0], perc: percentage)
+        let newGreen = valueForPercentage(firstComponents[1], num2: secondComponents[1], perc: percentage)
+        let newBlue = valueForPercentage(firstComponents[2], num2: secondComponents[2], perc: percentage)
 
         return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 
-    private func numbers(num: CGFloat, num2: CGFloat, perc: CGFloat) -> CGFloat {
+    private func valueForPercentage(num: CGFloat, num2: CGFloat, perc: CGFloat) -> CGFloat {
         let floor = min(num, num2)
         let ceil = max(num, num2)
         let val = (ceil - floor) * perc
         return num > num2 ? ceil - val : floor + val
     }
-
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
+    // ------------------------- \\
     // MARK: <MoodViewDelegate>
+    // ------------------------- \\
 
-
+    
     func moodViewTouchesBegan() {
         
-        UIView.animateWithDuration(0.2, animations: {
-            self.effect?.alpha = 1.0
+        UIView.animateWithDuration(1.0, animations: {
+            self.sceneView.alpha = 1.0
             return()
         })
 
-        
         delegate?.didBeginNewMood()
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -382,7 +354,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         delegate?.didEndNewMood()
         
         timer?.invalidate()
-        
 
         UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
@@ -414,8 +385,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         // cleanup particle simulation
         
-        UIView.animateWithDuration(0.2, animations: {
-            self.effect?.alpha = 0.0
+        UIView.animateWithDuration(2.0, animations: {
+            self.sceneView.alpha = 0.0
             return()
             }) { (done: Bool) -> Void in
                 self.effect?.particleBirthRate = self.startBirthrate
@@ -424,11 +395,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
                 self.effect?.particlePositionRange = CGVector(dx: self.startPosition.x, dy: self.startPosition.y)
                 self.effect?.particleSpeed = self.startSpeed
                 self.effect?.particleSpeedRange = self.startSpeedRange
-                self.effect?.particleColor = self.particleStartColor
                 return()
         }
     }
 
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 }

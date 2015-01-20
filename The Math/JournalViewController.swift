@@ -17,6 +17,12 @@ protocol JournalViewControllerDelegate {
 
 class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
     
+    
+    // ------------------------- \\
+    // MARK: INSTANCE VARIABLES
+    // ------------------------- \\
+    
+    
     @IBOutlet weak var personalView: PersonalView!
     @IBOutlet weak var lifestyleView: LifestyleView!
     @IBOutlet weak var moneyView: MoneyView!
@@ -38,6 +44,12 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     var delegate: JournalViewControllerDelegate?
     
+    
+    // ------------------------- \\
+    // MARK: LIFE CYCLE
+    // ------------------------- \\
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +60,12 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         workView.delegate = self
         loveView.delegate = self
     }
+    
+    
+    // ------------------------- \\
+    // MARK: IBACTION
+    // ------------------------- \\
+    
     
     @IBAction func overlayButtonTapped(sender: AnyObject) {
         hideOpportityToAddDetails()
@@ -94,7 +112,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     
+    // ------------------------- \\
     // MARK: <JournalAddDetailsViewControllerDelegate>
+    // ------------------------- \\
+    
     
     func didSaveJournalDetails() {
         dismissViewControllerAnimated(true, completion: {
@@ -103,7 +124,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     
+    // ------------------------- \\
     // MARK: <CategoryViewDelegate>
+    // ------------------------- \\
+    
     
     func didChangeMoodForCategory(mood: Mood, category: Category) {
         moodImageView.image = UIImage.imageForMood(mood)

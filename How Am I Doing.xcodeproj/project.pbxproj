@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270747291A6A34C100DBB13A /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 270747281A6A34C100DBB13A /* MyParticle.sks */; };
 		2708DEE31A5C334800D99A28 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE21A5C334800D99A28 /* Images.swift */; };
 		2708DEE71A5C462900D99A28 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE61A5C462900D99A28 /* RoundView.swift */; };
 		2708DEE91A5C465B00D99A28 /* CategorySliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		1C8547030B110DFB6DF08D49 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		270747281A6A34C100DBB13A /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		2708DEE21A5C334800D99A28 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		2708DEE61A5C462900D99A28 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySliderView.swift; sourceTree = "<group>"; };
@@ -61,14 +63,14 @@
 		27B3716E1A50B78500A113AB /* HealthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		27B371701A50B78F00A113AB /* WorkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
 		27B371721A50B79500A113AB /* LoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
-		27D411BD1A48710F008ACC14 /* How Am I Doing?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "How Am I Doing?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D411BD1A48710F008ACC14 /* How Am I Doing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "How Am I Doing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D411C11A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D411C21A48710F008ACC14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D411C41A48710F008ACC14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27D411C71A48710F008ACC14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27D411C91A48710F008ACC14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27D411CC1A48710F008ACC14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		27D411D21A48710F008ACC14 /* How Am I Doing?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "How Am I Doing?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D411D21A48710F008ACC14 /* How Am I DoingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "How Am I DoingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D411D71A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D411D81A48710F008ACC14 /* The_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MathTests.swift; sourceTree = "<group>"; };
 		27D411E41A48715D008ACC14 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +166,8 @@
 		27D411BE1A48710F008ACC14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27D411BD1A48710F008ACC14 /* How Am I Doing?.app */,
-				27D411D21A48710F008ACC14 /* How Am I Doing?Tests.xctest */,
+				27D411BD1A48710F008ACC14 /* How Am I Doing.app */,
+				27D411D21A48710F008ACC14 /* How Am I DoingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +231,7 @@
 			children = (
 				E5A93CE71A699D890005D152 /* magic.sks */,
 				E5A93CE81A699D890005D152 /* spark.png */,
+				270747281A6A34C100DBB13A /* MyParticle.sks */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -236,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27D411BC1A48710F008ACC14 /* How Am I Doing? */ = {
+		27D411BC1A48710F008ACC14 /* How Am I Doing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing?" */;
+			buildConfigurationList = 27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing" */;
 			buildPhases = (
 				29616D3D01325CBCCB4AE1E0 /* Check Pods Manifest.lock */,
 				27D411B91A48710F008ACC14 /* Sources */,
@@ -250,14 +253,14 @@
 			);
 			dependencies = (
 			);
-			name = "How Am I Doing?";
+			name = "How Am I Doing";
 			productName = "The Math";
-			productReference = 27D411BD1A48710F008ACC14 /* How Am I Doing?.app */;
+			productReference = 27D411BD1A48710F008ACC14 /* How Am I Doing.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27D411D11A48710F008ACC14 /* How Am I Doing?Tests */ = {
+		27D411D11A48710F008ACC14 /* How Am I DoingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing?Tests" */;
+			buildConfigurationList = 27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I DoingTests" */;
 			buildPhases = (
 				27D411CE1A48710F008ACC14 /* Sources */,
 				27D411CF1A48710F008ACC14 /* Frameworks */,
@@ -268,9 +271,9 @@
 			dependencies = (
 				27D411D41A48710F008ACC14 /* PBXTargetDependency */,
 			);
-			name = "How Am I Doing?Tests";
+			name = "How Am I DoingTests";
 			productName = "The MathTests";
-			productReference = 27D411D21A48710F008ACC14 /* How Am I Doing?Tests.xctest */;
+			productReference = 27D411D21A48710F008ACC14 /* How Am I DoingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +295,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "How Am I Doing?" */;
+			buildConfigurationList = 27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "How Am I Doing" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -305,8 +308,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27D411BC1A48710F008ACC14 /* How Am I Doing? */,
-				27D411D11A48710F008ACC14 /* How Am I Doing?Tests */,
+				27D411BC1A48710F008ACC14 /* How Am I Doing */,
+				27D411D11A48710F008ACC14 /* How Am I DoingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A93CEA1A699D890005D152 /* spark.png in Resources */,
+				270747291A6A34C100DBB13A /* MyParticle.sks in Resources */,
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				E5A93CE91A699D890005D152 /* magic.sks in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
@@ -406,7 +410,7 @@
 /* Begin PBXTargetDependency section */
 		27D411D41A48710F008ACC14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 27D411BC1A48710F008ACC14 /* How Am I Doing? */;
+			target = 27D411BC1A48710F008ACC14 /* How Am I Doing */;
 			targetProxy = 27D411D31A48710F008ACC14 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -534,7 +538,7 @@
 					"\"QuartzCore\"",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "How Am I Doing?";
+				PRODUCT_NAME = "How Am I Doing";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -565,7 +569,7 @@
 					"\"QuartzCore\"",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "How Am I Doing?";
+				PRODUCT_NAME = "How Am I Doing";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -583,7 +587,7 @@
 				);
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "How Am I Doing?Tests";
+				PRODUCT_NAME = "How Am I DoingTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Am I Doing?.app/How Am I Doing?";
 			};
 			name = Debug;
@@ -597,7 +601,7 @@
 				);
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "How Am I Doing?Tests";
+				PRODUCT_NAME = "How Am I DoingTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Am I Doing?.app/How Am I Doing?";
 			};
 			name = Release;
@@ -605,7 +609,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "How Am I Doing?" */ = {
+		27D411B81A48710F008ACC14 /* Build configuration list for PBXProject "How Am I Doing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D411DA1A48710F008ACC14 /* Debug */,
@@ -614,7 +618,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing?" */ = {
+		27D411DC1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D411DD1A48710F008ACC14 /* Debug */,
@@ -623,7 +627,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I Doing?Tests" */ = {
+		27D411DF1A48710F008ACC14 /* Build configuration list for PBXNativeTarget "How Am I DoingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27D411E01A48710F008ACC14 /* Debug */,
