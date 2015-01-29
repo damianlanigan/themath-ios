@@ -31,6 +31,7 @@
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
 		27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
+		8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalAddDetailsViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 			children = (
 				27D411C21A48710F008ACC14 /* AppDelegate.swift */,
 				27D411C41A48710F008ACC14 /* ViewController.swift */,
+				8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */,
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
 				27A713CC1A48754600344431 /* JournalViewController.swift */,
 				27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */,
@@ -362,6 +365,7 @@
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
+				8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
 				27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */,
@@ -499,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "The Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -516,8 +520,9 @@
 					"\"CoreGraphics\"",
 					"-framework",
 					"\"QuartzCore\"",
+					"$(inherited)",
 				);
-				OTHER_LIBTOOLFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				PRODUCT_NAME = "The Math";
 				PROVISIONING_PROFILE = "";
 			};
@@ -530,7 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "The Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -547,8 +552,9 @@
 					"\"CoreGraphics\"",
 					"-framework",
 					"\"QuartzCore\"",
+					"$(inherited)",
 				);
-				OTHER_LIBTOOLFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				PRODUCT_NAME = "The Math";
 				PROVISIONING_PROFILE = "";
 			};

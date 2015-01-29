@@ -18,17 +18,53 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     @IBOutlet weak var moodButton: UIButton!
     
-    var onMood: Bool = true
+    @IBOutlet weak var navigationView: UIView!
     
-    var moodViewController: MoodViewController?
+    @IBOutlet weak var contentContainerView: UIView!
     
-    var journalViewController: JournalViewController?
+    var laid = false
+    
+    var onMood = false
+    
+    var onOnboarding = true
+    
+    lazy var moodViewController: MoodViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("MoodViewController") as? MoodViewController
+        viewController?.delegate = self
+        return viewController!
+    }()
+    
+    lazy var journalViewController: JournalViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("JournalViewController") as? JournalViewController
+        viewController?.delegate = self
+        return viewController!
+    }()
+    
+    lazy var onboardingViewController: OnboardingViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
+        return viewController!
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadMoodController()
+        loadJournalController()
+        
         showMoodController()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !laid {
+            laid = true
+            showOnboardingController()
+        }
+    }
+    
     @IBAction func journalButtonTapped(sender: AnyObject) {
         showJournalController()
     }
@@ -38,27 +74,21 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     }
     
     private func loadMoodController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        moodViewController = storyboard.instantiateViewControllerWithIdentifier("MoodViewController") as? MoodViewController
-        moodViewController?.delegate = self
-        _addContentViewController(moodViewController!, toView: subviewContainerView)
+        _addContentViewController(moodViewController, toView: subviewContainerView)
     }
     
     private func loadJournalController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        journalViewController = storyboard.instantiateViewControllerWithIdentifier("JournalViewController") as? JournalViewController
-        journalViewController?.delegate = self
-        _addContentViewController(journalViewController!, toView: subviewContainerView)
+        _addContentViewController(journalViewController, toView: subviewContainerView)
+    }
+    
+    private func showOnboardingController() {
+        _addContentViewController(onboardingViewController, aboveView: contentContainerView)
     }
     
     private func showMoodController() {
-        
-        if moodViewController == nil {
-            loadMoodController()
-        }
-        
-        journalViewController?.view.hidden = true
-        moodViewController?.view.hidden = false
+    
+        journalViewController.view.hidden = true
+        moodViewController.view.hidden = false
         
         journalButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         moodButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -72,13 +102,9 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     }
     
     private func showJournalController() {
-        
-        if journalViewController == nil {
-            loadJournalController()
-        }
-        
-        moodViewController?.view.hidden = true
-        journalViewController?.view.hidden = false
+    
+        moodViewController.view.hidden = true
+        journalViewController.view.hidden = false
         
         journalButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         moodButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
@@ -89,10 +115,6 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         moodButton.alpha = 0.45
         
         setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return onMood ? .LightContent : .Default
     }
     
     func didBeginEditingMood() {
@@ -130,5 +152,13 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
             }) { (done: Bool) -> Void in
                 return()
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return  onMood ? .LightContent : .Default
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return onOnboarding
     }
 }
