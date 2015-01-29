@@ -36,6 +36,17 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
     
+    lazy var toolTip: AMPopTip = {
+        var tip = AMPopTip()
+        tip.shouldDismissOnTap = true
+        tip.edgeMargin = 10.0
+        tip.offset = 12
+        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        tip.textAlignment = .Center
+        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
+        return tip
+    }()
+    
     var delegate: JournalViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -47,6 +58,29 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         healthView.delegate = self
         workView.delegate = self
         loveView.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AMPopTip.appearance().textColor = UIColor.blackColor()
+        AMPopTip.appearance().textAlignment = .Center
+        let title = NSMutableAttributedString(string: "Pull up or down on any of these")
+        
+        let range = NSMakeRange(0, countElements(title.string))
+        title.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-DemiBold", size: 16)!, range: range)
+        
+        let message = NSAttributedString(string: "\nIt’ll begin to show you how you stand over time in these categories.", attributes: [
+            NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!
+            ])
+        
+        title.appendAttributedString(message)
+        
+        var fromFrame = CGRectZero
+        fromFrame.origin.x = view.center.x
+        fromFrame.origin.y = view.center.y + 10
+        
+        toolTip.showAttributedText(title, direction: .Up, maxWidth: 260, inView: view, fromFrame: fromFrame)
     }
     
     @IBAction func overlayButtonTapped(sender: AnyObject) {
@@ -116,6 +150,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     func didBeginMoodChangeForCategory(category: Category) {
+        toolTip.hide()
         delegate?.didBeginEditingMood()
         UIView.animateWithDuration(0.2, animations: {
             self.moodDescriptionView.alpha = 1.0

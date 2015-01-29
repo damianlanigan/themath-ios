@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate {
+class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate, OnboardingViewControllerDelegate {
 
     @IBOutlet weak var subviewContainerView: UIView!
     
@@ -45,6 +45,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     lazy var onboardingViewController: OnboardingViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
+        viewController?.delegate = self
         return viewController!
     }()
     
@@ -83,6 +84,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     private func showOnboardingController() {
         _addContentViewController(onboardingViewController, aboveView: contentContainerView)
+    }
+    
+    private func hideOnboardingController() {
+        _removeContentViewController(onboardingViewController)
     }
     
     private func showMoodController() {
@@ -160,5 +165,15 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     override func prefersStatusBarHidden() -> Bool {
         return onOnboarding
+    }
+    
+    // MARK: <OnboardingViewControllerDelegate>
+    
+    func didFinishOnboarding() {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                self.onboardingViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
+            }) { (done: Bool) -> Void in
+                self.hideOnboardingController()
+        }
     }
 }

@@ -20,11 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AMPopTip (0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - AMPopTip
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  AMPopTip: dc5bdb3a88bc2ed0a7ac9799e0a5d47c5211721f
 
 COCOAPODS: 0.35.0

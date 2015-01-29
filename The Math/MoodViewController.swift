@@ -73,6 +73,17 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     private var touchPoint = CAShapeLayer()
     private var timer: NSTimer?
     
+    lazy var toolTip: AMPopTip = {
+        var tip = AMPopTip()
+        tip.shouldDismissOnTap = true
+        tip.edgeMargin = 10.0
+        tip.offset = 12
+        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        tip.textAlignment = .Center
+        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
+        return tip
+    }()
+    
     var delegate: MoodViewControllerDelegate?
     
     
@@ -106,6 +117,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             createNewMood()
 
             isSetup = true
+            
+            showTooltip()
         }
     }
     
@@ -116,7 +129,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
-
     
     // MARK: SETUP
     
@@ -130,6 +142,22 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     private func setupObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    private func showTooltip() {
+
+        AMPopTip.appearance().textColor = UIColor.blackColor()
+        AMPopTip.appearance().textAlignment = .Center
+        let title = NSMutableAttributedString(string: "Hold Down")
+        title.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-DemiBold", size: 16)!, range: NSMakeRange(0, 9))
+        
+        let message = NSAttributedString(string: "\nThe longer you hold the better you're feeling.", attributes: [
+            NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!
+            ])
+        
+        title.appendAttributedString(message)
+
+        toolTip.showAttributedText(title, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
     }
 
     // MARK: mood 
@@ -278,6 +306,8 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
 
     func moodViewTouchesBegan() {
+        
+        toolTip.hide()
         
         delegate?.didBeginNewMood()
         
