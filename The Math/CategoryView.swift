@@ -129,10 +129,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
     }
     
     private func moodForDistance(distance: CGFloat) -> Mood {
-        println(distance)
-        
         var mood = currentMood
-        
         if abs(distance) > kNeutralThreshold {
             if distance >= kHorribleThreshold {
                 mood = .Horrible
