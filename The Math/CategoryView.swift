@@ -78,11 +78,12 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         
         if gesture.state == .Changed {
             let x = gesture.view!.center.x
-            let y = gesture.translationInView(gesture.view!).y
-            let distance = y * 0.5 * -1
+            var y = gesture.translationInView(gesture.view!).y
+            y = y < 0 ? max(y, -78) : min(y, 78)
+            let distance = y
 
             currentMood = moodForDistance(distance)
-            gesture.view!.center = CGPoint(x: x, y: center.y + (y * 0.5))
+            gesture.view!.center = CGPoint(x: x, y: center.y + distance)
             
             delegate?.didChangeMoodForCategory(currentMood, category: category)
         }
@@ -127,22 +128,24 @@ class CategoryView: UIView, CategorySliderViewDelegate {
     }
     
     private func moodForDistance(distance: CGFloat) -> Mood {
+        println(distance)
+        
         var mood = currentMood
-        if distance > 30 {
+        
+        if abs(distance) > 30 {
             if distance >= 78 {
-                mood = .Great
-            } else if distance >= 38 {
-                mood = .Good
-            }
-        } else if distance < -30 {
-            if distance <= -78 {
                 mood = .Horrible
-            } else if distance < 38 {
+            } else if distance >= 39 {
                 mood = .Bad
+            } else if distance <= -78 {
+                mood = .Great
+            } else if distance < -39 {
+                mood = .Good
             }
         } else {
             mood = .Neutral
         }
+        
         return mood
     }
     

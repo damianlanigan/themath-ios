@@ -182,6 +182,9 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         additionalFeelingTextLabel.text = "A little bit of encouraging copy"
         view.layoutIfNeeded()
         presentOpportunityToAddDetails()
+        
+        // for API
+        println("Category rated: \(category.type.rawValue) - \(mood.rawValue)")
     }
     
     func didCancelMoodChange() {

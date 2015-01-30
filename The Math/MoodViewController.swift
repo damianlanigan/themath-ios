@@ -342,8 +342,9 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
     func moodViewTouchesEnded() {
         
+        // for API
         let percentage = currentTime / animationDuration
-        println("Mood %: \(percentage)")
+        println("Mood %: \(trunc(percentage * 100))")
         
         delegate?.didEndNewMood()
         

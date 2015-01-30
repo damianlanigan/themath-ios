@@ -12,7 +12,7 @@ protocol OnboardingViewControllerDelegate  {
     func didFinishOnboarding()
 }
 
-class OnboardingViewController: UIViewController, UIScrollViewDelegate {
+class OnboardingViewController: UIViewController {
     
     let numberOfPages: CGFloat = 6.0
     
@@ -24,29 +24,13 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        scrollView.delegate = self
-    }
-    
     override func viewDidLayoutSubviews() {
         contentViewWidthConstraint.constant = view.frame.size.width
         contentViewHeightConstraint.constant = view.frame.size.height * numberOfPages
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * numberOfPages)
     }
     
-    // MARK: <UIScrollViewDelegate>
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y + view.frame.size.height > view.frame.size.height * numberOfPages {
-            
-        }
+    @IBAction func getStartedButtonTapped(sender: AnyObject) {
+        delegate?.didFinishOnboarding()
     }
-    
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y + view.frame.size.height > view.frame.size.height * numberOfPages {
-            delegate?.didFinishOnboarding()
-        }
-    }
-    
 }
