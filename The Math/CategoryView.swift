@@ -19,8 +19,6 @@ protocol CategoryViewDelegate {
 
 class CategoryView: UIView, CategorySliderViewDelegate {
     
-    var originalY: CGFloat = 0.0
-    
     var category: Category
     var delegate: CategoryViewDelegate?
     
@@ -70,7 +68,6 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         let maxDistance = 100.0
         
         if gesture.state == .Began {
-            originalY = sliderView.center.y
             
             UIView.animateWithDuration(0.4, animations: {
                 self.nameLabel.alpha = 1.0
@@ -85,7 +82,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
             let distance = y * 0.5 * -1
 
             currentMood = moodForDistance(distance)
-            gesture.view!.center = CGPoint(x: x, y: originalY + (y * 0.5))
+            gesture.view!.center = CGPoint(x: x, y: center.y + (y * 0.5))
             
             delegate?.didChangeMoodForCategory(currentMood, category: category)
         }
@@ -101,7 +98,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
             }
 
             UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .CurveEaseOut, animations: {
-                self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.originalY + offset)
+                self.sliderView.center = CGPoint(x: self.sliderView.center.x, y: self.center.y)
                 self.nameLabel.alpha = 0.5
                 if let view = self.levelImageView {
                     view.alpha = 0.0
