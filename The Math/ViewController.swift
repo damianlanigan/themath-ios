@@ -12,6 +12,12 @@ import UIKit
 
 class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate, OnboardingViewControllerDelegate {
 
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: INSTANCE VARIABLES
+    
+    
     @IBOutlet weak var subviewContainerView: UIView!
     
     @IBOutlet weak var journalButton: UIButton!
@@ -21,6 +27,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     @IBOutlet weak var navigationView: UIView!
     
     @IBOutlet weak var contentContainerView: UIView!
+    
+    var currentOrientation: UIDeviceOrientation = .Portrait
     
     var laid = false
     
@@ -49,29 +57,67 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         return viewController!
     }()
     
+    lazy var infographViewController: InfographViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+        return viewController!
+    }()
+    
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: LIFECYCLE
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadMoodController()
-        loadJournalController()
+//        loadJournalController()
         
         showMoodController()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
+            UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !laid {
             laid = true
-            showOnboardingController()
+//            showOnboardingController()
         }
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: IBACTION
+    
+    
     @IBAction func journalButtonTapped(sender: AnyObject) {
-        showJournalController()
+//        showJournalController()
     }
     
     @IBAction func moodButtonTapped(sender: UIButton) {
         showMoodController()
+    }
+    
+    func orientationDidChange(notification: NSNotification) {
+        if !onOnboarding {
+            if let device = notification.object as? UIDevice {
+                if device.orientation.isLandscape && currentOrientation.isPortrait {
+                    showInfograph()
+                } else if device.orientation.isPortrait && currentOrientation.isLandscape {
+                    hideInfograph()
+                }
+                currentOrientation = device.orientation
+            }
+        }
     }
     
     private func loadMoodController() {
@@ -88,6 +134,16 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     private func hideOnboardingController() {
         _removeContentViewController(onboardingViewController)
+    }
+    
+    private func showInfograph() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+        presentViewController(viewController!, animated: false, completion: nil)
+    }
+    
+    private func hideInfograph() {
+        dismissViewControllerAnimated(false, completion: nil)
     }
     
     private func showMoodController() {

@@ -88,9 +88,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: LIFE CYCLE
 
@@ -125,9 +122,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     
     // MARK: SETUP
@@ -170,7 +164,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         titleString.appendAttributedString(bodyString)
 
-        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
+//        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
     }
 
     // MARK: mood 
@@ -203,9 +197,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         addGrowAnimation()
     }
-    
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: NOTIFICATIONS
     
@@ -375,7 +366,4 @@ class MoodViewController: UIViewController, MoodViewDelegate {
             self.view.backgroundColor = UIColor.mood_blueColor()
         })
     }
-
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 }
