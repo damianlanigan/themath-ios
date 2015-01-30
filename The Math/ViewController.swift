@@ -152,19 +152,11 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     func didEndNewMood() {
         UIView.animateWithDuration(0.2, delay: 0.2, options: .CurveLinear, animations: {
-            self.journalButton.alpha = 11.0
+            self.journalButton.alpha = 0.2
             self.moodButton.alpha = 1.0
             }) { (done: Bool) -> Void in
                 return()
         }
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return  onMood ? .LightContent : .Default
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return onOnboarding
     }
     
     // MARK: <OnboardingViewControllerDelegate>
@@ -178,4 +170,15 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
                 self.hideOnboardingController()
         }
     }
+    
+    // MARK: Utility
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return  onMood ? .LightContent : .Default
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return onOnboarding
+    }
+    
 }

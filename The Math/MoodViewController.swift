@@ -203,9 +203,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         addGrowAnimation()
     }
-
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\

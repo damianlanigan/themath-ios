@@ -75,8 +75,8 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         AMPopTip.appearance().textColor = UIColor.blackColor()
         AMPopTip.appearance().textAlignment = .Center
         
-        var titleString = NSMutableAttributedString(string: "Pull up or down on any of these")
-        var bodyString = NSMutableAttributedString(string: "\nIt’ll begin to show you how you stand over time in these categories.")
+        var titleString = NSMutableAttributedString(string: "Slide up or down")
+        var bodyString = NSMutableAttributedString(string: "\nWhen you rotate your phone sideways you’ll be able to see your inputs over time.")
         let titleRange = NSMakeRange(0, countElements(titleString.string))
         let bodyRange = NSMakeRange(0, countElements(bodyString.string))
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
@@ -179,7 +179,20 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     func didEndMoodChangeForCategory(mood: Mood, category: Category) {
         youreFeelingLabel.text = "Feeling \(mood.rawValue) in \(category.type.rawValue)"
-        additionalFeelingTextLabel.text = "A little bit of encouraging copy"
+        
+        switch mood {
+        case .Great:
+            additionalFeelingTextLabel.text = "Thats awesome! Good to hear."
+        case .Good:
+            additionalFeelingTextLabel.text = "Let the good times roll."
+        case .Bad:
+            additionalFeelingTextLabel.text = "Somedays just aren’t yours."
+        case .Horrible:
+            additionalFeelingTextLabel.text = "Let it all out in a comment."
+        default:
+            additionalFeelingTextLabel.text = ""
+        }
+        
         view.layoutIfNeeded()
         presentOpportunityToAddDetails()
         
