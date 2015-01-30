@@ -170,6 +170,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     // MARK: <OnboardingViewControllerDelegate>
     
     func didFinishOnboarding() {
+        onOnboarding = false
+        setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                 self.onboardingViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
             }) { (done: Bool) -> Void in

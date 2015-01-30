@@ -19,6 +19,25 @@ protocol CategoryViewDelegate {
 
 class CategoryView: UIView, CategorySliderViewDelegate {
     
+    private lazy var kSlideRateDistance: CGFloat = {
+       return 39.0
+    }()
+    private lazy var kNeutralThreshold: CGFloat = {
+       return 12.0
+    }()
+    private lazy var kBadThreshold: CGFloat = {
+        return self.kSlideRateDistance
+    }()
+    private lazy var kHorribleThreshold: CGFloat = {
+        return self.kSlideRateDistance * 2.0
+    }()
+    private lazy var kGoodThreshold: CGFloat = {
+        return self.kSlideRateDistance * -1.0
+    }()
+    private lazy var kGreatThreshold: CGFloat = {
+        return self.kSlideRateDistance * -2.0
+    }()
+    
     var category: Category
     var delegate: CategoryViewDelegate?
     
@@ -89,11 +108,8 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         }
         
         if gesture.state == .Ended {
-            var offset = offsetForMood(currentMood)
-
             if currentMood == .Neutral {
                 delegate?.didCancelMoodChange()
-                offset = 0
             } else {
                 delegate?.didEndMoodChangeForCategory(currentMood, category: category)
             }
@@ -112,34 +128,19 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         }
     }
     
-    private func offsetForMood(mood: Mood) -> CGFloat {
-        switch mood {
-        case .Horrible:
-            return 30
-        case .Bad:
-            return 15
-        case .Neutral:
-            return 0
-        case .Good:
-            return -15
-        case .Great:
-            return -30
-        }
-    }
-    
     private func moodForDistance(distance: CGFloat) -> Mood {
         println(distance)
         
         var mood = currentMood
         
-        if abs(distance) > 30 {
-            if distance >= 78 {
+        if abs(distance) > kNeutralThreshold {
+            if distance >= kHorribleThreshold {
                 mood = .Horrible
-            } else if distance >= 39 {
+            } else if distance >= kBadThreshold {
                 mood = .Bad
-            } else if distance <= -78 {
+            } else if distance <= kGreatThreshold {
                 mood = .Great
-            } else if distance < -39 {
+            } else if distance < kGoodThreshold {
                 mood = .Good
             }
         } else {
