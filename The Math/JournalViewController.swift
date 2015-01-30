@@ -36,6 +36,8 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
     
+    var firstAppearance = true
+    
     lazy var toolTip: AMPopTip = {
         var tip = AMPopTip()
         tip.shouldDismissOnTap = true
@@ -63,24 +65,42 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        if firstAppearance {
+            firstAppearance = false
+            showToolTip()
+        }
+    }
+    
+    func showToolTip() {
         AMPopTip.appearance().textColor = UIColor.blackColor()
         AMPopTip.appearance().textAlignment = .Center
-        let title = NSMutableAttributedString(string: "Pull up or down on any of these")
         
-        let range = NSMakeRange(0, countElements(title.string))
-        title.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-DemiBold", size: 16)!, range: range)
+        var titleString = NSMutableAttributedString(string: "Pull up or down on any of these")
+        var bodyString = NSMutableAttributedString(string: "\nIt’ll begin to show you how you stand over time in these categories.")
+        let titleRange = NSMakeRange(0, countElements(titleString.string))
+        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
+        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
+        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.Center
         
-        let message = NSAttributedString(string: "\nIt’ll begin to show you how you stand over time in these categories.", attributes: [
-            NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!
-            ])
+        titleString.addAttributes([
+            NSFontAttributeName : titleFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+        ], range: titleRange)
         
-        title.appendAttributedString(message)
+        bodyString.addAttributes([
+            NSFontAttributeName : bodyFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+        ], range: bodyRange)
+        
+        titleString.appendAttributedString(bodyString)
         
         var fromFrame = CGRectZero
         fromFrame.origin.x = view.center.x
         fromFrame.origin.y = view.center.y + 10
         
-        toolTip.showAttributedText(title, direction: .Up, maxWidth: 260, inView: view, fromFrame: fromFrame)
+        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 280, inView: view, fromFrame: fromFrame)
     }
     
     @IBAction func overlayButtonTapped(sender: AnyObject) {

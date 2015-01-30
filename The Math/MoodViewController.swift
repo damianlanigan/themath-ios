@@ -145,19 +145,32 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     }
     
     private func showTooltip() {
-
         AMPopTip.appearance().textColor = UIColor.blackColor()
         AMPopTip.appearance().textAlignment = .Center
-        let title = NSMutableAttributedString(string: "Hold Down")
-        title.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-DemiBold", size: 16)!, range: NSMakeRange(0, 9))
         
-        let message = NSAttributedString(string: "\nThe longer you hold the better you're feeling.", attributes: [
-            NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!
-            ])
+        var titleString = NSMutableAttributedString(string: "Hold Down")
+        var bodyString = NSMutableAttributedString(string: "\nThe longer you hold the better you're feeling.")
         
-        title.appendAttributedString(message)
+        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
+        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
+        let titleRange = NSMakeRange(0, 9)
+        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        titleString.addAttributes([
+            NSFontAttributeName : titleFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+        ], range: titleRange)
+        
+        bodyString.addAttributes([
+            NSFontAttributeName : bodyFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+        ], range: bodyRange)
+        
+        titleString.appendAttributedString(bodyString)
 
-        toolTip.showAttributedText(title, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
+        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
     }
 
     // MARK: mood 
