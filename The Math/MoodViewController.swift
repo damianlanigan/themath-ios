@@ -176,7 +176,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         
-        touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y + 10)
+        touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y)
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
         touchPoint.fillColor = UIColor.whiteColor().colorWithAlphaComponent(1.0).CGColor
         
