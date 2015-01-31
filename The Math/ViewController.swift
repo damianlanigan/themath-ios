@@ -120,6 +120,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
+//    override func supportedInterfaceOrientations() -> Int {
+//        return UIDeviceOrientation.Portrait.rawValue
+//    }
+    
     private func loadMoodController() {
         _addContentViewController(moodViewController, toView: subviewContainerView)
     }
