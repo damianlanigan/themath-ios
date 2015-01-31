@@ -111,9 +111,9 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         if !onOnboarding {
             if let device = notification.object as? UIDevice {
                 if device.orientation.isLandscape && currentOrientation.isPortrait {
-                    showInfograph()
+//                    showInfograph()
                 } else if device.orientation.isPortrait && currentOrientation.isLandscape {
-                    hideInfograph()
+//                    hideInfograph()
                 }
                 currentOrientation = device.orientation
             }
