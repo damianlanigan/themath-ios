@@ -85,7 +85,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         super.viewDidLayoutSubviews()
         if !laid {
             laid = true
-            showOnbo	ardingController()
+            showOnboardingController()
         }
     }
     

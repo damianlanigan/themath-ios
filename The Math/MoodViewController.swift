@@ -164,7 +164,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         titleString.appendAttributedString(bodyString)
 
-//        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
+        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
     }
 
     // MARK: mood 
