@@ -32,6 +32,8 @@
 		27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
 		8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */; };
+		8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59B27F1A7D4EE7007A29BB /* UIView.swift */; };
+		8D5FED071A7D47D500A3C95E /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5FED061A7D47D500A3C95E /* CategoryView.xib */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8D531D0B1A7AD44D00EEAB88 /* The Math-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Math-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D59B27F1A7D4EE7007A29BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8D5FED061A7D47D500A3C95E /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				27D411E41A48715D008ACC14 /* UIViewController.swift */,
+				8D59B27F1A7D4EE7007A29BB /* UIView.swift */,
 				27A542B01A48BAFA00CC7CA6 /* Colors.swift */,
 				2708DEE21A5C334800D99A28 /* Images.swift */,
 			);
@@ -139,6 +144,7 @@
 				27B3716E1A50B78500A113AB /* HealthView.swift */,
 				27B371701A50B78F00A113AB /* WorkView.swift */,
 				27B371721A50B79500A113AB /* LoveView.swift */,
+				8D5FED061A7D47D500A3C95E /* CategoryView.xib */,
 			);
 			name = "Category Views";
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
+				8D5FED071A7D47D500A3C95E /* CategoryView.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +372,7 @@
 			files = (
 				27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */,
 				27B3716F1A50B78500A113AB /* HealthView.swift in Sources */,
+				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
 				2708DEE31A5C334800D99A28 /* Images.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,

@@ -38,7 +38,12 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         return self.kSlideRateDistance * -2.0
     }()
     
-    var category: Category
+    var category: Category {
+        didSet {
+            didSetCategory()
+        }
+    }
+    
     var delegate: CategoryViewDelegate?
     
     var levelImageView: UIImageView?
@@ -63,13 +68,12 @@ class CategoryView: UIView, CategorySliderViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = UIColor.colorForCategoryType(category.type)
-        sliderView.sliderCategoryIconView.image = UIImage.imageForCategoryType(category.type)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        nameLabel.text = category.name
         sliderView.delegate = self
         setupSlideGesture()
     }
@@ -79,7 +83,10 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         sliderView.addGestureRecognizer(gesture)
     }
     
-    private func cleanup() {
+    func didSetCategory() {
+        backgroundColor = UIColor.colorForCategoryType(category.type)
+        sliderView.sliderCategoryIconView.image = UIImage.imageForCategoryType(category.type)
+        nameLabel.text = category.name
     }
     
     func panSliderView(gesture: UIPanGestureRecognizer) {

@@ -17,15 +17,9 @@ protocol JournalViewControllerDelegate {
 
 class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
     
-    @IBOutlet weak var personalView: PersonalView!
-    @IBOutlet weak var lifestyleView: LifestyleView!
-    @IBOutlet weak var moneyView: MoneyView!
-    @IBOutlet weak var healthView: HealthView!
-    @IBOutlet weak var workView: WorkView!
-    @IBOutlet weak var loveView: LoveView!
-    
     @IBOutlet weak var moodDescriptionView: UIView!
-    @IBOutlet weak var overlayView: UIView!
+    
+    @IBOutlet weak var categoryContainerView: UIView!
     
     @IBOutlet weak var moodImageView: UIImageView!
     @IBOutlet weak var moodDescriptionLabel: UILabel!
@@ -33,6 +27,18 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     @IBOutlet weak var youreFeelingLabel: UILabel!
     @IBOutlet weak var additionalFeelingTextLabel: UILabel!
+    
+    lazy var categories: [Category] = {
+        return [
+            Category(type: .Personal),
+            Category(type: .Lifestyle),
+            Category(type: .Love),
+            Category(type: .Health),
+            Category(type: .Money)
+        ]
+    }()
+    
+    @IBOutlet weak var overlayView: UIView!
     
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
     
@@ -51,23 +57,26 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     var delegate: JournalViewControllerDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        personalView.delegate = self
-        lifestyleView.delegate = self
-        moneyView.delegate = self
-        healthView.delegate = self
-        workView.delegate = self
-        loveView.delegate = self
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if firstAppearance {
             firstAppearance = false
             showToolTip()
+            
+            let screenWidth = view.frame.size.width
+            let numberOfCategories = categories.count
+            for (idx, category) in enumerate(categories) {
+                let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
+                view.category = category
+                let x = CGFloat(idx) * screenWidth / CGFloat(numberOfCategories)
+                let y = CGFloat(0.0)
+                let width = screenWidth / CGFloat(numberOfCategories)
+                let height = categoryContainerView.frame.size.height
+                view.frame = CGRectMake(x, y, width, height)
+                view.delegate = self
+                categoryContainerView.addSubview(view)
+            }
         }
     }
     
@@ -115,7 +124,10 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
 
     private func presentOpportunityToAddDetails() {
-        commentViewTopConstraint.constant = 20
+        
+        commentViewTopConstraint.constant = 0
+        
+        self.overlayView.hidden = false
         UIView.animateWithDuration(0.8, delay: 0.2, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             
             self.view.layoutIfNeeded()
@@ -130,13 +142,16 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     private func hideOpportityToAddDetails() {
-        commentViewTopConstraint.constant = -181
+        
+        commentViewTopConstraint.constant = -171
+        
         UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             
             self.view.layoutIfNeeded()
             self.overlayView.alpha = 0.0
             
             }) { (done: Bool) -> Void in
+                self.overlayView.hidden = false
                 return()
         }
 

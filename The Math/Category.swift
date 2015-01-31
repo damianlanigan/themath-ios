@@ -36,7 +36,7 @@ struct Category {
     init(type: CategoryType) {
         color = UIColor.colorForCategoryType(type)
         self.type = type
-        name = ""
+        name = type.rawValue
     }
     
 }
