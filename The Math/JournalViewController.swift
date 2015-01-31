@@ -13,6 +13,8 @@ import UIKit
 protocol JournalViewControllerDelegate {
     func didBeginEditingMood()
     func didEndEditingMood()
+    func didBeginCommenting()
+    func didEndCommenting()
 }
 
 class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
@@ -117,6 +119,11 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     @IBAction func addCommentButtonTapped(sender: AnyObject) {
+        
+        // TODO: We should disable rotation here
+        
+        delegate?.didBeginCommenting()
+        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as JournalAddDetailsViewController
         viewController.delegate = self
@@ -169,6 +176,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         dismissViewControllerAnimated(true, completion: {
             self.hideOpportityToAddDetails()
         })
+        delegate?.didEndCommenting()
     }
     
     

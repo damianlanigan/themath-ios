@@ -36,6 +36,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     var onOnboarding = true
     
+    var isCommenting = false
+    
     lazy var moodViewController: MoodViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("MoodViewController") as? MoodViewController
@@ -120,10 +122,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
-//    override func supportedInterfaceOrientations() -> Int {
-//        return UIDeviceOrientation.Portrait.rawValue
-//    }
-    
+    override func shouldAutorotate() -> Bool {
+        return !onOnboarding// || !isCommenting
+    }
+
     private func loadMoodController() {
         _addContentViewController(moodViewController, toView: subviewContainerView)
     }
@@ -182,6 +184,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         setNeedsStatusBarAppearanceUpdate()
     }
     
+    // MARK: <JournalViewControllerDelegate>
+    
     func didBeginEditingMood() {
         UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             self.journalButton.alpha = 0.0
@@ -198,6 +202,16 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }) { (done: Bool) -> Void in
             return()
         }
+    }
+    
+    func didBeginCommenting() {
+        println("begin")
+        isCommenting = true
+    }
+    
+    func didEndCommenting() {
+        println("ended")
+        isCommenting = false
     }
     
     // MARK: <MoodViewControllerDelegate>
