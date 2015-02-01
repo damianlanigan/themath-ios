@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -26,9 +26,6 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="178.5" y="28.5" width="43.5" height="23.5"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -186,7 +183,6 @@
                                     <constraint firstItem="gnL-0q-5tp" firstAttribute="leading" secondItem="feL-m5-R0r" secondAttribute="trailing" id="x6E-64-j43"/>
                                     <constraint firstAttribute="trailing" secondItem="gnL-0q-5tp" secondAttribute="trailing" id="yb6-u1-pYM"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-Ug-niN">
                                 <rect key="frame" x="0.0" y="50" width="600" height="482"/>
@@ -205,7 +201,6 @@
                             <constraint firstAttribute="trailing" secondItem="h0N-Ug-niN" secondAttribute="trailing" id="jCd-wS-wpP"/>
                             <constraint firstItem="h0N-Ug-niN" firstAttribute="leading" secondItem="UB0-0K-0gw" secondAttribute="leading" id="kJz-xx-doA"/>
                         </constraints>
-                        <variation key="heightClass=regular-widthClass=compact"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
@@ -1898,7 +1893,8 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                 <exclude reference="zXw-SJ-D8s"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="-3200" width="400" height="4800"/>
                                             <mask key="subviews">
                                                 <include reference="IJM-To-V3s"/>
                                                 <include reference="iBh-85-CnX"/>
@@ -2298,15 +2294,15 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                             <mask key="constraints">
                                                 <exclude reference="80S-gN-Kc7"/>
                                                 <exclude reference="u8F-bC-iai"/>
+                                                <exclude reference="HDT-TZ-ZvJ"/>
+                                                <exclude reference="Jjd-Xa-bhe"/>
+                                                <exclude reference="JlX-pf-f70"/>
+                                                <exclude reference="U3G-nD-7cb"/>
                                                 <exclude reference="NP9-kU-dJb"/>
                                                 <exclude reference="Rnn-OX-EUC"/>
                                                 <exclude reference="mb5-I2-8QH"/>
                                                 <exclude reference="qTs-cd-U4I"/>
                                                 <exclude reference="ruL-U8-08x"/>
-                                                <exclude reference="HDT-TZ-ZvJ"/>
-                                                <exclude reference="Jjd-Xa-bhe"/>
-                                                <exclude reference="JlX-pf-f70"/>
-                                                <exclude reference="U3G-nD-7cb"/>
                                                 <exclude reference="77U-Ch-H3J"/>
                                                 <exclude reference="LIz-s9-KSn"/>
                                                 <exclude reference="bms-pH-Ae4"/>
@@ -2323,15 +2319,15 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                             <mask key="constraints">
                                                 <include reference="80S-gN-Kc7"/>
                                                 <include reference="u8F-bC-iai"/>
+                                                <include reference="HDT-TZ-ZvJ"/>
+                                                <include reference="Jjd-Xa-bhe"/>
+                                                <include reference="JlX-pf-f70"/>
+                                                <include reference="U3G-nD-7cb"/>
                                                 <include reference="NP9-kU-dJb"/>
                                                 <include reference="Rnn-OX-EUC"/>
                                                 <include reference="mb5-I2-8QH"/>
                                                 <include reference="qTs-cd-U4I"/>
                                                 <include reference="ruL-U8-08x"/>
-                                                <include reference="HDT-TZ-ZvJ"/>
-                                                <include reference="Jjd-Xa-bhe"/>
-                                                <include reference="JlX-pf-f70"/>
-                                                <include reference="U3G-nD-7cb"/>
                                                 <include reference="77U-Ch-H3J"/>
                                                 <include reference="LIz-s9-KSn"/>
                                                 <include reference="bms-pH-Ae4"/>
@@ -2383,10 +2379,10 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                 <exclude reference="hBC-y8-b0v"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Hwt-qA-3sX"/>
                                 <exclude reference="Ltb-lW-HmR"/>
                                 <exclude reference="YSb-k9-zfA"/>
                                 <exclude reference="e5P-Z2-Mdb"/>
-                                <exclude reference="Hwt-qA-3sX"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -2394,10 +2390,10 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                 <include reference="hBC-y8-b0v"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Hwt-qA-3sX"/>
                                 <include reference="Ltb-lW-HmR"/>
                                 <include reference="YSb-k9-zfA"/>
                                 <include reference="e5P-Z2-Mdb"/>
-                                <include reference="Hwt-qA-3sX"/>
                             </mask>
                         </variation>
                     </view>
