@@ -27,6 +27,17 @@ enum Mood: String {
     case Great = "Great"
 }
 
+struct CategoryConstants {
+    static let allCategories: [String] = [
+        "Self",
+        "Lifestyle",
+        "Money",
+        "Health",
+        "Work",
+        "Love"
+    ]
+}
+
 struct Category {
     
     let color: UIColor
