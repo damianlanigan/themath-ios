@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol OnboardingViewControllerDelegate  {
+protocol OnboardingViewControllerDelegate {
     func didFinishOnboarding()
 }
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController, CategorySelectionViewControllerDelegate {
     
     let numberOfPages: CGFloat = 6.0
     
@@ -41,7 +41,19 @@ class OnboardingViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * numberOfPages)
     }
     
+    private func showCategorySelectionViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as? CategorySelectionViewController
+        viewController?.delegate = self
+        presentViewController(viewController!, animated: true, completion: nil)
+    }
+    
     @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
+        showCategorySelectionViewController()
+    }
+    
+    func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
+        dismissViewControllerAnimated(true, completion: nil)
         delegate?.didFinishOnboarding()
     }
     

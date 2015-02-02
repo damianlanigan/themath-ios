@@ -11,8 +11,8 @@
 import UIKit
 
 protocol JournalViewControllerDelegate {
-    func didBeginEditingMood()
-    func didEndEditingMood()
+    func didBeginEditingJournalCategory()
+    func didEndEditingJournalCategory()
     func didBeginCommenting()
     func didEndCommenting()
 }
@@ -166,7 +166,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     }
     
     func cleanup() {
-        delegate?.didEndEditingMood()
+        delegate?.didEndEditingJournalCategory()
     }
     
     
@@ -194,7 +194,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     func didBeginMoodChangeForCategory(category: Category) {
         toolTip.hide()
-        delegate?.didBeginEditingMood()
+        delegate?.didBeginEditingJournalCategory()
         UIView.animateWithDuration(0.2, animations: {
             self.moodDescriptionView.alpha = 1.0
         })
@@ -228,6 +228,6 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
             self.moodDescriptionView.alpha = 0.0
         })
 
-        self.delegate?.didEndEditingMood()
+        cleanup()
     }
 }

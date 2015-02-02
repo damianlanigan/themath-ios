@@ -14,6 +14,14 @@ class CategorySelectionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
     
-    @IBOutlet weak var selectedLabel: UILabel!
+    @IBOutlet weak var checkmarkImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        categoryImageView.layer.cornerRadius = 22.0
+        categoryImageView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
+        categoryImageView.layer.borderWidth = 1.0
+    }
 
 }

@@ -134,6 +134,12 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         _addContentViewController(journalViewController, toView: subviewContainerView)
     }
     
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: STATE - UIVIEWCONTROLLER
+    
+    // MARK: Onboarding
+    
     private func showOnboardingController() {
         _addContentViewController(onboardingViewController, aboveView: contentContainerView)
     }
@@ -142,15 +148,19 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         _removeContentViewController(onboardingViewController)
     }
     
-    private func showInfograph() {
+    // MARK: Category Selection
+    
+    private func showCategorySelectionController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
-        presentViewController(viewController!, animated: false, completion: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as? OnboardingViewController
+        viewController?.delegate = self
     }
     
-    private func hideInfograph() {
-        dismissViewControllerAnimated(false, completion: nil)
+    private func hideCategorySelectionController() {
+        
     }
+    
+    // MARK: Mood
     
     private func showMoodController() {
     
@@ -168,6 +178,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         setNeedsStatusBarAppearanceUpdate()
     }
     
+    // MARK: Journal
+    
     private func showJournalController() {
     
         moodViewController.view.hidden = true
@@ -184,9 +196,25 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    // MARK: <JournalViewControllerDelegate>
+    // MARK: Infograph
     
-    func didBeginEditingMood() {
+    private func showInfograph() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+        presentViewController(viewController!, animated: false, completion: nil)
+    }
+    
+    private func hideInfograph() {
+        dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <JournalViewControllerDelegate>
+
+    
+    func didBeginEditingJournalCategory() {
         UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             self.journalButton.alpha = 0.0
             self.moodButton.alpha = 0.0
@@ -195,7 +223,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
-    func didEndEditingMood() {
+    func didEndEditingJournalCategory() {
         UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
             self.journalButton.alpha = 1.0
             self.moodButton.alpha = 0.45
@@ -214,7 +242,11 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         isCommenting = false
     }
     
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
     // MARK: <MoodViewControllerDelegate>
+
     
     func didBeginNewMood() {
         UIView.animateWithDuration(0.2, animations: {
@@ -233,7 +265,11 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
     // MARK: <OnboardingViewControllerDelegate>
+    
     
     func didFinishOnboarding() {
         onOnboarding = false
@@ -245,7 +281,11 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
-    // MARK: Utility
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: UTILITY
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return  onMood ? .LightContent : .Default

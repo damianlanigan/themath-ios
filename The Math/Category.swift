@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import Swift
 
 enum CategoryType: String {
     case Personal = "Self"
@@ -17,6 +18,37 @@ enum CategoryType: String {
     case Health = "Health"
     case Work = "Work"
     case Love = "Love"
+}
+
+enum CategoryIndex: Int {
+    case Personal, Lifestyle, Money, Health, Work, Love
+    
+    static let categoryNames = [
+        Personal : "Self", Lifestyle : "Lifestyle", Money : "Money",
+        Health : "Health", Work : "Work", Love : "Love"
+    ]
+    
+    func categoryName() -> String {
+        if let name = CategoryIndex.categoryNames[self] {
+            return name
+        } else {
+            return "Category"
+        }
+    }
+    
+    func categoryImage() -> UIImage {
+        let categoryType = CategoryType(rawValue: self.categoryName())
+        return UIImage.imageForCategoryType(categoryType!)
+    }
+    
+    func categoryColor() -> UIColor {
+        let categoryType = CategoryType(rawValue: self.categoryName())
+        return UIColor.colorForCategoryType(categoryType!)
+    }
+    
+    func categoryType() -> CategoryType {
+        return CategoryType(rawValue: self.categoryName())!
+    }
 }
 
 enum Mood: String {
@@ -28,13 +60,13 @@ enum Mood: String {
 }
 
 struct CategoryConstants {
-    static let allCategories: [String] = [
-        "Self",
-        "Lifestyle",
-        "Money",
-        "Health",
-        "Work",
-        "Love"
+    static let allCategoriesTypes: [CategoryType] = [
+        .Personal,
+        .Lifestyle,
+        .Money,
+        .Health,
+        .Work,
+        .Love
     ]
 }
 

@@ -8,10 +8,18 @@
 
 import UIKit
 
+protocol CategorySelectionTableViewControllerDelegate {
+    func categorySelectionTableViewDidSelectCategory(type: CategoryType)
+}
+
 class CategorySelectionTableViewController: UITableViewController {
     
     private let cellIdentifier = "CategoryCellIdentifier"
-    private let categories = CategoryConstants.allCategories
+    private let categories = CategoryConstants.allCategoriesTypes
+    
+    var selected = [Int]()
+    
+    var delegate: CategorySelectionTableViewControllerDelegate?
 
 
     // MARK: - Table view data source
@@ -27,8 +35,32 @@ class CategorySelectionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as CategorySelectionTableViewCell
 
-        cell.categoryNameLabel.text = categories[indexPath.row]
+        if let categoryIndex = CategoryIndex(rawValue: indexPath.row) {
+            cell.categoryNameLabel.text = categoryIndex.categoryName()
+            cell.categoryImageView.image = categoryIndex.categoryImage()
+        }
+        
+        if let idx = find(selected, indexPath.row) {
+            cell.checkmarkImageView.hidden = false
+        } else {
+            cell.checkmarkImageView.hidden = true
+        }
 
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let categoryIndex = CategoryIndex(rawValue: indexPath.row) {
+            let categoryType: CategoryType = categoryIndex.categoryType()
+            delegate?.categorySelectionTableViewDidSelectCategory(categoryType)
+            
+            if let idx = find(selected, indexPath.row) {
+                selected.removeAtIndex(idx)
+            } else {
+                selected.append(indexPath.row)
+            }
+            tableView.reloadData()
+        }
+    }
+    
 }

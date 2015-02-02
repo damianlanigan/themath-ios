@@ -1703,13 +1703,13 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                         <exclude reference="hqz-V9-9iV"/>
                                                     </mask>
                                                     <mask key="constraints">
-                                                        <exclude reference="EKu-VV-gCF"/>
-                                                        <exclude reference="ea0-Q3-3o6"/>
-                                                        <exclude reference="xRf-US-ryK"/>
                                                         <exclude reference="2RY-ZK-nbD"/>
                                                         <exclude reference="4Xa-Nr-Cuw"/>
                                                         <exclude reference="Zdx-oC-1go"/>
                                                         <exclude reference="kyE-Ar-xaM"/>
+                                                        <exclude reference="EKu-VV-gCF"/>
+                                                        <exclude reference="ea0-Q3-3o6"/>
+                                                        <exclude reference="xRf-US-ryK"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -1718,13 +1718,13 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                         <include reference="hqz-V9-9iV"/>
                                                     </mask>
                                                     <mask key="constraints">
-                                                        <include reference="EKu-VV-gCF"/>
-                                                        <include reference="ea0-Q3-3o6"/>
-                                                        <include reference="xRf-US-ryK"/>
                                                         <include reference="2RY-ZK-nbD"/>
                                                         <include reference="4Xa-Nr-Cuw"/>
                                                         <include reference="Zdx-oC-1go"/>
                                                         <include reference="kyE-Ar-xaM"/>
+                                                        <include reference="EKu-VV-gCF"/>
+                                                        <include reference="ea0-Q3-3o6"/>
+                                                        <include reference="xRf-US-ryK"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -1794,30 +1794,6 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                             <mask key="constraints">
                                                 <exclude reference="Az5-hq-w1U"/>
                                                 <exclude reference="HCf-ao-e0e"/>
-                                                <exclude reference="5Gp-w5-r2e"/>
-                                                <exclude reference="8P7-2S-0y3"/>
-                                                <exclude reference="C40-L4-0pJ"/>
-                                                <exclude reference="EEJ-VE-W5F"/>
-                                                <exclude reference="EoX-sz-JPP"/>
-                                                <exclude reference="HcM-TE-WsM"/>
-                                                <exclude reference="JPq-Hq-BkI"/>
-                                                <exclude reference="TwZ-xt-ajW"/>
-                                                <exclude reference="fID-VU-oDx"/>
-                                                <exclude reference="hNq-Mt-7Kq"/>
-                                                <exclude reference="oNj-Yc-pR5"/>
-                                                <exclude reference="FVm-gG-SVk"/>
-                                                <exclude reference="GFi-wY-wz4"/>
-                                                <exclude reference="PRB-7V-aNR"/>
-                                                <exclude reference="ckT-Sx-c37"/>
-                                                <exclude reference="eo0-Ve-7eh"/>
-                                                <exclude reference="rgU-Xd-1X4"/>
-                                                <exclude reference="v1J-NP-gQJ"/>
-                                                <exclude reference="wD7-w4-3Ag"/>
-                                                <exclude reference="zXw-SJ-D8s"/>
-                                                <exclude reference="1eZ-BJ-BYg"/>
-                                                <exclude reference="8hd-H9-vIX"/>
-                                                <exclude reference="APy-2M-XdU"/>
-                                                <exclude reference="EZR-CO-JlK"/>
                                                 <exclude reference="3Mm-OZ-Sw4"/>
                                                 <exclude reference="9Bk-K4-Sqj"/>
                                                 <exclude reference="Cfq-9P-cs0"/>
@@ -1831,6 +1807,21 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                 <exclude reference="rdR-z5-l7b"/>
                                                 <exclude reference="tSn-XU-3C1"/>
                                                 <exclude reference="xu1-4n-lOr"/>
+                                                <exclude reference="5Gp-w5-r2e"/>
+                                                <exclude reference="8P7-2S-0y3"/>
+                                                <exclude reference="C40-L4-0pJ"/>
+                                                <exclude reference="EEJ-VE-W5F"/>
+                                                <exclude reference="EoX-sz-JPP"/>
+                                                <exclude reference="HcM-TE-WsM"/>
+                                                <exclude reference="JPq-Hq-BkI"/>
+                                                <exclude reference="TwZ-xt-ajW"/>
+                                                <exclude reference="fID-VU-oDx"/>
+                                                <exclude reference="hNq-Mt-7Kq"/>
+                                                <exclude reference="oNj-Yc-pR5"/>
+                                                <exclude reference="1eZ-BJ-BYg"/>
+                                                <exclude reference="8hd-H9-vIX"/>
+                                                <exclude reference="APy-2M-XdU"/>
+                                                <exclude reference="EZR-CO-JlK"/>
                                                 <exclude reference="0YD-jz-MOO"/>
                                                 <exclude reference="3IO-I3-Zpb"/>
                                                 <exclude reference="7jn-HP-ZGs"/>
@@ -1840,10 +1831,18 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                 <exclude reference="aOZ-vf-6gn"/>
                                                 <exclude reference="fMZ-VB-7Gb"/>
                                                 <exclude reference="o81-Ea-ocA"/>
+                                                <exclude reference="FVm-gG-SVk"/>
+                                                <exclude reference="GFi-wY-wz4"/>
+                                                <exclude reference="PRB-7V-aNR"/>
+                                                <exclude reference="ckT-Sx-c37"/>
+                                                <exclude reference="eo0-Ve-7eh"/>
+                                                <exclude reference="rgU-Xd-1X4"/>
+                                                <exclude reference="v1J-NP-gQJ"/>
+                                                <exclude reference="wD7-w4-3Ag"/>
+                                                <exclude reference="zXw-SJ-D8s"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="-4000" width="400" height="4800"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="IJM-To-V3s"/>
                                                 <include reference="iBh-85-CnX"/>
@@ -1855,30 +1854,6 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                             <mask key="constraints">
                                                 <include reference="Az5-hq-w1U"/>
                                                 <include reference="HCf-ao-e0e"/>
-                                                <exclude reference="5Gp-w5-r2e"/>
-                                                <include reference="8P7-2S-0y3"/>
-                                                <include reference="C40-L4-0pJ"/>
-                                                <include reference="EEJ-VE-W5F"/>
-                                                <include reference="EoX-sz-JPP"/>
-                                                <include reference="HcM-TE-WsM"/>
-                                                <exclude reference="JPq-Hq-BkI"/>
-                                                <include reference="TwZ-xt-ajW"/>
-                                                <exclude reference="fID-VU-oDx"/>
-                                                <include reference="hNq-Mt-7Kq"/>
-                                                <include reference="oNj-Yc-pR5"/>
-                                                <include reference="FVm-gG-SVk"/>
-                                                <exclude reference="GFi-wY-wz4"/>
-                                                <include reference="PRB-7V-aNR"/>
-                                                <include reference="ckT-Sx-c37"/>
-                                                <exclude reference="eo0-Ve-7eh"/>
-                                                <exclude reference="rgU-Xd-1X4"/>
-                                                <include reference="v1J-NP-gQJ"/>
-                                                <include reference="wD7-w4-3Ag"/>
-                                                <include reference="zXw-SJ-D8s"/>
-                                                <include reference="1eZ-BJ-BYg"/>
-                                                <include reference="8hd-H9-vIX"/>
-                                                <include reference="APy-2M-XdU"/>
-                                                <include reference="EZR-CO-JlK"/>
                                                 <include reference="3Mm-OZ-Sw4"/>
                                                 <exclude reference="9Bk-K4-Sqj"/>
                                                 <exclude reference="Cfq-9P-cs0"/>
@@ -1892,6 +1867,21 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                 <exclude reference="rdR-z5-l7b"/>
                                                 <exclude reference="tSn-XU-3C1"/>
                                                 <exclude reference="xu1-4n-lOr"/>
+                                                <exclude reference="5Gp-w5-r2e"/>
+                                                <include reference="8P7-2S-0y3"/>
+                                                <include reference="C40-L4-0pJ"/>
+                                                <include reference="EEJ-VE-W5F"/>
+                                                <include reference="EoX-sz-JPP"/>
+                                                <include reference="HcM-TE-WsM"/>
+                                                <exclude reference="JPq-Hq-BkI"/>
+                                                <include reference="TwZ-xt-ajW"/>
+                                                <exclude reference="fID-VU-oDx"/>
+                                                <include reference="hNq-Mt-7Kq"/>
+                                                <include reference="oNj-Yc-pR5"/>
+                                                <include reference="1eZ-BJ-BYg"/>
+                                                <include reference="8hd-H9-vIX"/>
+                                                <include reference="APy-2M-XdU"/>
+                                                <include reference="EZR-CO-JlK"/>
                                                 <exclude reference="0YD-jz-MOO"/>
                                                 <include reference="3IO-I3-Zpb"/>
                                                 <include reference="7jn-HP-ZGs"/>
@@ -1901,6 +1891,15 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                                 <exclude reference="aOZ-vf-6gn"/>
                                                 <include reference="fMZ-VB-7Gb"/>
                                                 <exclude reference="o81-Ea-ocA"/>
+                                                <include reference="FVm-gG-SVk"/>
+                                                <exclude reference="GFi-wY-wz4"/>
+                                                <include reference="PRB-7V-aNR"/>
+                                                <include reference="ckT-Sx-c37"/>
+                                                <exclude reference="eo0-Ve-7eh"/>
+                                                <exclude reference="rgU-Xd-1X4"/>
+                                                <include reference="v1J-NP-gQJ"/>
+                                                <include reference="wD7-w4-3Ag"/>
+                                                <include reference="zXw-SJ-D8s"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -2191,15 +2190,16 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
             </objects>
             <point key="canvasLocation" x="1195" y="89"/>
         </scene>
-        <!--View Controller-->
+        <!--Category Selection View Controller-->
         <scene sceneID="m7p-Dg-C2E">
             <objects>
-                <viewController id="44P-Ae-gel" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategorySelection" id="44P-Ae-gel" customClass="CategorySelectionViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B7J-2r-C2C"/>
                         <viewControllerLayoutGuide type="bottom" id="uml-ms-M7m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Evk-br-Bqw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4J-kh-eUm">
@@ -2222,7 +2222,47 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                         <include reference="XtC-bv-gyj"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="getStartedButtonTapped:" destination="44P-Ae-gel" eventType="touchUpInside" id="azs-5I-INX"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qM-jI-gcz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-UG-Avi">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="q8z-UG-Avi" secondAttribute="centerY" id="Vo5-uJ-Sal"/>
+                                    <constraint firstAttribute="height" constant="44" id="hrf-YV-MVa"/>
+                                    <constraint firstAttribute="centerX" secondItem="q8z-UG-Avi" secondAttribute="centerX" id="zXu-4N-hCH"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="q8z-UG-Avi"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="hrf-YV-MVa"/>
+                                        <exclude reference="Vo5-uJ-Sal"/>
+                                        <exclude reference="zXu-4N-hCH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="q8z-UG-Avi"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="hrf-YV-MVa"/>
+                                        <include reference="Vo5-uJ-Sal"/>
+                                        <include reference="zXu-4N-hCH"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtX-UC-QD7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2233,45 +2273,68 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                             <constraint firstItem="d4J-kh-eUm" firstAttribute="top" secondItem="NtX-UC-QD7" secondAttribute="bottom" id="3Kp-fL-Wyk"/>
                             <constraint firstAttribute="trailing" secondItem="NtX-UC-QD7" secondAttribute="trailing" id="6fM-oJ-isn"/>
                             <constraint firstItem="d4J-kh-eUm" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="AeV-Qg-sN4"/>
+                            <constraint firstAttribute="trailing" secondItem="2qM-jI-gcz" secondAttribute="trailing" id="CEN-hV-HIk"/>
                             <constraint firstItem="NtX-UC-QD7" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="FlD-3J-4MV"/>
+                            <constraint firstItem="NtX-UC-QD7" firstAttribute="top" secondItem="2qM-jI-gcz" secondAttribute="bottom" id="Lzm-oh-tqX"/>
+                            <constraint firstItem="2qM-jI-gcz" firstAttribute="top" secondItem="Evk-br-Bqw" secondAttribute="top" id="NDE-Dt-LUK"/>
                             <constraint firstItem="uml-ms-M7m" firstAttribute="top" secondItem="d4J-kh-eUm" secondAttribute="bottom" id="W1U-bM-042"/>
-                            <constraint firstItem="NtX-UC-QD7" firstAttribute="top" secondItem="Evk-br-Bqw" secondAttribute="top" id="Yk0-UL-kjL"/>
+                            <constraint firstItem="NtX-UC-QD7" firstAttribute="top" secondItem="Evk-br-Bqw" secondAttribute="top" id="Yk0-UL-kjL">
+                                <variation key="heightClass=regular-widthClass=compact" constant="44"/>
+                            </constraint>
                             <constraint firstItem="d4J-kh-eUm" firstAttribute="top" secondItem="NtX-UC-QD7" secondAttribute="bottom" id="Z57-7u-zvR"/>
+                            <constraint firstItem="2qM-jI-gcz" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="bfz-fk-Irl"/>
                             <constraint firstAttribute="trailing" secondItem="d4J-kh-eUm" secondAttribute="trailing" id="d0j-yc-EVF"/>
+                            <constraint firstItem="NtX-UC-QD7" firstAttribute="top" secondItem="2qM-jI-gcz" secondAttribute="bottom" id="rxr-dR-lMV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="d4J-kh-eUm"/>
+                                <exclude reference="2qM-jI-gcz"/>
                                 <exclude reference="NtX-UC-QD7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6fM-oJ-isn"/>
-                                <exclude reference="FlD-3J-4MV"/>
-                                <exclude reference="Yk0-UL-kjL"/>
+                                <exclude reference="W1U-bM-042"/>
                                 <exclude reference="3Kp-fL-Wyk"/>
                                 <exclude reference="AeV-Qg-sN4"/>
                                 <exclude reference="Z57-7u-zvR"/>
                                 <exclude reference="d0j-yc-EVF"/>
-                                <exclude reference="W1U-bM-042"/>
+                                <exclude reference="CEN-hV-HIk"/>
+                                <exclude reference="NDE-Dt-LUK"/>
+                                <exclude reference="bfz-fk-Irl"/>
+                                <exclude reference="6fM-oJ-isn"/>
+                                <exclude reference="FlD-3J-4MV"/>
+                                <exclude reference="Lzm-oh-tqX"/>
+                                <exclude reference="Yk0-UL-kjL"/>
+                                <exclude reference="rxr-dR-lMV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="d4J-kh-eUm"/>
+                                <include reference="2qM-jI-gcz"/>
                                 <include reference="NtX-UC-QD7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6fM-oJ-isn"/>
-                                <include reference="FlD-3J-4MV"/>
-                                <include reference="Yk0-UL-kjL"/>
+                                <include reference="W1U-bM-042"/>
                                 <include reference="3Kp-fL-Wyk"/>
                                 <include reference="AeV-Qg-sN4"/>
                                 <include reference="Z57-7u-zvR"/>
                                 <include reference="d0j-yc-EVF"/>
-                                <include reference="W1U-bM-042"/>
+                                <include reference="CEN-hV-HIk"/>
+                                <include reference="NDE-Dt-LUK"/>
+                                <include reference="bfz-fk-Irl"/>
+                                <include reference="6fM-oJ-isn"/>
+                                <include reference="FlD-3J-4MV"/>
+                                <include reference="Lzm-oh-tqX"/>
+                                <exclude reference="Yk0-UL-kjL"/>
+                                <include reference="rxr-dR-lMV"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="contentContainerView" destination="NtX-UC-QD7" id="LF2-5a-Ic8"/>
+                        <outlet property="headerView" destination="2qM-jI-gcz" id="vjl-eq-iEA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUH-fg-Qbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2280,18 +2343,18 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
         <!--Category Selection Table View Controller-->
         <scene sceneID="fYQ-HD-L0G">
             <objects>
-                <tableViewController storyboardIdentifier="CategorySelection" id="06y-ML-YAA" customClass="CategorySelectionTableViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="BPX-5L-qVM">
+                <tableViewController storyboardIdentifier="CategorySelectionTable" id="06y-ML-YAA" customClass="CategorySelectionTableViewController" customModule="The_Math" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="BPX-5L-qVM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCellIdentifier" rowHeight="60" id="dQ4-zb-7Mh" customClass="CategorySelectionTableViewCell" customModule="The_Math" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryCellIdentifier" rowHeight="60" id="dQ4-zb-7Mh" customClass="CategorySelectionTableViewCell" customModule="The_Math" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQ4-zb-7Mh" id="072-m4-tAt">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-zi-aSL">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-zi-aSL">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="EwJ-UL-mIz"/>
@@ -2316,61 +2379,73 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dms-bL-9lC">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="so6-7U-PCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="bdx-zq-K88"/>
+                                                <constraint firstAttribute="height" constant="14" id="fm5-TZ-QoI"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="bdx-zq-K88"/>
+                                                    <exclude reference="fm5-TZ-QoI"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="bdx-zq-K88"/>
+                                                    <include reference="fm5-TZ-QoI"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="SCD-yS-Uva" firstAttribute="leading" secondItem="tvL-zi-aSL" secondAttribute="trailing" constant="8" id="4cv-2I-euV"/>
-                                        <constraint firstAttribute="centerY" secondItem="dms-bL-9lC" secondAttribute="centerY" id="91S-Hm-k3I"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dms-bL-9lC" secondAttribute="trailing" constant="24" id="A6h-VO-QFm"/>
-                                        <constraint firstItem="dms-bL-9lC" firstAttribute="trailing" secondItem="072-m4-tAt" secondAttribute="trailingMargin" id="aHK-5F-2EA">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
-                                        </constraint>
+                                        <constraint firstAttribute="centerY" secondItem="so6-7U-PCt" secondAttribute="centerY" id="gPH-h2-gIr"/>
                                         <constraint firstAttribute="centerY" secondItem="tvL-zi-aSL" secondAttribute="centerY" id="gfO-31-pLB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="so6-7U-PCt" secondAttribute="trailing" constant="4" id="jDZ-hn-QGV">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                        </constraint>
                                         <constraint firstAttribute="centerY" secondItem="SCD-yS-Uva" secondAttribute="centerY" id="mUb-29-MSz"/>
-                                        <constraint firstItem="tvL-zi-aSL" firstAttribute="leading" secondItem="072-m4-tAt" secondAttribute="leadingMargin" constant="24" id="uwX-Fg-lVA"/>
+                                        <constraint firstItem="tvL-zi-aSL" firstAttribute="leading" secondItem="072-m4-tAt" secondAttribute="leadingMargin" constant="24" id="uwX-Fg-lVA">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                        </constraint>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="tvL-zi-aSL"/>
                                             <exclude reference="SCD-yS-Uva"/>
-                                            <exclude reference="dms-bL-9lC"/>
+                                            <exclude reference="so6-7U-PCt"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="gfO-31-pLB"/>
-                                            <exclude reference="uwX-Fg-lVA"/>
                                             <exclude reference="4cv-2I-euV"/>
                                             <exclude reference="mUb-29-MSz"/>
-                                            <exclude reference="91S-Hm-k3I"/>
-                                            <exclude reference="A6h-VO-QFm"/>
-                                            <exclude reference="aHK-5F-2EA"/>
+                                            <exclude reference="gPH-h2-gIr"/>
+                                            <exclude reference="jDZ-hn-QGV"/>
+                                            <exclude reference="gfO-31-pLB"/>
+                                            <exclude reference="uwX-Fg-lVA"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="tvL-zi-aSL"/>
                                             <include reference="SCD-yS-Uva"/>
-                                            <include reference="dms-bL-9lC"/>
+                                            <include reference="so6-7U-PCt"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="gfO-31-pLB"/>
-                                            <include reference="uwX-Fg-lVA"/>
                                             <include reference="4cv-2I-euV"/>
                                             <include reference="mUb-29-MSz"/>
-                                            <include reference="91S-Hm-k3I"/>
-                                            <include reference="A6h-VO-QFm"/>
-                                            <exclude reference="aHK-5F-2EA"/>
+                                            <include reference="gPH-h2-gIr"/>
+                                            <include reference="jDZ-hn-QGV"/>
+                                            <include reference="gfO-31-pLB"/>
+                                            <include reference="uwX-Fg-lVA"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="categoryImageView" destination="tvL-zi-aSL" id="HMm-wW-Z3V"/>
                                     <outlet property="categoryNameLabel" destination="SCD-yS-Uva" id="TU1-6o-c0S"/>
-                                    <outlet property="selectedLabel" destination="dms-bL-9lC" id="Kd3-a9-Sic"/>
+                                    <outlet property="checkmarkImageView" destination="so6-7U-PCt" id="8Bg-7a-pv1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2653,6 +2728,7 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" width="16" height="14"/>
         <image name="onboarding_00" width="100" height="100"/>
         <image name="onboarding_01" width="285" height="345"/>
         <image name="onboarding_02" width="192" height="322"/>
