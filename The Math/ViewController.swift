@@ -18,6 +18,12 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     // MARK: INSTANCE VARIABLES
     
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var subviewContainerView: UIView!
     
     @IBOutlet weak var journalButton: UIButton!
@@ -88,6 +94,11 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         if !laid {
             laid = true
             showOnboardingController()
+            
+            contentViewHeightConstraint.constant = view.frame.size.height * 2.0
+            contentViewWidthConstraint.constant = view.frame.size.width
+         
+            scrollView.contentOffset.y = view.frame.size.height
         }
     }
     
