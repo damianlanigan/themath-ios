@@ -10,7 +10,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate, OnboardingViewControllerDelegate {
+class ViewController: UIViewController,
+JournalViewControllerDelegate,
+MoodViewControllerDelegate,
+OnboardingViewControllerDelegate,
+UIScrollViewDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -27,6 +31,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     @IBOutlet weak var navigationView: UIView!
     
     @IBOutlet weak var contentContainerView: UIView!
+    
+    @IBOutlet weak var navigationScrollView: UIScrollView!
+    
+    @IBOutlet weak var navigationContentViewWidthConstraint: NSLayoutConstraint!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
     
@@ -79,6 +87,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         
         showMoodController()
         
+        navigationScrollView.delegate = self
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
     }
@@ -88,6 +98,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         if !laid {
             laid = true
             showOnboardingController()
+            
+            navigationContentViewWidthConstraint.constant = view.frame.size.width * 2.0
         }
     }
     
@@ -112,7 +124,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     func orientationDidChange(notification: NSNotification) {
         if !onOnboarding {
             if let device = notification.object as? UIDevice {
-                if device.orientation.isLandscape && currentOrientation.isPortrait {
+                if device.orientation.isLandscape && !currentOrientation.isLandscape  {
                     showInfograph()
                 } else if device.orientation.isPortrait && currentOrientation.isLandscape {
                     hideInfograph()
@@ -146,18 +158,6 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     private func hideOnboardingController() {
         _removeContentViewController(onboardingViewController)
-    }
-    
-    // MARK: Category Selection
-    
-    private func showCategorySelectionController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as? OnboardingViewController
-        viewController?.delegate = self
-    }
-    
-    private func hideCategorySelectionController() {
-        
     }
     
     // MARK: Mood
@@ -281,6 +281,17 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <ScrollViewDelegate>
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == navigationScrollView {
+            println(scrollView.contentOffset.x)
+        }
+    }
+
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
