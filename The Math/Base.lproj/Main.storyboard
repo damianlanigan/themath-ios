@@ -2891,19 +2891,31 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aiR-mO-dwT" secondAttribute="trailing" id="6BQ-dk-SLo"/>
                                     <constraint firstItem="a9m-cg-BMu" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" id="6Ln-Nf-hFc"/>
+                                    <constraint firstItem="aiR-mO-dwT" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" constant="10" id="7bl-Ua-vZG">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="a9m-cg-BMu" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="top" constant="20" id="KSq-5M-sLN"/>
                                     <constraint firstAttribute="trailing" secondItem="a9m-cg-BMu" secondAttribute="trailing" id="TsQ-Gv-ehm"/>
-                                    <constraint firstItem="aiR-mO-dwT" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" id="Z7D-Bi-wVG"/>
                                     <constraint firstItem="aiR-mO-dwT" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="top" id="cSE-3E-CgY"/>
                                     <constraint firstAttribute="bottom" secondItem="aiR-mO-dwT" secondAttribute="bottom" id="ujk-aY-Tap"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7bl-Ua-vZG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="7bl-Ua-vZG"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="bottom" id="IY8-n0-n8o"/>
                             <constraint firstItem="moa-5g-9cr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Kqy-uB-SBc"/>
@@ -2920,6 +2932,8 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                         <outlet property="navigationContentViewWidthConstraint" destination="QpT-29-xkI" id="oUQ-Hu-1ld"/>
                         <outlet property="navigationScrollView" destination="9wE-vM-3gu" id="rvA-qH-2bL"/>
                         <outlet property="navigationView" destination="a9m-cg-BMu" id="hHR-cz-TG3"/>
+                        <outlet property="subviewContainerLeftConstraint" destination="7bl-Ua-vZG" id="H69-y8-Cye"/>
+                        <outlet property="subviewContainerRightConstraint" destination="6BQ-dk-SLo" id="FYG-EW-vSa"/>
                         <outlet property="subviewContainerView" destination="aiR-mO-dwT" id="OaP-G7-CO7"/>
                     </connections>
                 </viewController>

@@ -24,6 +24,10 @@ UIScrollViewDelegate {
     
     @IBOutlet weak var subviewContainerView: UIView!
     
+    @IBOutlet weak var subviewContainerLeftConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var subviewContainerRightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var journalButton: UIButton!
     
     @IBOutlet weak var moodButton: UIButton!
@@ -82,6 +86,8 @@ UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.category_blueColor()
+        contentContainerView.backgroundColor = UIColor.category_blueColor()
         loadMoodController()
         loadJournalController()
         
@@ -288,7 +294,13 @@ UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == navigationScrollView {
-            println(scrollView.contentOffset.x)
+            if scrollView.contentOffset.x > 0 {
+                subviewContainerLeftConstraint.constant = -scrollView.contentOffset.x
+                subviewContainerRightConstraint.constant = scrollView.contentOffset.x
+            } else {
+                subviewContainerLeftConstraint.constant = 0
+                subviewContainerRightConstraint.constant = 0
+            }
         }
     }
 
