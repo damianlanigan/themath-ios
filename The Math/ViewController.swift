@@ -85,6 +85,8 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         
         showMoodController()
         
+        addGestures()
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
     }
@@ -104,6 +106,21 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func addGestures() {
+        let gesture = UIPanGestureRecognizer(target: self, action: "handleNavigationGesture:")
+        view.addGestureRecognizer(gesture)
+    }
+    
+    func handleNavigationGesture(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .Began {
+            if gesture.locationInView(view).y <= 100 {
+                if gesture.velocityInView(view).y > 10 {
+                    scrollView.scrollEnabled = true
+                }
+            }
+        }
     }
     
     
