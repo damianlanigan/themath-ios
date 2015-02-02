@@ -45,6 +45,7 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
+        CategoryCoordinator.sharedInstance().updateCategories(selectedCategories)
         delegate?.categorySelectionViewDidFinishSelectingCategories(selectedCategories)
     }
     

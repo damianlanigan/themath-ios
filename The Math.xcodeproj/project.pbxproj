@@ -35,6 +35,7 @@
 		8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59B27F1A7D4EE7007A29BB /* UIView.swift */; };
 		8D5FED071A7D47D500A3C95E /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5FED061A7D47D500A3C95E /* CategoryView.xib */; };
 		8DBDA3571A7EE2EC00FA4AEF /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */; };
+		8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
 		8DED66161A7ED36B00327B41 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */; };
 		8DED661D1A7ED40100327B41 /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */; };
@@ -85,6 +86,7 @@
 		8D59B27F1A7D4EE7007A29BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8D5FED061A7D47D500A3C95E /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
 		8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				27A542AE1A48BA4300CC7CA6 /* Category.swift */,
+				8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				2708DEE71A5C462900D99A28 /* RoundView.swift in Sources */,
 				27B371711A50B78F00A113AB /* WorkView.swift in Sources */,
 				8DED66161A7ED36B00327B41 /* CategorySelectionTableViewController.swift in Sources */,
+				8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */,
 				27B371691A50B73100A113AB /* PersonalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

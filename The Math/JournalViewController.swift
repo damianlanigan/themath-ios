@@ -30,16 +30,6 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     @IBOutlet weak var youreFeelingLabel: UILabel!
     @IBOutlet weak var additionalFeelingTextLabel: UILabel!
     
-    lazy var categories: [Category] = {
-        return [
-            Category(type: .Personal),
-            Category(type: .Lifestyle),
-            Category(type: .Love),
-            Category(type: .Health),
-            Category(type: .Money)
-        ]
-    }()
-    
     @IBOutlet weak var overlayView: UIView!
     
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
@@ -59,30 +49,26 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
     
     var delegate: JournalViewControllerDelegate?
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCategories", name: CategoriesDidUpdateNotification, object: nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if firstAppearance {
             firstAppearance = false
             showToolTip()
-            
-            let screenWidth = view.frame.size.width
-            let numberOfCategories = categories.count
-            for (idx, category) in enumerate(categories) {
-                let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
-                view.category = category
-                let x = CGFloat(idx) * screenWidth / CGFloat(numberOfCategories)
-                let y = CGFloat(0.0)
-                let width = screenWidth / CGFloat(numberOfCategories)
-                let height = categoryContainerView.frame.size.height
-                view.frame = CGRectMake(x, y, width, height)
-                view.delegate = self
-                categoryContainerView.addSubview(view)
-            }
+            layoutCategories()
         }
     }
     
-    func showToolTip() {
+    private func showToolTip() {
         AMPopTip.appearance().textColor = UIColor.blackColor()
         AMPopTip.appearance().textAlignment = .Center
         
@@ -114,6 +100,23 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 280, inView: view, fromFrame: fromFrame)
     }
     
+    private func layoutCategories() {
+        let screenWidth = view.frame.size.width
+        let categories = CategoryCoordinator.sharedInstance().categories
+        let numberOfCategories = categories.count
+        for (idx, category) in enumerate(categories) {
+            let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
+            view.category = category
+            let x = CGFloat(idx) * screenWidth / CGFloat(numberOfCategories)
+            let y = CGFloat(0.0)
+            let width = screenWidth / CGFloat(numberOfCategories)
+            let height = categoryContainerView.frame.size.height
+            view.frame = CGRectMake(x, y, width, height)
+            view.delegate = self
+            categoryContainerView.addSubview(view)
+        }
+    }
+    
     @IBAction func overlayButtonTapped(sender: AnyObject) {
         hideOpportityToAddDetails()
     }
@@ -128,6 +131,13 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as JournalAddDetailsViewController
         viewController.delegate = self
         presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func updateCategories() {
+        for view in categoryContainerView.subviews as [UIView] {
+            view.removeFromSuperview()
+        }
+        layoutCategories()
     }
 
     private func presentOpportunityToAddDetails() {
