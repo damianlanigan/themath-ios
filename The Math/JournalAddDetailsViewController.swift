@@ -50,6 +50,10 @@ class JournalAddDetailsViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
+
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
     
     func keyboardWillShow(notification: NSNotification) {
         let info = notification.userInfo

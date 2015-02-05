@@ -10,7 +10,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewControllerDelegate, OnboardingViewControllerDelegate {
+class ViewController: UIViewController,
+JournalViewControllerDelegate,
+MoodViewControllerDelegate,
+OnboardingViewControllerDelegate,
+UIAlertViewDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -51,14 +55,7 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         viewController?.delegate = self
         return viewController!
     }()
-    
-    lazy var onboardingViewController: OnboardingViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
-        viewController?.delegate = self
-        return viewController!
-    }()
-    
+
     lazy var infographViewController: InfographViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
@@ -123,7 +120,13 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     }
     
     override func shouldAutorotate() -> Bool {
-        return !onOnboarding// || !isCommenting
+        if onOnboarding {
+            return false
+        }
+        if isCommenting {
+            return false
+        }
+        return true
     }
 
     private func loadMoodController() {
@@ -141,12 +144,12 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     // MARK: Onboarding
     
     private func showOnboardingController() {
-        _addContentViewController(onboardingViewController, aboveView: contentContainerView)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
+        viewController?.delegate = self
+        _addContentViewController(viewController!, aboveView: contentContainerView)
     }
-    
-    private func hideOnboardingController() {
-        _removeContentViewController(onboardingViewController)
-    }
+
     
     // MARK: Category Selection
     
@@ -199,13 +202,17 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     // MARK: Infograph
     
     private func showInfograph() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
-        presentViewController(viewController!, animated: false, completion: nil)
+        if shouldAutorotate() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+            presentViewController(viewController!, animated: false, completion: nil)
+        }
     }
     
     private func hideInfograph() {
-        dismissViewControllerAnimated(false, completion: nil)
+        if shouldAutorotate() {
+            dismissViewControllerAnimated(false, completion: nil)
+        }
     }
     
     // MARK: Login
@@ -241,12 +248,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     }
     
     func didBeginCommenting() {
-        println("begin")
         isCommenting = true
     }
     
     func didEndCommenting() {
-        println("ended")
         isCommenting = false
     }
     
@@ -273,19 +278,24 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         }
     }
     
+    func shouldReplayOnboarding() {
+        let alert = UIAlertView(title: "Reset?", message: "Are you sure you would like to replay the tutorial?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
+        alert.show()
+    }
+    
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: <OnboardingViewControllerDelegate>
     
     
-    func didFinishOnboarding() {
+    func didFinishOnboarding(viewController: OnboardingViewController) {
         onOnboarding = false
         setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                self.onboardingViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
+                viewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
             }) { (done: Bool) -> Void in
-                self.hideOnboardingController()
+                self._removeContentViewController(viewController)
         }
     }
     
@@ -293,6 +303,16 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         self.presentLoginViewController()
     }
     
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIAlertViewDelegate>
+    
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            showOnboardingController()
+        }
+    }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     

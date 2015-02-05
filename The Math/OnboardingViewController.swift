@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OnboardingViewControllerDelegate {
-    func didFinishOnboarding()
+    func didFinishOnboarding(viewController: OnboardingViewController)
     func didTapLoginButton()
 }
 
@@ -58,7 +58,7 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
     }
     
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
-        delegate?.didFinishOnboarding()
+        delegate?.didFinishOnboarding(self)
         dismissViewControllerAnimated(true, completion: nil)
     }
     

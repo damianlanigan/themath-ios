@@ -13,6 +13,9 @@ import UIKit
 protocol MoodViewControllerDelegate {
     func didBeginNewMood()
     func didEndNewMood()
+    
+    // temp
+    func shouldReplayOnboarding()
 }
 
 enum MoodPhase: String {
@@ -196,6 +199,12 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         contentView.layer.addSublayer(circle)
         
         addGrowAnimation()
+    }
+    
+    // MARK: IBACTION
+    
+    @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
+        delegate?.shouldReplayOnboarding()
     }
     
     // MARK: NOTIFICATIONS

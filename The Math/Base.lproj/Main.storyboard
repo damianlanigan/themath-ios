@@ -94,15 +94,31 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-hh-uCA">
+                                        <rect key="frame" x="356" y="656" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="HOh-zV-9dg"/>
+                                            <constraint firstAttribute="height" constant="44" id="V7A-7H-Mxi"/>
+                                        </constraints>
+                                        <state key="normal" title="?">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="replayOnboardingButtonTapped:" destination="CdC-KQ-2Ua" eventType="touchUpInside" id="Vxf-NP-f0g"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="B4i-fm-FUU" secondAttribute="trailing" constant="8" id="2RC-rR-dqw"/>
                                     <constraint firstAttribute="centerX" secondItem="l2S-iq-kEm" secondAttribute="centerX" id="A2M-CI-ezq"/>
+                                    <constraint firstAttribute="trailing" secondItem="ud6-hh-uCA" secondAttribute="trailing" id="OeD-cC-Pvw"/>
                                     <constraint firstItem="l2S-iq-kEm" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" id="SD0-n9-FNd"/>
                                     <constraint firstAttribute="trailing" secondItem="l2S-iq-kEm" secondAttribute="trailing" id="VsJ-6n-Y53"/>
                                     <constraint firstAttribute="centerY" secondItem="l2S-iq-kEm" secondAttribute="centerY" id="Zwq-FO-rg5"/>
                                     <constraint firstItem="l2S-iq-kEm" firstAttribute="top" secondItem="B4i-fm-FUU" secondAttribute="bottom" constant="8" id="eD6-xl-8mA"/>
+                                    <constraint firstAttribute="bottom" secondItem="ud6-hh-uCA" secondAttribute="bottom" id="n0f-XO-LmV"/>
                                     <constraint firstItem="B4i-fm-FUU" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" constant="8" id="yTM-Nt-ECI"/>
                                 </constraints>
                             </view>
@@ -131,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="819"/>
+            <point key="canvasLocation" x="1342" y="854"/>
         </scene>
         <!--Journal Add Details View Controller-->
         <scene sceneID="i2Q-fK-bD2">
@@ -3148,17 +3164,17 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                 <exclude reference="2qM-jI-gcz"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="jdV-BY-aLh"/>
+                                <exclude reference="kLt-1G-cAX"/>
+                                <exclude reference="GPj-PR-4YH"/>
+                                <exclude reference="o9u-rr-d0n"/>
+                                <exclude reference="uEB-nG-2gk"/>
                                 <exclude reference="Nb6-qP-szx"/>
                                 <exclude reference="ciS-gc-ttZ"/>
                                 <exclude reference="tcW-0Q-VMS"/>
                                 <exclude reference="HEY-zR-kfy"/>
                                 <exclude reference="mcV-Ra-4aD"/>
                                 <exclude reference="oSy-WJ-lib"/>
-                                <exclude reference="GPj-PR-4YH"/>
-                                <exclude reference="o9u-rr-d0n"/>
-                                <exclude reference="uEB-nG-2gk"/>
-                                <exclude reference="jdV-BY-aLh"/>
-                                <exclude reference="kLt-1G-cAX"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -3168,17 +3184,17 @@ We have set you up with a few core categories to get you started: Lifestyle, Sel
                                 <include reference="2qM-jI-gcz"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="jdV-BY-aLh"/>
+                                <include reference="kLt-1G-cAX"/>
+                                <exclude reference="GPj-PR-4YH"/>
+                                <include reference="o9u-rr-d0n"/>
+                                <include reference="uEB-nG-2gk"/>
                                 <include reference="Nb6-qP-szx"/>
                                 <include reference="ciS-gc-ttZ"/>
                                 <include reference="tcW-0Q-VMS"/>
                                 <include reference="HEY-zR-kfy"/>
                                 <include reference="mcV-Ra-4aD"/>
                                 <include reference="oSy-WJ-lib"/>
-                                <exclude reference="GPj-PR-4YH"/>
-                                <include reference="o9u-rr-d0n"/>
-                                <include reference="uEB-nG-2gk"/>
-                                <include reference="jdV-BY-aLh"/>
-                                <include reference="kLt-1G-cAX"/>
                             </mask>
                         </variation>
                     </view>

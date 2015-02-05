@@ -55,6 +55,10 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         view.bringSubviewToFront(headerView)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

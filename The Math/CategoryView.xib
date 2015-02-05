@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,27 +11,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZP-Uj-UF9">
-                    <rect key="frame" x="0.0" y="546" width="60" height="14"/>
+                    <rect key="frame" x="0.0" y="546" width="60" height="13.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08l-Kd-KUT" customClass="CategorySliderView" customModule="HowAmIDoing" customModuleProvider="target">
-                    <rect key="frame" x="8" y="262" width="44" height="44"/>
+                    <rect key="frame" x="6" y="260" width="48" height="48"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eLQ-XC-xvT">
-                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="9hv-gA-DCi"/>
-                                <constraint firstAttribute="width" constant="44" id="CBp-mC-6TN"/>
-                            </constraints>
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="08l-Kd-KUT" secondAttribute="height" multiplier="1:1" id="eX0-oR-fLN"/>
-                        <constraint firstAttribute="centerY" secondItem="eLQ-XC-xvT" secondAttribute="centerY" id="lCh-Y1-OLC"/>
-                        <constraint firstAttribute="centerX" secondItem="eLQ-XC-xvT" secondAttribute="centerX" id="ztf-PW-n07"/>
+                        <constraint firstAttribute="height" constant="48" id="6ew-LE-unA"/>
+                        <constraint firstItem="eLQ-XC-xvT" firstAttribute="leading" secondItem="08l-Kd-KUT" secondAttribute="leading" id="GQf-e2-SFb"/>
+                        <constraint firstAttribute="bottom" secondItem="eLQ-XC-xvT" secondAttribute="bottom" id="HnX-Fd-whe"/>
+                        <constraint firstItem="eLQ-XC-xvT" firstAttribute="top" secondItem="08l-Kd-KUT" secondAttribute="top" id="KrX-BL-fqC"/>
+                        <constraint firstAttribute="trailing" secondItem="eLQ-XC-xvT" secondAttribute="trailing" id="Qzn-nx-1pJ"/>
+                        <constraint firstAttribute="width" constant="48" id="wE2-JP-MaP"/>
                     </constraints>
                     <connections>
                         <outlet property="sliderCategoryIconView" destination="eLQ-XC-xvT" id="yuZ-EY-QKR"/>
@@ -41,13 +39,11 @@
             </subviews>
             <color key="backgroundColor" red="0.94570707070707072" green="0.31068478706979552" blue="0.19082370213496672" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="08l-Kd-KUT" secondAttribute="trailing" constant="8" id="5hF-BS-JGo"/>
+                <constraint firstAttribute="centerX" secondItem="08l-Kd-KUT" secondAttribute="centerX" id="8bF-Xh-c0F"/>
                 <constraint firstItem="gZP-Uj-UF9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bjc-bv-qH6"/>
-                <constraint firstItem="08l-Kd-KUT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="NAX-Dx-ze1"/>
-                <constraint firstAttribute="centerX" secondItem="08l-Kd-KUT" secondAttribute="centerX" id="o5j-dt-5dh"/>
+                <constraint firstAttribute="centerY" secondItem="08l-Kd-KUT" secondAttribute="centerY" id="UPJ-K4-3rS"/>
                 <constraint firstAttribute="trailing" secondItem="gZP-Uj-UF9" secondAttribute="trailing" id="rOH-AB-Ie8"/>
                 <constraint firstAttribute="bottom" secondItem="gZP-Uj-UF9" secondAttribute="bottom" constant="8" id="s2b-qI-tMd"/>
-                <constraint firstAttribute="centerY" secondItem="08l-Kd-KUT" secondAttribute="centerY" id="xYz-BG-Eut"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
