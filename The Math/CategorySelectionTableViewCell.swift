@@ -20,7 +20,6 @@ class CategorySelectionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         categoryImageView.layer.cornerRadius = 22.0
-        categoryImageView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         categoryImageView.layer.borderWidth = 1.0
     }
 

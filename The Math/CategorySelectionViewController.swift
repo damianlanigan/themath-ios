@@ -18,6 +18,10 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     
     @IBOutlet weak var headerView: UIView!
     
+    @IBOutlet weak var getStartedButton: UIButton!
+    
+    @IBOutlet weak var getStartedButtonHeightConstraint: NSLayoutConstraint!
+    
     var selectedCategories = [CategoryType]()
     
     var delegate: CategorySelectionViewControllerDelegate?
@@ -57,13 +61,17 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     
     // MARK: <CategorySelectionTableViewControllerDelegate>
     
-    func categorySelectionTableViewDidSelectCategory(type: CategoryType) {
+    func categorySelectionTableViewDidSelectCategory(viewController: CategorySelectionTableViewController, type: CategoryType) {
         if let idx = find(selectedCategories, type) {
             selectedCategories.removeAtIndex(idx)
         } else {
             selectedCategories.append(type)
         }
-        println(selectedCategories.count)
+        
+        getStartedButton.hidden = selectedCategories.count == 0
+//        getStartedButtonHeightConstraint.constant = getStartedButton.hidden ? 0 : 49
+        viewController.tableView.contentInset.bottom = 49
+//        viewController.tableView.contentOffset.y = getStartedButton.hidden ? viewController.tableView.contentOffset.y : viewController.tableView.contentOffset.y - 49
     }
 
 }

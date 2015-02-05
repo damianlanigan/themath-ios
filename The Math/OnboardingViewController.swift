@@ -40,6 +40,10 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
         delegate?.didTapLoginButton()
     }
     
+    @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
+        showCategorySelectionViewController()
+    }
+    
     private func layoutScrollView() {
         contentViewWidthConstraint.constant = view.frame.size.width
         contentViewHeightConstraint.constant = view.frame.size.height * numberOfPages
@@ -53,15 +57,9 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
         presentViewController(viewController!, animated: true, completion: nil)
     }
     
-    @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
-        showCategorySelectionViewController()
-    }
-    
-    // MARK: <CategorySelectionViewControllerDelegate>
-    
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
-        dismissViewControllerAnimated(true, completion: nil)
         delegate?.didFinishOnboarding()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

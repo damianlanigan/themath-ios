@@ -1,4 +1,4 @@
-xcodeproj 'The Math.xcodeproj'
+xcodeproj 'HowAmIDoing.xcodeproj/'
 
 pod 'AFNetworking', '~> 2.5'
 pod 'AMPopTip'

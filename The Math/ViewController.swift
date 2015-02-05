@@ -112,9 +112,9 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
     func orientationDidChange(notification: NSNotification) {
         if !onOnboarding {
             if let device = notification.object as? UIDevice {
-                if device.orientation.isLandscape && currentOrientation.isPortrait {
+                if device.orientation.isLandscape && !currentOrientation.isLandscape {
                     showInfograph()
-                } else if device.orientation.isPortrait && currentOrientation.isLandscape {
+                } else if device.orientation.isPortrait && !currentOrientation.isPortrait {
                     hideInfograph()
                 }
                 currentOrientation = device.orientation

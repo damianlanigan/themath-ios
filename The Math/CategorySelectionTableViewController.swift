@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CategorySelectionTableViewControllerDelegate {
-    func categorySelectionTableViewDidSelectCategory(type: CategoryType)
+    func categorySelectionTableViewDidSelectCategory(viewController: CategorySelectionTableViewController, type: CategoryType)
 }
 
 class CategorySelectionTableViewController: UITableViewController {
@@ -20,7 +20,6 @@ class CategorySelectionTableViewController: UITableViewController {
     var selected = [Int]()
     
     var delegate: CategorySelectionTableViewControllerDelegate?
-
 
     // MARK: - Table view data source
 
@@ -42,8 +41,10 @@ class CategorySelectionTableViewController: UITableViewController {
         
         if let idx = find(selected, indexPath.row) {
             cell.checkmarkImageView.hidden = false
+            cell.categoryImageView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor
         } else {
             cell.checkmarkImageView.hidden = true
+            cell.categoryImageView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         }
 
         return cell
@@ -52,7 +53,7 @@ class CategorySelectionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let categoryIndex = CategoryIndex(rawValue: indexPath.row) {
             let categoryType: CategoryType = categoryIndex.categoryType()
-            delegate?.categorySelectionTableViewDidSelectCategory(categoryType)
+            delegate?.categorySelectionTableViewDidSelectCategory(self, type: categoryType)
             
             if let idx = find(selected, indexPath.row) {
                 selected.removeAtIndex(idx)

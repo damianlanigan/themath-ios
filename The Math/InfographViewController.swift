@@ -10,16 +10,5 @@ import UIKit
 
 class InfographViewController: UIViewController {
 
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    
-    private let numberOfScreens: CGFloat = 3.0
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        contentViewHeightConstraint.constant = view.frame.size.height
-        contentViewWidthConstraint.constant = view.frame.size.width * numberOfScreens
-    }
 }
