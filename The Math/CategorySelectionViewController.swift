@@ -18,12 +18,6 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     
     @IBOutlet weak var headerView: UIView!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    
     var selectedCategories = [CategoryType]()
     
     var delegate: CategorySelectionViewControllerDelegate?
@@ -37,13 +31,9 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         formatHeaderView()
     }
     
-    override func viewDidLayoutSubviews() {
-        if !laid {
-            laid = true
-            contentViewHeightConstraint.constant = view.frame.size.height
-            contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(2.0)
-            scrollView.contentSize = CGSizeMake(view.frame.size.height, view.frame.size.width * CGFloat(2.0))
-        }
+    @IBAction func getStartedButtonTapped(sender: AnyObject) {
+        CategoryCoordinator.sharedInstance().updateCategories(selectedCategories)
+        delegate?.categorySelectionViewDidFinishSelectingCategories(selectedCategories)
     }
     
     func loadCategorySelectionTableView() {
@@ -59,11 +49,6 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         headerView.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         headerView.layer.shadowRadius = 2.0
         view.bringSubviewToFront(headerView)
-    }
-    
-    @IBAction func getStartedButtonTapped(sender: AnyObject) {
-        CategoryCoordinator.sharedInstance().updateCategories(selectedCategories)
-        delegate?.categorySelectionViewDidFinishSelectingCategories(selectedCategories)
     }
     
     override func prefersStatusBarHidden() -> Bool {

@@ -57,6 +57,8 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
         showCategorySelectionViewController()
     }
     
+    // MARK: <CategorySelectionViewControllerDelegate>
+    
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
         dismissViewControllerAnimated(true, completion: nil)
         delegate?.didFinishOnboarding()
