@@ -208,6 +208,14 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
         dismissViewControllerAnimated(false, completion: nil)
     }
     
+    // MARK: Login
+    
+    private func presentLoginViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as LoginViewController
+        presentViewController(viewController, animated: true, completion: nil)
+    }
+    
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -279,6 +287,10 @@ class ViewController: UIViewController, JournalViewControllerDelegate, MoodViewC
             }) { (done: Bool) -> Void in
                 self.hideOnboardingController()
         }
+    }
+    
+    func didTapLoginButton() {
+        self.presentLoginViewController()
     }
     
     

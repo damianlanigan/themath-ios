@@ -10,6 +10,7 @@ import UIKit
 
 protocol OnboardingViewControllerDelegate {
     func didFinishOnboarding()
+    func didTapLoginButton()
 }
 
 class OnboardingViewController: UIViewController, CategorySelectionViewControllerDelegate {
@@ -33,6 +34,10 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
             laid = true
             layoutScrollView()
         }
+    }
+    
+    @IBAction func loginButtonTapped(sender: UIButton) {
+        delegate?.didTapLoginButton()
     }
     
     private func layoutScrollView() {
