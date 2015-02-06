@@ -51,14 +51,6 @@ enum CategoryIndex: Int {
     }
 }
 
-enum Mood: String {
-    case Horrible = "Horrible"
-    case Bad = "Bad"
-    case Neutral = ""
-    case Good = "Good"
-    case Great = "Great"
-}
-
 struct CategoryConstants {
     static let allCategoriesTypes: [CategoryType] = [
         .Personal,
@@ -82,4 +74,12 @@ struct Category {
         name = type.rawValue
     }
     
+}
+
+enum Mood: String {
+    case Horrible = "Horrible"
+    case Bad = "Bad"
+    case Neutral = ""
+    case Good = "Good"
+    case Great = "Great"
 }
