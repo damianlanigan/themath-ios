@@ -19,7 +19,6 @@ class CategoryCoordinator: NSObject {
         for type in types {
             categories.append(Category(type: type))
         }
-        println(categories.count)
         NSNotificationCenter.defaultCenter().postNotificationName(CategoriesDidUpdateNotification, object: nil)
     }
    

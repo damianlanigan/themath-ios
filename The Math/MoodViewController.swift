@@ -204,6 +204,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     // MARK: IBACTION
     
     @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
+        toolTip.hide()
         delegate?.shouldReplayOnboarding()
     }
     
@@ -368,11 +369,39 @@ class MoodViewController: UIViewController, MoodViewDelegate {
 
                 let center = self.containerView.frame.origin.y + self.contentView.frame.origin.y + 40
 
+                self.tooltipForConfirmation()
+                
                 return()
         }
 
         UIView.animateWithDuration(1.0, animations: {
             self.view.backgroundColor = UIColor.mood_blueColor()
         })
+    }
+    
+    // TEMPORARY
+    
+    func tooltipForConfirmation() {
+        var tip = AMPopTip()
+        tip.shouldDismissOnTap = true
+        tip.edgeMargin = 10.0
+        tip.offset = 12
+        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        tip.textAlignment = .Center
+        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
+        var titleString = NSMutableAttributedString(string: "Mood saved")
+        
+        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
+        let titleRange = NSMakeRange(0, countElements("Mood saved"))
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        titleString.addAttributes([
+            NSFontAttributeName : titleFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+            ], range: titleRange)
+    
+        toolTip = tip
+        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame, duration: 2.0)
     }
 }

@@ -144,6 +144,7 @@ UIAlertViewDelegate {
     // MARK: Onboarding
     
     private func showOnboardingController() {
+        onOnboarding = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
         viewController?.delegate = self
@@ -279,7 +280,7 @@ UIAlertViewDelegate {
     }
     
     func shouldReplayOnboarding() {
-        let alert = UIAlertView(title: "Reset?", message: "Are you sure you would like to replay the tutorial?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
+        let alert = UIAlertView(title: "Restart Tutorial", message: "Are you sure you would like to restart the tutorial?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
         alert.show()
     }
     
