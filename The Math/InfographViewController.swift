@@ -22,9 +22,9 @@ class InfographViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         if !laid {
+            laid = true
             contentViewWidthConstraint.constant = view.frame.size.width * numberOfPages
             contentViewHeightConstraint.constant = view.frame.size.height
-            
             scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
         }
     }

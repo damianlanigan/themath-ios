@@ -230,7 +230,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         presentOpportunityToAddDetails()
         
         // for API
-        println("Category rated: \(category.type.rawValue) - \(mood.rawValue)")
+        println("Category: \(category.type.rawValue) - Feeling \(mood.rawValue)")
     }
     
     func didCancelMoodChange() {

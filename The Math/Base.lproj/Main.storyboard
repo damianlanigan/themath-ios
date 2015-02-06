@@ -274,25 +274,6 @@
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set, track and make progress on your life goals. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-PX-bK7">
-                                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="234" id="rKG-FC-0BL"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                        <variation key="default">
-                                                                            <mask key="constraints">
-                                                                                <exclude reference="rKG-FC-0BL"/>
-                                                                            </mask>
-                                                                        </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact">
-                                                                            <mask key="constraints">
-                                                                                <include reference="rKG-FC-0BL"/>
-                                                                            </mask>
-                                                                        </variation>
-                                                                    </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-Zq-qdH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                                         <color key="backgroundColor" red="0.84824810606060608" green="0.84824810606060608" blue="0.84824810606060608" alpha="1" colorSpace="calibratedRGB"/>
@@ -310,7 +291,7 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get rich feedback on what helps you move forward, feel better." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eya-xK-Vau">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive encouraging feedback to help you move forward." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eya-xK-Vau">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="248" id="OeV-AT-N6U"/>
@@ -346,7 +327,7 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Develop and maintain positive behaviors over time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JO-gG-FXd">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Develop and maintain long-term positive behaviors." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JO-gG-FXd">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="260" id="Afm-bL-yMH"/>
@@ -365,32 +346,43 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set goals and track your progress." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-PX-bK7">
+                                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="234" id="rKG-FC-0BL"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="rKG-FC-0BL"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="rKG-FC-0BL"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="eya-xK-Vau" firstAttribute="top" secondItem="Kbe-Zq-qdH" secondAttribute="bottom" constant="16" id="32f-cS-otZ"/>
                                                                     <constraint firstAttribute="centerX" secondItem="iJJ-FQ-mW7" secondAttribute="centerX" id="5el-g1-4MZ"/>
                                                                     <constraint firstItem="Kbe-Zq-qdH" firstAttribute="top" secondItem="g2m-PX-bK7" secondAttribute="bottom" constant="16" id="7Mq-Hd-0CA"/>
                                                                     <constraint firstItem="eya-xK-Vau" firstAttribute="top" secondItem="Kbe-Zq-qdH" secondAttribute="bottom" constant="16" id="9Xv-eA-qDJ"/>
-                                                                    <constraint firstItem="52o-fI-YMY" firstAttribute="top" secondItem="iJJ-FQ-mW7" secondAttribute="bottom" constant="8" id="BCi-m2-fuD"/>
-                                                                    <constraint firstItem="4JO-gG-FXd" firstAttribute="top" secondItem="p6e-c6-QfO" secondAttribute="bottom" constant="16" id="Bg1-9i-Dqc"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Kbe-Zq-qdH" secondAttribute="trailing" constant="30" id="Gb5-a2-1At"/>
-                                                                    <constraint firstItem="p6e-c6-QfO" firstAttribute="top" secondItem="eya-xK-Vau" secondAttribute="bottom" constant="16" id="Mxs-eO-z9R"/>
                                                                     <constraint firstAttribute="bottom" secondItem="4JO-gG-FXd" secondAttribute="bottom" constant="8" id="RF2-iQ-Q5m"/>
                                                                     <constraint firstItem="Kbe-Zq-qdH" firstAttribute="leading" secondItem="pio-kh-Gym" secondAttribute="leading" constant="30" id="V5c-VT-OXH"/>
-                                                                    <constraint firstItem="g2m-PX-bK7" firstAttribute="top" secondItem="52o-fI-YMY" secondAttribute="bottom" constant="36" id="Vp3-3B-CAU"/>
                                                                     <constraint firstItem="52o-fI-YMY" firstAttribute="top" secondItem="iJJ-FQ-mW7" secondAttribute="bottom" constant="16" id="Z9I-4D-msh"/>
                                                                     <constraint firstItem="p6e-c6-QfO" firstAttribute="leading" secondItem="pio-kh-Gym" secondAttribute="leading" constant="30" id="Z9L-va-Awv"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="52o-fI-YMY" secondAttribute="trailing" constant="8" id="bu0-RY-Rh0"/>
                                                                     <constraint firstAttribute="trailing" secondItem="52o-fI-YMY" secondAttribute="trailing" constant="8" id="eAp-fb-bno"/>
                                                                     <constraint firstAttribute="trailing" secondItem="p6e-c6-QfO" secondAttribute="trailing" constant="30" id="fiH-RZ-Xuf"/>
                                                                     <constraint firstItem="4JO-gG-FXd" firstAttribute="top" secondItem="p6e-c6-QfO" secondAttribute="bottom" constant="16" id="kpT-fW-2uA"/>
-                                                                    <constraint firstItem="52o-fI-YMY" firstAttribute="leading" secondItem="pio-kh-Gym" secondAttribute="leading" constant="8" id="mCY-jd-ktA"/>
                                                                     <constraint firstAttribute="centerX" secondItem="eya-xK-Vau" secondAttribute="centerX" id="n7W-HV-TmM"/>
                                                                     <constraint firstAttribute="centerX" secondItem="g2m-PX-bK7" secondAttribute="centerX" id="nNl-oR-hj4"/>
                                                                     <constraint firstItem="p6e-c6-QfO" firstAttribute="top" secondItem="eya-xK-Vau" secondAttribute="bottom" constant="16" id="nmL-KI-HBY"/>
                                                                     <constraint firstItem="52o-fI-YMY" firstAttribute="leading" secondItem="pio-kh-Gym" secondAttribute="leading" constant="8" id="s2h-Li-8TU"/>
-                                                                    <constraint firstItem="52o-fI-YMY" firstAttribute="top" secondItem="iJJ-FQ-mW7" secondAttribute="bottom" constant="8" id="sI2-S8-Rw7"/>
                                                                     <constraint firstItem="iJJ-FQ-mW7" firstAttribute="top" secondItem="pio-kh-Gym" secondAttribute="top" constant="8" id="vZq-Ky-fqF"/>
                                                                     <constraint firstItem="g2m-PX-bK7" firstAttribute="top" secondItem="52o-fI-YMY" secondAttribute="bottom" constant="36" id="vdi-Xs-cUB"/>
                                                                     <constraint firstAttribute="centerX" secondItem="4JO-gG-FXd" secondAttribute="centerX" id="ylS-Mp-byC"/>
@@ -399,28 +391,21 @@
                                                                     <mask key="subviews">
                                                                         <exclude reference="iJJ-FQ-mW7"/>
                                                                         <exclude reference="52o-fI-YMY"/>
-                                                                        <exclude reference="g2m-PX-bK7"/>
                                                                         <exclude reference="Kbe-Zq-qdH"/>
                                                                         <exclude reference="eya-xK-Vau"/>
                                                                         <exclude reference="p6e-c6-QfO"/>
                                                                         <exclude reference="4JO-gG-FXd"/>
+                                                                        <exclude reference="g2m-PX-bK7"/>
                                                                     </mask>
                                                                     <mask key="constraints">
-                                                                        <exclude reference="Bg1-9i-Dqc"/>
                                                                         <exclude reference="RF2-iQ-Q5m"/>
                                                                         <exclude reference="kpT-fW-2uA"/>
                                                                         <exclude reference="ylS-Mp-byC"/>
-                                                                        <exclude reference="BCi-m2-fuD"/>
                                                                         <exclude reference="Z9I-4D-msh"/>
-                                                                        <exclude reference="bu0-RY-Rh0"/>
                                                                         <exclude reference="eAp-fb-bno"/>
-                                                                        <exclude reference="mCY-jd-ktA"/>
                                                                         <exclude reference="s2h-Li-8TU"/>
-                                                                        <exclude reference="sI2-S8-Rw7"/>
-                                                                        <exclude reference="32f-cS-otZ"/>
                                                                         <exclude reference="9Xv-eA-qDJ"/>
                                                                         <exclude reference="n7W-HV-TmM"/>
-                                                                        <exclude reference="Vp3-3B-CAU"/>
                                                                         <exclude reference="nNl-oR-hj4"/>
                                                                         <exclude reference="vdi-Xs-cUB"/>
                                                                         <exclude reference="5el-g1-4MZ"/>
@@ -428,7 +413,6 @@
                                                                         <exclude reference="7Mq-Hd-0CA"/>
                                                                         <exclude reference="Gb5-a2-1At"/>
                                                                         <exclude reference="V5c-VT-OXH"/>
-                                                                        <exclude reference="Mxs-eO-z9R"/>
                                                                         <exclude reference="Z9L-va-Awv"/>
                                                                         <exclude reference="fiH-RZ-Xuf"/>
                                                                         <exclude reference="nmL-KI-HBY"/>
@@ -438,28 +422,21 @@
                                                                     <mask key="subviews">
                                                                         <include reference="iJJ-FQ-mW7"/>
                                                                         <include reference="52o-fI-YMY"/>
-                                                                        <include reference="g2m-PX-bK7"/>
                                                                         <include reference="Kbe-Zq-qdH"/>
                                                                         <include reference="eya-xK-Vau"/>
                                                                         <include reference="p6e-c6-QfO"/>
                                                                         <include reference="4JO-gG-FXd"/>
+                                                                        <include reference="g2m-PX-bK7"/>
                                                                     </mask>
                                                                     <mask key="constraints">
-                                                                        <exclude reference="Bg1-9i-Dqc"/>
                                                                         <include reference="RF2-iQ-Q5m"/>
                                                                         <include reference="kpT-fW-2uA"/>
                                                                         <include reference="ylS-Mp-byC"/>
-                                                                        <exclude reference="BCi-m2-fuD"/>
                                                                         <include reference="Z9I-4D-msh"/>
-                                                                        <exclude reference="bu0-RY-Rh0"/>
                                                                         <include reference="eAp-fb-bno"/>
-                                                                        <exclude reference="mCY-jd-ktA"/>
                                                                         <include reference="s2h-Li-8TU"/>
-                                                                        <exclude reference="sI2-S8-Rw7"/>
-                                                                        <exclude reference="32f-cS-otZ"/>
                                                                         <include reference="9Xv-eA-qDJ"/>
                                                                         <include reference="n7W-HV-TmM"/>
-                                                                        <exclude reference="Vp3-3B-CAU"/>
                                                                         <include reference="nNl-oR-hj4"/>
                                                                         <include reference="vdi-Xs-cUB"/>
                                                                         <include reference="5el-g1-4MZ"/>
@@ -467,7 +444,6 @@
                                                                         <include reference="7Mq-Hd-0CA"/>
                                                                         <include reference="Gb5-a2-1At"/>
                                                                         <include reference="V5c-VT-OXH"/>
-                                                                        <exclude reference="Mxs-eO-z9R"/>
                                                                         <include reference="Z9L-va-Awv"/>
                                                                         <include reference="fiH-RZ-Xuf"/>
                                                                         <include reference="nmL-KI-HBY"/>
@@ -758,12 +734,12 @@
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your mood. Keep track of how you’re doing in relevant categories of your life in Journal." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxh-5H-uBf">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your mood and keep track of how you’re doing in various life categories." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxh-5H-uBf">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="272" id="77R-qX-sfk"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="default">
@@ -772,6 +748,7 @@
                                                                             </mask>
                                                                         </variation>
                                                                         <variation key="heightClass=regular-widthClass=compact">
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                                             <mask key="constraints">
                                                                                 <include reference="77R-qX-sfk"/>
                                                                             </mask>
@@ -918,7 +895,7 @@
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold the button down to record your general mood. The longer you hold the better you’re feeling." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8G-eb-bri">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button to record your mood. The better the feeling longer you press." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8G-eb-bri">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="7we-Oj-CJP"/>
@@ -935,7 +912,7 @@
                                                                         </variation>
                                                                         <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
-                                                                                <include reference="7we-Oj-CJP"/>
+                                                                                <exclude reference="7we-Oj-CJP"/>
                                                                                 <include reference="iHS-sl-CAI"/>
                                                                             </mask>
                                                                         </variation>
@@ -989,7 +966,7 @@
                                                                         <include reference="JGI-du-h2O"/>
                                                                         <include reference="bTg-Lw-pv4"/>
                                                                         <include reference="puQ-xS-Qv8"/>
-                                                                        <include reference="vXN-kp-9aV"/>
+                                                                        <exclude reference="vXN-kp-9aV"/>
                                                                     </mask>
                                                                 </variation>
                                                             </view>
@@ -1154,7 +1131,7 @@
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide the icons up and down to reflect how you’re doing in each category. Add a note if you want." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-Nr-127">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust the sliders according to your blank in each category. Long form poetry and accompanying illustration optional." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfP-Nr-127">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="GzG-3K-hC0"/>
@@ -1375,19 +1352,19 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get context" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x7-nl-UOk">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Context" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x7-nl-UOk">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zse-dc-K9i">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate your phone to dig in. What were you doing? How was the weather? How many ‘likes’ did you get?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zse-dc-K9i">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="272" id="6BS-a9-3j8"/>
+                                                                            <constraint firstAttribute="width" constant="272" id="6BS-a9-3j8">
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="240"/>
+                                                                            </constraint>
                                                                         </constraints>
-                                                                        <string key="text">Rotate your phone to see what changed your mood:  where you were, what you did, the weather, how many ‘likes’ you got
-that day etc</string>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -2066,7 +2043,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-5x-Qrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346.5" y="-569.25"/>
+            <point key="canvasLocation" x="-346.5" y="-568.125"/>
         </scene>
         <!--Journal View Controller-->
         <scene sceneID="XJj-7P-gUn">
@@ -2207,7 +2184,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiC-Un-FWP">
                                                 <rect key="frame" x="0.0" y="1" width="400" height="40"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                <state key="normal" title="Add a Comment">
+                                                <state key="normal" title="Add Details">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
