@@ -73,7 +73,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         AMPopTip.appearance().textAlignment = .Center
         
         var titleString = NSMutableAttributedString(string: "Slide up or down")
-        var bodyString = NSMutableAttributedString(string: "\nWhen you rotate your phone sideways you’ll be able to see your inputs over time.")
+        var bodyString = NSMutableAttributedString(string: "\nRotate your phone to see what changed your mood.")
         let titleRange = NSMakeRange(0, countElements(titleString.string))
         let bodyRange = NSMakeRange(0, countElements(bodyString.string))
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
