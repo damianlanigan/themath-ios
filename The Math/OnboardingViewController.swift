@@ -15,7 +15,7 @@ protocol OnboardingViewControllerDelegate {
 
 class OnboardingViewController: UIViewController, CategorySelectionViewControllerDelegate {
     
-    let numberOfPages: CGFloat = 6.0
+    let numberOfPages: CGFloat = 5.0
     
     var delegate: OnboardingViewControllerDelegate?
     

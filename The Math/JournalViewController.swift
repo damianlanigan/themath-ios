@@ -219,7 +219,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         case .Good:
             additionalFeelingTextLabel.text = "Let the good times roll."
         case .Bad:
-            additionalFeelingTextLabel.text = "Somedays just aren’t yours."
+            additionalFeelingTextLabel.text = "Some days just aren’t yours."
         case .Horrible:
             additionalFeelingTextLabel.text = "Let it all out in a comment."
         default:
