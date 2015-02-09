@@ -895,7 +895,7 @@
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button to record your mood. The better the feeling the longer you press." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8G-eb-bri">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button to record your mood. The better you're feeling the longer you press." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8G-eb-bri">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="7we-Oj-CJP"/>
@@ -3372,10 +3372,10 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <exclude reference="aAW-K6-FVb"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="TDb-Pk-njy"/>
                                 <exclude reference="2LM-ve-bb0"/>
                                 <exclude reference="Zmy-8Z-g5x"/>
                                 <exclude reference="ayo-Sg-M5s"/>
-                                <exclude reference="TDb-Pk-njy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -3383,10 +3383,10 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <include reference="aAW-K6-FVb"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="TDb-Pk-njy"/>
                                 <include reference="2LM-ve-bb0"/>
                                 <include reference="Zmy-8Z-g5x"/>
                                 <include reference="ayo-Sg-M5s"/>
-                                <include reference="TDb-Pk-njy"/>
                             </mask>
                         </variation>
                     </view>

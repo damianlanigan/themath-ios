@@ -134,7 +134,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         AMPopTip.appearance().textAlignment = .Center
         
         var titleString = NSMutableAttributedString(string: "Hold Down")
-        var bodyString = NSMutableAttributedString(string: "\nThe longer you hold the better you're feeling.")
+        var bodyString = NSMutableAttributedString(string: "\nThe better you're feeling the longer you press.")
         
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
         let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
