@@ -18,13 +18,6 @@ protocol MoodViewControllerDelegate {
     func shouldReplayOnboarding()
 }
 
-enum MoodPhase: String {
-    case Terrible = "Terrible"
-    case Meh = "Meh"
-    case PrettyGood = "Pretty Good"
-    case Great = "Great"
-}
-
 class MoodViewController: UIViewController, MoodViewDelegate {
     
     
@@ -46,11 +39,6 @@ class MoodViewController: UIViewController, MoodViewDelegate {
     private let animationSpeed: CFTimeInterval = 0.15
     
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
-    
-    private let startColor = UIColor.mood_startColor()
-    private let endColor = UIColor.mood_endColor()
-    
-    private var numberOfMoods = 4
     
     private let gutter: CGFloat = 14.0
     private let initialRadius: CGFloat = 36.0
@@ -252,7 +240,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         }
 
         let perc: CGFloat = CGFloat(currentTime / animationDuration)
-        let currentColor = colorAtPercentage(startColor, color2: endColor, perc: perc)
+        let currentColor = colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
         view.backgroundColor = currentColor
         
         moodLabel.text = moodStringForAnimationPercentage(perc)
@@ -342,7 +330,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         
         // for API
         let percentage = currentTime / animationDuration
-        println("Mood %: \(trunc(percentage * 100))")
+        println("Mood: \(trunc(percentage * 100))%")
         
         delegate?.didEndNewMood()
         

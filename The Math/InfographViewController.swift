@@ -10,22 +10,4 @@ import UIKit
 
 class InfographViewController: UIViewController {
     
-    let numberOfPages: CGFloat = 2.0
-
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    var laid = false
-    
-    override func viewDidLayoutSubviews() {
-        if !laid {
-            contentViewWidthConstraint.constant = view.frame.size.width * numberOfPages
-            contentViewHeightConstraint.constant = view.frame.size.height
-            
-            scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
-        }
-    }
 }
