@@ -12,8 +12,8 @@ import UIKit
 
 class PersonalView: CategoryView {
     
-    init() {
-        super.init(category: Category(type: .Personal))
+    override init(category: Category?) {
+        super.init(category: Category(type: .Health))
     }
     
     required init(coder aDecoder: NSCoder) {

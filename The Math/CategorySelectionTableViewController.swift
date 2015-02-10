@@ -32,7 +32,7 @@ class CategorySelectionTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as CategorySelectionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CategorySelectionTableViewCell
 
         if let categoryIndex = CategoryIndex(rawValue: indexPath.row) {
             cell.categoryNameLabel.text = categoryIndex.categoryName()

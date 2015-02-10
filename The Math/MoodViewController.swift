@@ -139,7 +139,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
         let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
         let titleRange = NSMakeRange(0, 9)
-        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
+        let bodyRange = NSMakeRange(0, count(bodyString.string))
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
         
@@ -380,7 +380,7 @@ class MoodViewController: UIViewController, MoodViewDelegate {
         var titleString = NSMutableAttributedString(string: "Mood saved")
         
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let titleRange = NSMakeRange(0, countElements("Mood saved"))
+        let titleRange = NSMakeRange(0, count("Mood saved"))
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
         

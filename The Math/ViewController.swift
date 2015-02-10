@@ -9,12 +9,14 @@
 //
 
 import UIKit
+import MessageUI
 
 class ViewController: UIViewController,
 JournalViewControllerDelegate,
 MoodViewControllerDelegate,
 OnboardingViewControllerDelegate,
-UIAlertViewDelegate {
+UIAlertViewDelegate,
+MFMailComposeViewControllerDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -220,7 +222,7 @@ UIAlertViewDelegate {
     
     private func presentLoginViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as LoginViewController
+        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as! LoginViewController
         presentViewController(viewController, animated: true, completion: nil)
     }
     
@@ -280,7 +282,7 @@ UIAlertViewDelegate {
     }
     
     func shouldReplayOnboarding() {
-        let alert = UIAlertView(title: "Restart Tutorial", message: "Are you sure you would like to restart the tutorial?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
+        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Replay tutorial", "Submit feedback")
         alert.show()
     }
     

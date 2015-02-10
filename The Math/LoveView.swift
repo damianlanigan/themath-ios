@@ -12,7 +12,7 @@ import UIKit
 
 class LoveView: CategoryView {
 
-    init() {
+    override init(category: Category?) {
         super.init(category: Category(type: .Love))
     }
     

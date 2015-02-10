@@ -59,7 +59,7 @@ class JournalAddDetailsViewController: UIViewController {
         let info = notification.userInfo
         if let userInfo = info {
             if let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-                if let animationDuration: Double = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSValue)? as? Double {
+                if let animationDuration: Double = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSValue) as? Double {
                     
                     let height = keyboardSize.size.height
                     buttonContainerBottomConstraint.constant = height
