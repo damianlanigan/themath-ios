@@ -17,7 +17,7 @@ protocol JournalViewControllerDelegate {
     func didEndCommenting()
 }
 
-class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
+class JournalViewController: GAITrackedViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
     
     @IBOutlet weak var moodDescriptionView: UIView!
     
@@ -58,6 +58,11 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCategories", name: CategoriesDidUpdateNotification, object: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        screenName = "Journal"
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -74,8 +79,8 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         
         var titleString = NSMutableAttributedString(string: "Slide up or down")
         var bodyString = NSMutableAttributedString(string: "\nRotate your phone to see what changed your mood.")
-        let titleRange = NSMakeRange(0, count(titleString.string))
-        let bodyRange = NSMakeRange(0, count(bodyString.string))
+        let titleRange = NSMakeRange(0, countElements(titleString.string))
+        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
         let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
         var paragraphStyle = NSMutableParagraphStyle()
@@ -105,7 +110,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         let categories = CategoryCoordinator.sharedInstance().categories
         let numberOfCategories = categories.count
         for (idx, category) in enumerate(categories) {
-            let view: CategoryView = UIView.viewFromNib("CategoryView") as! CategoryView
+            let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
             view.category = category
             let x = CGFloat(idx) * screenWidth / CGFloat(numberOfCategories)
             let y = CGFloat(0.0)
@@ -128,13 +133,15 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         delegate?.didBeginCommenting()
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as! JournalAddDetailsViewController
+        let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as JournalAddDetailsViewController
         viewController.delegate = self
         presentViewController(viewController, animated: true, completion: nil)
+        
+        Tracker.trackAddNoteButtonTapped()
     }
     
     func updateCategories() {
-        for view in categoryContainerView.subviews as! [UIView] {
+        for view in categoryContainerView.subviews as [UIView] {
             view.removeFromSuperview()
         }
         layoutCategories()
@@ -231,6 +238,7 @@ class JournalViewController: UIViewController, CategoryViewDelegate, JournalAddD
         
         // for API
         println("Category: \(category.type.rawValue) - Feeling \(mood.rawValue)")
+        Tracker.trackCategoryRated(category.type.rawValue, feeling: mood.rawValue)
     }
     
     func didCancelMoodChange() {

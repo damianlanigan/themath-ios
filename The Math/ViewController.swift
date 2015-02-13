@@ -16,7 +16,8 @@ JournalViewControllerDelegate,
 MoodViewControllerDelegate,
 OnboardingViewControllerDelegate,
 UIAlertViewDelegate,
-MFMailComposeViewControllerDelegate {
+MFMailComposeViewControllerDelegate,
+UINavigationControllerDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -43,6 +44,8 @@ MFMailComposeViewControllerDelegate {
     var onOnboarding = true
     
     var isCommenting = false
+    
+    var isSubmittingFeedback = false
     
     lazy var moodViewController: MoodViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -126,6 +129,9 @@ MFMailComposeViewControllerDelegate {
             return false
         }
         if isCommenting {
+            return false
+        }
+        if isSubmittingFeedback {
             return false
         }
         return true
@@ -222,8 +228,19 @@ MFMailComposeViewControllerDelegate {
     
     private func presentLoginViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as! LoginViewController
+        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as LoginViewController
         presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    // MARK: Feedback
+    
+    private func showFeedbackEmail() {
+        let viewController = MFMailComposeViewController()
+        viewController.mailComposeDelegate = self
+        viewController.setSubject("HowAmIDoing Feedback")
+        viewController.setToRecipients(["usehowamidoing@gmail.com"])
+        presentViewController(viewController, animated: true, completion: nil)
+        isSubmittingFeedback = true
     }
     
     
@@ -282,7 +299,7 @@ MFMailComposeViewControllerDelegate {
     }
     
     func shouldReplayOnboarding() {
-        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Replay tutorial", "Submit feedback")
+        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Submit feedback")
         alert.show()
     }
     
@@ -310,11 +327,23 @@ MFMailComposeViewControllerDelegate {
     
     // MARK: <UIAlertViewDelegate>
     
-    
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             showOnboardingController()
+            Tracker.trackReplayOnboarding()
+        } else if buttonIndex == 2 {
+            showFeedbackEmail()
+            Tracker.trackTappedSendFeedbackButton()
         }
+    }
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIAlertViewDelegate>
+
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
+        isSubmittingFeedback = false
     }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\

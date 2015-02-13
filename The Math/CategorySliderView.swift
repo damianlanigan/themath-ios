@@ -30,11 +30,12 @@ class CategorySliderView: RoundView {
         layer.shadowRadius = 7
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+
         delegate?.sliderTouchesBegan()
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         delegate?.sliderTouchesEnded()
     }
 

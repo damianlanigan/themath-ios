@@ -20,6 +20,7 @@ class CategoryCoordinator: NSObject {
             categories.append(Category(type: type))
         }
         NSNotificationCenter.defaultCenter().postNotificationName(CategoriesDidUpdateNotification, object: nil)
+        Tracker.trackNumberOfCategoriesSelected(categories.count)
     }
    
     class func sharedInstance() -> CategoryCoordinator {

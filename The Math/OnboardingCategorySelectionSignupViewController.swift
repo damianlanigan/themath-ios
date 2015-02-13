@@ -63,14 +63,14 @@ class OnboardingCategorySelectionSignupViewController: UIViewController, Categor
     
     func addCategorySelectionViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: CategorySelectionViewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as! CategorySelectionViewController
+        let viewController: CategorySelectionViewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as CategorySelectionViewController
         viewController.delegate = self
         _addContentViewController(viewController, toView: categorySelectionContainer)
     }
     
     func addSignupViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: SignupViewController = storyboard.instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
+        let viewController: SignupViewController = storyboard.instantiateViewControllerWithIdentifier("SignupController") as SignupViewController
         _addContentViewController(viewController, toView: signupContainer)
     }
     

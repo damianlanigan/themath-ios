@@ -8,6 +8,11 @@
 
 import UIKit
 
-class InfographViewController: UIViewController {
+class InfographViewController: GAITrackedViewController {
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        screenName = "Infograph"
+    }
     
 }

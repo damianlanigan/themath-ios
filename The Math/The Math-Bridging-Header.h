@@ -3,3 +3,8 @@
 //
 
 #import <AMPopTip/AMPopTip.h>
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAILogger.h>
+#import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
+#import <GoogleAnalytics-iOS-SDK/GAITracker.h>

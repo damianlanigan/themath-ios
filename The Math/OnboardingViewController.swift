@@ -13,7 +13,7 @@ protocol OnboardingViewControllerDelegate {
     func didTapLoginButton()
 }
 
-class OnboardingViewController: UIViewController, CategorySelectionViewControllerDelegate {
+class OnboardingViewController: GAITrackedViewController, CategorySelectionViewControllerDelegate {
     
     let numberOfPages: CGFloat = 5.0
     
@@ -34,6 +34,11 @@ class OnboardingViewController: UIViewController, CategorySelectionViewControlle
             laid = true
             layoutScrollView()
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        screenName = "Onboarding"
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {

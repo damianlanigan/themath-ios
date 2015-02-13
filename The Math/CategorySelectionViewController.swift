@@ -68,8 +68,10 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     func categorySelectionTableViewDidSelectCategory(viewController: CategorySelectionTableViewController, type: CategoryType) {
         if let idx = find(selectedCategories, type) {
             selectedCategories.removeAtIndex(idx)
+            Tracker.trackCategoryDeselected(type)
         } else {
             selectedCategories.append(type)
+            Tracker.trackCategorySelected(type)
         }
         
         getStartedButton.hidden = selectedCategories.count == 0

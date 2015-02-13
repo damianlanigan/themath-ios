@@ -21,13 +21,18 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AMPopTip (0.7)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - AMPopTip
+  - GoogleAnalytics-iOS-SDK (~> 3.10)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   AMPopTip: dc5bdb3a88bc2ed0a7ac9799e0a5d47c5211721f
+  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
 
 COCOAPODS: 0.35.0

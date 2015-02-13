@@ -41,8 +41,11 @@
 		8DBDA3571A7EE2EC00FA4AEF /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */; };
 		8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
+		8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */; };
+		8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BD1A8ABD2200B03144 /* Fabric.framework */; };
 		8DED66161A7ED36B00327B41 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */; };
 		8DED661D1A7ED40100327B41 /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */; };
+		8DF1274A1A8ACAEB000B5C4A /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF127491A8ACAEB000B5C4A /* Tracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,8 +99,11 @@
 		8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
+		8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		8DE280BD1A8ABD2200B03144 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
+		8DF127491A8ACAEB000B5C4A /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +112,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */,
 				6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */,
+				8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +131,8 @@
 		03AB71A64CC21D0A2B5A4514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */,
+				8DE280BD1A8ABD2200B03144 /* Fabric.framework */,
 				1C8547030B110DFB6DF08D49 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -159,6 +169,7 @@
 			children = (
 				27A542AE1A48BA4300CC7CA6 /* Category.swift */,
 				8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */,
+				8DF127491A8ACAEB000B5C4A /* Tracker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 				27D411BA1A48710F008ACC14 /* Frameworks */,
 				27D411BB1A48710F008ACC14 /* Resources */,
 				C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */,
+				8DE280BB1A8ABCE200B03144 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -412,6 +424,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		8DE280BB1A8ABCE200B03144 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 6269cd422f0592884da208d04a5215b3c1c0c1b9 4399a2698828ab36d83cb0c5f0a51ca80dbfb17b2dfc8fe168b7c1860ee902b8";
+		};
 		C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +463,7 @@
 				27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */,
 				27B3716F1A50B78500A113AB /* HealthView.swift in Sources */,
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
+				8DF1274A1A8ACAEB000B5C4A /* Tracker.swift in Sources */,
 				2708DEE31A5C334800D99A28 /* Images.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
@@ -590,7 +616,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "The Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
@@ -625,7 +654,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "The Math/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (

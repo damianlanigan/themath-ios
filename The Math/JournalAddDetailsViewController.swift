@@ -39,9 +39,11 @@ class JournalAddDetailsViewController: UIViewController {
     
     @IBAction func addPhotoButtonTapped(sender: AnyObject) {
         // show action sheet. take photo or select from library
+        Tracker.trackAddNoteAttachImageTapped()
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
+        Tracker.trackAddNoteSaveButtonTapped()
         detailTextView.resignFirstResponder()
         delegate?.didSaveJournalDetails()
     }
