@@ -330,10 +330,10 @@ UINavigationControllerDelegate {
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             showOnboardingController()
-            Tracker.trackReplayOnboarding()
+            Tracker.track("onboarding", action: "replayed", label: "")
         } else if buttonIndex == 2 {
             showFeedbackEmail()
-            Tracker.trackTappedSendFeedbackButton()
+            Tracker.track("send feedback", action: "tapped", label: "")
         }
     }
     

@@ -137,7 +137,7 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         viewController.delegate = self
         presentViewController(viewController, animated: true, completion: nil)
         
-        Tracker.trackAddNoteButtonTapped()
+        Tracker.track("add a note", action: "presented", label: "")
     }
     
     func updateCategories() {
@@ -238,7 +238,8 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         
         // for API
         println("Category: \(category.type.rawValue) - Feeling \(mood.rawValue)")
-        Tracker.trackCategoryRated(category.type.rawValue, feeling: mood.rawValue)
+        
+        Tracker.track("category rated", action: category.type.rawValue, label: mood.rawValue)
     }
     
     func didCancelMoodChange() {

@@ -337,7 +337,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         let percentage = trunc(currentTime / animationDuration * 100)
         println("Mood: \(percentage)%")
         
-        Tracker.trackMoodSet(percentage)
+        Tracker.track("mood", action: "set", label: "\(percentage)%")
         
         delegate?.didEndNewMood()
         
