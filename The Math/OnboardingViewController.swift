@@ -12,7 +12,7 @@ protocol OnboardingViewControllerDelegate {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
-class OnboardingViewController: GAITrackedViewController, CategorySelectionViewControllerDelegate {
+class OnboardingViewController: GAITrackedViewController, CategorySelectionViewControllerDelegate, UIScrollViewDelegate {
     
     let numberOfPages: CGFloat = 2.0
     let numberOfSubPages: CGFloat = 5.0
@@ -20,20 +20,14 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     var delegate: OnboardingViewControllerDelegate?
     
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var subContentViewWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var subContentViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var subScrollView: UIScrollView!
     
     var laid = false
-    
-    var tableOffset: CGFloat = 0.0
     
     override func viewDidLayoutSubviews() {
         if !laid {
@@ -49,6 +43,10 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
 
     @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
         showCategorySelectionViewController()
+    }
+    
+    @IBAction func existingUserButtonTapped(sender: AnyObject) {
+        
     }
     
     private func layoutScrollView() {
