@@ -81,6 +81,9 @@ UINavigationControllerDelegate {
         
         showMoodController()
         
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!], forState: .Normal)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
     }

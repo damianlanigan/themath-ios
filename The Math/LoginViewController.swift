@@ -16,8 +16,6 @@ class LoginViewController: AuthViewController {
    
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var forgotPasswordLabel: UILabel!
-    
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
     var laid = false
@@ -28,6 +26,10 @@ class LoginViewController: AuthViewController {
     
     @IBAction func loginButtonTapped(sender: UIButton) {
         delegate?.userDidLogin()
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
     
     override func viewWillAppear(animated: Bool) {

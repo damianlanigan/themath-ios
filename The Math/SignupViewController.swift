@@ -9,5 +9,9 @@
 import UIKit
 
 class SignupViewController: AuthViewController {
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
    
 }

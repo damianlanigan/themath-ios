@@ -1521,6 +1521,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                                         </variation>
                                                                         <connections>
                                                                             <action selector="selectCategoriesButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="eAk-ZV-Z3h"/>
+                                                                            <segue destination="Ca3-zE-Eun" kind="presentation" id="dVj-Wo-reX"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1848,7 +1849,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-5x-Qrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346.5" y="-568.5"/>
+            <point key="canvasLocation" x="-559.5" y="-564"/>
         </scene>
         <!--Journal View Controller-->
         <scene sceneID="XJj-7P-gUn">
@@ -2296,23 +2297,23 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                         <exclude reference="Pmz-Fk-MG9"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="6aa-IJ-LJb"/>
-                                        <exclude reference="j5L-av-UUw"/>
-                                        <exclude reference="VR6-Ur-3N5"/>
-                                        <exclude reference="YW2-dY-sog"/>
-                                        <exclude reference="hjH-N8-8Ja"/>
                                         <exclude reference="4fP-VD-pSz"/>
                                         <exclude reference="7LK-RD-p0N"/>
-                                        <exclude reference="LdP-zi-7sM"/>
-                                        <exclude reference="PWf-dO-aCC"/>
-                                        <exclude reference="iT5-bZ-Fhk"/>
+                                        <exclude reference="6aa-IJ-LJb"/>
+                                        <exclude reference="j5L-av-UUw"/>
+                                        <exclude reference="2wW-Wh-pTl"/>
+                                        <exclude reference="kQd-L7-52w"/>
                                         <exclude reference="BGD-M6-K51"/>
                                         <exclude reference="f2E-WL-u7N"/>
                                         <exclude reference="fdw-Vg-CZ6"/>
                                         <exclude reference="myp-65-cw7"/>
                                         <exclude reference="oMK-eV-0xi"/>
-                                        <exclude reference="2wW-Wh-pTl"/>
-                                        <exclude reference="kQd-L7-52w"/>
+                                        <exclude reference="VR6-Ur-3N5"/>
+                                        <exclude reference="YW2-dY-sog"/>
+                                        <exclude reference="hjH-N8-8Ja"/>
+                                        <exclude reference="LdP-zi-7sM"/>
+                                        <exclude reference="PWf-dO-aCC"/>
+                                        <exclude reference="iT5-bZ-Fhk"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -2325,23 +2326,23 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                         <include reference="Pmz-Fk-MG9"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="6aa-IJ-LJb"/>
-                                        <include reference="j5L-av-UUw"/>
-                                        <include reference="VR6-Ur-3N5"/>
-                                        <include reference="YW2-dY-sog"/>
-                                        <include reference="hjH-N8-8Ja"/>
                                         <include reference="4fP-VD-pSz"/>
                                         <include reference="7LK-RD-p0N"/>
-                                        <include reference="LdP-zi-7sM"/>
-                                        <include reference="PWf-dO-aCC"/>
-                                        <include reference="iT5-bZ-Fhk"/>
+                                        <include reference="6aa-IJ-LJb"/>
+                                        <include reference="j5L-av-UUw"/>
+                                        <include reference="2wW-Wh-pTl"/>
+                                        <include reference="kQd-L7-52w"/>
                                         <include reference="BGD-M6-K51"/>
                                         <include reference="f2E-WL-u7N"/>
                                         <include reference="fdw-Vg-CZ6"/>
                                         <include reference="myp-65-cw7"/>
                                         <include reference="oMK-eV-0xi"/>
-                                        <include reference="2wW-Wh-pTl"/>
-                                        <include reference="kQd-L7-52w"/>
+                                        <include reference="VR6-Ur-3N5"/>
+                                        <include reference="YW2-dY-sog"/>
+                                        <include reference="hjH-N8-8Ja"/>
+                                        <include reference="LdP-zi-7sM"/>
+                                        <include reference="PWf-dO-aCC"/>
+                                        <include reference="iT5-bZ-Fhk"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -2689,230 +2690,25 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-bT-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="-1276.5"/>
+            <point key="canvasLocation" x="1605" y="-1251"/>
         </scene>
-        <!--Onboarding Category Selection Signup View Controller-->
-        <scene sceneID="HyP-ce-c13">
+        <!--Navigation Controller-->
+        <scene sceneID="jXa-Kp-hXe">
             <objects>
-                <viewController storyboardIdentifier="CategorySignup" id="QUU-YE-9IC" customClass="OnboardingCategorySelectionSignupViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vFX-I8-rjp"/>
-                        <viewControllerLayoutGuide type="bottom" id="NW2-36-OQB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RzO-5T-9Jx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-gO-VPD">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VR-Aj-yrg" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SzL-hM-KsY" userLabel="Sign Up">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTQ-OI-Vz2" userLabel="Category Selection">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.32303860947188034" green="1" blue="0.30909361793626278" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="800" id="3aZ-Tg-gDE"/>
-                                            <constraint firstItem="PTQ-OI-Vz2" firstAttribute="width" secondItem="SzL-hM-KsY" secondAttribute="width" id="3cS-yx-eWg"/>
-                                            <constraint firstItem="PTQ-OI-Vz2" firstAttribute="leading" secondItem="7VR-Aj-yrg" secondAttribute="leading" id="4xa-ZO-50p"/>
-                                            <constraint firstAttribute="height" constant="800" id="Dxm-Yg-I5w"/>
-                                            <constraint firstItem="PTQ-OI-Vz2" firstAttribute="top" secondItem="7VR-Aj-yrg" secondAttribute="top" id="E4Q-fo-bdj"/>
-                                            <constraint firstItem="SzL-hM-KsY" firstAttribute="top" secondItem="7VR-Aj-yrg" secondAttribute="top" id="Oia-sK-RyO"/>
-                                            <constraint firstAttribute="trailing" secondItem="SzL-hM-KsY" secondAttribute="trailing" id="RAC-Dk-nDc"/>
-                                            <constraint firstItem="SzL-hM-KsY" firstAttribute="leading" secondItem="PTQ-OI-Vz2" secondAttribute="trailing" id="Unn-jk-XrK"/>
-                                            <constraint firstAttribute="bottom" secondItem="PTQ-OI-Vz2" secondAttribute="bottom" id="oPP-Kl-LjS"/>
-                                            <constraint firstAttribute="bottom" secondItem="SzL-hM-KsY" secondAttribute="bottom" id="q2E-1A-E54"/>
-                                            <constraint firstItem="SzL-hM-KsY" firstAttribute="leading" secondItem="PTQ-OI-Vz2" secondAttribute="trailing" id="rPc-XH-ZCF"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="SzL-hM-KsY"/>
-                                                <exclude reference="PTQ-OI-Vz2"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="3aZ-Tg-gDE"/>
-                                                <exclude reference="Dxm-Yg-I5w"/>
-                                                <exclude reference="3cS-yx-eWg"/>
-                                                <exclude reference="4xa-ZO-50p"/>
-                                                <exclude reference="E4Q-fo-bdj"/>
-                                                <exclude reference="oPP-Kl-LjS"/>
-                                                <exclude reference="Oia-sK-RyO"/>
-                                                <exclude reference="RAC-Dk-nDc"/>
-                                                <exclude reference="Unn-jk-XrK"/>
-                                                <exclude reference="q2E-1A-E54"/>
-                                                <exclude reference="rPc-XH-ZCF"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="SzL-hM-KsY"/>
-                                                <include reference="PTQ-OI-Vz2"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <include reference="3aZ-Tg-gDE"/>
-                                                <include reference="Dxm-Yg-I5w"/>
-                                                <include reference="3cS-yx-eWg"/>
-                                                <include reference="4xa-ZO-50p"/>
-                                                <include reference="E4Q-fo-bdj"/>
-                                                <include reference="oPP-Kl-LjS"/>
-                                                <include reference="Oia-sK-RyO"/>
-                                                <include reference="RAC-Dk-nDc"/>
-                                                <include reference="Unn-jk-XrK"/>
-                                                <include reference="q2E-1A-E54"/>
-                                                <include reference="rPc-XH-ZCF"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="7VR-Aj-yrg" firstAttribute="top" secondItem="TYQ-gO-VPD" secondAttribute="top" id="5eY-N4-Rsg"/>
-                                    <constraint firstItem="7VR-Aj-yrg" firstAttribute="leading" secondItem="TYQ-gO-VPD" secondAttribute="leading" id="RRS-ac-xhx"/>
-                                    <constraint firstAttribute="bottom" secondItem="7VR-Aj-yrg" secondAttribute="bottom" id="Xnw-hp-crD"/>
-                                    <constraint firstAttribute="trailing" secondItem="7VR-Aj-yrg" secondAttribute="trailing" id="kYe-Ou-VRd"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="7VR-Aj-yrg"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="5eY-N4-Rsg"/>
-                                        <exclude reference="RRS-ac-xhx"/>
-                                        <exclude reference="Xnw-hp-crD"/>
-                                        <exclude reference="kYe-Ou-VRd"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="7VR-Aj-yrg"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="5eY-N4-Rsg"/>
-                                        <include reference="RRS-ac-xhx"/>
-                                        <include reference="Xnw-hp-crD"/>
-                                        <include reference="kYe-Ou-VRd"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-bG-d76">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="cev-uh-PoZ"/>
-                                    <constraint firstAttribute="width" constant="76" id="dJl-Cy-Lg7"/>
-                                </constraints>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="cev-uh-PoZ"/>
-                                        <exclude reference="dJl-Cy-Lg7"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="cev-uh-PoZ"/>
-                                        <include reference="dJl-Cy-Lg7"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="QUU-YE-9IC" eventType="touchUpInside" id="Fex-jM-iPW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-jl-hcb">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="bgC-Xz-frX"/>
-                                    <constraint firstAttribute="width" constant="76" id="r0Z-bu-DdP"/>
-                                </constraints>
-                                <state key="normal" title="Log In">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bgC-Xz-frX"/>
-                                        <exclude reference="r0Z-bu-DdP"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="bgC-Xz-frX"/>
-                                        <include reference="r0Z-bu-DdP"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="loginButtonTapped:" destination="QUU-YE-9IC" eventType="touchUpInside" id="nfT-sL-6V8"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NW2-36-OQB" firstAttribute="top" secondItem="TYQ-gO-VPD" secondAttribute="bottom" id="9hR-Kx-5k1"/>
-                            <constraint firstItem="dLh-bG-d76" firstAttribute="leading" secondItem="RzO-5T-9Jx" secondAttribute="leading" constant="8" id="DnJ-P6-fhA"/>
-                            <constraint firstItem="Dak-jl-hcb" firstAttribute="top" secondItem="RzO-5T-9Jx" secondAttribute="topMargin" constant="8" id="EwT-CW-AGg"/>
-                            <constraint firstAttribute="trailing" secondItem="TYQ-gO-VPD" secondAttribute="trailing" id="PEh-i8-87C"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dak-jl-hcb" secondAttribute="trailing" constant="-8" id="ZRM-6k-N1v"/>
-                            <constraint firstItem="TYQ-gO-VPD" firstAttribute="leading" secondItem="RzO-5T-9Jx" secondAttribute="leading" id="dEO-B9-mqg"/>
-                            <constraint firstItem="dLh-bG-d76" firstAttribute="top" secondItem="RzO-5T-9Jx" secondAttribute="top" constant="8" id="f1v-c3-FYa"/>
-                            <constraint firstItem="TYQ-gO-VPD" firstAttribute="top" secondItem="RzO-5T-9Jx" secondAttribute="top" id="nY7-zK-Zi4"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="TYQ-gO-VPD"/>
-                                <exclude reference="dLh-bG-d76"/>
-                                <exclude reference="Dak-jl-hcb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="9hR-Kx-5k1"/>
-                                <exclude reference="EwT-CW-AGg"/>
-                                <exclude reference="ZRM-6k-N1v"/>
-                                <exclude reference="DnJ-P6-fhA"/>
-                                <exclude reference="f1v-c3-FYa"/>
-                                <exclude reference="PEh-i8-87C"/>
-                                <exclude reference="dEO-B9-mqg"/>
-                                <exclude reference="nY7-zK-Zi4"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="TYQ-gO-VPD"/>
-                                <include reference="dLh-bG-d76"/>
-                                <include reference="Dak-jl-hcb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="9hR-Kx-5k1"/>
-                                <include reference="EwT-CW-AGg"/>
-                                <include reference="ZRM-6k-N1v"/>
-                                <include reference="DnJ-P6-fhA"/>
-                                <include reference="f1v-c3-FYa"/>
-                                <include reference="PEh-i8-87C"/>
-                                <include reference="dEO-B9-mqg"/>
-                                <include reference="nY7-zK-Zi4"/>
-                            </mask>
-                        </variation>
-                    </view>
+                <navigationController id="Ca3-zE-Eun" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4ZH-xp-8wY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
                     <connections>
-                        <outlet property="backButton" destination="dLh-bG-d76" id="99g-Yc-jf4"/>
-                        <outlet property="categorySelectionContainer" destination="PTQ-OI-Vz2" id="lEb-2a-mUF"/>
-                        <outlet property="contentViewHeightConstraint" destination="Dxm-Yg-I5w" id="O7l-7c-GWY"/>
-                        <outlet property="contentViewWidthConstraint" destination="3aZ-Tg-gDE" id="eQy-yg-WTg"/>
-                        <outlet property="loginButton" destination="Dak-jl-hcb" id="KOF-xA-xhj"/>
-                        <outlet property="scrollView" destination="TYQ-gO-VPD" id="5hD-8d-O8A"/>
-                        <outlet property="signupContainer" destination="SzL-hM-KsY" id="H1V-mY-L9W"/>
+                        <segue destination="44P-Ae-gel" kind="relationship" relationship="rootViewController" id="BSE-M0-wBb"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fAp-DG-86V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKM-S6-owT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295.5" y="-569.25"/>
+            <point key="canvasLocation" x="189" y="-599.25"/>
         </scene>
-        <!--Category Selection View Controller-->
+        <!--Categories-->
         <scene sceneID="m7p-Dg-C2E">
             <objects>
                 <viewController storyboardIdentifier="CategorySelection" id="44P-Ae-gel" customClass="CategorySelectionViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
@@ -2953,6 +2749,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </variation>
                                 <connections>
                                     <action selector="getStartedButtonTapped:" destination="44P-Ae-gel" eventType="touchUpInside" id="azs-5I-INX"/>
+                                    <segue destination="oNh-u3-zVN" kind="show" id="YTe-Bb-gOo"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qM-jI-gcz">
@@ -3007,6 +2804,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             <constraint firstAttribute="trailing" secondItem="NtX-UC-QD7" secondAttribute="trailing" id="mcV-Ra-4aD"/>
                             <constraint firstItem="d4J-kh-eUm" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="o9u-rr-d0n"/>
                             <constraint firstItem="NtX-UC-QD7" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="oSy-WJ-lib"/>
+                            <constraint firstItem="NtX-UC-QD7" firstAttribute="top" secondItem="Evk-br-Bqw" secondAttribute="topMargin" id="qUy-cf-NiZ"/>
                             <constraint firstItem="2qM-jI-gcz" firstAttribute="leading" secondItem="Evk-br-Bqw" secondAttribute="leading" id="tcW-0Q-VMS"/>
                             <constraint firstAttribute="trailing" secondItem="d4J-kh-eUm" secondAttribute="trailing" id="uEB-nG-2gk"/>
                         </constraints>
@@ -3028,6 +2826,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <exclude reference="HEY-zR-kfy"/>
                                 <exclude reference="mcV-Ra-4aD"/>
                                 <exclude reference="oSy-WJ-lib"/>
+                                <exclude reference="qUy-cf-NiZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -3045,12 +2844,14 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <include reference="Nb6-qP-szx"/>
                                 <include reference="ciS-gc-ttZ"/>
                                 <include reference="tcW-0Q-VMS"/>
-                                <include reference="HEY-zR-kfy"/>
+                                <exclude reference="HEY-zR-kfy"/>
                                 <include reference="mcV-Ra-4aD"/>
                                 <include reference="oSy-WJ-lib"/>
+                                <include reference="qUy-cf-NiZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Categories" id="yhj-aY-m9Q"/>
                     <connections>
                         <outlet property="contentContainerView" destination="NtX-UC-QD7" id="LF2-5a-Ic8"/>
                         <outlet property="getStartedButton" destination="d4J-kh-eUm" id="o0I-On-rt8"/>
@@ -3060,7 +2861,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUH-fg-Qbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927" y="-569.25"/>
+            <point key="canvasLocation" x="1182" y="-555"/>
         </scene>
         <!--Category Selection Table View Controller-->
         <scene sceneID="fYQ-HD-L0G">
@@ -3179,7 +2980,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWe-tf-qik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1611" y="-564"/>
+            <point key="canvasLocation" x="1917" y="-550.5"/>
         </scene>
         <!--Infograph View Controller-->
         <scene sceneID="3Yv-Rn-mI9">
@@ -3230,7 +3031,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1Y-iI-4v0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2321" y="-447"/>
+            <point key="canvasLocation" x="3256.5" y="-589.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">

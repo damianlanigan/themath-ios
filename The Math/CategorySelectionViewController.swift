@@ -32,7 +32,6 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         super.viewWillAppear(animated)
         
         loadCategorySelectionTableView()
-        formatHeaderView()
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
@@ -47,20 +46,8 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         _addContentViewController(viewController!, toView: contentContainerView)
     }
     
-    func formatHeaderView() {
-        headerView.layer.shadowColor = UIColor.blackColor().CGColor
-        headerView.layer.shadowOpacity = 0.1
-        headerView.layer.shadowOffset = CGSizeMake(0.0, 1.0)
-        headerView.layer.shadowRadius = 2.0
-        view.bringSubviewToFront(headerView)
-    }
-    
     override func shouldAutorotate() -> Bool {
         return false
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
     
     // MARK: <CategorySelectionTableViewControllerDelegate>
@@ -75,9 +62,7 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         }
         
         getStartedButton.hidden = selectedCategories.count == 0
-//        getStartedButtonHeightConstraint.constant = getStartedButton.hidden ? 0 : 49
         viewController.tableView.contentInset.bottom = 49
-//        viewController.tableView.contentOffset.y = getStartedButton.hidden ? viewController.tableView.contentOffset.y : viewController.tableView.contentOffset.y - 49
     }
 
 }
