@@ -8,13 +8,47 @@
 
 import UIKit
 
-protocol AuthViewControllerDelegate {
-    func userDidLogin()
-    func userDidSignup()
+@objc protocol AuthViewControllerDelegate {
+    optional func userDidLogin()
+    optional func userDidSignup()
 }
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, UITextFieldDelegate {
 
-    var delegate: AuthViewControllerDelegate?
+    weak var delegate: AuthViewControllerDelegate?
     
+    var focusedTextField: UITextField?
+    
+    @IBOutlet weak var emailField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        emailField.delegate = self
+        passwordField.delegate = self
+    }
+    
+    // MARK: <UITextFieldDelegate>
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        focusedTextField = textField
+        println(focusedTextField)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let textField = focusedTextField {
+            if textField == emailField {
+                passwordField.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+                focusedTextField = nil
+            }
+        }
+        return true
+    }
 }

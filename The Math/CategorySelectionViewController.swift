@@ -28,10 +28,11 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     
     var laid = false
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        loadCategorySelectionTableView()
+    override func viewDidLayoutSubviews() {
+        if !laid {
+            laid = true
+            loadCategorySelectionTableView()
+        }
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
@@ -62,7 +63,7 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
         }
         
         getStartedButton.hidden = selectedCategories.count == 0
-        viewController.tableView.contentInset.bottom = 49
+        viewController.tableView.contentInset.bottom = 50
     }
 
 }

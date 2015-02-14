@@ -10,10 +10,6 @@ import UIKit
 
 class LoginViewController: AuthViewController {
     
-    @IBOutlet weak var emailField: UITextField!
-    
-    @IBOutlet weak var passwordField: UITextField!
-   
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var forgotPasswordButton: UIButton!
@@ -25,11 +21,7 @@ class LoginViewController: AuthViewController {
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        delegate?.userDidLogin()
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return false
+        delegate?.userDidLogin?()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,12 +48,11 @@ class LoginViewController: AuthViewController {
             NSFontAttributeName : boldFont
             ], range: boldRange)
         
-//        forgotPasswordLabel.attributedText = string
-        
         forgotPasswordButton.setAttributedTitle(string, forState: .Normal)
     }
     
     func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
 }

@@ -19,7 +19,7 @@ class BorderedView: UIView {
             laid = true
             let color = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).CGColor
             let height = 1.0 / UIScreen.mainScreen().scale
-            println(height)
+            
             let topLayer = CALayer()
             topLayer.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, height)
             topLayer.backgroundColor = color
