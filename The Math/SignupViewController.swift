@@ -17,12 +17,9 @@ class SignupViewController: AuthViewController {
         createAccountButton.layer.cornerRadius = 6.0
     }
     
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-   
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
         println("create account")
+        delegate?.userDidSignup?()
     }
 
 }

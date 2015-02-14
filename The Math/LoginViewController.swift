@@ -51,6 +51,10 @@ class LoginViewController: AuthViewController {
         forgotPasswordButton.setAttributedTitle(string, forState: .Normal)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
     func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }

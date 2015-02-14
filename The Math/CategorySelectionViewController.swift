@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CategorySelectionViewControllerDelegate {
+protocol CategorySelectionViewControllerDelegate: class {
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType])
 }
 
@@ -24,7 +24,7 @@ class CategorySelectionViewController: UIViewController, CategorySelectionTableV
     
     var selectedCategories = [CategoryType]()
     
-    var delegate: CategorySelectionViewControllerDelegate?
+    weak var delegate: CategorySelectionViewControllerDelegate?
     
     var laid = false
 

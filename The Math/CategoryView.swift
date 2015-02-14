@@ -10,7 +10,7 @@
 
 import UIKit
 
-protocol CategoryViewDelegate {
+protocol CategoryViewDelegate: class {
     func didChangeMoodForCategory(mood: Mood, category: Category)
     func didBeginMoodChangeForCategory(category: Category)
     func didEndMoodChangeForCategory(mood: Mood, category: Category)
@@ -44,7 +44,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         }
     }
     
-    var delegate: CategoryViewDelegate?
+    weak var delegate: CategoryViewDelegate?
     
     var levelImageView: UIImageView?
     
@@ -59,6 +59,10 @@ class CategoryView: UIView, CategorySliderViewDelegate {
     init(category: Category) {
         self.category = category
         super.init()
+    }
+    
+    deinit {
+        println("bye bye")
     }
     
     required init(coder aDecoder: NSCoder) {

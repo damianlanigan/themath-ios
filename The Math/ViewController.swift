@@ -321,12 +321,10 @@ UINavigationControllerDelegate {
                 viewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
             }) { (done: Bool) -> Void in
                 self._removeContentViewController(viewController)
+                self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
-    
-    func didTapLoginButton() {
-        self.presentLoginViewController()
-    }
+
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     

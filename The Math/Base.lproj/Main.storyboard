@@ -280,7 +280,6 @@
                                                             </mask>
                                                         </variation>
                                                         <connections>
-                                                            <action selector="existingUserButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="tPd-vK-9YA"/>
                                                             <segue destination="Lgr-ll-z7b" kind="presentation" id="bHI-fo-gKE"/>
                                                         </connections>
                                                     </button>
@@ -1642,7 +1641,6 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                                             </mask>
                                                                         </variation>
                                                                         <connections>
-                                                                            <action selector="selectCategoriesButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="eAk-ZV-Z3h"/>
                                                                             <segue destination="Ca3-zE-Eun" kind="presentation" id="dVj-Wo-reX"/>
                                                                         </connections>
                                                                     </button>
@@ -2214,7 +2212,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <viewControllerLayoutGuide type="bottom" id="3EF-WN-pux"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Aup-sg-wZZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uh-6S-rJl">

@@ -8,18 +8,19 @@
 
 import UIKit
 
-protocol OnboardingViewControllerDelegate {
+protocol OnboardingViewControllerDelegate: class {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
 class OnboardingViewController: GAITrackedViewController,
     CategorySelectionViewControllerDelegate,
-    UIScrollViewDelegate {
+    UIScrollViewDelegate,
+    AuthViewControllerDelegate {
     
     let numberOfPages: CGFloat = 2.0
     let numberOfSubPages: CGFloat = 5.0
     
-    var delegate: OnboardingViewControllerDelegate?
+    weak var delegate: OnboardingViewControllerDelegate?
     
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
@@ -48,13 +49,15 @@ class OnboardingViewController: GAITrackedViewController,
         newUserButton.layer.borderWidth = 2.0
         newUserButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
-
-    @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
-        showCategorySelectionViewController()
-    }
     
-    @IBAction func existingUserButtonTapped(sender: AnyObject) {
-        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let navController = segue.destinationViewController as? UINavigationController {
+            if let viewController = navController.viewControllers[0] as? LoginViewController {
+                viewController.delegate = self
+            } else if let viewController = navController.viewControllers[0] as? SignupCategorySelectionViewController {
+                viewController.delegate = self
+            }
+        }
     }
     
     @IBAction func newUserButtonTapped(sender: AnyObject) {
@@ -78,13 +81,6 @@ class OnboardingViewController: GAITrackedViewController,
         scrollView.delegate = self
     }
     
-    private func showCategorySelectionViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as? CategorySelectionViewController
-        viewController?.delegate = self
-        presentViewController(viewController!, animated: true, completion: nil)
-    }
-    
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
         delegate?.didFinishOnboarding(self)
         dismissViewControllerAnimated(true, completion: nil)
@@ -96,6 +92,16 @@ class OnboardingViewController: GAITrackedViewController,
         if scrollView == self.scrollView && scrollView.contentOffset.y == 0 {
             scrollView.scrollEnabled = false
         }
+    }
+    
+    // MARK: <AuthViewControllerDelegate>
+    
+    func userDidLogin() {
+        delegate?.didFinishOnboarding(self)
+    }
+    
+    func userDidSignup() {
+        delegate?.didFinishOnboarding(self)
     }
     
 }
