@@ -15,12 +15,10 @@ class CategoryCoordinator: NSObject {
     var categories = [Category]()
     
     func updateCategories(types: [CategoryType]) {
-        categories = [Category]()
-        for type in types {
-            categories.append(Category(type: type))
-        }
-        NSNotificationCenter.defaultCenter().postNotificationName(CategoriesDidUpdateNotification, object: nil)
+        let categories: [Category] = types.map({ Category(type: $0) })
         Tracker.track("categories", action: "selected", label: "\(categories.count)")
+        NSNotificationCenter.defaultCenter().postNotificationName(CategoriesDidUpdateNotification, object: nil)
+
     }
    
     class func sharedInstance() -> CategoryCoordinator {
