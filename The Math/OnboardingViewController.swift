@@ -10,12 +10,12 @@ import UIKit
 
 protocol OnboardingViewControllerDelegate {
     func didFinishOnboarding(viewController: OnboardingViewController)
-    func didTapLoginButton()
 }
 
 class OnboardingViewController: GAITrackedViewController, CategorySelectionViewControllerDelegate {
     
-    let numberOfPages: CGFloat = 5.0
+    let numberOfPages: CGFloat = 2.0
+    let numberOfSubPages: CGFloat = 5.0
     
     var delegate: OnboardingViewControllerDelegate?
     
@@ -23,7 +23,13 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var subContentViewWidthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var subContentViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var subScrollView: UIScrollView!
     
     var laid = false
     
@@ -40,11 +46,7 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
         super.viewWillAppear(animated)
         screenName = "Onboarding"
     }
-    
-    @IBAction func loginButtonTapped(sender: UIButton) {
-        delegate?.didTapLoginButton()
-    }
-    
+
     @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
         showCategorySelectionViewController()
     }
@@ -52,7 +54,11 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     private func layoutScrollView() {
         contentViewWidthConstraint.constant = view.frame.size.width
         contentViewHeightConstraint.constant = view.frame.size.height * numberOfPages
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height * numberOfPages)
+        subContentViewWidthConstraint.constant = view.frame.size.width
+        subContentViewHeightConstraint.constant = view.frame.size.height * numberOfSubPages
+        
+        scrollView.contentSize = CGSizeMake(view.frame.size.width, contentViewHeightConstraint.constant)
+        subScrollView.contentSize = CGSizeMake(view.frame.size.width, subContentViewHeightConstraint.constant)
     }
     
     private func showCategorySelectionViewController() {

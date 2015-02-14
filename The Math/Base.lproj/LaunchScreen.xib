@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -58,13 +58,13 @@
                             <exclude reference="WVX-u4-Na3"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="1qj-WX-6rz"/>
-                            <exclude reference="6hh-zx-VpW"/>
-                            <exclude reference="WBy-LY-diZ"/>
                             <exclude reference="2bg-1L-wKI"/>
                             <exclude reference="8OQ-ry-tqq"/>
                             <exclude reference="XyX-Wn-otF"/>
                             <exclude reference="bKj-BF-myA"/>
+                            <exclude reference="1qj-WX-6rz"/>
+                            <exclude reference="6hh-zx-VpW"/>
+                            <exclude reference="WBy-LY-diZ"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -73,13 +73,13 @@
                             <include reference="WVX-u4-Na3"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="1qj-WX-6rz"/>
-                            <include reference="6hh-zx-VpW"/>
-                            <include reference="WBy-LY-diZ"/>
                             <include reference="2bg-1L-wKI"/>
                             <include reference="8OQ-ry-tqq"/>
                             <include reference="XyX-Wn-otF"/>
                             <include reference="bKj-BF-myA"/>
+                            <include reference="1qj-WX-6rz"/>
+                            <include reference="6hh-zx-VpW"/>
+                            <include reference="WBy-LY-diZ"/>
                         </mask>
                     </variation>
                 </view>
