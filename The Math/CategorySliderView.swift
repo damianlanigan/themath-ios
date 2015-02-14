@@ -10,7 +10,7 @@
 
 import UIKit
 
-protocol CategorySliderViewDelegate {
+protocol CategorySliderViewDelegate: class {
     func sliderTouchesBegan()
     func sliderTouchesEnded()
 }
@@ -19,7 +19,7 @@ class CategorySliderView: RoundView {
     
     @IBOutlet var sliderCategoryIconView: UIImageView!
     
-    var delegate: CategorySliderViewDelegate?
+    weak var delegate: CategorySliderViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()

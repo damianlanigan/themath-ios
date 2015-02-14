@@ -23,11 +23,7 @@ class SignupCategorySelectionViewController: UIViewController,
     var laid = false
     
     weak var delegate: AuthViewControllerDelegate?
-    
-    deinit {
-        println("bye !!!!!!!")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Categories"
@@ -56,9 +52,9 @@ class SignupCategorySelectionViewController: UIViewController,
     
     private func addSignupViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("SignupController") as SignupViewController
-        viewController.delegate = self
-        _addContentViewController(viewController, toView: signupContainerView)
+        signupController = storyboard.instantiateViewControllerWithIdentifier("SignupController") as? SignupViewController
+        signupController?.delegate = self
+        _addContentViewController(signupController!, toView: signupContainerView)
     }
     
     private func navigateToSignUp() {
@@ -68,7 +64,7 @@ class SignupCategorySelectionViewController: UIViewController,
     }
     
     func navigateToCategories() {
-//        signupController!.focusedTextField?.resignFirstResponder()
+        signupController!.focusedTextField?.resignFirstResponder()
         scrollView.setContentOffset(CGPointZero, animated: true)
         navigationItem.leftBarButtonItem = nil
         navigationItem.title = "Categories"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CategorySelectionTableViewControllerDelegate {
+protocol CategorySelectionTableViewControllerDelegate: class {
     func categorySelectionTableViewDidSelectCategory(viewController: CategorySelectionTableViewController, type: CategoryType)
 }
 
@@ -19,7 +19,7 @@ class CategorySelectionTableViewController: UITableViewController {
     
     var selected = [Int]()
     
-    var delegate: CategorySelectionTableViewControllerDelegate?
+    weak var delegate: CategorySelectionTableViewControllerDelegate?
 
     // MARK: - Table view data source
 

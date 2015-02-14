@@ -69,10 +69,7 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         self.category = Category(type: .Love)
         super.init(coder: aDecoder)
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
