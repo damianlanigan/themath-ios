@@ -12,7 +12,9 @@ protocol OnboardingViewControllerDelegate {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
-class OnboardingViewController: GAITrackedViewController, CategorySelectionViewControllerDelegate, UIScrollViewDelegate {
+class OnboardingViewController: GAITrackedViewController,
+    CategorySelectionViewControllerDelegate,
+    UIScrollViewDelegate {
     
     let numberOfPages: CGFloat = 2.0
     let numberOfSubPages: CGFloat = 5.0
@@ -27,6 +29,8 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var subScrollView: UIScrollView!
     
+    @IBOutlet weak var newUserButton: UIButton!
+    
     var laid = false
     
     override func viewDidLayoutSubviews() {
@@ -39,6 +43,10 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         screenName = "Onboarding"
+        
+        newUserButton.layer.cornerRadius = 6.0
+        newUserButton.layer.borderWidth = 2.0
+        newUserButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
 
     @IBAction func selectCategoriesButtonTapped(sender: AnyObject) {
@@ -49,6 +57,15 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
         
     }
     
+    @IBAction func newUserButtonTapped(sender: AnyObject) {
+        activateOnboarding()
+    }
+    
+    private func activateOnboarding() {
+        scrollView.setContentOffset(CGPointMake(0.0, view.frame.size.height), animated: true)
+        scrollView.scrollEnabled = true
+    }
+    
     private func layoutScrollView() {
         contentViewWidthConstraint.constant = view.frame.size.width
         contentViewHeightConstraint.constant = view.frame.size.height * numberOfPages
@@ -57,6 +74,8 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
         
         scrollView.contentSize = CGSizeMake(view.frame.size.width, contentViewHeightConstraint.constant)
         subScrollView.contentSize = CGSizeMake(view.frame.size.width, subContentViewHeightConstraint.constant)
+        
+        scrollView.delegate = self
     }
     
     private func showCategorySelectionViewController() {
@@ -69,6 +88,14 @@ class OnboardingViewController: GAITrackedViewController, CategorySelectionViewC
     func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
         delegate?.didFinishOnboarding(self)
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: <UIScrollViewDelegate>
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView == self.scrollView && scrollView.contentOffset.y == 0 {
+            scrollView.scrollEnabled = false
+        }
     }
     
 }

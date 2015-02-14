@@ -12,13 +12,12 @@ let CategoriesDidUpdateNotification = "CategoriesDidUpdate"
 
 class CategoryCoordinator: NSObject {
     
-    var categories = [Category]()
+    var categories: [Category] = [Category]()
     
     func updateCategories(types: [CategoryType]) {
-        let categories: [Category] = types.map({ Category(type: $0) })
+        categories = types.map({ Category(type: $0) })
         Tracker.track("categories", action: "selected", label: "\(categories.count)")
         NSNotificationCenter.defaultCenter().postNotificationName(CategoriesDidUpdateNotification, object: nil)
-
     }
    
     class func sharedInstance() -> CategoryCoordinator {
