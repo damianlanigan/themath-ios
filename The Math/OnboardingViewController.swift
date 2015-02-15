@@ -12,7 +12,7 @@ protocol OnboardingViewControllerDelegate: class {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
-class OnboardingViewController: GAITrackedViewController,
+class OnboardingViewController: GAITrackedViewController,  
     CategorySelectionViewControllerDelegate,
     UIScrollViewDelegate,
     AuthViewControllerDelegate {
