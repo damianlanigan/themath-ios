@@ -26,25 +26,17 @@ UINavigationControllerDelegate {
     
     
     @IBOutlet weak var subviewContainerView: UIView!
-    
     @IBOutlet weak var journalButton: UIButton!
-    
     @IBOutlet weak var moodButton: UIButton!
-    
     @IBOutlet weak var navigationView: UIView!
-    
     @IBOutlet weak var contentContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
     
     var laid = false
-    
     var onMood = false
-    
     var onOnboarding = true
-    
     var isCommenting = false
-    
     var isSubmittingFeedback = false
     
     lazy var moodViewController: MoodViewController = {

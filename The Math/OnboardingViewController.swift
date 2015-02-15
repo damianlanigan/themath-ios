@@ -65,8 +65,8 @@ class OnboardingViewController: GAITrackedViewController,
     }
     
     private func activateOnboarding() {
-        scrollView.setContentOffset(CGPointMake(0.0, view.frame.size.height), animated: true)
         scrollView.scrollEnabled = true
+        scrollView.setContentOffset(CGPointMake(0.0, view.frame.size.height), animated: true)
     }
     
     private func layoutScrollView() {
