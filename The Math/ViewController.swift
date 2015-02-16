@@ -37,6 +37,7 @@ UIScrollViewDelegate {
     @IBOutlet weak var contentContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
+    var previousScrollPercentage: CGFloat = 0.0
     
     var laid = false
     var onMood = true
@@ -377,6 +378,16 @@ UIScrollViewDelegate {
             
             journalButton.setTitleColor(color, forState: .Normal)
             journalButton.alpha = journalAlpha
+            
+            if percentage < 0.5 && previousScrollPercentage >= 0.5 {
+                onMood = true
+                setNeedsStatusBarAppearanceUpdate()
+            } else if percentage > 0.5 && previousScrollPercentage <= 0.5 {
+                onMood = false
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            
+            previousScrollPercentage = percentage
         }
     }
     
