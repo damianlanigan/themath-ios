@@ -17,25 +17,32 @@ MoodViewControllerDelegate,
 OnboardingViewControllerDelegate,
 UIAlertViewDelegate,
 MFMailComposeViewControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate,
+UIScrollViewDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: INSTANCE VARIABLES
     
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var subviewContainerView: UIView!
+
+    @IBOutlet weak var moodContainerView: UIView!
+    @IBOutlet weak var journalContainerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var journalButton: UIButton!
     @IBOutlet weak var moodButton: UIButton!
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var contentContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
+    var previousScrollPercentage: CGFloat = 0.0
     
     var laid = false
-    var onMood = false
-    var onOnboarding = true
+    var onMood = true
+    var onOnboarding = false
     var isCommenting = false
     var isSubmittingFeedback = false
     
@@ -71,8 +78,29 @@ UINavigationControllerDelegate {
         loadMoodController()
         loadJournalController()
         
-        showMoodController()
+        journalButton.alpha = 0.2
         
+        setupNavigationBar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !laid {
+            laid = true
+            
+            contentViewWidthConstraint.constant = view.frame.size.width * 2.0
+            contentViewHeightConstraint.constant = view.frame.size.height
+            scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
+            
+            showOnboardingController()
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func setupNavigationBar() {
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!]
         UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
@@ -80,18 +108,6 @@ UINavigationControllerDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if !laid {
-            laid = true
-            showOnboardingController()
-        }
-    }
-    
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     
@@ -135,11 +151,11 @@ UINavigationControllerDelegate {
     }
 
     private func loadMoodController() {
-        _addContentViewController(moodViewController, toView: subviewContainerView)
+        _addContentViewController(moodViewController, toView: moodContainerView)
     }
     
     private func loadJournalController() {
-        _addContentViewController(journalViewController, toView: subviewContainerView)
+        _addContentViewController(journalViewController, toView: journalContainerView)
     }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -172,37 +188,13 @@ UINavigationControllerDelegate {
     // MARK: Mood
     
     private func showMoodController() {
-    
-        journalViewController.view.hidden = true
-        moodViewController.view.hidden = false
-        
-        journalButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        moodButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        
-        onMood = true
-        
-        moodButton.alpha = 1.0
-        journalButton.alpha = 0.45
-        
-        setNeedsStatusBarAppearanceUpdate()
+        scrollView.setContentOffset(CGPointZero, animated: true)
     }
     
     // MARK: Journal
     
     private func showJournalController() {
-    
-        moodViewController.view.hidden = true
-        journalViewController.view.hidden = false
-        
-        journalButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        moodButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        
-        onMood = false
-        
-        journalButton.alpha = 1.0
-        moodButton.alpha = 0.45
-        
-        setNeedsStatusBarAppearanceUpdate()
+        scrollView.setContentOffset(journalContainerView.frame.origin, animated: true)
     }
     
     // MARK: Infograph
@@ -339,6 +331,37 @@ UINavigationControllerDelegate {
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
         isSubmittingFeedback = false
+    }
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIScrollViewDelegate>
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            let white = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+            let black = UIColor(red: 100/255.0, green: 100/255.0, blue:100/255.0, alpha: 1.0)
+            let percentage = scrollView.contentOffset.x / view.frame.size.width
+            let color = UIColor.colorAtPercentage(white, color2: black, perc: percentage)
+            let moodAlpha = max(1 - percentage, 0.2)
+            let journalAlpha = max(percentage, 0.2)
+
+            moodButton.setTitleColor(color, forState: .Normal)
+            moodButton.alpha = moodAlpha
+            
+            journalButton.setTitleColor(color, forState: .Normal)
+            journalButton.alpha = journalAlpha
+            
+            if percentage < 0.5 && previousScrollPercentage >= 0.5 {
+                onMood = true
+                setNeedsStatusBarAppearanceUpdate()
+            } else if percentage > 0.5 && previousScrollPercentage <= 0.5 {
+                onMood = false
+                setNeedsStatusBarAppearanceUpdate()
+            }
+            
+            previousScrollPercentage = percentage
+        }
     }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\

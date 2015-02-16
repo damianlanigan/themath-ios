@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="vfV-EI-tAv"/>
                         <viewControllerLayoutGuide type="bottom" id="6a3-RQ-uH2"/>
                     </layoutGuides>
-                    <view key="view" hidden="YES" contentMode="scaleToFill" id="dMA-By-fQC">
+                    <view key="view" contentMode="scaleToFill" id="dMA-By-fQC">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1979,7 +1979,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <viewControllerLayoutGuide type="top" id="cAX-33-ji5"/>
                         <viewControllerLayoutGuide type="bottom" id="18V-cw-eaw"/>
                     </layoutGuides>
-                    <view key="view" hidden="YES" contentMode="scaleToFill" id="SdP-8w-Tey">
+                    <view key="view" contentMode="scaleToFill" id="SdP-8w-Tey">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3242,10 +3242,47 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moa-5g-9cr" userLabel="Content Container ">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-mO-dwT" userLabel="Subview Container">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y30-KF-9MO">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOj-j3-YuB" userLabel="Content View">
+                                                <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUS-LP-N1V" userLabel="Journal Container">
+                                                        <rect key="frame" x="400" y="0.0" width="400" height="800"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y13-5j-YoN" userLabel="Mood Container">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="y13-5j-YoN" firstAttribute="top" secondItem="ZOj-j3-YuB" secondAttribute="top" id="0DN-tj-53z"/>
+                                                    <constraint firstItem="JUS-LP-N1V" firstAttribute="leading" secondItem="y13-5j-YoN" secondAttribute="trailing" id="EhW-Wm-qD0"/>
+                                                    <constraint firstItem="JUS-LP-N1V" firstAttribute="top" secondItem="ZOj-j3-YuB" secondAttribute="top" id="LCF-wm-3W7"/>
+                                                    <constraint firstItem="JUS-LP-N1V" firstAttribute="width" secondItem="y13-5j-YoN" secondAttribute="width" id="PS6-Px-QfC"/>
+                                                    <constraint firstAttribute="height" constant="800" id="cb1-Lw-1bG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JUS-LP-N1V" secondAttribute="trailing" id="kBy-oA-Zx0"/>
+                                                    <constraint firstItem="y13-5j-YoN" firstAttribute="leading" secondItem="ZOj-j3-YuB" secondAttribute="leading" id="o5h-i8-FjD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="y13-5j-YoN" secondAttribute="bottom" id="xfr-AB-eio"/>
+                                                    <constraint firstAttribute="width" constant="800" id="xyl-vG-HVH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="JUS-LP-N1V" secondAttribute="bottom" id="yww-YI-BUt"/>
+                                                    <constraint firstItem="JUS-LP-N1V" firstAttribute="leading" secondItem="y13-5j-YoN" secondAttribute="trailing" id="zhw-6p-vTC"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ZOj-j3-YuB" secondAttribute="bottom" id="4Su-EW-KUZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZOj-j3-YuB" secondAttribute="trailing" id="ZPs-49-d1W"/>
+                                            <constraint firstItem="ZOj-j3-YuB" firstAttribute="leading" secondItem="Y30-KF-9MO" secondAttribute="leading" id="anM-EU-Jd2"/>
+                                            <constraint firstItem="ZOj-j3-YuB" firstAttribute="top" secondItem="Y30-KF-9MO" secondAttribute="top" id="bve-yE-6BJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="ozk-8l-tfM"/>
+                                        </connections>
+                                    </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-cg-BMu">
                                         <rect key="frame" x="0.0" y="20" width="400" height="80"/>
                                         <subviews>
@@ -3289,13 +3326,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="aiR-mO-dwT" secondAttribute="trailing" id="6BQ-dk-SLo"/>
                                     <constraint firstItem="a9m-cg-BMu" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" id="6Ln-Nf-hFc"/>
+                                    <constraint firstItem="Y30-KF-9MO" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="top" id="Acl-f0-Klo"/>
                                     <constraint firstItem="a9m-cg-BMu" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="top" constant="20" id="KSq-5M-sLN"/>
+                                    <constraint firstItem="Y30-KF-9MO" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" id="NtM-yO-H88"/>
                                     <constraint firstAttribute="trailing" secondItem="a9m-cg-BMu" secondAttribute="trailing" id="TsQ-Gv-ehm"/>
-                                    <constraint firstItem="aiR-mO-dwT" firstAttribute="leading" secondItem="moa-5g-9cr" secondAttribute="leading" id="Z7D-Bi-wVG"/>
-                                    <constraint firstItem="aiR-mO-dwT" firstAttribute="top" secondItem="moa-5g-9cr" secondAttribute="top" id="cSE-3E-CgY"/>
-                                    <constraint firstAttribute="bottom" secondItem="aiR-mO-dwT" secondAttribute="bottom" id="ujk-aY-Tap"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y30-KF-9MO" secondAttribute="trailing" id="ZPM-Mo-gl8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y30-KF-9MO" secondAttribute="bottom" id="jXY-DJ-IUf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3311,10 +3348,14 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                     <size key="freeformSize" width="400" height="800"/>
                     <connections>
                         <outlet property="contentContainerView" destination="moa-5g-9cr" id="fck-kf-LbA"/>
+                        <outlet property="contentViewHeightConstraint" destination="cb1-Lw-1bG" id="Gsv-e7-c0I"/>
+                        <outlet property="contentViewWidthConstraint" destination="xyl-vG-HVH" id="ev6-64-Zpo"/>
                         <outlet property="journalButton" destination="A31-5N-s1S" id="Wzx-VH-7ea"/>
+                        <outlet property="journalContainerView" destination="JUS-LP-N1V" id="sgd-mN-W5B"/>
                         <outlet property="moodButton" destination="0g2-Bw-QiS" id="oY8-aO-Nt8"/>
+                        <outlet property="moodContainerView" destination="y13-5j-YoN" id="yGH-gs-r18"/>
                         <outlet property="navigationView" destination="a9m-cg-BMu" id="hHR-cz-TG3"/>
-                        <outlet property="subviewContainerView" destination="aiR-mO-dwT" id="OaP-G7-CO7"/>
+                        <outlet property="scrollView" destination="Y30-KF-9MO" id="Huy-6u-D0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
