@@ -115,11 +115,11 @@ UIScrollViewDelegate {
     
     
     @IBAction func journalButtonTapped(sender: AnyObject) {
-//        showJournalController()
+        showJournalController()
     }
     
     @IBAction func moodButtonTapped(sender: UIButton) {
-//        showMoodController()
+        showMoodController()
     }
     
     func orientationDidChange(notification: NSNotification) {
@@ -186,17 +186,19 @@ UIScrollViewDelegate {
     // MARK: Mood
     
     private func showMoodController() {
-    
-        journalViewController.view.hidden = true
-        moodViewController.view.hidden = false
         
-        journalButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        moodButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        
-        onMood = true
-        
-        moodButton.alpha = 1.0
-        journalButton.alpha = 0.45
+        scrollView.setContentOffset(CGPointZero, animated: true)
+//
+//        journalViewController.view.hidden = true
+//        moodViewController.view.hidden = false
+//        
+//        journalButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+//        moodButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+//        
+//        onMood = true
+//        
+//        moodButton.alpha = 1.0
+//        journalButton.alpha = 0.45
         
         setNeedsStatusBarAppearanceUpdate()
     }
@@ -204,19 +206,21 @@ UIScrollViewDelegate {
     // MARK: Journal
     
     private func showJournalController() {
+        
+        scrollView.setContentOffset(journalContainerView.frame.origin, animated: true)
     
-        moodViewController.view.hidden = true
-        journalViewController.view.hidden = false
-        
-        journalButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        moodButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        
-        onMood = false
-        
-        journalButton.alpha = 1.0
-        moodButton.alpha = 0.45
-        
-        setNeedsStatusBarAppearanceUpdate()
+//        moodViewController.view.hidden = true
+//        journalViewController.view.hidden = false
+//        
+//        journalButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+//        moodButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+//        
+//        onMood = false
+//        
+//        journalButton.alpha = 1.0
+//        moodButton.alpha = 0.45
+//        
+//        setNeedsStatusBarAppearanceUpdate()
     }
     
     // MARK: Infograph
