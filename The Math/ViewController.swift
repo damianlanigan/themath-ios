@@ -17,34 +17,31 @@ MoodViewControllerDelegate,
 OnboardingViewControllerDelegate,
 UIAlertViewDelegate,
 MFMailComposeViewControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate,
+UIScrollViewDelegate {
 
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: INSTANCE VARIABLES
     
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var subviewContainerView: UIView!
-    
+    @IBOutlet weak var moodContainerView: UIView!
+    @IBOutlet weak var journalContainerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var journalButton: UIButton!
-    
     @IBOutlet weak var moodButton: UIButton!
-    
     @IBOutlet weak var navigationView: UIView!
-    
     @IBOutlet weak var contentContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
     
     var laid = false
-    
-    var onMood = false
-    
-    var onOnboarding = true
-    
+    var onMood = true
+    var onOnboarding = false
     var isCommenting = false
-    
     var isSubmittingFeedback = false
     
     lazy var moodViewController: MoodViewController = {
@@ -79,8 +76,29 @@ UINavigationControllerDelegate {
         loadMoodController()
         loadJournalController()
         
-        showMoodController()
+        journalButton.alpha = 0.2
         
+        setupNavigationBar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !laid {
+            laid = true
+            
+            contentViewWidthConstraint.constant = view.frame.size.width * 2.0
+            contentViewHeightConstraint.constant = view.frame.size.height
+            scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
+            
+            showOnboardingController()
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func setupNavigationBar() {
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!]
         UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
@@ -90,18 +108,6 @@ UINavigationControllerDelegate {
             UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if !laid {
-            laid = true
-            showOnboardingController()
-        }
-    }
-    
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -109,11 +115,11 @@ UINavigationControllerDelegate {
     
     
     @IBAction func journalButtonTapped(sender: AnyObject) {
-        showJournalController()
+//        showJournalController()
     }
     
     @IBAction func moodButtonTapped(sender: UIButton) {
-        showMoodController()
+//        showMoodController()
     }
     
     func orientationDidChange(notification: NSNotification) {
@@ -143,11 +149,11 @@ UINavigationControllerDelegate {
     }
 
     private func loadMoodController() {
-        _addContentViewController(moodViewController, toView: subviewContainerView)
+        _addContentViewController(moodViewController, toView: moodContainerView)
     }
     
     private func loadJournalController() {
-        _addContentViewController(journalViewController, toView: subviewContainerView)
+        _addContentViewController(journalViewController, toView: journalContainerView)
     }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -347,6 +353,27 @@ UINavigationControllerDelegate {
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
         isSubmittingFeedback = false
+    }
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIScrollViewDelegate>
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            let white = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+            let black = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+            let percentage = scrollView.contentOffset.x / view.frame.size.width
+            let color = UIColor.colorAtPercentage(white, color2: black, perc: percentage)
+            let moodAlpha = max(1 - percentage, 0.2)
+            let journalAlpha = max(percentage, 0.2)
+
+            moodButton.setTitleColor(color, forState: .Normal)
+            moodButton.alpha = moodAlpha
+            
+            journalButton.setTitleColor(color, forState: .Normal)
+            journalButton.alpha = journalAlpha
+        }
     }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\

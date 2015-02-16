@@ -245,7 +245,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         }
 
         let perc: CGFloat = CGFloat(currentTime / animationDuration)
-        let currentColor = colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+        let currentColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
         view.backgroundColor = currentColor
         
         moodLabel.text = moodStringForAnimationPercentage(perc)
@@ -276,33 +276,6 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     private func toPath() -> CGPath {
         return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
     }
-
-    private func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
-        let firstComp = CGColorGetComponents(color1.CGColor)
-        let secondComp = CGColorGetComponents(color2.CGColor)
-
-        let red1 = firstComp[0]
-        let red2 = secondComp[0]
-        let newRed = numbers(red1, num2: red1, perc: perc)
-
-        let green1 = firstComp[1]
-        let green2 = secondComp[1]
-        let newGreen = numbers(green1, num2: green2, perc: perc)
-
-        let blue1 = firstComp[2]
-        let blue2 = secondComp[2]
-        let newBlue = numbers(blue1, num2: blue2, perc: perc)
-
-        return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
-    }
-
-    private func numbers(num: CGFloat, num2: CGFloat, perc: CGFloat) -> CGFloat {
-        let floor = min(num, num2)
-        let ceil = max(num, num2)
-        let val = (ceil - floor) * perc
-        return num > num2 ? ceil - val : floor + val
-    }
-
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -364,7 +337,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
 
                 let center = self.containerView.frame.origin.y + self.contentView.frame.origin.y + 40
 
-                self.tooltipForConfirmation()
+//                self.tooltipForConfirmation()
                 
                 return()
         }
