@@ -187,41 +187,13 @@ UIScrollViewDelegate {
     // MARK: Mood
     
     private func showMoodController() {
-        
         scrollView.setContentOffset(CGPointZero, animated: true)
-//
-//        journalViewController.view.hidden = true
-//        moodViewController.view.hidden = false
-//        
-//        journalButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-//        moodButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-//        
-//        onMood = true
-//        
-//        moodButton.alpha = 1.0
-//        journalButton.alpha = 0.45
-        
-        setNeedsStatusBarAppearanceUpdate()
     }
     
     // MARK: Journal
     
     private func showJournalController() {
-        
         scrollView.setContentOffset(journalContainerView.frame.origin, animated: true)
-    
-//        moodViewController.view.hidden = true
-//        journalViewController.view.hidden = false
-//        
-//        journalButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-//        moodButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-//        
-//        onMood = false
-//        
-//        journalButton.alpha = 1.0
-//        moodButton.alpha = 0.45
-//        
-//        setNeedsStatusBarAppearanceUpdate()
     }
     
     // MARK: Infograph
@@ -367,7 +339,7 @@ UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == self.scrollView {
             let white = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-            let black = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+            let black = UIColor(red: 100/255.0, green: 100/255.0, blue:100/255.0, alpha: 1.0)
             let percentage = scrollView.contentOffset.x / view.frame.size.width
             let color = UIColor.colorAtPercentage(white, color2: black, perc: percentage)
             let moodAlpha = max(1 - percentage, 0.2)
