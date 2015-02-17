@@ -61,15 +61,10 @@ class CategoryView: UIView, CategorySliderViewDelegate {
         super.init()
     }
     
-    deinit {
-        println("bye bye")
-    }
-    
     required init(coder aDecoder: NSCoder) {
         self.category = Category(type: .Love)
         super.init(coder: aDecoder)
     }
-
     
     override func awakeFromNib() {
         super.awakeFromNib()

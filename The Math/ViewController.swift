@@ -171,19 +171,6 @@ UIScrollViewDelegate {
         viewController?.delegate = self
         _addContentViewController(viewController!, aboveView: contentContainerView)
     }
-
-    
-    // MARK: Category Selection
-    
-    private func showCategorySelectionController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as? OnboardingViewController
-        viewController?.delegate = self
-    }
-    
-    private func hideCategorySelectionController() {
-        
-    }
     
     // MARK: Mood
     
@@ -271,6 +258,7 @@ UIScrollViewDelegate {
 
     
     func didBeginNewMood() {
+        scrollView.scrollEnabled = false
         UIView.animateWithDuration(0.2, animations: {
             self.journalButton.alpha = 0.0
             self.moodButton.alpha = 0.0
@@ -279,6 +267,7 @@ UIScrollViewDelegate {
     }
     
     func didEndNewMood() {
+        scrollView.scrollEnabled = true
         UIView.animateWithDuration(0.2, delay: 0.2, options: .CurveLinear, animations: {
             self.journalButton.alpha = 0.2
             self.moodButton.alpha = 1.0
@@ -307,6 +296,9 @@ UIScrollViewDelegate {
                 self._removeContentViewController(viewController)
                 self.dismissViewControllerAnimated(true, completion: nil)
         }
+        
+        journalViewController.view.setNeedsLayout()
+        journalViewController.view.layoutIfNeeded()
     }
 
     
@@ -357,6 +349,7 @@ UIScrollViewDelegate {
                 setNeedsStatusBarAppearanceUpdate()
             } else if percentage > 0.5 && previousScrollPercentage <= 0.5 {
                 onMood = false
+                scrollView.delaysContentTouches = false
                 setNeedsStatusBarAppearanceUpdate()
             }
             

@@ -19,22 +19,38 @@ protocol JournalViewControllerDelegate {
 
 class JournalViewController: GAITrackedViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
     
+    
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodDescriptionView: UIView!
-    
-    @IBOutlet weak var categoryContainerView: UIView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var moodImageView: UIImageView!
     @IBOutlet weak var moodDescriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var feelingImageView: UIImageView!
     @IBOutlet weak var youreFeelingLabel: UILabel!
     @IBOutlet weak var additionalFeelingTextLabel: UILabel!
+    @IBOutlet weak var addANoteButton: UIButton!
     
     @IBOutlet weak var overlayView: UIView!
     
     @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
     
     var firstAppearance = true
+    var categoryViews = [CategoryView]()
+    
+    var categoryWidth: CGFloat {
+        let count = CategoryCoordinator.sharedInstance().categories.count
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        if count == 0 {
+            return 0
+        }
+        return max(screenWidth / CGFloat(count), 60)
+    }
     
     lazy var toolTip: AMPopTip = {
         var tip = AMPopTip()
@@ -61,6 +77,25 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         screenName = "Journal"
+        addANoteButton.layer.cornerRadius = 17.0
+        addANoteButton.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).CGColor
+        addANoteButton.layer.borderWidth = 1.0
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        contentViewHeightConstraint.constant = containerView.frame.size.height
+        contentViewWidthConstraint.constant = categoryWidth * CGFloat(CategoryCoordinator.sharedInstance().categories.count)
+        scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
+        
+        println("layin out")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        println("done layin out")
+        layoutCategories()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,56 +104,40 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         if firstAppearance {
             firstAppearance = false
             showToolTip()
-            layoutCategories()
         }
     }
     
-    private func showToolTip() {
-        AMPopTip.appearance().textColor = UIColor.blackColor()
-        AMPopTip.appearance().textAlignment = .Center
+    // MARK: LAYOUT
+    
+    func updateCategories() {
+        for view in categoryViews {
+            view.removeFromSuperview()
+        }
+        categoryViews = [CategoryView]()
+        createCategoryViews()
         
-        var titleString = NSMutableAttributedString(string: "Slide up or down")
-        var bodyString = NSMutableAttributedString(string: "\nRotate your phone to see what changed your mood.")
-        let titleRange = NSMakeRange(0, countElements(titleString.string))
-        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
-        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Center
-        
-        titleString.addAttributes([
-            NSFontAttributeName : titleFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-        ], range: titleRange)
-        
-        bodyString.addAttributes([
-            NSFontAttributeName : bodyFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-        ], range: bodyRange)
-        
-        titleString.appendAttributedString(bodyString)
-        
-        var fromFrame = CGRectZero
-        fromFrame.origin.x = view.center.x
-        fromFrame.origin.y = view.center.y + 10
-        
-        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 280, inView: view, fromFrame: fromFrame)
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+    
+    private func createCategoryViews() {
+        let categories = CategoryCoordinator.sharedInstance().categories
+        for (idx, category) in enumerate(categories) {
+            let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
+            view.delegate = self
+            view.category = category
+            contentView.addSubview(view)
+            categoryViews.append(view)
+        }
     }
     
     private func layoutCategories() {
-        let screenWidth = view.frame.size.width
-        let categories = CategoryCoordinator.sharedInstance().categories
-        let numberOfCategories = categories.count
-        for (idx, category) in enumerate(categories) {
-            let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
-            view.category = category
-            let x = CGFloat(idx) * screenWidth / CGFloat(numberOfCategories)
+        for (idx, view) in enumerate(categoryViews) {
+            let x = CGFloat(idx) * categoryWidth
             let y = CGFloat(0.0)
-            let width = screenWidth / CGFloat(numberOfCategories)
-            let height = categoryContainerView.frame.size.height
+            let width = categoryWidth
+            let height = contentView.frame.size.height
             view.frame = CGRectMake(x, y, width, height)
-            view.delegate = self
-            categoryContainerView.addSubview(view)
         }
     }
     
@@ -140,13 +159,38 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         Tracker.track("add a note", action: "presented", label: "")
     }
     
-    func updateCategories() {
-        for view in categoryContainerView.subviews as [UIView] {
-            view.removeFromSuperview()
-        }
-        layoutCategories()
+    private func showToolTip() {
+        AMPopTip.appearance().textColor = UIColor.blackColor()
+        AMPopTip.appearance().textAlignment = .Center
+        
+        var titleString = NSMutableAttributedString(string: "Slide up or down")
+        var bodyString = NSMutableAttributedString(string: "\nRotate your phone to see what changed your mood.")
+        let titleRange = NSMakeRange(0, countElements(titleString.string))
+        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
+        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
+        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.Center
+        
+        titleString.addAttributes([
+            NSFontAttributeName : titleFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+            ], range: titleRange)
+        
+        bodyString.addAttributes([
+            NSFontAttributeName : bodyFont,
+            NSParagraphStyleAttributeName : paragraphStyle
+            ], range: bodyRange)
+        
+        titleString.appendAttributedString(bodyString)
+        
+        var fromFrame = CGRectZero
+        fromFrame.origin.x = view.center.x
+        fromFrame.origin.y = view.center.y + 10
+        
+        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 280, inView: view, fromFrame: fromFrame)
     }
-
+    
     private func presentOpportunityToAddDetails() {
         
         commentViewTopConstraint.constant = 0
@@ -167,7 +211,7 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
     
     private func hideOpportityToAddDetails() {
         
-        commentViewTopConstraint.constant = -171
+        commentViewTopConstraint.constant = -192
         
         UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             
@@ -219,7 +263,7 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
     
     func didEndMoodChangeForCategory(mood: Mood, category: Category) {
         youreFeelingLabel.text = "Feeling \(mood.rawValue) in \(category.type.rawValue)"
-        
+        feelingImageView.image = UIImage.imageForMood(mood)
         switch mood {
         case .Great:
             additionalFeelingTextLabel.text = "Thats awesome! Good to hear."
