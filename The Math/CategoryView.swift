@@ -184,4 +184,5 @@ class CategoryView: UIView, CategorySliderViewDelegate {
             }
         }
     }
+
 }

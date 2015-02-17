@@ -49,6 +49,7 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         if count == 0 {
             return 0
         }
+        let width = max(screenWidth / CGFloat(count), 60)
         return max(screenWidth / CGFloat(count), 60)
     }
     
@@ -82,20 +83,12 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         addANoteButton.layer.borderWidth = 1.0
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         contentViewHeightConstraint.constant = containerView.frame.size.height
         contentViewWidthConstraint.constant = categoryWidth * CGFloat(CategoryCoordinator.sharedInstance().categories.count)
         scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
-        
-        println("layin out")
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        println("done layin out")
-        layoutCategories()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -118,6 +111,7 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         
         view.setNeedsLayout()
         view.layoutIfNeeded()
+        view.setNeedsUpdateConstraints()
     }
     
     private func createCategoryViews() {
@@ -131,11 +125,13 @@ class JournalViewController: GAITrackedViewController, CategoryViewDelegate, Jou
         }
     }
     
-    private func layoutCategories() {
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
         for (idx, view) in enumerate(categoryViews) {
             let x = CGFloat(idx) * categoryWidth
             let y = CGFloat(0.0)
             let width = categoryWidth
+            println(width)
             let height = contentView.frame.size.height
             view.frame = CGRectMake(x, y, width, height)
         }

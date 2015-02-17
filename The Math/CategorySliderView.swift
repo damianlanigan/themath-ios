@@ -31,12 +31,10 @@ class CategorySliderView: RoundView {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-
         delegate?.sliderTouchesBegan()
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         delegate?.sliderTouchesEnded()
     }
-
 }
