@@ -45,6 +45,7 @@ UIScrollViewDelegate {
     var onOnboarding = false
     var isCommenting = false
     var isSubmittingFeedback = false
+    var firstAppearance = true
     
     lazy var moodViewController: MoodViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -83,17 +84,21 @@ UIScrollViewDelegate {
         setupNavigationBar()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if !laid {
-            laid = true
-            
-            contentViewWidthConstraint.constant = view.frame.size.width * 2.0
-            contentViewHeightConstraint.constant = view.frame.size.height
-            scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
-            
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if firstAppearance {
+            firstAppearance = false
             showOnboardingController()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        contentViewWidthConstraint.constant = view.frame.size.width * 2.0
+        contentViewHeightConstraint.constant = view.frame.size.height
+        scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
     }
     
     deinit {
