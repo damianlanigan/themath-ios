@@ -12,7 +12,6 @@ import UIKit
 import MessageUI
 
 class ViewController: UIViewController,
-JournalViewControllerDelegate,
 MoodViewControllerDelegate,
 OnboardingViewControllerDelegate,
 UIAlertViewDelegate,
@@ -28,12 +27,8 @@ UIScrollViewDelegate {
     @IBOutlet weak var moodContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
-    
-    var laid = false
+
     var onMood = true
-    var onOnboarding = false
-    var isCommenting = false
-    var isSubmittingFeedback = false
     var firstAppearance = true
     
     lazy var moodViewController: MoodViewController = {
@@ -94,30 +89,20 @@ UIScrollViewDelegate {
     // MARK: IBACTION
     
     func orientationDidChange(notification: NSNotification) {
-        if !onOnboarding {
-            if let device = notification.object as? UIDevice {
-                if device.orientation.isLandscape && !currentOrientation.isLandscape {
-                    showInfograph()
-                } else if device.orientation.isPortrait && !currentOrientation.isPortrait {
-                    hideInfograph()
-                }
-                currentOrientation = device.orientation
-            }
-        }
+//        if !onOnboarding {
+//            if let device = notification.object as? UIDevice {
+//                if device.orientation.isLandscape && !currentOrientation.isLandscape {
+//                    showInfograph()
+//                } else if device.orientation.isPortrait && !currentOrientation.isPortrait {
+//                    hideInfograph()
+//                }
+//                currentOrientation = device.orientation
+//            }
+//        }
     }
     
     override func shouldAutorotate() -> Bool {
-        return false
-        if onOnboarding {
-            return false
-        }
-        if isCommenting {
-            return false
-        }
-        if isSubmittingFeedback {
-            return false
-        }
-        return true
+        return onMood
     }
 
     private func loadMoodController() {
@@ -132,7 +117,7 @@ UIScrollViewDelegate {
     // MARK: Onboarding
     
     private func showOnboardingController() {
-        onOnboarding = true
+        onMood = false
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
         viewController?.delegate = self
@@ -171,15 +156,9 @@ UIScrollViewDelegate {
         viewController.setSubject("HowAmIDoing Feedback")
         viewController.setToRecipients(["usehowamidoing@gmail.com"])
         presentViewController(viewController, animated: true, completion: nil)
-        isSubmittingFeedback = true
+        onMood = false
     }
-    
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    // MARK: <JournalViewControllerDelegate>
-    
-    
+
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -206,7 +185,7 @@ UIScrollViewDelegate {
     
     
     func didFinishOnboarding(viewController: OnboardingViewController) {
-        onOnboarding = false
+        onMood = true
         setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                 viewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - self.view.frame.size.height)
@@ -236,17 +215,12 @@ UIScrollViewDelegate {
 
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
-        isSubmittingFeedback = false
+        onMood = true
     }
         
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: UTILITY
-    
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return  onMood ? .LightContent : .Default
-    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true

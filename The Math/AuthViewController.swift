@@ -27,6 +27,10 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         emailField.delegate = self

@@ -28,7 +28,7 @@ class MaskAnimationController:  NSObject,
             containerView.addSubview(toViewController.view)
             containerView.bringSubviewToFront(toViewController.view)
             toViewController.view.alpha = 0.0
-            UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+            UIView.animateWithDuration(0.45, animations: {
                 fromViewController.view.transform = CGAffineTransformMakeScale(10.5, 10.5)
                 }, completion: { (done: Bool) -> Void in
                     UIView.animateWithDuration(0.2, animations: {
@@ -69,21 +69,7 @@ class MaskAnimationController:  NSObject,
                 toViewController.view.userInteractionEnabled = true
                 transitionContext.completeTransition(true)
             })
-            
-//            let delay = duration * Double(NSEC_PER_SEC)
-//            var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//            dispatch_after(time, dispatch_get_main_queue(), {
-//                toViewController.view.userInteractionEnabled = true
-//                transitionContext.completeTransition(true)
-//            })
-
-            
-//            toViewController.view.userInteractionEnabled = true
-//            UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-//                fromViewController.view.alpha = 0.0
-//                }, completion: { (done: Bool) -> Void in
-//                    transitionContext.completeTransition(true)
-//            })
         }
     }
+
 }

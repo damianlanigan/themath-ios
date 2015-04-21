@@ -21,9 +21,5 @@ class SignupViewController: AuthViewController {
         println("create account")
         delegate?.userDidSignup?()
     }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
 
 }

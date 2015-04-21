@@ -26,6 +26,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
     
     var transitionColor: UIColor?
 
@@ -38,6 +39,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         contentView.backgroundColor = transitionColor!
+        saveButton.setTitleColor(transitionColor!, forState: .Normal)
         dateLabel.text = formattedDate()
         textView.delegate = self
     }

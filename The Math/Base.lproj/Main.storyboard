@@ -2109,7 +2109,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.69000000000000006" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="RvV-eo-xfy" firstAttribute="top" secondItem="sHr-74-r9g" secondAttribute="bottom" constant="20" id="KA0-ng-iRi"/>
                                             <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="30" id="NY7-7i-f98"/>
@@ -2146,8 +2146,9 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="oce-tT-rFg"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="VOD-mJ-6pn"/>
@@ -2172,6 +2173,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <outlet property="contentViewHeightConstraint" destination="eeb-k5-oq8" id="t3U-hS-LKM"/>
                         <outlet property="contentViewWidthConstraint" destination="sm3-sd-WZg" id="jnp-Sz-rB5"/>
                         <outlet property="dateLabel" destination="kVq-FT-xpZ" id="VRR-hr-ftQ"/>
+                        <outlet property="saveButton" destination="9p5-73-lTQ" id="SMV-Cn-d3A"/>
                         <outlet property="saveButtonBottomConstraint" destination="zlG-T3-W9y" id="m2m-us-0Gg"/>
                         <outlet property="scrollView" destination="tYt-o4-gyq" id="N4v-yc-tFe"/>
                         <outlet property="textView" destination="jDb-wj-8uM" id="bC2-pE-1R2"/>

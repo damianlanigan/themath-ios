@@ -23,7 +23,7 @@ class LoginViewController: AuthViewController {
     @IBAction func loginButtonTapped(sender: UIButton) {
         delegate?.userDidLogin?()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
@@ -50,17 +50,8 @@ class LoginViewController: AuthViewController {
         
         forgotPasswordButton.setAttributedTitle(string, forState: .Normal)
     }
-    
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
+
     func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-
 }

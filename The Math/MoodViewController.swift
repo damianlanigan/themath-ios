@@ -61,7 +61,7 @@ class MoodViewController: GAITrackedViewController,
     private var firstAppearance = true
     private var isSetup = false
     
-    private var circle = CAShapeLayer()
+    var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
     private var timer: NSTimer?
     
@@ -309,9 +309,10 @@ class MoodViewController: GAITrackedViewController,
         
         timer?.invalidate()
 
+        println(circle.timeOffset / animationDuration)
         performSegueWithIdentifier("MoodToJournalTransition", sender: self)
         
-        let delay = 0.5 * Double(NSEC_PER_SEC)
+        let delay = 0.7 * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue(), {
             self.createNewMood()
