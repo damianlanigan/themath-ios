@@ -86,7 +86,6 @@ UIScrollViewDelegate {
     private func setupNotificationObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
-
     }
     
     

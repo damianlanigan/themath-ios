@@ -185,7 +185,7 @@ class MoodViewController: GAITrackedViewController,
         circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
         circle.position = CGPoint(x: view.center.x, y: view.center.x)
         circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
-        circle.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.2).CGColor
+//        circle.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.2).CGColor
         
         contentView.layer.addSublayer(circle)
         
@@ -205,13 +205,14 @@ class MoodViewController: GAITrackedViewController,
     func applicationDidEnterForeground() {
         if isSetup {
             addGrowAnimation()
+            addColorAnimation()
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
             let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
-            viewController.view.backgroundColor = UIColor(CGColor: color)
+            viewController.transitionColor = UIColor(CGColor: color)
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         }
@@ -222,7 +223,9 @@ class MoodViewController: GAITrackedViewController,
     
     
     private func createNewMood() {
-        UIView.animateWithDuration(1.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+        UIView.animateWithDuration(0.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.circle.timeOffset = 0.0
+            self.currentTime = 0
             self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
             self.contentView.alpha = 1.0
             }) { (done: Bool) -> Void in
@@ -260,10 +263,6 @@ class MoodViewController: GAITrackedViewController,
             circle.timeOffset = newValue
             multiplier *= -1
         }
-
-//        circle.fillColor = UIColor.greenColor().CGColor
-//        circle.fillColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(currentTime / animationDuration)).CGColor
-            //UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
     }
     
     
@@ -310,30 +309,13 @@ class MoodViewController: GAITrackedViewController,
         
         timer?.invalidate()
 
-        UIView.animateWithDuration(0.2, delay: 1.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
-            self.touchPoint.opacity = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
-
-        
-        UIView.animateWithDuration(0.6, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.5, 0.5))
-            self.contentView.alpha = 0.8
-            }) { (done: Bool) -> Void in
-                self.circle.timeOffset = 0.0
-                self.currentTime = 0.0
-                self.createNewMood()
-
-                let center = self.containerView.frame.origin.y + self.contentView.frame.origin.y + 40
-
-//                self.tooltipForConfirmation()
-                
-                return()
-        }
-        
         performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+        
+        let delay = 0.5 * Double(NSEC_PER_SEC)
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            self.createNewMood()
+        })
     }
     
     // TEMPORARY

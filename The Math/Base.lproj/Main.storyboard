@@ -2154,7 +2154,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tYt-o4-gyq" firstAttribute="leading" secondItem="SdP-8w-Tey" secondAttribute="leading" id="5LO-7p-oiR"/>
                             <constraint firstItem="18V-cw-eaw" firstAttribute="top" secondItem="tYt-o4-gyq" secondAttribute="bottom" id="8rt-Tc-vRj"/>
@@ -2168,8 +2168,10 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="800"/>
                     <connections>
+                        <outlet property="contentView" destination="HRk-PQ-j7O" id="Dea-P9-1og"/>
                         <outlet property="contentViewHeightConstraint" destination="eeb-k5-oq8" id="t3U-hS-LKM"/>
                         <outlet property="contentViewWidthConstraint" destination="sm3-sd-WZg" id="jnp-Sz-rB5"/>
+                        <outlet property="dateLabel" destination="kVq-FT-xpZ" id="VRR-hr-ftQ"/>
                         <outlet property="saveButtonBottomConstraint" destination="zlG-T3-W9y" id="m2m-us-0Gg"/>
                         <outlet property="scrollView" destination="tYt-o4-gyq" id="N4v-yc-tFe"/>
                         <outlet property="textView" destination="jDb-wj-8uM" id="bC2-pE-1R2"/>

@@ -24,15 +24,21 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     @IBOutlet var categoryViews: [CategoryView]!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     
+    var transitionColor: UIColor?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.mood_startColor()
         setupObservers()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        contentView.backgroundColor = transitionColor!
+        dateLabel.text = formattedDate()
         textView.delegate = self
     }
     
@@ -54,6 +60,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     private func setupObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     // MARK: Notifications
@@ -67,9 +74,6 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
                     let height = keyboardSize.size.height
                     saveButtonBottomConstraint.constant = height
                     
-//                    scrollView.contentSize.height += height
-//                    scrollView.setContentOffset(CGPointMake(0, height / 2), animated: true)
-                    
                     var bounds = scrollView.bounds
                     let animation = CABasicAnimation(keyPath: "bounds")
                     animation.duration = animationDuration
@@ -78,6 +82,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
                     bounds.origin.y = height / 2.0
                     animation.toValue = NSValue(CGRect: bounds)
                     
+                    scrollView.contentSize.height += height
                     scrollView.layer.addAnimation(animation, forKey: "bounds")
                     scrollView.bounds = bounds;
                     
@@ -89,6 +94,48 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
             }
         }
     }
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        let info = notification.userInfo
+        if let info = info {
+            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
+                if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+                    saveButtonBottomConstraint.constant = 0
+                    UIView.animateWithDuration(animationDuration, animations: {
+                        self.view.layoutIfNeeded()
+                    })
+                }
+            }
+        }
+    }
+    
+    func fadeOut(duration: NSTimeInterval, completion: () -> Void) {
+        UIView.animateWithDuration(duration, animations: {
+            self.scrollView.alpha = 0.0
+            }) { (done: Bool) -> Void in
+            completion()
+        }
+    }
+    
+    private func formattedDate() -> String {
+        let formatter = NSDateFormatter()
+        
+        formatter.dateFormat = "mm"
+        var minute = formatter.stringFromDate(NSDate())
+        minute = count(minute) < 2 ? "0\(minute)" : minute
+        
+        formatter.dateFormat = "h"
+        var hour = formatter.stringFromDate(NSDate())
+        hour = count(hour) < 2 ? "0\(hour)" : hour
+        
+        formatter.dateFormat = "EEEE"
+        let weekday = formatter.stringFromDate(NSDate())
+        
+        formatter.dateFormat = "a"
+        let aorp = formatter.stringFromDate(NSDate())
+        return "\(weekday) • \(hour):\(minute) \(aorp)"
+    }
+
 
     // <UITextFieldDelegate>
 
