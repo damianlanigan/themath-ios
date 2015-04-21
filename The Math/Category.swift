@@ -12,20 +12,22 @@ import UIKit
 import Swift
 
 enum CategoryType: String {
-    case Personal = "Self"
-    case Lifestyle = "Lifestyle"
-    case Money = "Money"
-    case Health = "Health"
-    case Work = "Work"
     case Love = "Love"
+    case Money = "Money"
+    case Social = "Social"
+    case Work = "Work"
+    case Health = "Health"
+    case Personal = "Self"
+    case Chaotic = "Chaotic"
 }
 
 enum CategoryIndex: Int {
-    case Personal, Lifestyle, Money, Health, Work, Love
+    case Love, Money, Social, Work, Home, Health, Personal, Chaotic
     
     static let categoryNames = [
-        Personal : "Self", Lifestyle : "Lifestyle", Money : "Money",
-        Health : "Health", Work : "Work", Love : "Love"
+        Love : "Love", Money : "Money", Social : "Social",
+        Work : "Work", Home: "Home", Health : "Health",
+        Personal : "Self", Chaotic : "Chaotic"
     ]
     
     func categoryName() -> String {
@@ -35,32 +37,18 @@ enum CategoryIndex: Int {
             return "Category"
         }
     }
-    
-    func categoryImage() -> UIImage {
-        let categoryType = CategoryType(rawValue: self.categoryName())
-        return UIImage.imageForCategoryType(categoryType!)
-    }
-    
-    func categoryColor() -> UIColor {
-        let categoryType = CategoryType(rawValue: self.categoryName())
-        return UIColor.colorForCategoryType(categoryType!)
-    }
-    
-    func categoryType() -> CategoryType {
-        return CategoryType(rawValue: self.categoryName())!
-    }
 }
 
-struct CategoryConstants {
-    static let allCategoriesTypes: [CategoryType] = [
-        .Personal,
-        .Lifestyle,
-        .Money,
-        .Health,
-        .Work,
-        .Love
-    ]
-}
+//struct CategoryConstants {
+//    static let allCategoriesTypes: [CategoryType] = [
+//        .Personal,
+//        .Lifestyle,
+//        .Money,
+//        .Health,
+//        .Work,
+//        .Love
+//    ]
+//}
 
 struct Category {
     
@@ -68,11 +56,11 @@ struct Category {
     let name: String
     let type: CategoryType
     
-    init(type: CategoryType) {
-        color = UIColor.colorForCategoryType(type)
-        self.type = type
-        name = type.rawValue
-    }
+//    init(type: CategoryType) {
+//        color = UIColor.colorForCategoryType(type)
+//        self.type = type
+//        name = type.rawValue
+//    }
     
 }
 

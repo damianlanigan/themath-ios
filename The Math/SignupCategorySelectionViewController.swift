@@ -9,7 +9,6 @@
 import UIKit
 
 class SignupCategorySelectionViewController: UIViewController,
-    CategorySelectionViewControllerDelegate,
     AuthViewControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -34,20 +33,12 @@ class SignupCategorySelectionViewController: UIViewController,
             laid = true
             
             addSignupViewController()
-            addCategorySelectionViewController()
 
             contentViewHeightConstraint.constant = view.frame.size.height
             contentViewWidthConstraint.constant = view.frame.size.width * 2.0
             
             scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
         }
-    }
-    
-    private func addCategorySelectionViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("CategorySelection") as CategorySelectionViewController
-        viewController.delegate = self
-        _addContentViewController(viewController, toView: categorySelectionContainerView)
     }
     
     private func addSignupViewController() {

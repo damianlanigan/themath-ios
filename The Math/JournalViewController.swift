@@ -1,5 +1,5 @@
 //
-//  👨
+//  👨🏻
 //
 //  JournalViewController.swift
 //  The Math
@@ -11,282 +11,101 @@
 import UIKit
 
 protocol JournalViewControllerDelegate {
-    func didBeginEditingJournalCategory()
-    func didEndEditingJournalCategory()
-    func didBeginCommenting()
-    func didEndCommenting()
+    
 }
 
-class JournalViewController: GAITrackedViewController, CategoryViewDelegate, JournalAddDetailsViewControllerDelegate {
-    
+class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var moodDescriptionView: UIView!
+    @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var categoryViews: [CategoryView]!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var moodImageView: UIImageView!
-    @IBOutlet weak var moodDescriptionLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
     
-    @IBOutlet weak var feelingImageView: UIImageView!
-    @IBOutlet weak var youreFeelingLabel: UILabel!
-    @IBOutlet weak var additionalFeelingTextLabel: UILabel!
-    @IBOutlet weak var addANoteButton: UIButton!
-    
-    @IBOutlet weak var overlayView: UIView!
-    
-    @IBOutlet weak var commentViewTopConstraint: NSLayoutConstraint!
-    
-    var firstAppearance = true
-    var categoryViews = [CategoryView]()
-    
-    var categoryWidth: CGFloat {
-        let count = CategoryCoordinator.sharedInstance().categories.count
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        if count == 0 {
-            return 0
-        }
-        let width = max(screenWidth / CGFloat(count), 60)
-        return max(screenWidth / CGFloat(count), 60)
-    }
-    
-    lazy var toolTip: AMPopTip = {
-        var tip = AMPopTip()
-        tip.shouldDismissOnTap = true
-        tip.edgeMargin = 10.0
-        tip.offset = 12
-        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        tip.textAlignment = .Center
-        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
-        return tip
-    }()
-    
-    var delegate: JournalViewControllerDelegate?
-    
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCategories", name: CategoriesDidUpdateNotification, object: nil)
+        setupObservers()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        screenName = "Journal"
-        addANoteButton.layer.cornerRadius = 17.0
-        addANoteButton.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).CGColor
-        addANoteButton.layer.borderWidth = 1.0
+        textView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        contentViewHeightConstraint.constant = containerView.frame.size.height
-        contentViewWidthConstraint.constant = categoryWidth * CGFloat(CategoryCoordinator.sharedInstance().categories.count)
-        scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
+        contentViewHeightConstraint.constant = view.frame.size.height
+        contentViewWidthConstraint.constant = view.frame.size.width
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if firstAppearance {
-            firstAppearance = false
-            showToolTip()
+    @IBAction func saveButtonTapped(sender: AnyObject) {
+        textView.resignFirstResponder()
+        dismissViewControllerAnimated(true, completion: nil)
+        var results = [String: AnyObject]()
+        var selections = categoryViews.map({ results[$0.name()] = $0.selected })
+        println(results)
+    }
+    
+    // MARK: Setup
+    
+    private func setupObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    // MARK: Notifications
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        let info = notification.userInfo
+        if let info = info {
+            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
+                if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+                    
+                    let height = keyboardSize.size.height
+                    saveButtonBottomConstraint.constant = height
+                    
+//                    scrollView.contentSize.height += height
+//                    scrollView.setContentOffset(CGPointMake(0, height / 2), animated: true)
+                    
+                    var bounds = scrollView.bounds
+                    let animation = CABasicAnimation(keyPath: "bounds")
+                    animation.duration = animationDuration
+                    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    animation.fromValue = NSValue(CGRect: bounds)
+                    bounds.origin.y = height / 2.0
+                    animation.toValue = NSValue(CGRect: bounds)
+                    
+                    scrollView.layer.addAnimation(animation, forKey: "bounds")
+                    scrollView.bounds = bounds;
+                    
+                    UIView.animateWithDuration(animationDuration, animations: {
+                        self.view.layoutIfNeeded()
+                    })
+                    
+                }
+            }
         }
     }
-    
-    // MARK: LAYOUT
-    
-    func updateCategories() {
-        for view in categoryViews {
-            view.removeFromSuperview()
-        }
-        categoryViews = [CategoryView]()
-        createCategoryViews()
-        
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        view.setNeedsUpdateConstraints()
-    }
-    
-    private func createCategoryViews() {
-        let categories = CategoryCoordinator.sharedInstance().categories
-        for (idx, category) in enumerate(categories) {
-            let view: CategoryView = UIView.viewFromNib("CategoryView") as CategoryView
-            view.delegate = self
-            view.category = category
-            contentView.addSubview(view)
-            categoryViews.append(view)
-        }
-    }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        for (idx, view) in enumerate(categoryViews) {
-            let x = CGFloat(idx) * categoryWidth
-            let y = CGFloat(0.0)
-            let width = categoryWidth
-            println(width)
-            let height = contentView.frame.size.height
-            view.frame = CGRectMake(x, y, width, height)
-        }
-    }
-    
-    @IBAction func overlayButtonTapped(sender: AnyObject) {
-        hideOpportityToAddDetails()
-    }
-    
-    @IBAction func addCommentButtonTapped(sender: AnyObject) {
-        
-        // TODO: We should disable rotation here
-        
-        delegate?.didBeginCommenting()
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: JournalAddDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("JournalAddDetailsViewController") as JournalAddDetailsViewController
-        viewController.delegate = self
-        presentViewController(viewController, animated: true, completion: nil)
-        
-        Tracker.track("add a note", action: "presented", label: "")
-    }
-    
-    private func showToolTip() {
-        AMPopTip.appearance().textColor = UIColor.blackColor()
-        AMPopTip.appearance().textAlignment = .Center
-        
-        var titleString = NSMutableAttributedString(string: "Slide up or down")
-        var bodyString = NSMutableAttributedString(string: "\nRotate your phone to see what changed your mood.")
-        let titleRange = NSMakeRange(0, countElements(titleString.string))
-        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
-        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Center
-        
-        titleString.addAttributes([
-            NSFontAttributeName : titleFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-            ], range: titleRange)
-        
-        bodyString.addAttributes([
-            NSFontAttributeName : bodyFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-            ], range: bodyRange)
-        
-        titleString.appendAttributedString(bodyString)
-        
-        var fromFrame = CGRectZero
-        fromFrame.origin.x = view.center.x
-        fromFrame.origin.y = view.center.y + 10
-        
-        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 280, inView: view, fromFrame: fromFrame)
-    }
-    
-    private func presentOpportunityToAddDetails() {
-        
-        commentViewTopConstraint.constant = 0
-        
-        self.overlayView.hidden = false
-        UIView.animateWithDuration(0.8, delay: 0.2, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            
-            self.view.layoutIfNeeded()
-            self.overlayView.alpha = 1.0
-            
-            }) { (done: Bool) -> Void in
-                
-                UIView.animateWithDuration(0.2, animations: {
-                    self.moodDescriptionView.alpha = 0.0
-                })
-        }
-    }
-    
-    private func hideOpportityToAddDetails() {
-        
-        commentViewTopConstraint.constant = -192
-        
-        UIView.animateWithDuration(0.4, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            
-            self.view.layoutIfNeeded()
-            self.overlayView.alpha = 0.0
-            
-            }) { (done: Bool) -> Void in
-                self.overlayView.hidden = false
-                return()
-        }
 
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: Selector("cleanup"), userInfo: nil, repeats: false)
-    }
-    
-    func cleanup() {
-        delegate?.didEndEditingJournalCategory()
-    }
-    
-    
-    // MARK: <JournalAddDetailsViewControllerDelegate>
-    
-    func didSaveJournalDetails() {
-        dismissViewControllerAnimated(true, completion: {
-            self.hideOpportityToAddDetails()
-        })
-        delegate?.didEndCommenting()
-    }
-    
-    
-    // MARK: <CategoryViewDelegate>
-    
-    func didChangeMoodForCategory(mood: Mood, category: Category) {
-        moodImageView.image = UIImage.imageForMood(mood)
-        if mood == .Neutral {
-            moodDescriptionLabel.text = ""
-        } else {
-            moodDescriptionLabel.text = "Feeling \(mood.rawValue)"
-        }
-        categoryLabel.text = category.type.rawValue
-    }
-    
-    func didBeginMoodChangeForCategory(category: Category) {
-        toolTip.hide()
-        delegate?.didBeginEditingJournalCategory()
-        UIView.animateWithDuration(0.2, animations: {
-            self.moodDescriptionView.alpha = 1.0
-        })
-    }
-    
-    func didEndMoodChangeForCategory(mood: Mood, category: Category) {
-        youreFeelingLabel.text = "Feeling \(mood.rawValue) in \(category.type.rawValue)"
-        feelingImageView.image = UIImage.imageForMood(mood)
-        switch mood {
-        case .Great:
-            additionalFeelingTextLabel.text = "Thats awesome! Good to hear."
-        case .Good:
-            additionalFeelingTextLabel.text = "Let the good times roll."
-        case .Bad:
-            additionalFeelingTextLabel.text = "Some days just aren’t yours."
-        case .Horrible:
-            additionalFeelingTextLabel.text = "Let it all out in a comment."
-        default:
-            additionalFeelingTextLabel.text = ""
-        }
-        
-        view.layoutIfNeeded()
-        presentOpportunityToAddDetails()
-        
-        // for API
-        println("Category: \(category.type.rawValue) - Feeling \(mood.rawValue)")
-        
-        Tracker.track("category rated", action: category.type.rawValue, label: mood.rawValue)
-    }
-    
-    func didCancelMoodChange() {
-        UIView.animateWithDuration(0.2, animations: {
-            self.moodDescriptionView.alpha = 0.0
-        })
+    // <UITextFieldDelegate>
 
-        cleanup()
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Add a note..." {
+            textView.text = ""
+        }
     }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add a note..."
+        }
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
 }

@@ -12,8 +12,7 @@ protocol OnboardingViewControllerDelegate: class {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
-class OnboardingViewController: GAITrackedViewController,  
-    CategorySelectionViewControllerDelegate,
+class OnboardingViewController: GAITrackedViewController,
     UIScrollViewDelegate,
     AuthViewControllerDelegate {
     
@@ -32,13 +31,8 @@ class OnboardingViewController: GAITrackedViewController,
     
     @IBOutlet weak var newUserButton: UIButton!
     
-    var laid = false
-    
     override func viewDidLayoutSubviews() {
-        if !laid {
-            laid = true
-            layoutScrollView()
-        }
+        layoutScrollView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,6 +42,8 @@ class OnboardingViewController: GAITrackedViewController,
         newUserButton.layer.cornerRadius = 6.0
         newUserButton.layer.borderWidth = 2.0
         newUserButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        scrollView.delegate = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -64,6 +60,10 @@ class OnboardingViewController: GAITrackedViewController,
         activateOnboarding()
     }
     
+    @IBAction func getStartedButtonTapped(sender: AnyObject) {
+        delegate?.didFinishOnboarding(self)
+    }
+    
     private func activateOnboarding() {
         scrollView.scrollEnabled = true
         scrollView.setContentOffset(CGPointMake(0.0, view.frame.size.height), animated: true)
@@ -77,13 +77,6 @@ class OnboardingViewController: GAITrackedViewController,
         
         scrollView.contentSize = CGSizeMake(view.frame.size.width, contentViewHeightConstraint.constant)
         subScrollView.contentSize = CGSizeMake(view.frame.size.width, subContentViewHeightConstraint.constant)
-        
-        scrollView.delegate = self
-    }
-    
-    func categorySelectionViewDidFinishSelectingCategories(categories: [CategoryType]) {
-        delegate?.didFinishOnboarding(self)
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: <UIScrollViewDelegate>
@@ -102,6 +95,10 @@ class OnboardingViewController: GAITrackedViewController,
     
     func userDidSignup() {
         delegate?.didFinishOnboarding(self)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
 }

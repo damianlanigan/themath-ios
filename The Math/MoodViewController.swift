@@ -18,10 +18,10 @@ protocol MoodViewControllerDelegate {
     func shouldReplayOnboarding()
 }
 
-class MoodViewController: GAITrackedViewController, MoodViewDelegate {
+class MoodViewController: GAITrackedViewController,
+    MoodViewDelegate,
+    UIViewControllerTransitioningDelegate {
     
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: INSTANCE VARIABLES
 
@@ -30,7 +30,8 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
     @IBOutlet weak var instructionLabel: UILabel!
-    @IBOutlet weak var moodLabel: UILabel!
+    
+    var transitionColor: UIColor?
     
     // MARK: constants
     
@@ -40,16 +41,16 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
     
-    private let gutter: CGFloat = 14.0
+    private let gutter: CGFloat = 0.0
     private let initialRadius: CGFloat = 36.0
     private lazy var initialRect: CGRect = {
         return CGRect(x: 0, y: 0, width: self.initialRadius * 2.0, height: self.initialRadius * 2.0)
     }()
     private lazy var finalRadius: CGFloat = {
-        return self.view.frame.size.width / 2.0 - self.gutter
+        return self.view.frame.size.height / 2.0 - self.gutter
     }()
     private lazy var finalRect: CGRect = {
-        let x: CGFloat = -(self.view.frame.size.width / 2.0 - (self.initialRadius + self.gutter))
+        let x: CGFloat = -(self.view.frame.size.height / 2.0 - (self.initialRadius + self.gutter))
         let finalOrigin = CGPoint(x: x, y: x)
         return CGRect(x: finalOrigin.x, y: finalOrigin.y, width: self.finalRadius * 2.0, height: self.finalRadius * 2.0)
     }()
@@ -126,7 +127,6 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     // MARK: viewcontroller
     
     private func setup() {
-        view.backgroundColor = UIColor.mood_blueColor()
         setupObservers()
     }
     
@@ -144,7 +144,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
         let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
         let titleRange = NSMakeRange(0, 9)
-        let bodyRange = NSMakeRange(0, countElements(bodyString.string))
+        let bodyRange = NSMakeRange(0, count(bodyString.string))
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
         
@@ -174,7 +174,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         
         touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y)
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
-        touchPoint.fillColor = UIColor.whiteColor().colorWithAlphaComponent(1.0).CGColor
+        touchPoint.fillColor = UIColor.clearColor().CGColor
         
         view.layer.addSublayer(touchPoint)
     }
@@ -185,13 +185,12 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
         circle.position = CGPoint(x: view.center.x, y: view.center.x)
         circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
-        circle.fillColor = UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
-        circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(0.8).CGColor
-        circle.lineWidth = 3.0
+        circle.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.2).CGColor
         
         contentView.layer.addSublayer(circle)
         
         addGrowAnimation()
+        addColorAnimation()
     }
     
     // MARK: IBACTION
@@ -203,10 +202,18 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     
     // MARK: NOTIFICATIONS
     
-    
     func applicationDidEnterForeground() {
         if isSetup {
             addGrowAnimation()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? JournalViewController {
+            let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
+            viewController.view.backgroundColor = UIColor(CGColor: color)
+            viewController.transitioningDelegate = self
+            viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         }
     }
 
@@ -232,6 +239,16 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
 
         circle.speed = 0.0;
     }
+    
+    func addColorAnimation() {
+        let color: CABasicAnimation = CABasicAnimation(keyPath: "fillColor")
+        color.duration = animationDuration
+        color.fromValue = UIColor.mood_startColor().CGColor
+        color.toValue   = UIColor.mood_endColor().CGColor
+        circle.addAnimation(color, forKey: "fillColor")
+        
+        circle.speed = 0.0;
+    }
 
     func update() {
         currentTime += animationSpeed * multiplier
@@ -244,11 +261,9 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
             multiplier *= -1
         }
 
-        let perc: CGFloat = CGFloat(currentTime / animationDuration)
-        let currentColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-        view.backgroundColor = currentColor
-        
-        moodLabel.text = moodStringForAnimationPercentage(perc)
+//        circle.fillColor = UIColor.greenColor().CGColor
+//        circle.fillColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(currentTime / animationDuration)).CGColor
+            //UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
     }
     
     
@@ -256,22 +271,6 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     
     // MARK: UTILITY
 
-    
-    private func moodStringForAnimationPercentage(percentage: CGFloat) -> String {
-        let perc = percentage * 100
-        switch perc {
-        case 0...30:
-            return "Terrible"
-        case 30.1...55:
-            return "Meh"
-        case 55.1...80:
-            return "Pretty Good"
-        case 80.1...100:
-            return "Great"
-        default:
-            return "Meh"
-        }
-    }
 
     private func toPath() -> CGPath {
         return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
@@ -297,11 +296,6 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
                 return()
         }
         
-        UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.moodLabel.alpha = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
     }
 
     func moodViewTouchesEnded() {
@@ -316,19 +310,16 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         
         timer?.invalidate()
 
-        UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+        UIView.animateWithDuration(0.2, delay: 1.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
             self.touchPoint.opacity = 1.0
             }) { (done: Bool) -> Void in
                 return()
         }
+
         
-        UIView.animateWithDuration(0.2, animations: {
-            self.moodLabel.alpha = 0.0
-        })
-        
-        UIView.animateWithDuration(0.6, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.1, 0.1))
+        UIView.animateWithDuration(0.6, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+            self.contentView.transform = CGAffineTransformConcat(self.contentView.transform, CGAffineTransformMakeScale(0.5, 0.5))
             self.contentView.alpha = 0.8
             }) { (done: Bool) -> Void in
                 self.circle.timeOffset = 0.0
@@ -341,10 +332,8 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
                 
                 return()
         }
-
-        UIView.animateWithDuration(1.0, animations: {
-            self.view.backgroundColor = UIColor.mood_blueColor()
-        })
+        
+        performSegueWithIdentifier("MoodToJournalTransition", sender: self)
     }
     
     // TEMPORARY
@@ -360,7 +349,7 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
         var titleString = NSMutableAttributedString(string: "Mood saved")
         
         let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let titleRange = NSMakeRange(0, countElements("Mood saved"))
+        let titleRange = NSMakeRange(0, count("Mood saved"))
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .Center
         
@@ -371,5 +360,17 @@ class MoodViewController: GAITrackedViewController, MoodViewDelegate {
     
         toolTip = tip
         toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame, duration: 2.0)
+    }
+    
+    // MARK: <UIViewControllerTransitioningDelegate>
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = MaskAnimationController()
+        animator.presenting = true
+        return animator
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return MaskAnimationController()
     }
 }

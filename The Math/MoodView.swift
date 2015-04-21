@@ -19,13 +19,13 @@ class MoodView: UIView {
     
     var delegate: MoodViewDelegate?
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches as NSSet, withEvent: event)
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
         delegate?.moodViewTouchesBegan()
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesEnded(touches as NSSet, withEvent: event)
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesEnded(touches as Set<NSObject>, withEvent: event)
         delegate?.moodViewTouchesEnded() 
     }
 }

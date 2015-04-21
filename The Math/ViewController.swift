@@ -1,5 +1,5 @@
 //
-//  👨
+//  👨🏻
 // 
 //  ViewController.swift
 //  The Math
@@ -24,21 +24,10 @@ UIScrollViewDelegate {
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: INSTANCE VARIABLES
-    
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    
 
     @IBOutlet weak var moodContainerView: UIView!
-    @IBOutlet weak var journalContainerView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var journalButton: UIButton!
-    @IBOutlet weak var moodButton: UIButton!
-    @IBOutlet weak var navigationView: UIView!
-    @IBOutlet weak var contentContainerView: UIView!
     
     var currentOrientation: UIDeviceOrientation = .Portrait
-    var previousScrollPercentage: CGFloat = 0.0
     
     var laid = false
     var onMood = true
@@ -50,13 +39,6 @@ UIScrollViewDelegate {
     lazy var moodViewController: MoodViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("MoodViewController") as? MoodViewController
-        viewController?.delegate = self
-        return viewController!
-    }()
-    
-    lazy var journalViewController: JournalViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("JournalViewController") as? JournalViewController
         viewController?.delegate = self
         return viewController!
     }()
@@ -77,11 +59,8 @@ UIScrollViewDelegate {
         super.viewDidLoad()
         
         loadMoodController()
-        loadJournalController()
-        
-        journalButton.alpha = 0.2
-        
         setupNavigationBar()
+        setupNotificationObservers()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,41 +72,27 @@ UIScrollViewDelegate {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        contentViewWidthConstraint.constant = view.frame.size.width * 2.0
-        contentViewHeightConstraint.constant = view.frame.size.height
-        scrollView.contentSize = CGSizeMake(contentViewWidthConstraint.constant, contentViewHeightConstraint.constant)
-    }
-    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!]
         UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16)!], forState: .Normal)
-        
+    }
+    
+    private func setupNotificationObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name:
             UIDeviceOrientationDidChangeNotification, object: nil)
+
     }
     
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: IBACTION
-    
-    
-    @IBAction func journalButtonTapped(sender: AnyObject) {
-        showJournalController()
-    }
-    
-    @IBAction func moodButtonTapped(sender: UIButton) {
-        showMoodController()
-    }
     
     func orientationDidChange(notification: NSNotification) {
         if !onOnboarding {
@@ -143,6 +108,7 @@ UIScrollViewDelegate {
     }
     
     override func shouldAutorotate() -> Bool {
+        return false
         if onOnboarding {
             return false
         }
@@ -158,10 +124,7 @@ UIScrollViewDelegate {
     private func loadMoodController() {
         _addContentViewController(moodViewController, toView: moodContainerView)
     }
-    
-    private func loadJournalController() {
-        _addContentViewController(journalViewController, toView: journalContainerView)
-    }
+
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -174,19 +137,7 @@ UIScrollViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as? OnboardingViewController
         viewController?.delegate = self
-        _addContentViewController(viewController!, aboveView: contentContainerView)
-    }
-    
-    // MARK: Mood
-    
-    private func showMoodController() {
-        scrollView.setContentOffset(CGPointZero, animated: true)
-    }
-    
-    // MARK: Journal
-    
-    private func showJournalController() {
-        scrollView.setContentOffset(journalContainerView.frame.origin, animated: true)
+        _addContentViewController(viewController!, aboveView: moodContainerView)
     }
     
     // MARK: Infograph
@@ -209,7 +160,7 @@ UIScrollViewDelegate {
     
     private func presentLoginViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as LoginViewController
+        let viewController: LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginController") as! LoginViewController
         presentViewController(viewController, animated: true, completion: nil)
     }
     
@@ -228,33 +179,7 @@ UIScrollViewDelegate {
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: <JournalViewControllerDelegate>
-
     
-    func didBeginEditingJournalCategory() {
-        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-            self.journalButton.alpha = 0.0
-            self.moodButton.alpha = 0.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
-    }
-    
-    func didEndEditingJournalCategory() {
-        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-            self.journalButton.alpha = 1.0
-            self.moodButton.alpha = 0.45
-        }) { (done: Bool) -> Void in
-            return()
-        }
-    }
-    
-    func didBeginCommenting() {
-        isCommenting = true
-    }
-    
-    func didEndCommenting() {
-        isCommenting = false
-    }
     
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -263,22 +188,11 @@ UIScrollViewDelegate {
 
     
     func didBeginNewMood() {
-        scrollView.scrollEnabled = false
-        UIView.animateWithDuration(0.2, animations: {
-            self.journalButton.alpha = 0.0
-            self.moodButton.alpha = 0.0
-        })
-
+        println("didBeginNewMood")
     }
     
     func didEndNewMood() {
-        scrollView.scrollEnabled = true
-        UIView.animateWithDuration(0.2, delay: 0.2, options: .CurveLinear, animations: {
-            self.journalButton.alpha = 0.2
-            self.moodButton.alpha = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
+        println("didEndNewMood")
     }
     
     func shouldReplayOnboarding() {
@@ -301,11 +215,7 @@ UIScrollViewDelegate {
                 self._removeContentViewController(viewController)
                 self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
-        journalViewController.view.setNeedsLayout()
-        journalViewController.view.layoutIfNeeded()
     }
-
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -329,39 +239,7 @@ UIScrollViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
         isSubmittingFeedback = false
     }
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    // MARK: <UIScrollViewDelegate>
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView == self.scrollView {
-            let white = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-            let black = UIColor(red: 100/255.0, green: 100/255.0, blue:100/255.0, alpha: 1.0)
-            let percentage = scrollView.contentOffset.x / view.frame.size.width
-            let color = UIColor.colorAtPercentage(white, color2: black, perc: percentage)
-            let moodAlpha = max(1 - percentage, 0.2)
-            let journalAlpha = max(percentage, 0.2)
-
-            moodButton.setTitleColor(color, forState: .Normal)
-            moodButton.alpha = moodAlpha
-            
-            journalButton.setTitleColor(color, forState: .Normal)
-            journalButton.alpha = journalAlpha
-            
-            if percentage < 0.5 && previousScrollPercentage >= 0.5 {
-                onMood = true
-                setNeedsStatusBarAppearanceUpdate()
-            } else if percentage > 0.5 && previousScrollPercentage <= 0.5 {
-                onMood = false
-                scrollView.delaysContentTouches = false
-                setNeedsStatusBarAppearanceUpdate()
-            }
-            
-            previousScrollPercentage = percentage
-        }
-    }
-    
+        
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: UTILITY
@@ -372,7 +250,7 @@ UIScrollViewDelegate {
     }
     
     override func prefersStatusBarHidden() -> Bool {
-        return onOnboarding
+        return true
     }
     
 }

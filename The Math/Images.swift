@@ -11,23 +11,23 @@ import UIKit
 
 extension UIImage {
     
-    class func imageForCategoryType(type: CategoryType) -> UIImage {
-        switch type {
-        case .Personal:
-            return UIImage.categoryAsset("self")
-        case .Lifestyle:
-            return UIImage.categoryAsset("lifestyle")
-        case .Money:
-            return UIImage.categoryAsset("money")
-        case .Health:
-            return UIImage.categoryAsset("health")
-        case .Work:
-            return UIImage.categoryAsset("work")
-        case .Love:
-            return UIImage.categoryAsset("love")
-        }
-
-    }
+//    class func imageForCategoryType(type: CategoryType) -> UIImage {
+//        switch type {
+//        case .Personal:
+//            return UIImage.categoryAsset("self")
+//        case .Lifestyle:
+//            return UIImage.categoryAsset("lifestyle")
+//        case .Money:
+//            return UIImage.categoryAsset("money")
+//        case .Health:
+//            return UIImage.categoryAsset("health")
+//        case .Work:
+//            return UIImage.categoryAsset("work")
+//        case .Love:
+//            return UIImage.categoryAsset("love")
+//        }
+//
+//    }
     
     class func imageForMood(mood: Mood) -> UIImage {
         switch mood {

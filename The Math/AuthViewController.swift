@@ -37,7 +37,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         focusedTextField = textField
-        println(focusedTextField)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

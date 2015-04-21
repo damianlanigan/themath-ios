@@ -12,6 +12,6 @@ import UIKit
 extension UIView {
     class func viewFromNib(name: String) -> UIView! {
         let views = NSBundle.mainBundle().loadNibNamed(name, owner: self, options: nil)
-        return views[0] as UIView
+        return views[0] as! UIView
     }
 }

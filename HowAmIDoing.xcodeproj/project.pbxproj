@@ -8,19 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2708DEE31A5C334800D99A28 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE21A5C334800D99A28 /* Images.swift */; };
-		2708DEE71A5C462900D99A28 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE61A5C462900D99A28 /* RoundView.swift */; };
-		2708DEE91A5C465B00D99A28 /* CategorySliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */; };
 		279AA1141A60629C00ADA43F /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279AA1131A60629C00ADA43F /* MoodView.swift */; };
 		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
 		27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
-		27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B21A48BDC900CC7CA6 /* CategoryView.swift */; };
 		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
-		27B371691A50B73100A113AB /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371681A50B73100A113AB /* PersonalView.swift */; };
-		27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716A1A50B73D00A113AB /* LifestyleView.swift */; };
-		27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716C1A50B77B00A113AB /* MoneyView.swift */; };
-		27B3716F1A50B78500A113AB /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3716E1A50B78500A113AB /* HealthView.swift */; };
-		27B371711A50B78F00A113AB /* WorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371701A50B78F00A113AB /* WorkView.swift */; };
-		27B371731A50B79500A113AB /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B371721A50B79500A113AB /* LoveView.swift */; };
 		27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C21A48710F008ACC14 /* AppDelegate.swift */; };
 		27D411C51A48710F008ACC14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C41A48710F008ACC14 /* ViewController.swift */; };
 		27D411C81A48710F008ACC14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C61A48710F008ACC14 /* Main.storyboard */; };
@@ -29,23 +20,29 @@
 		27D411D91A48710F008ACC14 /* The_MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411D81A48710F008ACC14 /* The_MathTests.swift */; };
 		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
-		27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
 		8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */; };
 		8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3201A83F2F900B1B503 /* AuthViewController.swift */; };
 		8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3241A83F33A00B1B503 /* LoginViewController.swift */; };
 		8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3261A83F34A00B1B503 /* SignupViewController.swift */; };
 		8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59B27F1A7D4EE7007A29BB /* UIView.swift */; };
-		8D5FED071A7D47D500A3C95E /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5FED061A7D47D500A3C95E /* CategoryView.xib */; };
+		8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DC81AE5AB6400AC2CD8 /* CategoryView.swift */; };
+		8D7A6DCB1AE5B1FE00AC2CD8 /* LoveCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DCA1AE5B1FE00AC2CD8 /* LoveCategoryView.swift */; };
+		8D7A6DCD1AE5B27700AC2CD8 /* WorkCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DCC1AE5B27700AC2CD8 /* WorkCategoryView.swift */; };
+		8D7A6DCF1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DCE1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift */; };
+		8D7A6DD11AE5B2C600AC2CD8 /* SocialCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD01AE5B2C600AC2CD8 /* SocialCategoryView.swift */; };
+		8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */; };
+		8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */; };
+		8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */; };
+		8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */; };
 		8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C30981A8F194700903E76 /* BorderedView.swift */; };
-		8DBDA3571A7EE2EC00FA4AEF /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */; };
+		8DABC1041AE1A90800940A76 /* TransformableColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC1031AE1A90800940A76 /* TransformableColorView.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
 		8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
 		8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */; };
 		8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BD1A8ABD2200B03144 /* Fabric.framework */; };
-		8DED66161A7ED36B00327B41 /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */; };
-		8DED661D1A7ED40100327B41 /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */; };
+		8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */; };
 		8DF1274A1A8ACAEB000B5C4A /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF127491A8ACAEB000B5C4A /* Tracker.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,19 +59,10 @@
 /* Begin PBXFileReference section */
 		1C8547030B110DFB6DF08D49 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2708DEE21A5C334800D99A28 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		2708DEE61A5C462900D99A28 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
-		2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySliderView.swift; sourceTree = "<group>"; };
 		279AA1131A60629C00ADA43F /* MoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		27A542AE1A48BA4300CC7CA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		27A542B01A48BAFA00CC7CA6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		27A542B21A48BDC900CC7CA6 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		27A713CC1A48754600344431 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
-		27B371681A50B73100A113AB /* PersonalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
-		27B3716A1A50B73D00A113AB /* LifestyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifestyleView.swift; sourceTree = "<group>"; };
-		27B3716C1A50B77B00A113AB /* MoneyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
-		27B3716E1A50B78500A113AB /* HealthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
-		27B371701A50B78F00A113AB /* WorkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkView.swift; sourceTree = "<group>"; };
-		27B371721A50B79500A113AB /* LoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		27D411BD1A48710F008ACC14 /* HowAmIDoing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowAmIDoing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D411C11A48710F008ACC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D411C21A48710F008ACC14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +75,6 @@
 		27D411D81A48710F008ACC14 /* The_MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MathTests.swift; sourceTree = "<group>"; };
 		27D411E41A48715D008ACC14 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
-		27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalAddDetailsViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8D2CA3201A83F2F900B1B503 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -95,16 +82,23 @@
 		8D2CA3261A83F34A00B1B503 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		8D531D0B1A7AD44D00EEAB88 /* The Math-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Math-Bridging-Header.h"; sourceTree = "<group>"; };
 		8D59B27F1A7D4EE7007A29BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		8D5FED061A7D47D500A3C95E /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
+		8D7A6DC81AE5AB6400AC2CD8 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DCA1AE5B1FE00AC2CD8 /* LoveCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DCC1AE5B27700AC2CD8 /* WorkCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DCE1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD01AE5B2C600AC2CD8 /* SocialCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChaoticCategoryView.swift; sourceTree = "<group>"; };
 		8D8C30981A8F194700903E76 /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
-		8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		8DABC1031AE1A90800940A76 /* TransformableColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformableColorView.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
 		8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8DE280BD1A8ABD2200B03144 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
-		8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
+		8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskAnimationController.swift; sourceTree = "<group>"; };
 		8DF127491A8ACAEB000B5C4A /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,21 +143,6 @@
 				2708DEE21A5C334800D99A28 /* Images.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		27B371671A50B6A100A113AB /* Category Views */ = {
-			isa = PBXGroup;
-			children = (
-				27A542B21A48BDC900CC7CA6 /* CategoryView.swift */,
-				27B371681A50B73100A113AB /* PersonalView.swift */,
-				27B3716A1A50B73D00A113AB /* LifestyleView.swift */,
-				27B3716C1A50B77B00A113AB /* MoneyView.swift */,
-				27B3716E1A50B78500A113AB /* HealthView.swift */,
-				27B371701A50B78F00A113AB /* WorkView.swift */,
-				27B371721A50B79500A113AB /* LoveView.swift */,
-				8D5FED061A7D47D500A3C95E /* CategoryView.xib */,
-			);
-			name = "Category Views";
 			sourceTree = "<group>";
 		};
 		27C078391A5AF20C007E0BDF /* Model */ = {
@@ -260,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				27D411C41A48710F008ACC14 /* ViewController.swift */,
+				8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */,
 				8DED66181A7ED37E00327B41 /* Onboarding */,
 				8DED661A1A7ED38C00327B41 /* Mood */,
 				8DED66191A7ED38700327B41 /* Journal */,
@@ -273,9 +253,6 @@
 			children = (
 				8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */,
 				8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */,
-				8DBDA3561A7EE2EC00FA4AEF /* CategorySelectionViewController.swift */,
-				8DED66151A7ED36B00327B41 /* CategorySelectionTableViewController.swift */,
-				8DED661C1A7ED40100327B41 /* CategorySelectionTableViewCell.swift */,
 				8D8C30981A8F194700903E76 /* BorderedView.swift */,
 				8D2CA3281A83F34D00B1B503 /* Auth */,
 			);
@@ -286,10 +263,15 @@
 			isa = PBXGroup;
 			children = (
 				27A713CC1A48754600344431 /* JournalViewController.swift */,
-				27F83D791A5DCBDF0082C476 /* JournalAddDetailsViewController.swift */,
-				27B371671A50B6A100A113AB /* Category Views */,
-				2708DEE61A5C462900D99A28 /* RoundView.swift */,
-				2708DEE81A5C465B00D99A28 /* CategorySliderView.swift */,
+				8D7A6DC81AE5AB6400AC2CD8 /* CategoryView.swift */,
+				8D7A6DCA1AE5B1FE00AC2CD8 /* LoveCategoryView.swift */,
+				8D7A6DCC1AE5B27700AC2CD8 /* WorkCategoryView.swift */,
+				8D7A6DCE1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift */,
+				8D7A6DD01AE5B2C600AC2CD8 /* SocialCategoryView.swift */,
+				8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */,
+				8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */,
+				8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */,
+				8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */,
 			);
 			name = Journal;
 			sourceTree = "<group>";
@@ -299,6 +281,7 @@
 			children = (
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
 				279AA1131A60629C00ADA43F /* MoodView.swift */,
+				8DABC1031AE1A90800940A76 /* TransformableColorView.swift */,
 			);
 			name = Mood;
 			sourceTree = "<group>";
@@ -397,7 +380,6 @@
 			files = (
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
-				8D5FED071A7D47D500A3C95E /* CategoryView.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,37 +444,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7A6DCB1AE5B1FE00AC2CD8 /* LoveCategoryView.swift in Sources */,
 				8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */,
-				27B3716D1A50B77B00A113AB /* MoneyView.swift in Sources */,
-				27B3716F1A50B78500A113AB /* HealthView.swift in Sources */,
+				8DABC1041AE1A90800940A76 /* TransformableColorView.swift in Sources */,
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
+				8D7A6DCF1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift in Sources */,
 				8DF1274A1A8ACAEB000B5C4A /* Tracker.swift in Sources */,
 				2708DEE31A5C334800D99A28 /* Images.swift in Sources */,
+				8D7A6DD11AE5B2C600AC2CD8 /* SocialCategoryView.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				27D411C51A48710F008ACC14 /* ViewController.swift in Sources */,
-				8DED661D1A7ED40100327B41 /* CategorySelectionTableViewCell.swift in Sources */,
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
+				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */,
+				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
+				8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */,
+				8D7A6DCD1AE5B27700AC2CD8 /* WorkCategoryView.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
 				8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
-				27F83D7A1A5DCBDF0082C476 /* JournalAddDetailsViewController.swift in Sources */,
-				27B3716B1A50B73D00A113AB /* LifestyleView.swift in Sources */,
-				2708DEE91A5C465B00D99A28 /* CategorySliderView.swift in Sources */,
-				27B371731A50B79500A113AB /* LoveView.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
+				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
-				8DBDA3571A7EE2EC00FA4AEF /* CategorySelectionViewController.swift in Sources */,
-				27A542B31A48BDC900CC7CA6 /* CategoryView.swift in Sources */,
+				8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */,
 				8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */,
-				2708DEE71A5C462900D99A28 /* RoundView.swift in Sources */,
-				27B371711A50B78F00A113AB /* WorkView.swift in Sources */,
-				8DED66161A7ED36B00327B41 /* CategorySelectionTableViewController.swift in Sources */,
 				8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */,
+				8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */,
 				8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */,
-				27B371691A50B73100A113AB /* PersonalView.swift in Sources */,
 				8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

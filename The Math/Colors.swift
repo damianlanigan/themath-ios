@@ -11,22 +11,22 @@ import UIKit
 
 extension UIColor {
     
-    class func colorForCategoryType(type: CategoryType) -> UIColor {
-        switch type {
-        case .Personal:
-            return UIColor.category_orangeColor()
-        case .Lifestyle:
-            return UIColor.category_blueColor()
-        case .Money:
-            return UIColor.category_greenColor()
-        case .Health:
-            return UIColor.category_lightBlueColor()
-        case .Work:
-            return UIColor.category_purpleColor()
-        case .Love:
-            return UIColor.category_pinkColor()
-        }
-    }
+//    class func colorForCategoryType(type: CategoryType) -> UIColor {
+//        switch type {
+//        case .Personal:
+//            return UIColor.category_orangeColor()
+//        case .Lifestyle:
+//            return UIColor.category_blueColor()
+//        case .Money:
+//            return UIColor.category_greenColor()
+//        case .Health:
+//            return UIColor.category_lightBlueColor()
+//        case .Work:
+//            return UIColor.category_purpleColor()
+//        case .Love:
+//            return UIColor.category_pinkColor()
+//        }
+//    }
     
     // MARK: Category
     
@@ -61,11 +61,11 @@ extension UIColor {
     }
     
     class func mood_startColor() -> UIColor {
-        return UIColor(red:0.188, green:0.353, blue:0.553, alpha: 1)
+        return UIColor(red:26/255.0, green:119/255.0, blue:160/255.0, alpha: 1)
     }
     
     class func mood_endColor() -> UIColor {
-        return UIColor(red:0.373, green:0.749, blue:0.855, alpha: 1)
+        return UIColor(red:255/255.0, green:231/255.0, blue:87/255.0, alpha: 1)
     }
     
     // MARK: Utility
@@ -86,6 +86,7 @@ extension UIColor {
         let blue1 = firstComp[2]
         let blue2 = secondComp[2]
         let newBlue = numbers(blue1, num2: blue2, perc: perc)
+        
         return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
     

@@ -12,8 +12,7 @@ class Tracker: NSObject {
 
     class func track(category: String, action: String, label: String) {
         let tracker = GAI.sharedInstance().defaultTracker
-        let dictionary = GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil).build()
-        tracker.send(dictionary)
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil).build() as [NSObject:AnyObject])
     }
 
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Fancy Pixel. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 typedef NS_ENUM(NSInteger, AMPopTipDirection) {
     AMPopTipDirectionUp,
@@ -126,6 +126,19 @@ typedef NS_ENUM(NSInteger, AMPopTipDirection) {
  */
 @property (nonatomic, strong) UIColor *popoverColor UI_APPEARANCE_SELECTOR;
 
+/** Popover Border Color
+ *
+ * Holds the UIColor for the popover's bordedr
+ */
+@property (nonatomic, strong) UIColor *borderColor UI_APPEARANCE_SELECTOR;
+
+/** Popover Border Width
+ *
+ * Holds the width for the popover's border
+ */
+@property (nonatomic, assign) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
+
+
 /** Popover border radius
  *
  * Holds the CGFloat with the popover's border radius
@@ -185,6 +198,12 @@ typedef NS_ENUM(NSInteger, AMPopTipDirection) {
  * Holds the NSTimeInterval with the delay of the disappearing animation
  */
 @property (nonatomic, assign) NSTimeInterval delayOut UI_APPEARANCE_SELECTOR;
+
+/** The frame the poptip is pointing to
+ *
+ * Holds the CGrect with the rect the tip is pointing to
+ */
+@property (nonatomic, assign) CGRect fromFrame;
 
 /** Visibility
  *

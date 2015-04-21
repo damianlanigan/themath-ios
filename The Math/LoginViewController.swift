@@ -37,8 +37,8 @@ class LoginViewController: AuthViewController {
         var string = NSMutableAttributedString(string: "Forgot your password? Reset Password")
         let regularFont = UIFont(name: "AvenirNext-Regular", size: 13)!
         let boldFont = UIFont(name: "AvenirNext-DemiBold", size: 13)!
-        let regularRange = NSMakeRange(0, countElements("Forgot your password?"))
-        let boldRange = NSMakeRange(regularRange.length, countElements(" Reset Password"))
+        let regularRange = NSMakeRange(0, count("Forgot your password?"))
+        let boldRange = NSMakeRange(regularRange.length, count(" Reset Password"))
         
         string.addAttributes([
             NSFontAttributeName : regularFont
@@ -57,6 +57,10 @@ class LoginViewController: AuthViewController {
     
     func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 }
