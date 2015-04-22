@@ -8,3 +8,6 @@
 #import <GoogleAnalytics-iOS-SDK/GAILogger.h>
 #import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
 #import <GoogleAnalytics-iOS-SDK/GAITracker.h>
+#import <JBChartView/JBBarChartView.h>
+#import <JBChartView/JBChartView.h>
+#import <JBChartView/JBLineChartView.h>

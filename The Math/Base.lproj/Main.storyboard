@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792" y="209"/>
+            <point key="canvasLocation" x="649" y="195"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="0TN-xz-IaK">
@@ -2983,48 +2983,51 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="landscape_01" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-K6-FVb">
-                                <rect key="frame" x="0.0" y="-640" width="1136" height="640"/>
-                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="btq-JQ-AdL">
+                                <rect key="frame" x="181" y="40" width="238" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="238" id="Euz-NL-R6D"/>
+                                    <constraint firstAttribute="width" constant="238" id="JmB-8a-Vrx"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Euz-NL-R6D"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="navigationControl:" destination="grH-6b-2HV" eventType="valueChanged" id="cbI-C6-54h"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
+                                <rect key="frame" x="16" y="76" width="568" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aAW-K6-FVb" secondAttribute="trailing" id="2LM-ve-bb0"/>
-                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="aAW-K6-FVb" secondAttribute="bottom" id="TDb-Pk-njy"/>
-                            <constraint firstItem="aAW-K6-FVb" firstAttribute="top" secondItem="uGE-RN-fM3" secondAttribute="top" id="Zmy-8Z-g5x"/>
-                            <constraint firstItem="aAW-K6-FVb" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" id="ayo-Sg-M5s"/>
+                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" id="6fu-iz-CYS"/>
+                            <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="8" id="6nC-T0-Hlm"/>
+                            <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
+                            <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" constant="16" id="T8M-2h-nzn"/>
+                            <constraint firstItem="KWU-uu-icG" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" constant="16" id="dt1-m6-PRn"/>
+                            <constraint firstAttribute="centerX" secondItem="btq-JQ-AdL" secondAttribute="centerX" id="jD3-Tu-I5S"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="aAW-K6-FVb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="TDb-Pk-njy"/>
-                                <exclude reference="2LM-ve-bb0"/>
-                                <exclude reference="Zmy-8Z-g5x"/>
-                                <exclude reference="ayo-Sg-M5s"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact">
-                            <mask key="subviews">
-                                <include reference="aAW-K6-FVb"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="TDb-Pk-njy"/>
-                                <include reference="2LM-ve-bb0"/>
-                                <include reference="Zmy-8Z-g5x"/>
-                                <include reference="ayo-Sg-M5s"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="graphContainer" destination="KWU-uu-icG" id="hjD-i3-fsR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1Y-iI-4v0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3256.5" y="-589.5"/>
+            <point key="canvasLocation" x="1828" y="-474"/>
         </scene>
     </scenes>
     <resources>
-        <image name="landscape_01" width="1136" height="640"/>
         <image name="launch_graphic" width="120" height="120"/>
         <image name="onboarding_02" width="192" height="322"/>
         <image name="onboarding_03" width="192" height="322"/>

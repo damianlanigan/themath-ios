@@ -306,8 +306,8 @@ class MoodViewController: GAITrackedViewController,
     private func presentInfograph() {
         if shouldAutorotate() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
-            presentViewController(viewController!, animated: false, completion: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as! InfographViewController
+            presentViewController(viewController, animated: false, completion: nil)
         }
     }
     
@@ -351,6 +351,7 @@ class MoodViewController: GAITrackedViewController,
                 } else if device.orientation.isPortrait && !previousOrientation.isPortrait {
                     dismissInfograph()
                 }
+                previousOrientation = device.orientation
             }
         }
     }

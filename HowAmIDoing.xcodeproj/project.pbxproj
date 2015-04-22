@@ -35,6 +35,12 @@
 		8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */; };
 		8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */; };
 		8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C30981A8F194700903E76 /* BorderedView.swift */; };
+		8D9138701AE85CB90090C53C /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D91386F1AE85CB90090C53C /* BarView.swift */; };
+		8D9138721AE85CC10090C53C /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9138711AE85CC10090C53C /* BarView.xib */; };
+		8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138731AE85D0F0090C53C /* RoundableView.swift */; };
+		8D9138781AE85D7B0090C53C /* WeekInfoGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138751AE85D7B0090C53C /* WeekInfoGraphViewController.swift */; };
+		8D9138791AE85D7B0090C53C /* DayInfoGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138761AE85D7B0090C53C /* DayInfoGraphViewController.swift */; };
+		8D91387A1AE85D7B0090C53C /* MonthInfoGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138771AE85D7B0090C53C /* MonthInfoGraphViewController.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
 		8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
@@ -89,6 +95,12 @@
 		8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfCategoryView.swift; sourceTree = "<group>"; };
 		8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChaoticCategoryView.swift; sourceTree = "<group>"; };
 		8D8C30981A8F194700903E76 /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		8D91386F1AE85CB90090C53C /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		8D9138711AE85CC10090C53C /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
+		8D9138731AE85D0F0090C53C /* RoundableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundableView.swift; sourceTree = "<group>"; };
+		8D9138751AE85D7B0090C53C /* WeekInfoGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekInfoGraphViewController.swift; sourceTree = "<group>"; };
+		8D9138761AE85D7B0090C53C /* DayInfoGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInfoGraphViewController.swift; sourceTree = "<group>"; };
+		8D9138771AE85D7B0090C53C /* MonthInfoGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthInfoGraphViewController.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +296,12 @@
 			isa = PBXGroup;
 			children = (
 				8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */,
+				8D9138751AE85D7B0090C53C /* WeekInfoGraphViewController.swift */,
+				8D9138761AE85D7B0090C53C /* DayInfoGraphViewController.swift */,
+				8D9138771AE85D7B0090C53C /* MonthInfoGraphViewController.swift */,
+				8D91386F1AE85CB90090C53C /* BarView.swift */,
+				8D9138731AE85D0F0090C53C /* RoundableView.swift */,
+				8D9138711AE85CC10090C53C /* BarView.xib */,
 			);
 			name = Infograph;
 			sourceTree = "<group>";
@@ -372,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9138721AE85CC10090C53C /* BarView.xib in Resources */,
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
@@ -450,14 +469,18 @@
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
+				8D9138791AE85D7B0090C53C /* DayInfoGraphViewController.swift in Sources */,
 				8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */,
 				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
 				8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */,
 				8D7A6DCD1AE5B27700AC2CD8 /* WorkCategoryView.swift in Sources */,
+				8D9138701AE85CB90090C53C /* BarView.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
 				8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
+				8D91387A1AE85D7B0090C53C /* MonthInfoGraphViewController.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
+				8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */,
 				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
 				8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */,
@@ -466,6 +489,7 @@
 				8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */,
 				8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */,
 				8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */,
+				8D9138781AE85D7B0090C53C /* WeekInfoGraphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
