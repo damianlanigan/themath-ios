@@ -20,6 +20,7 @@ protocol MoodViewControllerDelegate {
 
 class MoodViewController: GAITrackedViewController,
     MoodViewDelegate,
+    OnboardingViewControllerDelegate,
     UIViewControllerTransitioningDelegate {
     
     
@@ -87,7 +88,7 @@ class MoodViewController: GAITrackedViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.alpha = 0.0
         moodTrigger.delegate = self
         
         let panGesture = UIPanGestureRecognizer(target: self, action: "panning:")
@@ -99,6 +100,11 @@ class MoodViewController: GAITrackedViewController,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.screenName = "Mood"
+        
+        if firstAppearance {
+            createAndAddTouchPoint()
+            createAndAddMoodCircle()
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -106,17 +112,21 @@ class MoodViewController: GAITrackedViewController,
 
         if firstAppearance {
             firstAppearance = false
-            createAndAddTouchPoint()
-            createAndAddMoodCircle()
-
-            contentView.transform = CGAffineTransformMakeScale(0.6, 0.6)
-            contentView.alpha = 0.4
 
             createNewMood()
 
             isSetup = true
             
             showTooltip()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
+            presentViewController(viewController, animated: false, completion: nil)
+            viewController.delegate = self
+            
+            _performBlock({ () -> Void in
+                self.view.alpha = 1.0
+            }, withDelay: 0.5)
         }
     }
     
@@ -336,11 +346,9 @@ class MoodViewController: GAITrackedViewController,
         
         performSegueWithIdentifier("MoodToJournalTransition", sender: self)
         
-        let delay = 0.7 * Double(NSEC_PER_SEC)
-        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue(), {
+        _performBlock({ () -> Void in
             self.createNewMood()
-        })
+        }, withDelay: 0.7)
     }
     
     // TEMPORARY
@@ -369,6 +377,12 @@ class MoodViewController: GAITrackedViewController,
         toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame, duration: 2.0)
     }
     
+    // MARK: <OnboardingViewControllerDelegate>
+    
+    func didFinishOnboarding(viewController: OnboardingViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: <UIViewControllerTransitioningDelegate>
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -379,5 +393,9 @@ class MoodViewController: GAITrackedViewController,
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return MaskAnimationController()
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
