@@ -36,8 +36,9 @@ class MoodViewController: GAITrackedViewController,
     // MARK: constants
     
     private var multiplier: CFTimeInterval = 1.0
-    private let animationDuration: CFTimeInterval = 20.0
+    private let animationDuration: CFTimeInterval = 28.0
     private let animationSpeed: CFTimeInterval = 0.15
+    private var capturingMood = false
     
     private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
     
@@ -88,6 +89,9 @@ class MoodViewController: GAITrackedViewController,
         super.viewDidLoad()
 
         moodTrigger.delegate = self
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: "panning:")
+        view.addGestureRecognizer(panGesture)
         
         setup()
     }
@@ -185,12 +189,30 @@ class MoodViewController: GAITrackedViewController,
         circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
         circle.position = CGPoint(x: view.center.x, y: view.center.x)
         circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
-//        circle.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.2).CGColor
         
         contentView.layer.addSublayer(circle)
         
         addGrowAnimation()
         addColorAnimation()
+    }
+    
+    func panning(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .Changed:
+            timer?.invalidate()
+            let location = gesture.locationInView(view)
+            var x = abs(view.center.x - location.x)
+            var y = abs(view.center.y - location.y)
+            let distance = sqrt(pow(x, 2)) + sqrt(pow(y, 2))
+            currentTime = NSTimeInterval(distance / view.center.y) * animationDuration
+            update()
+        case .Ended:
+            if capturingMood {
+                endMood()
+            }
+        default:
+            return
+        }
     }
     
     // MARK: IBACTION
@@ -239,7 +261,6 @@ class MoodViewController: GAITrackedViewController,
         morph.fromValue = circle.path
         morph.toValue   = toPath()
         circle.addAnimation(morph, forKey: "path")
-
         circle.speed = 0.0;
     }
     
@@ -249,7 +270,6 @@ class MoodViewController: GAITrackedViewController,
         color.fromValue = UIColor.mood_startColor().CGColor
         color.toValue   = UIColor.mood_endColor().CGColor
         circle.addAnimation(color, forKey: "fillColor")
-        
         circle.speed = 0.0;
     }
 
@@ -281,23 +301,28 @@ class MoodViewController: GAITrackedViewController,
 
 
     func moodViewTouchesBegan() {
-        
-        toolTip.hide()
-        
-        delegate?.didBeginNewMood()
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
+        beginMood()
+    }
 
+    func moodViewTouchesEnded() {
+        endMood()
+    }
+    
+    private func beginMood() {
+        capturingMood = true
+        toolTip.hide()
+        delegate?.didBeginNewMood()
+        timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(0.9, 0.9, 0.9)
             self.touchPoint.opacity = 0.5
             }) { (done: Bool) -> Void in
                 return()
         }
-        
     }
-
-    func moodViewTouchesEnded() {
+    
+    private func endMood() {
+        capturingMood = false
         
         // for API
         let percentage = trunc(currentTime / animationDuration * 100)
@@ -308,8 +333,7 @@ class MoodViewController: GAITrackedViewController,
         delegate?.didEndNewMood()
         
         timer?.invalidate()
-
-        println(circle.timeOffset / animationDuration)
+        
         performSegueWithIdentifier("MoodToJournalTransition", sender: self)
         
         let delay = 0.7 * Double(NSEC_PER_SEC)

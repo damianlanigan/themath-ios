@@ -12,63 +12,81 @@ class MaskAnimationController:  NSObject,
     UIViewControllerAnimatedTransitioning {
     
     var presenting = false
+    var toViewController: UIViewController?
+    var fromViewController: UIViewController?
+    var context: UIViewControllerContextTransitioning?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return 0.35
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let containerView = transitionContext.containerView()
+        context = transitionContext
+        fromViewController = context!.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        toViewController = context!.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let containerView = context!.containerView()
         
         if presenting {
-            fromViewController.view.userInteractionEnabled = false
-            toViewController.view.userInteractionEnabled = false
-            containerView.addSubview(toViewController.view)
-            containerView.bringSubviewToFront(toViewController.view)
-            toViewController.view.alpha = 0.0
+            fromViewController!.view.userInteractionEnabled = false
+            toViewController!.view.userInteractionEnabled = false
+            containerView.addSubview(toViewController!.view)
+            containerView.bringSubviewToFront(toViewController!.view)
+            toViewController!.view.alpha = 0.0
             UIView.animateWithDuration(0.45, animations: {
-                fromViewController.view.transform = CGAffineTransformMakeScale(10.5, 10.5)
+                self.fromViewController!.view.transform = CGAffineTransformMakeScale(10.5, 10.5)
                 }, completion: { (done: Bool) -> Void in
                     UIView.animateWithDuration(0.2, animations: {
-                            toViewController.view.alpha = 1.0
+                        self.toViewController!.view.alpha = 1.0
                         }, completion: { (done: Bool) -> Void in
-                            fromViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                            toViewController.view.userInteractionEnabled = true
-                            transitionContext.completeTransition(true)
+                            self.fromViewController!.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                            self.toViewController!.view.userInteractionEnabled = true
+                            self.context!.completeTransition(true)
                     })
             })
         } else {
-            
-            var buttonFrame = CGRectMake(0, 0, 50, 50)
-            buttonFrame.origin.x = toViewController.view.center.x - 25
-            buttonFrame.origin.y = toViewController.view.center.y - 25
+            var buttonFrame = CGRectMake(0, 0, 160, 160)
+            buttonFrame.origin.x = toViewController!.view.center.x - 80
+            buttonFrame.origin.y = toViewController!.view.center.y - 80
             var circleMaskPathFinal  = UIBezierPath(ovalInRect: buttonFrame)
-            var extremePoint = CGPoint(x: toViewController.view.center.x - 0, y: toViewController.view.center.y - CGRectGetHeight(fromViewController.view.bounds))
-            var radius = sqrt((extremePoint.x*extremePoint.x) + (extremePoint.y*extremePoint.y))
+            var extremePoint = CGPoint(x: toViewController!.view.center.x - 0, y: toViewController!.view.center.y - CGRectGetHeight(fromViewController!.view.bounds))
+            var radius = sqrt((extremePoint.x * extremePoint.x) + (extremePoint.y * extremePoint.y))
             var circleMaskPathInitial = UIBezierPath(ovalInRect: CGRectInset(buttonFrame, -radius, -radius))
             
-            //5
             var maskLayer = CAShapeLayer()
             maskLayer.path = circleMaskPathFinal.CGPath
-            fromViewController.view.layer.mask = maskLayer
+            fromViewController!.view.layer.mask = maskLayer
             
-            //6
             var maskLayerAnimation = CABasicAnimation(keyPath: "path")
             maskLayerAnimation.fromValue = circleMaskPathInitial.CGPath
             maskLayerAnimation.toValue = circleMaskPathFinal.CGPath
-            maskLayerAnimation.duration = transitionDuration(transitionContext)
+            maskLayerAnimation.duration = transitionDuration(context!)
             maskLayerAnimation.delegate = self
             maskLayerAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             maskLayer.addAnimation(maskLayerAnimation, forKey: "path")
             
-            let duration = transitionDuration(transitionContext)
+            let duration = 0.2
             
-            (fromViewController as! JournalViewController).fadeOut(duration, completion: { () -> Void in
-                toViewController.view.userInteractionEnabled = true
-                transitionContext.completeTransition(true)
-            })
+            if let viewController = fromViewController as? JournalViewController {
+                viewController.fadeOutInitial(duration, completion: { () -> Void in
+                    let delay = 1.0 * Double(NSEC_PER_SEC)
+                    var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    viewController.saved()
+                    dispatch_after(time, dispatch_get_main_queue(), {
+                        buttonFrame.size = CGSizeMake(70.0, 70.0)
+                        buttonFrame.origin.x = self.toViewController!.view.center.x - 35
+                        buttonFrame.origin.y = self.toViewController!.view.center.y - 35
+                        maskLayer.path = UIBezierPath(ovalInRect: buttonFrame).CGPath
+                        maskLayerAnimation.fromValue = circleMaskPathFinal.CGPath
+                        maskLayerAnimation.toValue = UIBezierPath(ovalInRect: buttonFrame)
+                        maskLayer.addAnimation(maskLayerAnimation, forKey: "path")
+                        
+                        viewController.fadeOutFinal(self.transitionDuration(transitionContext), completion: { () -> Void in
+                            self.toViewController!.view.userInteractionEnabled = true
+                            self.context!.completeTransition(true)
+                        })
+                    })
+                })
+            }
         }
     }
 

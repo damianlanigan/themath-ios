@@ -2089,8 +2089,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                         <rect key="frame" x="14" y="20" width="372" height="411"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="fTm-Vk-pUw" id="NYE-Bd-6pj"/>
@@ -2109,7 +2109,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.69000000000000006" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="RvV-eo-xfy" firstAttribute="top" secondItem="sHr-74-r9g" secondAttribute="bottom" constant="20" id="KA0-ng-iRi"/>
                                             <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="30" id="NY7-7i-f98"/>
@@ -2154,12 +2154,20 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     <action selector="saveButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="VOD-mJ-6pn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-6a-v5Q">
+                                <rect key="frame" x="171" y="388" width="58" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tYt-o4-gyq" firstAttribute="leading" secondItem="SdP-8w-Tey" secondAttribute="leading" id="5LO-7p-oiR"/>
                             <constraint firstItem="18V-cw-eaw" firstAttribute="top" secondItem="tYt-o4-gyq" secondAttribute="bottom" id="8rt-Tc-vRj"/>
                             <constraint firstAttribute="trailing" secondItem="tYt-o4-gyq" secondAttribute="trailing" id="8za-Fg-7Bj"/>
+                            <constraint firstAttribute="centerX" secondItem="NfL-6a-v5Q" secondAttribute="centerX" id="K74-eF-6z3"/>
+                            <constraint firstAttribute="centerY" secondItem="NfL-6a-v5Q" secondAttribute="centerY" id="WaU-UN-sjk"/>
                             <constraint firstItem="tYt-o4-gyq" firstAttribute="top" secondItem="SdP-8w-Tey" secondAttribute="top" id="c9w-HM-ZAu"/>
                             <constraint firstItem="9p5-73-lTQ" firstAttribute="leading" secondItem="SdP-8w-Tey" secondAttribute="leading" id="kTa-u1-mFk"/>
                             <constraint firstAttribute="trailing" secondItem="9p5-73-lTQ" secondAttribute="trailing" id="rfr-cc-Gtp"/>
@@ -2175,6 +2183,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <outlet property="dateLabel" destination="kVq-FT-xpZ" id="VRR-hr-ftQ"/>
                         <outlet property="saveButton" destination="9p5-73-lTQ" id="SMV-Cn-d3A"/>
                         <outlet property="saveButtonBottomConstraint" destination="zlG-T3-W9y" id="m2m-us-0Gg"/>
+                        <outlet property="savedLabel" destination="NfL-6a-v5Q" id="2OO-KY-qQy"/>
                         <outlet property="scrollView" destination="tYt-o4-gyq" id="N4v-yc-tFe"/>
                         <outlet property="textView" destination="jDb-wj-8uM" id="bC2-pE-1R2"/>
                         <outletCollection property="categoryViews" destination="61c-ev-0aD" collectionClass="NSMutableArray" id="BUU-MI-gyR"/>

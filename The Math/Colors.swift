@@ -68,32 +68,58 @@ extension UIColor {
         return UIColor(red:255/255.0, green:231/255.0, blue:87/255.0, alpha: 1)
     }
     
+    // MARK: Journal
+    
+    class func journal_tintColor() -> UIColor {
+        return UIColor(red: 0.33, green: 0.33, blue: 0.33, alpha: 0.2)
+    }
+    
     // MARK: Utility
     
     class func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
-
+        
+        var red1: CGFloat = 0.0
+        var red2: CGFloat = 0.0
+        var green1: CGFloat = 0.0
+        var green2: CGFloat = 0.0
+        var blue1: CGFloat = 0.0
+        var blue2: CGFloat = 0.0
+        
         let firstComp = CGColorGetComponents(color1.CGColor)
         let secondComp = CGColorGetComponents(color2.CGColor)
         
-        let red1 = firstComp[0]
-        let red2 = secondComp[0]
+        if CGColorGetNumberOfComponents(color1.CGColor) == 2 {
+            red1 = firstComp[0]
+            green1 = firstComp[0]
+            blue1 = firstComp[0]
+        } else {
+            red1 = firstComp[0]
+            green1 = firstComp[1]
+            blue1 = firstComp[2]
+        }
+        
+        if CGColorGetNumberOfComponents(color2.CGColor) == 2 {
+            red2 = secondComp[0]
+            green2 = secondComp[0]
+            blue2 = secondComp[0]
+        } else {
+            red2 = secondComp[0]
+            green2 = secondComp[1]
+            blue2 = secondComp[2]
+        }
+        
         let newRed = numbers(red1, num2: red2, perc: perc)
-        
-        let green1 = firstComp[1]
-        let green2 = secondComp[1]
         let newGreen = numbers(green1, num2: green2, perc: perc)
-        
-        let blue1 = firstComp[2]
-        let blue2 = secondComp[2]
         let newBlue = numbers(blue1, num2: blue2, perc: perc)
         
         return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
     
     class private func numbers(num: CGFloat, num2: CGFloat, perc: CGFloat) -> CGFloat {
-        let floor = min(num, num2)
-        let ceil = max(num, num2)
-        let val = (ceil - floor) * perc
+        // 1, 0, 0.5
+        let floor = min(num, num2) // 0
+        let ceil = max(num, num2) // 1
+        let val = (ceil - floor) * perc // 0.5
         return num > num2 ? ceil - val : floor + val
     }
 

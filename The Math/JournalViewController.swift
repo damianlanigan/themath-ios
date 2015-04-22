@@ -14,6 +14,12 @@ protocol JournalViewControllerDelegate {
     
 }
 
+struct JournalEntry {
+    let categories: [String:AnyObject]
+    let note: String
+
+}
+
 class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
@@ -27,6 +33,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var savedLabel: UILabel!
     
     var transitionColor: UIColor?
 
@@ -38,9 +45,10 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        contentView.backgroundColor = transitionColor!
-        saveButton.setTitleColor(transitionColor!, forState: .Normal)
-        dateLabel.text = formattedDate()
+        
+        setColors()
+        
+        dateLabel.text = currentDateTimeFormatted()
         textView.delegate = self
     }
     
@@ -55,7 +63,8 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
         var results = [String: AnyObject]()
         var selections = categoryViews.map({ results[$0.name()] = $0.selected })
-        println(results)
+        var final = JournalEntry(categories: results, note: textView.text)
+        println(final)
     }
     
     // MARK: Setup
@@ -63,6 +72,13 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     private func setupObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    private func setColors() {
+        scrollView.backgroundColor = transitionColor!
+        contentView.backgroundColor = UIColor.journal_tintColor()
+        let buttonColor = UIColor.colorAtPercentage(transitionColor!, color2: UIColor.journal_tintColor(), perc: 0.2)
+        saveButton.setTitleColor(buttonColor, forState: .Normal)
     }
     
     // MARK: Notifications
@@ -111,15 +127,34 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
         }
     }
     
-    func fadeOut(duration: NSTimeInterval, completion: () -> Void) {
+    func fadeOutInitial(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
-            self.scrollView.alpha = 0.0
+            self.contentView.alpha = 0.0
+            self.contentView.transform = CGAffineTransformMakeScale(0.92, 0.92)
             }) { (done: Bool) -> Void in
-            completion()
+                completion()
         }
     }
     
-    private func formattedDate() -> String {
+    func fadeOutFinal(duration: NSTimeInterval, completion: () -> Void) {
+        UIView.animateWithDuration(duration, animations: {
+            self.scrollView.backgroundColor = UIColor.mood_startColor()
+            self.savedLabel.alpha = 0.0
+//            self.savedLabel.transform = CGAffineTransformMakeScale(0.86, 0.86)
+            }) { (done: Bool) -> Void in
+                completion()
+        }
+    }
+    
+    func saved() {
+        UIView.animateWithDuration(0.2, delay: 0.1, options: UIViewAnimationOptions.CurveLinear, animations: {
+            self.savedLabel.alpha = 1.0
+            }) { (done: Bool) -> Void in
+                return()
+        }
+    }
+    
+    private func currentDateTimeFormatted() -> String {
         let formatter = NSDateFormatter()
         
         formatter.dateFormat = "mm"
