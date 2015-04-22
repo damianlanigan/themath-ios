@@ -140,7 +140,6 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
         UIView.animateWithDuration(duration, animations: {
             self.scrollView.backgroundColor = UIColor.mood_startColor()
             self.savedLabel.alpha = 0.0
-//            self.savedLabel.transform = CGAffineTransformMakeScale(0.86, 0.86)
             }) { (done: Bool) -> Void in
                 completion()
         }
@@ -190,6 +189,10 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
     
 }

@@ -32,6 +32,7 @@ class OnboardingViewController: GAITrackedViewController,
     @IBOutlet weak var newUserButton: UIButton!
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         layoutScrollView()
     }
     
@@ -99,6 +100,10 @@ class OnboardingViewController: GAITrackedViewController,
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
     
 }

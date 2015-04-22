@@ -1,5 +1,5 @@
 //
-//  👨
+//  👨🏻
 //
 //  MoodViewController.swift
 //  The Math
@@ -9,23 +9,18 @@
 //
 
 import UIKit
-
-protocol MoodViewControllerDelegate {
-    func didBeginNewMood()
-    func didEndNewMood()
-    
-    // temp
-    func shouldReplayOnboarding()
-}
+import MessageUI
 
 class MoodViewController: GAITrackedViewController,
     MoodViewDelegate,
     OnboardingViewControllerDelegate,
+    UIAlertViewDelegate,
+    MFMailComposeViewControllerDelegate,
+    UINavigationControllerDelegate,
     UIViewControllerTransitioningDelegate {
     
     
     // MARK: INSTANCE VARIABLES
-
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -62,6 +57,8 @@ class MoodViewController: GAITrackedViewController,
     private var currentTime: CFTimeInterval = 0.0
     private var firstAppearance = true
     private var isSetup = false
+    private var onMood = true
+    private var previousOrientation: UIDeviceOrientation = .Portrait
     
     var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
@@ -78,7 +75,11 @@ class MoodViewController: GAITrackedViewController,
         return tip
     }()
     
-    var delegate: MoodViewControllerDelegate?
+    lazy var infographViewController: InfographViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+        return viewController!
+    }()
     
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -109,7 +110,6 @@ class MoodViewController: GAITrackedViewController,
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
         if firstAppearance {
             firstAppearance = false
 
@@ -119,10 +119,7 @@ class MoodViewController: GAITrackedViewController,
             
             showTooltip()
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
-            presentViewController(viewController, animated: false, completion: nil)
-            viewController.delegate = self
+            presentOnboarding()
             
             _performBlock({ () -> Void in
                 self.view.alpha = 1.0
@@ -146,6 +143,7 @@ class MoodViewController: GAITrackedViewController,
     
     private func setupObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     private func showTooltip() {
@@ -202,8 +200,8 @@ class MoodViewController: GAITrackedViewController,
         
         contentView.layer.addSublayer(circle)
         
-        addGrowAnimation()
-        addColorAnimation()
+        addGrowAnimationToLayer(circle)
+        addColorAnimationToLayer(circle)
     }
     
     func panning(gesture: UIPanGestureRecognizer) {
@@ -229,30 +227,20 @@ class MoodViewController: GAITrackedViewController,
     
     @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
         toolTip.hide()
-        delegate?.shouldReplayOnboarding()
+        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Submit feedback")
+        alert.show()
     }
     
     // MARK: NOTIFICATIONS
     
     func applicationDidEnterForeground() {
         if isSetup {
-            addGrowAnimation()
-            addColorAnimation()
+            addGrowAnimationToLayer(circle)
+            addColorAnimationToLayer(circle)
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? JournalViewController {
-            let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
-            viewController.transitionColor = UIColor(CGColor: color)
-            viewController.transitioningDelegate = self
-            viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        }
-    }
-
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
     
     private func createNewMood() {
         UIView.animateWithDuration(0.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
@@ -265,22 +253,22 @@ class MoodViewController: GAITrackedViewController,
         }
     }
 
-    func addGrowAnimation() {
+    func addGrowAnimationToLayer(layer: CAShapeLayer) {
         let morph: CABasicAnimation = CABasicAnimation(keyPath: "path")
         morph.duration = animationDuration
-        morph.fromValue = circle.path
+        morph.fromValue = layer.path
         morph.toValue   = toPath()
-        circle.addAnimation(morph, forKey: "path")
-        circle.speed = 0.0;
+        layer.addAnimation(morph, forKey: "path")
+        layer.speed = 0.0;
     }
     
-    func addColorAnimation() {
+    func addColorAnimationToLayer(layer: CAShapeLayer) {
         let color: CABasicAnimation = CABasicAnimation(keyPath: "fillColor")
         color.duration = animationDuration
         color.fromValue = UIColor.mood_startColor().CGColor
         color.toValue   = UIColor.mood_endColor().CGColor
-        circle.addAnimation(color, forKey: "fillColor")
-        circle.speed = 0.0;
+        layer.addAnimation(color, forKey: "fillColor")
+        layer.speed = 0.0;
     }
 
     func update() {
@@ -295,6 +283,48 @@ class MoodViewController: GAITrackedViewController,
         }
     }
     
+    private func showFeedbackEmail() {
+        let viewController = MFMailComposeViewController()
+        viewController.mailComposeDelegate = self
+        viewController.setSubject("HowAmIDoing Feedback")
+        viewController.setToRecipients(["usehowamidoing@gmail.com"])
+        presentViewController(viewController, animated: true, completion: nil)
+        onMood = false
+    }
+    
+    // MARK: NAVIGATION
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? JournalViewController {
+            let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
+            viewController.transitionColor = UIColor(CGColor: color)
+            viewController.transitioningDelegate = self
+            viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        }
+    }
+    
+    private func presentInfograph() {
+        if shouldAutorotate() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as? InfographViewController
+            presentViewController(viewController!, animated: false, completion: nil)
+        }
+    }
+    
+    private func dismissInfograph() {
+        if shouldAutorotate() {
+            dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
+    
+    func presentOnboarding() {
+        onMood = false
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
+        presentViewController(viewController, animated: false, completion: nil)
+        viewController.delegate = self
+    }
+    
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -304,6 +334,27 @@ class MoodViewController: GAITrackedViewController,
     private func toPath() -> CGPath {
         return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
     }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return onMood
+    }
+    
+    func orientationDidChange(notification: NSNotification) {
+        if shouldAutorotate() {
+            if let device = notification.object as? UIDevice {
+                if device.orientation.isLandscape && !previousOrientation.isLandscape {
+                    presentInfograph()
+                } else if device.orientation.isPortrait && !previousOrientation.isPortrait {
+                    dismissInfograph()
+                }
+            }
+        }
+    }
+
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
@@ -321,7 +372,6 @@ class MoodViewController: GAITrackedViewController,
     private func beginMood() {
         capturingMood = true
         toolTip.hide()
-        delegate?.didBeginNewMood()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
             self.touchPoint.transform = CATransform3DMakeScale(0.9, 0.9, 0.9)
@@ -338,20 +388,15 @@ class MoodViewController: GAITrackedViewController,
         let percentage = trunc(currentTime / animationDuration * 100)
         println("Mood: \(percentage)%")
         
-        Tracker.track("mood", action: "set", label: "\(percentage)%")
-        
-        delegate?.didEndNewMood()
-        
         timer?.invalidate()
         
         performSegueWithIdentifier("MoodToJournalTransition", sender: self)
-        
         _performBlock({ () -> Void in
             self.createNewMood()
         }, withDelay: 0.7)
+        
+        Tracker.track("mood", action: "set", label: "\(percentage)%")
     }
-    
-    // TEMPORARY
     
     func tooltipForConfirmation() {
         var tip = AMPopTip()
@@ -380,22 +425,45 @@ class MoodViewController: GAITrackedViewController,
     // MARK: <OnboardingViewControllerDelegate>
     
     func didFinishOnboarding(viewController: OnboardingViewController) {
+        onMood = true
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIAlertViewDelegate>
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            presentOnboarding()
+            Tracker.track("onboarding", action: "replayed", label: "")
+        } else if buttonIndex == 2 {
+            showFeedbackEmail()
+            Tracker.track("send feedback", action: "tapped", label: "")
+        }
+    }
+    
+    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    
+    // MARK: <UIAlertViewDelegate>
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
+        onMood = true
+    }
+
     
     // MARK: <UIViewControllerTransitioningDelegate>
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        onMood = false
         let animator = MaskAnimationController()
         animator.presenting = true
         return animator
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        onMood = true
         return MaskAnimationController()
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
 }

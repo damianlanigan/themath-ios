@@ -54,4 +54,8 @@ class LoginViewController: AuthViewController {
     func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 }
