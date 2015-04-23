@@ -10,8 +10,8 @@ import UIKit
 
 class WorkCategoryView: CategoryView {
 
-    override func name() -> String {
-        return "work"
+    override func category() -> CategoryType {
+        return .Work
     }
     
 }

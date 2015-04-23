@@ -11,53 +11,68 @@ import UIKit
 
 extension UIColor {
     
-//    class func colorForCategoryType(type: CategoryType) -> UIColor {
-//        switch type {
-//        case .Personal:
-//            return UIColor.category_orangeColor()
-//        case .Lifestyle:
-//            return UIColor.category_blueColor()
-//        case .Money:
-//            return UIColor.category_greenColor()
-//        case .Health:
-//            return UIColor.category_lightBlueColor()
-//        case .Work:
-//            return UIColor.category_purpleColor()
-//        case .Love:
-//            return UIColor.category_pinkColor()
-//        }
-//    }
+    class func colorForCategoryType(type: CategoryType) -> UIColor {
+        switch type {
+        case .Love:
+            return UIColor.category_loveColor()
+        case .Money:
+            return UIColor.category_moneyColor()
+        case .Social:
+            return UIColor.category_socialColor()
+        case .Work:
+            return UIColor.category_workColor()
+        case .Home:
+            return UIColor.category_homeColor()
+        case .Health:
+            return UIColor.category_healthColor()
+        case .Personal:
+            return UIColor.category_selfColor()
+        case .Chaotic:
+            return UIColor.category_chaoticColor()
+        default:
+            return UIColor.whiteColor()
+        }
+    }
     
     // MARK: Category
     
-    class func category_blueColor() -> UIColor {
-        return UIColor(red:0.188, green:0.439, blue:0.851, alpha: 1)
-    }
-    
-    class func category_lightBlueColor() -> UIColor {
-        return UIColor(red:0.290, green:0.729, blue:0.851, alpha: 1)
-    }
-    
-    class func category_orangeColor() -> UIColor {
-        return UIColor(red:0.988, green:0.635, blue:0.259, alpha: 1)
-    }
-    
-    class func category_greenColor() -> UIColor {
-        return UIColor(red:0.286, green:0.890, blue:0.294, alpha: 1)
-    }
-    
-    class func category_purpleColor() -> UIColor {
-        return UIColor(red:0.765, green:0.282, blue:0.851, alpha: 1)
-    }
-    
-    class func category_pinkColor() -> UIColor {
-        return UIColor(red:0.922, green:0.286, blue:0.529, alpha: 1)
-    }
     
     // MARK: Mood
+        
+    class func category_loveColor() -> UIColor {
+        return UIColor(red: 235/255.0, green: 73/255.0, blue: 135/255.0, alpha: 1.0)
+    }
+    
+    class func category_moneyColor() -> UIColor {
+        return UIColor(red: 81/255.0, green: 215/255.0, blue: 85/255.0, alpha: 1.0)
+    }
+    
+    class func category_socialColor() -> UIColor {
+        return UIColor(red: 66/255.0, green: 115/255.0, blue: 187/255.0, alpha: 1.0)
+    }
+    
+    class func category_workColor() -> UIColor {
+        return UIColor(red: 195/255.0, green: 72/255.0, blue: 217/255.0, alpha: 1.0)
+    }
+
+    class func category_homeColor() -> UIColor {
+        return UIColor(red: 190/255.0, green: 237/255.0, blue: 59/255.0, alpha: 1.0)
+    }
+    
+    class func category_healthColor() -> UIColor {
+        return UIColor(red: 74/255.0, green: 186/255.0, blue: 217/255.0, alpha: 1.0)
+    }
+    
+    class func category_selfColor() -> UIColor {
+        return UIColor(red: 252/255.0, green: 162/255.0, blue: 66/255.0, alpha: 1.0)
+    }
+    
+    class func category_chaoticColor() -> UIColor {
+        return UIColor(red: 252/255.0, green: 94/255.0, blue: 66/255.0, alpha: 1.0)
+    }
     
     class func mood_blueColor() -> UIColor {
-        return UIColor.category_blueColor()
+        return UIColor(red: 0/255.0, green: 121/255.0, blue: 255/255.0, alpha: 1.0)
     }
     
     class func mood_startColor() -> UIColor {

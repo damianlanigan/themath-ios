@@ -8,12 +8,15 @@
 
 import UIKit
 
-class InfographViewController: GAITrackedViewController {
+
+class InfographViewController: GAITrackedViewController,
+    ChartViewControllerDelegate {
     
     @IBOutlet weak var graphContainer: UIView!
     var previouslySelectedSegmentIndex: Int = 1
-    var viewControllers = [UIViewController]()
+    var viewControllers = [ChartViewController]()
     var selectedViewController: UIViewController?
+    var orientationLocked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,35 +27,64 @@ class InfographViewController: GAITrackedViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        orientationLocked = false
         screenName = "Infograph"
     }
     
     @IBAction func navigationControl(sender: UISegmentedControl) {
         println(sender.selectedSegmentIndex)
         previouslySelectedSegmentIndex = sender.selectedSegmentIndex
-        navigateToViewController(previouslySelectedSegmentIndex)
+        navigateToViewControllerAtIndex(previouslySelectedSegmentIndex)
     }
     
     private func reloadState() {
-        navigateToViewController(previouslySelectedSegmentIndex)
+        navigateToViewControllerAtIndex(previouslySelectedSegmentIndex)
     }
     
-    private func navigateToViewController(index: Int) {
+    private func navigateToViewControllerAtIndex(index: Int) {
         if let viewController = selectedViewController {
-            viewController.view.removeFromSuperview()
+            viewController.view.hidden = true
         }
         selectedViewController = viewControllers[index]
-        graphContainer.addSubview(selectedViewController!.view)
+        selectedViewController!.view.hidden = false
         selectedViewController!.view.frame = graphContainer.bounds
         selectedViewController!.view.layoutIfNeeded()
     }
     
     private func loadViewControllers() {
-        let dayViewController = DayInfoGraphViewController()
-        let weekViewController = WeekInfoGraphViewController()
-        let monthViewController = MonthInfoGraphViewController()
+        let dayViewController = DayChartViewController()
+        let weekViewController = WeekChartViewController()
+        let monthViewController = MonthChartViewController()
         viewControllers = [dayViewController, weekViewController, monthViewController]
+        for viewController in viewControllers {
+            viewController.delegate = self
+            viewController.view.hidden = true
+            graphContainer!.addSubview(viewController.view)
+        }
     }
-
+    
+    // MARK: <ChartViewControllerDelegate>
+    
+    func didSelectMoment() {
+        orientationLocked = true
+        performSegueWithIdentifier("PresentDayDetail", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("InfographDayDetail") as! UIViewController
+        presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    func didSelectDay(day: Int) {
+        println(day)
+    }
+    
+    func didSelectWeek(week: Int) {
+        println(week)
+    }
+    
+    // MARK: Utility
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
     
 }

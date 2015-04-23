@@ -10,8 +10,8 @@ import UIKit
 
 class MoneyCategoryView: CategoryView {
    
-    override func name() -> String {
-        return "money"
+    override func category() -> CategoryType {
+        return .Money
     }
     
 }

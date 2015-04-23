@@ -11,23 +11,9 @@ import UIKit
 
 extension UIImage {
     
-//    class func imageForCategoryType(type: CategoryType) -> UIImage {
-//        switch type {
-//        case .Personal:
-//            return UIImage.categoryAsset("self")
-//        case .Lifestyle:
-//            return UIImage.categoryAsset("lifestyle")
-//        case .Money:
-//            return UIImage.categoryAsset("money")
-//        case .Health:
-//            return UIImage.categoryAsset("health")
-//        case .Work:
-//            return UIImage.categoryAsset("work")
-//        case .Love:
-//            return UIImage.categoryAsset("love")
-//        }
-//
-//    }
+    class func imageForCategoryType(type: CategoryType) -> UIImage {
+        return UIImage.categoryAsset(type.rawValue.lowercaseString)
+    }
     
     class func imageForMood(mood: Mood) -> UIImage {
         switch mood {
@@ -45,7 +31,7 @@ extension UIImage {
     }
     
     class func categoryAsset(name: String) -> UIImage {
-        return UIImage(named: "categoryIcon_\(name)")!
+        return UIImage(named: "category_\(name)")!
     }
     
     class func moodAsset(name: String) -> UIImage {

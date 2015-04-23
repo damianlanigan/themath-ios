@@ -10,8 +10,8 @@ import UIKit
 
 class SocialCategoryView: CategoryView {
     
-    override func name() -> String {
-        return "social"
+    override func category() -> CategoryType {
+        return .Social
     }
    
 }

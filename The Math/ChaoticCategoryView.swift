@@ -10,8 +10,7 @@ import UIKit
 
 class ChaoticCategoryView: CategoryView {
 
-    override func name() -> String {
-        return "chaotic"
+    override func category() -> CategoryType {
+        return .Chaotic
     }
-    
 }

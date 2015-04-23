@@ -10,9 +10,6 @@
 
 import UIKit
 
-protocol JournalViewControllerDelegate {
-    
-}
 
 struct JournalEntry {
     let categories: [String:AnyObject]
@@ -60,11 +57,11 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         textView.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
         var results = [String: AnyObject]()
         var selections = categoryViews.map({ results[$0.name()] = $0.selected })
         var final = JournalEntry(categories: results, note: textView.text)
         println(final)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: Setup

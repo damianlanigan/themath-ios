@@ -10,9 +10,14 @@ import UIKit
 
 class CategoryView: UIView {
     
+    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
     var selected: Bool = false {
         didSet {
-            backgroundColor = selected ? UIColor.whiteColor().colorWithAlphaComponent(0.6) : UIColor.clearColor()
+            circleView.backgroundColor = selected ? color() : UIColor.clearColor()
+            circleView.layer.borderWidth = selected ? 0.0 : 2.0
         }
     }
     
@@ -22,6 +27,31 @@ class CategoryView: UIView {
     }
     
     func name() -> String {
-        return ""
+        return category().rawValue.lowercaseString
+    }
+    
+    func color() -> UIColor {
+        return UIColor.colorForCategoryType(category())
+    }
+    
+    func image() -> UIImage {
+        return UIImage.imageForCategoryType(category())
+    }
+    
+    func category() -> CategoryType {
+        return .Undefined
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        circleView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
+        circleView.layer.borderWidth = 2.0
+        nameLabel.text = name().capitalizedString
+        imageView.image = image()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        circleView.layer.cornerRadius = (frame.size.width - 12.0) / 2
     }
 }

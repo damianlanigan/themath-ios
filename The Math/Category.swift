@@ -12,9 +12,11 @@ import UIKit
 import Swift
 
 enum CategoryType: String {
+    case Undefined = "Undefined"
     case Love = "Love"
     case Money = "Money"
     case Social = "Social"
+    case Home = "Home"
     case Work = "Work"
     case Health = "Health"
     case Personal = "Self"

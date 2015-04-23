@@ -10,8 +10,7 @@ import UIKit
 
 class SelfCategoryView: CategoryView {
 
-    override func name() -> String {
-        return "self"
+    override func category() -> CategoryType {
+        return .Personal
     }
-    
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class HealthCategoryView: CategoryView {
 
-    override func name() -> String {
-        return "name"
+    override func category() -> CategoryType {
+        return .Health
     }
 
 }

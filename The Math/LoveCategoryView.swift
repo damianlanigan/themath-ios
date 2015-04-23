@@ -9,8 +9,8 @@
 import UIKit
 
 class LoveCategoryView: CategoryView {
-
-    override func name() -> String {
-        return "love"
+    
+    override func category() -> CategoryType {
+        return .Love
     }
 }

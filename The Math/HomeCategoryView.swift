@@ -10,8 +10,8 @@ import UIKit
 
 class HomeCategoryView: CategoryView {
 
-    override func name() -> String {
-        return "home"
+    override func category() -> CategoryType {
+        return .Home
     }
 
 }

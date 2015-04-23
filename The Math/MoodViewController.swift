@@ -22,10 +22,14 @@ class MoodViewController: GAITrackedViewController,
     
     // MARK: INSTANCE VARIABLES
 
+    @IBOutlet weak var moodReferenceView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
     @IBOutlet weak var instructionLabel: UILabel!
+    var circle = CAShapeLayer()
+    private var touchPoint = CAShapeLayer()
+    private var timer: NSTimer?
     
     var transitionColor: UIColor?
     
@@ -34,9 +38,7 @@ class MoodViewController: GAITrackedViewController,
     private var multiplier: CFTimeInterval = 1.0
     private let animationDuration: CFTimeInterval = 28.0
     private let animationSpeed: CFTimeInterval = 0.15
-    private var capturingMood = false
-    
-    private let spaceBetweenTouchPointAndMoodCircle: CGFloat = 6.0
+    private let panMinDistanceThreshold = 10.0
     
     private let gutter: CGFloat = 0.0
     private let initialRadius: CGFloat = 36.0
@@ -54,15 +56,14 @@ class MoodViewController: GAITrackedViewController,
 
     // MARK: state
     
+    private var capturingMood = false
     private var currentTime: CFTimeInterval = 0.0
     private var firstAppearance = true
     private var isSetup = false
     private var onMood = true
+    private var isPanning = false
     private var previousOrientation: UIDeviceOrientation = .Portrait
-    
-    var circle = CAShapeLayer()
-    private var touchPoint = CAShapeLayer()
-    private var timer: NSTimer?
+
     
     lazy var toolTip: AMPopTip = {
         var tip = AMPopTip()
@@ -93,7 +94,7 @@ class MoodViewController: GAITrackedViewController,
         moodTrigger.delegate = self
         
         let panGesture = UIPanGestureRecognizer(target: self, action: "panning:")
-        view.addGestureRecognizer(panGesture)
+        moodTrigger.addGestureRecognizer(panGesture)
         
         setup()
     }
@@ -103,8 +104,8 @@ class MoodViewController: GAITrackedViewController,
         self.screenName = "Mood"
         
         if firstAppearance {
-            createAndAddTouchPoint()
             createAndAddMoodCircle()
+            createAndAddTouchPoint()
         }
     }
 
@@ -112,14 +113,10 @@ class MoodViewController: GAITrackedViewController,
         super.viewDidAppear(animated)
         if firstAppearance {
             firstAppearance = false
-
             createNewMood()
-
             isSetup = true
-            
             showTooltip()
-            
-            presentOnboarding()
+//            presentOnboarding()
             
             _performBlock({ () -> Void in
                 self.view.alpha = 1.0
@@ -178,15 +175,16 @@ class MoodViewController: GAITrackedViewController,
     // MARK: mood 
     
     private func createAndAddTouchPoint() {
-        let touchRadius: CGFloat = initialRadius - spaceBetweenTouchPointAndMoodCircle
+        let touchRadius: CGFloat = initialRadius
         let touchRect: CGRect = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         touchPoint.rasterizationScale = UIScreen.mainScreen().scale
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         
-        touchPoint.position = CGPoint(x: view.center.x, y: containerView.frame.origin.y + contentView.center.y)
+        touchPoint.position = CGPoint(x: view.center.x, y: view.center.y)
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
-        touchPoint.fillColor = UIColor.clearColor().CGColor
+        touchPoint.fillColor = UIColor.blackColor().colorWithAlphaComponent(0.3).CGColor
+        touchPoint.opacity = 0.0
         
         view.layer.addSublayer(touchPoint)
     }
@@ -207,13 +205,16 @@ class MoodViewController: GAITrackedViewController,
     func panning(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .Changed:
-            timer?.invalidate()
-            let location = gesture.locationInView(view)
-            var x = abs(view.center.x - location.x)
-            var y = abs(view.center.y - location.y)
-            let distance = sqrt(pow(x, 2)) + sqrt(pow(y, 2))
-            currentTime = NSTimeInterval(distance / view.center.y) * animationDuration
-            update()
+            if (abs(gesture.translationInView(view).x) > 25) || (abs(gesture.translationInView(view).y) > 25) || isPanning {
+                isPanning = true
+                timer?.invalidate()
+                let location = gesture.locationInView(view)
+                var x = abs(view.center.x - location.x)
+                var y = abs(view.center.y - location.y)
+                let distance = sqrt(pow(x, 2)) + sqrt(pow(y, 2))
+                currentTime = NSTimeInterval(distance / view.center.y) * animationDuration
+                update()
+            }
         case .Ended:
             if capturingMood {
                 endMood()
@@ -300,20 +301,24 @@ class MoodViewController: GAITrackedViewController,
             viewController.transitionColor = UIColor(CGColor: color)
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        } else  if let viewController = segue.destinationViewController as? InfographViewController {
+            viewController.transitioningDelegate = self
+            viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         }
     }
     
     private func presentInfograph() {
         if shouldAutorotate() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("Infograph") as! InfographViewController
-            presentViewController(viewController, animated: false, completion: nil)
+            // don't present this if it's already presented
+            if presentedViewController == nil {
+                performSegueWithIdentifier("PresentInfograph", sender: self)
+            }
         }
     }
     
     private func dismissInfograph() {
         if shouldAutorotate() {
-            dismissViewControllerAnimated(false, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -336,10 +341,13 @@ class MoodViewController: GAITrackedViewController,
     }
     
     override func prefersStatusBarHidden() -> Bool {
-        return true
+        return capturingMood
     }
     
     override func shouldAutorotate() -> Bool {
+        if let viewController = presentedViewController as? InfographViewController {
+            return !viewController.orientationLocked
+        }
         return onMood
     }
     
@@ -363,6 +371,11 @@ class MoodViewController: GAITrackedViewController,
 
 
     func moodViewTouchesBegan() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.touchPoint.opacity = 0.3
+            self.moodReferenceView.alpha = 1.0
+        })
+
         beginMood()
     }
 
@@ -372,18 +385,14 @@ class MoodViewController: GAITrackedViewController,
     
     private func beginMood() {
         capturingMood = true
+        setNeedsStatusBarAppearanceUpdate()
         toolTip.hide()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
-        UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.touchPoint.transform = CATransform3DMakeScale(0.9, 0.9, 0.9)
-            self.touchPoint.opacity = 0.5
-            }) { (done: Bool) -> Void in
-                return()
-        }
     }
     
     private func endMood() {
         capturingMood = false
+        isPanning = false
         
         // for API
         let percentage = trunc(currentTime / animationDuration * 100)
@@ -391,10 +400,17 @@ class MoodViewController: GAITrackedViewController,
         
         timer?.invalidate()
         
-        performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+        UIView.animateWithDuration(0.1, animations: {
+            self.touchPoint.opacity = 0.0
+            self.moodReferenceView.alpha = 0.0
+        })
+        self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+
+
         _performBlock({ () -> Void in
             self.createNewMood()
-        }, withDelay: 0.7)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }, withDelay: 0.9 )
         
         Tracker.track("mood", action: "set", label: "\(percentage)%")
     }
@@ -457,14 +473,28 @@ class MoodViewController: GAITrackedViewController,
     // MARK: <UIViewControllerTransitioningDelegate>
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        onMood = false
-        let animator = MaskAnimationController()
-        animator.presenting = true
-        return animator
+        if let viewController = presented as? JournalViewController {
+            onMood = false
+            let animator = MaskAnimationController()
+            animator.presenting = true
+            return animator
+        } else if let viewController = presented as? InfographViewController {
+            let animator = FadeAnimationController()
+            animator.presenting = true
+            return animator
+        }
+
+        return nil
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         onMood = true
-        return MaskAnimationController()
+        if let viewController = dismissed as? JournalViewController {
+            return MaskAnimationController()
+        } else if let viewController = dismissed as? InfographViewController {
+            return FadeAnimationController()
+        }
+        
+        return nil
     }
 }
