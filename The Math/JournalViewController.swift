@@ -21,7 +21,6 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet var categoryViews: [CategoryView]!
@@ -33,6 +32,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     @IBOutlet weak var savedLabel: UILabel!
     
     var transitionColor: UIColor?
+    var cachedScrollViewHeight: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,10 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func dismissButtonTapped(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: Setup
     
     private func setupObservers() {
@@ -81,6 +85,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     // MARK: Notifications
     
     func keyboardWillShow(notification: NSNotification!) {
+        cachedScrollViewHeight = scrollView.contentSize.height
         let info = notification.userInfo
         if let info = info {
             if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
@@ -97,14 +102,13 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
                     bounds.origin.y = height / 2.0
                     animation.toValue = NSValue(CGRect: bounds)
                     
-                    scrollView.contentSize.height += height
+//                    scrollView.contentSize.height = cachedScrollViewHeight + height
                     scrollView.layer.addAnimation(animation, forKey: "bounds")
                     scrollView.bounds = bounds;
                     
                     UIView.animateWithDuration(animationDuration, animations: {
                         self.view.layoutIfNeeded()
                     })
-                    
                 }
             }
         }
@@ -116,6 +120,8 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
             if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
                 if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
                     saveButtonBottomConstraint.constant = 0
+                    scrollView.contentSize.height = cachedScrollViewHeight
+                    cachedScrollViewHeight = 0.0
                     UIView.animateWithDuration(animationDuration, animations: {
                         self.view.layoutIfNeeded()
                     })
