@@ -116,11 +116,14 @@ class MoodViewController: GAITrackedViewController,
             createNewMood()
             isSetup = true
             showTooltip()
+            
 //            presentOnboarding()
             
             _performBlock({ () -> Void in
-                self.view.alpha = 1.0
-            }, withDelay: 0.5)
+                UIView.animateWithDuration(0.2, animations: {
+                    self.view.alpha = 1.0
+                })
+            }, withDelay: 0.2)
         }
     }
     

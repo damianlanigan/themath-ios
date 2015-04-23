@@ -51,7 +51,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        contentViewHeightConstraint.constant = view.frame.size.height
+        contentViewHeightConstraint.constant = view.frame.size.height - 44.0
         contentViewWidthConstraint.constant = view.frame.size.width
     }
     
@@ -102,7 +102,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
                     bounds.origin.y = height / 2.0
                     animation.toValue = NSValue(CGRect: bounds)
                     
-//                    scrollView.contentSize.height = cachedScrollViewHeight + height
+                    scrollView.contentSize.height = cachedScrollViewHeight + height
                     scrollView.layer.addAnimation(animation, forKey: "bounds")
                     scrollView.bounds = bounds;
                     
