@@ -310,8 +310,6 @@ class MoodViewController: GAITrackedViewController,
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         }
-        
-        onMood = false
     }
     
     private func presentInfograph() {
@@ -363,6 +361,8 @@ class MoodViewController: GAITrackedViewController,
     override func shouldAutorotate() -> Bool {
         if let viewController = presentedViewController as? InfographViewController {
             return !viewController.orientationLocked
+        } else if presentedViewController != nil {
+            return false
         }
         return onMood
     }
