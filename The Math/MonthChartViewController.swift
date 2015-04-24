@@ -44,7 +44,7 @@ class MonthChartViewController: ChartViewController,
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
-        delegate?.didSelectWeek(Int(ceil(Double(index) / 7.0)))
+        selectedIdx = Int(index)
     }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
@@ -55,6 +55,13 @@ class MonthChartViewController: ChartViewController,
         return UIView()
     }
     
+    func didDeselectBarChartView(barChartView: JBBarChartView!) {
+        if let idx = selectedIdx {
+            let week = ceil(Double(idx) / 7.0)
+            delegate?.didSelectWeek(Int(week))
+        }
+    }
+    
     func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
         return 4.0
     }
@@ -62,7 +69,7 @@ class MonthChartViewController: ChartViewController,
     private func loadSomeDummyData() {
         let today = NSDate()
         let c = NSCalendar.currentCalendar()
-        let days = c.rangeOfUnit(NSCalendarUnit.DayCalendarUnit, inUnit: NSCalendarUnit.MonthCalendarUnit, forDate: today)
+        let days = c.rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: today)
         
         for day in 1...days.length {
             var num = 1 + (arc4random() % 100)

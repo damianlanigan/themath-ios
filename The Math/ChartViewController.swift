@@ -22,5 +22,6 @@ struct InfoGraphWeek {
 class ChartViewController: UIViewController {
 
     weak var delegate: ChartViewControllerDelegate?
+    var selectedIdx: Int?
 
 }

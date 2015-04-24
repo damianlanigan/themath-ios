@@ -70,24 +70,20 @@ class InfographViewController: GAITrackedViewController,
     func didSelectMoment() {
         orientationLocked = true
         performSegueWithIdentifier("PresentDayDetail", sender: self)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyboard.instantiateViewControllerWithIdentifier("InfographDayDetail") as! UIViewController
-//        presentViewController(viewController, animated: true, completion: nil)
     }
     
     func didSelectDay(day: Int) {
-        println(day)
+        println("Day selected: \(day)")
         navigateToViewControllerAtIndex(0)
     }
     
     func didSelectWeek(week: Int) {
-        println(week)
+        println("Week selected: \(week)")
         navigateToViewControllerAtIndex(1)
     }
     
     // MARK: Utility
     
-
     
     override func shouldAutorotate() -> Bool {
         return true
