@@ -145,6 +145,10 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
         UIView.animateWithDuration(duration, animations: {
             self.scrollView.backgroundColor = UIColor.mood_startColor()
             self.savedLabel.alpha = 0.0
+            if self.isCancelled {
+                self.contentView.alpha = 0.0
+                self.contentView.transform = CGAffineTransformMakeScale(0.92, 0.92)
+            }
             }) { (done: Bool) -> Void in
                 completion()
         }
