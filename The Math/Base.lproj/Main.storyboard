@@ -1915,12 +1915,6 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeling OK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-Lx-DjL">
-                                                <rect key="frame" x="157" y="54" width="87" height="21"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-74-r9g" userLabel="Category Container View">
                                                 <rect key="frame" x="6" y="105" width="388" height="228"/>
                                                 <subviews>
@@ -2382,7 +2376,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="fTm-Vk-pUw" id="NYE-Bd-6pj"/>
@@ -2391,7 +2385,9 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="jDb-wj-8uM" firstAttribute="top" secondItem="RvV-eo-xfy" secondAttribute="top" constant="20" id="KaZ-ek-kqT"/>
+                                                    <constraint firstItem="jDb-wj-8uM" firstAttribute="top" secondItem="RvV-eo-xfy" secondAttribute="top" constant="20" id="KaZ-ek-kqT">
+                                                        <variation key="heightClass=compact" constant="15"/>
+                                                    </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="jDb-wj-8uM" secondAttribute="trailing" constant="14" id="Mph-Fd-Dd9"/>
                                                     <constraint firstItem="jDb-wj-8uM" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" constant="14" id="UYx-Uc-g7g"/>
                                                     <constraint firstAttribute="trailing" secondItem="pvZ-k1-yWH" secondAttribute="trailing" id="VaI-oB-GSY"/>
@@ -2405,7 +2401,9 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="93y-h4-7Cq"/>
-                                                    <constraint firstAttribute="height" constant="50" id="r0v-8V-PY1"/>
+                                                    <constraint firstAttribute="height" constant="50" id="r0v-8V-PY1">
+                                                        <variation key="heightClass=compact" constant="62"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" image="cancel">
@@ -2415,24 +2413,38 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <action selector="dismissButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="6nh-l7-iFF"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-Lx-DjL">
+                                                <rect key="frame" x="157" y="54" width="87" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="RvV-eo-xfy" firstAttribute="top" secondItem="sHr-74-r9g" secondAttribute="bottom" constant="20" id="KA0-ng-iRi"/>
+                                            <constraint firstItem="RvV-eo-xfy" firstAttribute="top" secondItem="sHr-74-r9g" secondAttribute="bottom" constant="20" id="KA0-ng-iRi">
+                                                <variation key="heightClass=compact" constant="31"/>
+                                            </constraint>
                                             <constraint firstAttribute="centerX" secondItem="v4c-Lx-DjL" secondAttribute="centerX" id="OVC-kg-bYW"/>
                                             <constraint firstAttribute="centerX" secondItem="kVq-FT-xpZ" secondAttribute="centerX" id="WUC-Nz-TM1"/>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" id="cho-5Z-kjW"/>
                                             <constraint firstItem="kVq-FT-xpZ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" constant="20" id="dhj-t7-GTX"/>
                                             <constraint firstAttribute="height" constant="756" id="eeb-k5-oq8"/>
-                                            <constraint firstItem="v4c-Lx-DjL" firstAttribute="top" secondItem="kVq-FT-xpZ" secondAttribute="bottom" constant="18" id="fXe-83-uAX"/>
+                                            <constraint firstItem="v4c-Lx-DjL" firstAttribute="top" secondItem="kVq-FT-xpZ" secondAttribute="bottom" constant="18" id="fXe-83-uAX">
+                                                <variation key="heightClass=compact" constant="24"/>
+                                            </constraint>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" id="gsE-YE-hn0"/>
                                             <constraint firstItem="sHr-74-r9g" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" constant="6" id="hTb-ay-hmb"/>
                                             <constraint firstAttribute="trailing" secondItem="sHr-74-r9g" secondAttribute="trailing" constant="6" id="i1l-9T-Dlp"/>
-                                            <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="30" id="oM5-vO-md4"/>
+                                            <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="30" id="oM5-vO-md4">
+                                                <variation key="heightClass=compact" constant="24"/>
+                                            </constraint>
                                             <constraint firstAttribute="width" constant="400" id="sm3-sd-WZg"/>
                                             <constraint firstAttribute="trailing" secondItem="RvV-eo-xfy" secondAttribute="trailing" id="uqB-Th-KgO"/>
                                             <constraint firstItem="RvV-eo-xfy" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" id="usY-H6-goT"/>
-                                            <constraint firstAttribute="bottom" secondItem="RvV-eo-xfy" secondAttribute="bottom" constant="44" id="ySS-1H-uej"/>
+                                            <constraint firstAttribute="bottom" secondItem="RvV-eo-xfy" secondAttribute="bottom" constant="44" id="ySS-1H-uej">
+                                                <variation key="heightClass=compact" constant="33"/>
+                                            </constraint>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2447,7 +2459,9 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <rect key="frame" x="0.0" y="756" width="400" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="oce-tT-rFg"/>
+                                    <constraint firstAttribute="height" constant="44" id="oce-tT-rFg">
+                                        <variation key="heightClass=compact" constant="52"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Save">
@@ -2500,7 +2514,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nri-9R-aOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="209"/>
+            <point key="canvasLocation" x="1237" y="208.5"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="xt9-mS-sC2">
