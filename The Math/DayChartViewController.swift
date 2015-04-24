@@ -61,7 +61,7 @@ class DayChartViewController: ChartViewController,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.whiteColor().colorWithAlphaComponent(0.15)
+        return UIColor.blackColor().colorWithAlphaComponent(0.3)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
