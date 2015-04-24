@@ -44,7 +44,13 @@ class WeekChartViewController: ChartViewController,
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
-        delegate?.didSelectDay(Int(index))
+        selectedIdx = Int(index)
+    }
+    
+    func didDeselectBarChartView(barChartView: JBBarChartView!) {
+        if let idx = selectedIdx {
+            delegate?.didSelectDay(idx)
+        }
     }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {

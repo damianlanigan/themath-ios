@@ -69,7 +69,13 @@ class DayChartViewController: ChartViewController,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
-        delegate?.didSelectMoment()
+        selectedIdx = Int(horizontalIndex)
+    }
+    
+    func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
+        if let idx = selectedIdx {
+            delegate?.didSelectMoment()
+        }
     }
     
     private func loadSomeDummyData() {
