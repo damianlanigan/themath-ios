@@ -76,11 +76,11 @@ extension UIColor {
     }
     
     class func mood_startColor() -> UIColor {
-        return UIColor(red:26/255.0, green:119/255.0, blue:160/255.0, alpha: 1)
+        return UIColor(red:0/255.0, green:152/255.0, blue:203/255.0, alpha: 1)
     }
     
     class func mood_endColor() -> UIColor {
-        return UIColor(red:255/255.0, green:231/255.0, blue:87/255.0, alpha: 1)
+        return UIColor(red:248/255.0, green:211/255.0, blue:79/255.0, alpha: 1)
     }
     
     // MARK: Journal
