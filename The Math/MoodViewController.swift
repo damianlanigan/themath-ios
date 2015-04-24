@@ -196,10 +196,10 @@ class MoodViewController: GAITrackedViewController,
         circle.rasterizationScale = UIScreen.mainScreen().scale
         circle.shouldRasterize = true
         circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
-        circle.position = CGPoint(x: view.center.x, y: view.center.x)
+        circle.position = CGPoint(x: moodTrigger.frame.size.width / 2.0, y: moodTrigger.frame.size.width / 2.0)
         circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
         
-        contentView.layer.addSublayer(circle)
+        moodTrigger.layer.addSublayer(circle)
         
         addGrowAnimationToLayer(circle)
         addColorAnimationToLayer(circle)
@@ -312,7 +312,9 @@ class MoodViewController: GAITrackedViewController,
     
     private func presentInfograph() {
         if shouldAutorotate() {
-            // don't present this if it's already presented
+            UIView.animateWithDuration(0.2, animations: {
+                self.view.alpha = 0.0
+            })
             if presentedViewController == nil {
                 performSegueWithIdentifier("PresentInfograph", sender: self)
             }

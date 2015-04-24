@@ -33,6 +33,7 @@ class FadeAnimationController: NSObject,
         } else {
             UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
                 fromViewController.view.alpha = 0.0
+                toViewController.view.alpha = 1.0
                 }, completion: { (done: Bool) -> Void in
                     context.completeTransition(true)
             })
