@@ -7,434 +7,381 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02A998D1AB714ED39AB4125B /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A325F5F72B5E982452E4 /* JBChartView.m */; };
-		0B1F9261124D6163F5C4F2C5 /* Pods-AMPopTip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A70461C3B3990886083EA956 /* Pods-AMPopTip-dummy.m */; };
-		0B4EAD88A22888F4355A56E0 /* GAITracker.h in Headers */ = {isa = PBXBuildFile; fileRef = E667A46939CE95E2A43C7291 /* GAITracker.h */; };
-		1210C10B6ADB09FBC59DE5AB /* JBBarChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F62FDD083515A4DE089B85A /* JBBarChartView.h */; };
-		1C8CA88357C58147ECDC92AB /* GAILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DC45CB38CB429A5B77335361 /* GAILogger.h */; };
-		20535CBAE05783D86EC6BCE3 /* GAIFields.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EED9F9B79CA5C814B33938E /* GAIFields.h */; };
-		2AAAED7292A6EAB6C14238E1 /* JBLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EDBCAB5D16CFE1165D25D89 /* JBLineChartView.h */; };
-		2BDA4FC856EDE057811C764B /* Pods-JBChartView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DCB3E1885BD22C9ED09AE9 /* Pods-JBChartView-dummy.m */; };
-		2FE7B26CA584C5B7F09C6590 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC3625FC0BC576D68C01AA4 /* CFNetwork.framework */; };
-		36E295FBE33439F725E3C5BD /* GAIEcommerceFields.h in Headers */ = {isa = PBXBuildFile; fileRef = F00DEFD6571A43CB7D7C633B /* GAIEcommerceFields.h */; };
-		37C162E795FD93096C687451 /* TAGDataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D7FB1B671B1505FEFEE3E14 /* TAGDataLayer.h */; };
-		39C77C5B5D0BA812B2A5F8C9 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7042EF413EB6FB5735A509D8 /* JBBarChartView.m */; };
-		475A0599BE560A88418A6BC4 /* TAGContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = B545832EB268247ADD3DC250 /* TAGContainer.h */; };
-		4CEC474735C2ED81B8FF52C2 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A72CB019CD99E9C470131128 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */; };
-		5A12E6211184C2C3809C4F3E /* AMPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DB62BA5D27F6D00A95F3DD /* AMPopTip.m */; };
-		65D405591EF5A6691E577CFE /* AMPopTip.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F2FEFC4E9CE479793263EB5 /* AMPopTip.h */; };
-		78B6AADF5CF861FC2F3FB580 /* GAITrackedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D8D787A38B9753DF2845467 /* GAITrackedViewController.h */; };
-		7E4A88561DC5DDE1B82A2767 /* TAGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 363F48D363B477BFF796A073 /* TAGLogger.h */; };
-		825B0E780DBD7D3CF5744C3F /* JBChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FA5D49C5B3A8C8AAE861FF6 /* JBChartView.h */; };
-		8DE891B55DF84F5EE101C99F /* GAIEcommerceProductAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 178DEE9B490446105FF1F33D /* GAIEcommerceProductAction.h */; };
-		9382CCFA885866954664C345 /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461164F2C88EEF2AF52312D /* GAI.h */; };
-		94FB32F0D5058FB7C1AC208F /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = C70A9157E676249B1274E5B5 /* GAIDictionaryBuilder.h */; };
-		96C8DCBE11C5C25A97D6EF89 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2710D3FA6F633D9ABD22B6 /* Pods-dummy.m */; };
-		97F23F647E0BBC27134703CB /* TAGManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 103548413EEF329999EFD0CD /* TAGManager.h */; };
-		9F74971A8B7584CD429F9339 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */; };
-		A09D657D74DA50E6D949231B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */; };
-		AAA6C7AAD2AA849CA1F0677A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD9F5E1A3D4B02976874256 /* UIKit.framework */; };
-		AF5531EC6131C7CDFA44BA60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */; };
-		AF9E91A620BFE9F9F2E2E250 /* GAIEcommerceProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E89D95362BDE650D368EE61 /* GAIEcommerceProduct.h */; };
-		D13C4E17D7A5F02E7226CA83 /* GAIEcommercePromotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 2796A925ED7062D298EF8887 /* GAIEcommercePromotion.h */; };
-		D3A8C7C77EFCE5627C434E3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */; };
-		D67379B5FD6385364F6CF50E /* TAGContainerOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = CC3EC08F8B4D0465D1D5BD5C /* TAGContainerOpener.h */; };
-		E6D5C6B8C14E72716E8D440A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB2763A280C204F8E0392E6 /* CoreData.framework */; };
-		EC39D1507B8CA2A100739565 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F957663DF10CF52545F3A67 /* JBLineChartView.m */; };
-		FA77986777898202184C0D95 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CE3E713DF6C84FEF7AAC55 /* SystemConfiguration.framework */; };
+		018D6A09F77EF8E62551E4AF /* Pods-AMPopTip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 839D8663667E55BF4992586F /* Pods-AMPopTip-dummy.m */; };
+		10EE984DEDC26CDA80ED0140 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924280B0930187C3419EE8FA /* CFNetwork.framework */; };
+		1E9C28C5302517A0A017A7C4 /* TAGDataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = F89907B43E7874AB4FC5870B /* TAGDataLayer.h */; };
+		22A0D98D94F02A543BC187A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E5B450AC9C2FE13DFFC85F /* Foundation.framework */; };
+		246C54FCF833E79CBE705C87 /* GAIEcommerceProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = D2B215BA9A67887DA73C0119 /* GAIEcommerceProduct.h */; };
+		3343CAD8A2A7C97022263A7A /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B047963772B97603CA08E /* JBLineChartView.m */; };
+		352837CA0755959E91079B76 /* TAGContainerOpener.h in Headers */ = {isa = PBXBuildFile; fileRef = EA3413D2D75E928BB58ACE7C /* TAGContainerOpener.h */; };
+		42F672135670E4C6CC2C6AB0 /* TAGContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 063F58CC7E9592493A93CEF3 /* TAGContainer.h */; };
+		4DD95DF975624096F3C10378 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E5B450AC9C2FE13DFFC85F /* Foundation.framework */; };
+		63372995490777DDF3E33679 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E5B450AC9C2FE13DFFC85F /* Foundation.framework */; };
+		6B6BA2A51A489A1BF7527741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB95E4BA27122A4A0F69CA0 /* CoreData.framework */; };
+		6D66C5544A26B03A510D9EB4 /* GAIEcommerceFields.h in Headers */ = {isa = PBXBuildFile; fileRef = 423300AA253E4FBF41E6273C /* GAIEcommerceFields.h */; };
+		6F9931407B4691BE6BC8DD93 /* GAITrackedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4419EE5813D17504192FB048 /* GAITrackedViewController.h */; };
+		6FC13F66CF72E87F1C1C4CF4 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0E196C4B1CDB66FC9FC72D /* JBChartView.m */; };
+		77906F69978A06B2F1DA88D0 /* JBLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D8438E2469D24CD7DC18360 /* JBLineChartView.h */; };
+		83253DCC82A57358A7AC8444 /* GAIEcommercePromotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 6397D2329E16750284E4E94B /* GAIEcommercePromotion.h */; };
+		87970A254BB9756245D538AC /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74CAE963265A9142CD5048E /* JBBarChartView.m */; };
+		8B40EA74DF9FC68FE4A028D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E5B450AC9C2FE13DFFC85F /* Foundation.framework */; };
+		9ECF50F7B420BCACD5A05DF3 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5583551FAD619C62A8DA7FF0 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */; };
+		A01C21F117114A28887CB0E7 /* JBChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CC750F26F327C43573E528 /* JBChartView.h */; };
+		A3135AB61B4902F0A326FB2B /* AMPopTip.h in Headers */ = {isa = PBXBuildFile; fileRef = 84E4CE814BE0A2F46B8BF2EF /* AMPopTip.h */; };
+		BC7C80B755FFAD6455CDBCF5 /* GAILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A424C0D5369572919A61540 /* GAILogger.h */; };
+		C2D132B56B50DE8DAAD8613C /* GAIFields.h in Headers */ = {isa = PBXBuildFile; fileRef = F1471B6EF9892C1805463ADB /* GAIFields.h */; };
+		C42D97D484137F5652C321EF /* TAGManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4179EA4C35773ACA85C81E86 /* TAGManager.h */; };
+		C92A22A5CB3F0C7D442B934B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD5EBA9108307CFA6E08F23 /* SystemConfiguration.framework */; };
+		D0FC8537913E20348027365D /* GAITracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 400ADC424685AFF995D4A65E /* GAITracker.h */; };
+		D349C652EC133D39D6058B9F /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4989B680E5F38C894348CD48 /* Pods-dummy.m */; };
+		F041EBBF9D9BA6F28BDA0758 /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 44C7C921337D0FE68D2D5D35 /* GAIDictionaryBuilder.h */; };
+		F0AAFF9EDCC776BAE4EB7E37 /* Pods-JBChartView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F624B29067FD5A80C5BFDD8 /* Pods-JBChartView-dummy.m */; };
+		F3A8C770988FA02DE9F8816F /* TAGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A8D180CBD1AF9DF1534CCB75 /* TAGLogger.h */; };
+		F4452B5C983EAD1B2075A881 /* JBBarChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6D44D0BA5D6FEE6F529B5F9 /* JBBarChartView.h */; };
+		F5A41AC1B881C6EC17B86254 /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = 33DEBA24BC8A53809549BC03 /* GAI.h */; };
+		F735F91D9B7F5903B5412DB3 /* GAIEcommerceProductAction.h in Headers */ = {isa = PBXBuildFile; fileRef = A74D16EF3A95474EB3595070 /* GAIEcommerceProductAction.h */; };
+		F8F248F833CDECF9E01E5419 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9873DCF3632B3BB48371D589 /* UIKit.framework */; };
+		FF411194B54DE3EE8B27B50F /* AMPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F9C58D20C6BE44B5E502FA /* AMPopTip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A39043A775D90D4FFF0BFB17 /* PBXContainerItemProxy */ = {
+		1215C7924AB9FD31D9DE35AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9DD0A2C0A7393C0997EE5905 /* Project object */;
+			containerPortal = 4932F0F14656709A23896AE8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EBC77DFC9D37F6555FBA763D;
-			remoteInfo = "Pods-GoogleAnalytics-iOS-SDK";
+			remoteGlobalIDString = 90DEB84F6A9DB5708C4ADAB1;
+			remoteInfo = "Pods-AMPopTip";
 		};
-		AD76BF252B99590192B57C25 /* PBXContainerItemProxy */ = {
+		9FC63A9CCE75093DB6D6AB98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9DD0A2C0A7393C0997EE5905 /* Project object */;
+			containerPortal = 4932F0F14656709A23896AE8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D60495A4E34E8F62196C9801;
+			remoteGlobalIDString = FF4D82459A2A57826C296F74;
 			remoteInfo = "Pods-JBChartView";
 		};
-		ED1B2403574D22109899789C /* PBXContainerItemProxy */ = {
+		BFADD5E863B71245D7F38456 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9DD0A2C0A7393C0997EE5905 /* Project object */;
+			containerPortal = 4932F0F14656709A23896AE8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B4E65176BFFBFA204D331B19;
-			remoteInfo = "Pods-AMPopTip";
+			remoteGlobalIDString = 1584DA1A8376DD4C652328B0;
+			remoteInfo = "Pods-GoogleAnalytics-iOS-SDK";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0461164F2C88EEF2AF52312D /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
-		0B4D774A824B2A8F0E5FDA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		103548413EEF329999EFD0CD /* TAGManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGManager.h; path = GoogleTagManager/Library/TAGManager.h; sourceTree = "<group>"; };
-		178DEE9B490446105FF1F33D /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = GoogleAnalytics/Library/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		1D7FB1B671B1505FEFEE3E14 /* TAGDataLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGDataLayer.h; path = GoogleTagManager/Library/TAGDataLayer.h; sourceTree = "<group>"; };
-		2796A925ED7062D298EF8887 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = GoogleAnalytics/Library/GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		32A9A325F5F72B5E982452E4 /* JBChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBChartView.m; path = Classes/JBChartView.m; sourceTree = "<group>"; };
-		363F48D363B477BFF796A073 /* TAGLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGLogger.h; path = GoogleTagManager/Library/TAGLogger.h; sourceTree = "<group>"; };
-		38C24CB772169D892509C4EE /* Pods-JBChartView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JBChartView-Private.xcconfig"; sourceTree = "<group>"; };
-		39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3B2710D3FA6F633D9ABD22B6 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		3B98FCF3B50F9F85AF76BD97 /* Pods-AMPopTip-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMPopTip-Private.xcconfig"; sourceTree = "<group>"; };
-		3E89D95362BDE650D368EE61 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = GoogleAnalytics/Library/GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		4D8D787A38B9753DF2845467 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GoogleAnalytics/Library/GAITrackedViewController.h; sourceTree = "<group>"; };
-		4F2FEFC4E9CE479793263EB5 /* AMPopTip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTip.h; path = AMPopTip/AMPopTip.h; sourceTree = "<group>"; };
-		4FA5D49C5B3A8C8AAE861FF6 /* JBChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBChartView.h; path = Classes/JBChartView.h; sourceTree = "<group>"; };
-		51DB62BA5D27F6D00A95F3DD /* AMPopTip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AMPopTip.m; path = AMPopTip/AMPopTip.m; sourceTree = "<group>"; };
-		51DCB3E1885BD22C9ED09AE9 /* Pods-JBChartView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JBChartView-dummy.m"; sourceTree = "<group>"; };
-		5762CE28003E30BA8B9F50D2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		6EDBCAB5D16CFE1165D25D89 /* JBLineChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBLineChartView.h; path = Classes/JBLineChartView.h; sourceTree = "<group>"; };
-		6F957663DF10CF52545F3A67 /* JBLineChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBLineChartView.m; path = Classes/JBLineChartView.m; sourceTree = "<group>"; };
-		7042EF413EB6FB5735A509D8 /* JBBarChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBBarChartView.m; path = Classes/JBBarChartView.m; sourceTree = "<group>"; };
-		7F0CC94A948BED5951785077 /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig"; sourceTree = "<group>"; };
-		7F62FDD083515A4DE089B85A /* JBBarChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBBarChartView.h; path = Classes/JBBarChartView.h; sourceTree = "<group>"; };
-		8EA1AAF3954823A0AC3A5570 /* libPods-AMPopTip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMPopTip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8EED9F9B79CA5C814B33938E /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
-		95580FBDB26469CC9209BFBF /* Pods-AMPopTip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AMPopTip-prefix.pch"; sourceTree = "<group>"; };
-		998B601A25DB504F7311C616 /* Pods-GoogleAnalytics-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GoogleAnalytics-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
-		A70461C3B3990886083EA956 /* Pods-AMPopTip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AMPopTip-dummy.m"; sourceTree = "<group>"; };
-		A72CB019CD99E9C470131128 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GoogleAnalytics-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
-		AEC3625FC0BC576D68C01AA4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		B437736951CB5DE3593FD0D3 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		B545832EB268247ADD3DC250 /* TAGContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainer.h; path = GoogleTagManager/Library/TAGContainer.h; sourceTree = "<group>"; };
-		B64104B399E66675BD7A7AD8 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BA02596E887134A5207D44AB /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BC9AACD3CE6E012BADAAD8F0 /* Pods-JBChartView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JBChartView-prefix.pch"; sourceTree = "<group>"; };
-		BF9703370773106F4BF2856F /* Pods-GoogleAnalytics-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoogleAnalytics-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
-		C5CE3E713DF6C84FEF7AAC55 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		C70A9157E676249B1274E5B5 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		C9495ADE4DD4FBDBF85F641C /* Pods-AMPopTip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMPopTip.xcconfig"; sourceTree = "<group>"; };
-		CC3EC08F8B4D0465D1D5BD5C /* TAGContainerOpener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainerOpener.h; path = GoogleTagManager/Library/TAGContainerOpener.h; sourceTree = "<group>"; };
-		DAD9F5E1A3D4B02976874256 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		DC45CB38CB429A5B77335361 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = GoogleAnalytics/Library/GAILogger.h; sourceTree = "<group>"; };
-		E667A46939CE95E2A43C7291 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GoogleAnalytics/Library/GAITracker.h; sourceTree = "<group>"; };
-		E7FAB37831FAAB7E08D92427 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		E9A2C2D408552D22A4A2BED4 /* Pods-JBChartView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JBChartView.xcconfig"; sourceTree = "<group>"; };
-		EDB2763A280C204F8E0392E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		F00DEFD6571A43CB7D7C633B /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = GoogleAnalytics/Library/GAIEcommerceFields.h; sourceTree = "<group>"; };
-		F08A2E20DF2A517067022688 /* libPods-GoogleAnalytics-iOS-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoogleAnalytics-iOS-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2A130863A0FD99759E43527 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		F8439D63AF71288073BBE1BC /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		FC674D0BDD4051A5810B8376 /* libPods-JBChartView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JBChartView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F9C58D20C6BE44B5E502FA /* AMPopTip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AMPopTip.m; path = AMPopTip/AMPopTip.m; sourceTree = "<group>"; };
+		063F58CC7E9592493A93CEF3 /* TAGContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainer.h; path = GoogleTagManager/Library/TAGContainer.h; sourceTree = "<group>"; };
+		1F624B29067FD5A80C5BFDD8 /* Pods-JBChartView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JBChartView-dummy.m"; sourceTree = "<group>"; };
+		23CC750F26F327C43573E528 /* JBChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBChartView.h; path = Classes/JBChartView.h; sourceTree = "<group>"; };
+		29FC2AC59C03915D3EE9A9BB /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig"; sourceTree = "<group>"; };
+		33DEBA24BC8A53809549BC03 /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
+		400ADC424685AFF995D4A65E /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = GoogleAnalytics/Library/GAITracker.h; sourceTree = "<group>"; };
+		4179EA4C35773ACA85C81E86 /* TAGManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGManager.h; path = GoogleTagManager/Library/TAGManager.h; sourceTree = "<group>"; };
+		423300AA253E4FBF41E6273C /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = GoogleAnalytics/Library/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		4419EE5813D17504192FB048 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = GoogleAnalytics/Library/GAITrackedViewController.h; sourceTree = "<group>"; };
+		44C7C921337D0FE68D2D5D35 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		4989B680E5F38C894348CD48 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		4A424C0D5369572919A61540 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = GoogleAnalytics/Library/GAILogger.h; sourceTree = "<group>"; };
+		4BB95E4BA27122A4A0F69CA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		4EB2FD058068A6E289B27527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		5583551FAD619C62A8DA7FF0 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GoogleAnalytics-iOS-SDK-dummy.m"; sourceTree = "<group>"; };
+		56E5B450AC9C2FE13DFFC85F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		57E5CF63C432D70DDDE6D639 /* Pods-AMPopTip-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMPopTip-Private.xcconfig"; sourceTree = "<group>"; };
+		5A49CCCA379F2D331A2B6599 /* Pods-JBChartView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JBChartView-Private.xcconfig"; sourceTree = "<group>"; };
+		5C6B047963772B97603CA08E /* JBLineChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBLineChartView.m; path = Classes/JBLineChartView.m; sourceTree = "<group>"; };
+		5EFDA943884F16584F7B2DD4 /* Pods-GoogleAnalytics-iOS-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GoogleAnalytics-iOS-SDK-prefix.pch"; sourceTree = "<group>"; };
+		5FA2FBE632ECD013EB90EAC2 /* Pods-GoogleAnalytics-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoogleAnalytics-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
+		62D6BD9EF2F47F1BB54895CA /* Pods-AMPopTip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AMPopTip.xcconfig"; sourceTree = "<group>"; };
+		6397D2329E16750284E4E94B /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = GoogleAnalytics/Library/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		668B4A743D5FCCA6606B2FCF /* Pods-AMPopTip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AMPopTip-prefix.pch"; sourceTree = "<group>"; };
+		71B9E54D2940521DC7436011 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7C080D705424517C6AE5365B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		839D8663667E55BF4992586F /* Pods-AMPopTip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AMPopTip-dummy.m"; sourceTree = "<group>"; };
+		84E4CE814BE0A2F46B8BF2EF /* AMPopTip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTip.h; path = AMPopTip/AMPopTip.h; sourceTree = "<group>"; };
+		89CB3D4633956E90D0567225 /* libPods-GoogleAnalytics-iOS-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoogleAnalytics-iOS-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8438E2469D24CD7DC18360 /* JBLineChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBLineChartView.h; path = Classes/JBLineChartView.h; sourceTree = "<group>"; };
+		90851691BC12A9E60B440CA5 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		924280B0930187C3419EE8FA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		9873DCF3632B3BB48371D589 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A6D44D0BA5D6FEE6F529B5F9 /* JBBarChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JBBarChartView.h; path = Classes/JBBarChartView.h; sourceTree = "<group>"; };
+		A74D16EF3A95474EB3595070 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = GoogleAnalytics/Library/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		A8D180CBD1AF9DF1534CCB75 /* TAGLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGLogger.h; path = GoogleTagManager/Library/TAGLogger.h; sourceTree = "<group>"; };
+		B1B2A3C719F808F4898BB99A /* libPods-AMPopTip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMPopTip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10BD7C264CB05D24B8437F0 /* Pods-JBChartView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JBChartView.xcconfig"; sourceTree = "<group>"; };
+		D2B215BA9A67887DA73C0119 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = GoogleAnalytics/Library/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		DC0E196C4B1CDB66FC9FC72D /* JBChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBChartView.m; path = Classes/JBChartView.m; sourceTree = "<group>"; };
+		E49951AF3C8962690D9672AF /* libPods-JBChartView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JBChartView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B0C7D38FBD6B6DBC0FC045 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		E74CAE963265A9142CD5048E /* JBBarChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JBBarChartView.m; path = Classes/JBBarChartView.m; sourceTree = "<group>"; };
+		E85A78D59732212FF51FAAB4 /* Pods-JBChartView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JBChartView-prefix.pch"; sourceTree = "<group>"; };
+		EA3413D2D75E928BB58ACE7C /* TAGContainerOpener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGContainerOpener.h; path = GoogleTagManager/Library/TAGContainerOpener.h; sourceTree = "<group>"; };
+		EFB5E2F3051481F0A5420F4B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD5EBA9108307CFA6E08F23 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		F03CE9C0597E213FCA0C8379 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F1471B6EF9892C1805463ADB /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
+		F89907B43E7874AB4FC5870B /* TAGDataLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TAGDataLayer.h; path = GoogleTagManager/Library/TAGDataLayer.h; sourceTree = "<group>"; };
+		FC2FDABFD810C68564446D86 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		676D6233F30E36A83D30326B /* Frameworks */ = {
+		358C633DADD16C6CE77389BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FE7B26CA584C5B7F09C6590 /* CFNetwork.framework in Frameworks */,
-				E6D5C6B8C14E72716E8D440A /* CoreData.framework in Frameworks */,
-				9F74971A8B7584CD429F9339 /* Foundation.framework in Frameworks */,
-				FA77986777898202184C0D95 /* SystemConfiguration.framework in Frameworks */,
-				AAA6C7AAD2AA849CA1F0677A /* UIKit.framework in Frameworks */,
+				10EE984DEDC26CDA80ED0140 /* CFNetwork.framework in Frameworks */,
+				6B6BA2A51A489A1BF7527741 /* CoreData.framework in Frameworks */,
+				22A0D98D94F02A543BC187A9 /* Foundation.framework in Frameworks */,
+				C92A22A5CB3F0C7D442B934B /* SystemConfiguration.framework in Frameworks */,
+				F8F248F833CDECF9E01E5419 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7635F9AAABF5C9508DFDE283 /* Frameworks */ = {
+		784C90ABC06959742BDDE633 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF5531EC6131C7CDFA44BA60 /* Foundation.framework in Frameworks */,
+				4DD95DF975624096F3C10378 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87DF9054F441C6F29786A62B /* Frameworks */ = {
+		B3BE966A3716E787A70324A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A8C7C77EFCE5627C434E3E /* Foundation.framework in Frameworks */,
+				63372995490777DDF3E33679 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA2BDEDC9F2A8632099BA861 /* Frameworks */ = {
+		E7662E2439B858D1F2A826DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09D657D74DA50E6D949231B /* Foundation.framework in Frameworks */,
+				8B40EA74DF9FC68FE4A028D0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		005C30BFC4A886344658472A /* Pods */ = {
+		0698CE2F51290054D1FD4F3D /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6E9A2F792DCF33BF691C6407 /* AMPopTip */,
-				9AF82DA9D1D346015E21D025 /* GoogleAnalytics-iOS-SDK */,
-				AE35E59C2B8767C8AC505445 /* JBChartView */,
+				2521F887BFF8726499308AB8 /* Pods */,
 			);
-			name = Pods;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1375AE9DD70942380732EE0C /* Support Files */ = {
+		2521F887BFF8726499308AB8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E9A2C2D408552D22A4A2BED4 /* Pods-JBChartView.xcconfig */,
-				38C24CB772169D892509C4EE /* Pods-JBChartView-Private.xcconfig */,
-				51DCB3E1885BD22C9ED09AE9 /* Pods-JBChartView-dummy.m */,
-				BC9AACD3CE6E012BADAAD8F0 /* Pods-JBChartView-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-JBChartView";
-			sourceTree = "<group>";
-		};
-		1EF8A8A59DC8D8E358DEDA0D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0B4D774A824B2A8F0E5FDA9A /* libPods.a */,
-				8EA1AAF3954823A0AC3A5570 /* libPods-AMPopTip.a */,
-				F08A2E20DF2A517067022688 /* libPods-GoogleAnalytics-iOS-SDK.a */,
-				FC674D0BDD4051A5810B8376 /* libPods-JBChartView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3D3B32B82349A3EFE5ED7AEB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A225114031EC218959679329 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6234EF77E61F44A64993570C = {
-			isa = PBXGroup;
-			children = (
-				B64104B399E66675BD7A7AD8 /* Podfile */,
-				3D3B32B82349A3EFE5ED7AEB /* Frameworks */,
-				005C30BFC4A886344658472A /* Pods */,
-				1EF8A8A59DC8D8E358DEDA0D /* Products */,
-				CEE19532BB6BDBD2BEBB7080 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		6E9A2F792DCF33BF691C6407 /* AMPopTip */ = {
-			isa = PBXGroup;
-			children = (
-				4F2FEFC4E9CE479793263EB5 /* AMPopTip.h */,
-				51DB62BA5D27F6D00A95F3DD /* AMPopTip.m */,
-				7C36EF14E9247A769F049BE4 /* Support Files */,
-			);
-			path = AMPopTip;
-			sourceTree = "<group>";
-		};
-		7C36EF14E9247A769F049BE4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C9495ADE4DD4FBDBF85F641C /* Pods-AMPopTip.xcconfig */,
-				3B98FCF3B50F9F85AF76BD97 /* Pods-AMPopTip-Private.xcconfig */,
-				A70461C3B3990886083EA956 /* Pods-AMPopTip-dummy.m */,
-				95580FBDB26469CC9209BFBF /* Pods-AMPopTip-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-AMPopTip";
-			sourceTree = "<group>";
-		};
-		9AF82DA9D1D346015E21D025 /* GoogleAnalytics-iOS-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				A5E12EE3427704600EB3DC53 /* Core */,
-				DCA6428BC74C805C41B5444D /* Support Files */,
-			);
-			path = "GoogleAnalytics-iOS-SDK";
-			sourceTree = "<group>";
-		};
-		A225114031EC218959679329 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				AEC3625FC0BC576D68C01AA4 /* CFNetwork.framework */,
-				EDB2763A280C204F8E0392E6 /* CoreData.framework */,
-				39ED6AD646C9B4C7395B6DE5 /* Foundation.framework */,
-				C5CE3E713DF6C84FEF7AAC55 /* SystemConfiguration.framework */,
-				DAD9F5E1A3D4B02976874256 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A5E12EE3427704600EB3DC53 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				0461164F2C88EEF2AF52312D /* GAI.h */,
-				C70A9157E676249B1274E5B5 /* GAIDictionaryBuilder.h */,
-				F00DEFD6571A43CB7D7C633B /* GAIEcommerceFields.h */,
-				3E89D95362BDE650D368EE61 /* GAIEcommerceProduct.h */,
-				178DEE9B490446105FF1F33D /* GAIEcommerceProductAction.h */,
-				2796A925ED7062D298EF8887 /* GAIEcommercePromotion.h */,
-				8EED9F9B79CA5C814B33938E /* GAIFields.h */,
-				DC45CB38CB429A5B77335361 /* GAILogger.h */,
-				4D8D787A38B9753DF2845467 /* GAITrackedViewController.h */,
-				E667A46939CE95E2A43C7291 /* GAITracker.h */,
-				B545832EB268247ADD3DC250 /* TAGContainer.h */,
-				CC3EC08F8B4D0465D1D5BD5C /* TAGContainerOpener.h */,
-				1D7FB1B671B1505FEFEE3E14 /* TAGDataLayer.h */,
-				363F48D363B477BFF796A073 /* TAGLogger.h */,
-				103548413EEF329999EFD0CD /* TAGManager.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		AE35E59C2B8767C8AC505445 /* JBChartView */ = {
-			isa = PBXGroup;
-			children = (
-				7F62FDD083515A4DE089B85A /* JBBarChartView.h */,
-				7042EF413EB6FB5735A509D8 /* JBBarChartView.m */,
-				4FA5D49C5B3A8C8AAE861FF6 /* JBChartView.h */,
-				32A9A325F5F72B5E982452E4 /* JBChartView.m */,
-				6EDBCAB5D16CFE1165D25D89 /* JBLineChartView.h */,
-				6F957663DF10CF52545F3A67 /* JBLineChartView.m */,
-				1375AE9DD70942380732EE0C /* Support Files */,
-			);
-			path = JBChartView;
-			sourceTree = "<group>";
-		};
-		CA57AA12326454DB50A493F9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BA02596E887134A5207D44AB /* Pods-acknowledgements.markdown */,
-				F8439D63AF71288073BBE1BC /* Pods-acknowledgements.plist */,
-				3B2710D3FA6F633D9ABD22B6 /* Pods-dummy.m */,
-				B437736951CB5DE3593FD0D3 /* Pods-environment.h */,
-				E7FAB37831FAAB7E08D92427 /* Pods-resources.sh */,
-				F2A130863A0FD99759E43527 /* Pods.debug.xcconfig */,
-				5762CE28003E30BA8B9F50D2 /* Pods.release.xcconfig */,
+				F03CE9C0597E213FCA0C8379 /* Pods-acknowledgements.markdown */,
+				E6B0C7D38FBD6B6DBC0FC045 /* Pods-acknowledgements.plist */,
+				4989B680E5F38C894348CD48 /* Pods-dummy.m */,
+				FC2FDABFD810C68564446D86 /* Pods-environment.h */,
+				90851691BC12A9E60B440CA5 /* Pods-resources.sh */,
+				7C080D705424517C6AE5365B /* Pods.debug.xcconfig */,
+				4EB2FD058068A6E289B27527 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		CEE19532BB6BDBD2BEBB7080 /* Targets Support Files */ = {
+		27D21494ED1749582D834E13 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CA57AA12326454DB50A493F9 /* Pods */,
+				924280B0930187C3419EE8FA /* CFNetwork.framework */,
+				4BB95E4BA27122A4A0F69CA0 /* CoreData.framework */,
+				56E5B450AC9C2FE13DFFC85F /* Foundation.framework */,
+				EFD5EBA9108307CFA6E08F23 /* SystemConfiguration.framework */,
+				9873DCF3632B3BB48371D589 /* UIKit.framework */,
 			);
-			name = "Targets Support Files";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		DCA6428BC74C805C41B5444D /* Support Files */ = {
+		27F751900A0042283DDAEE76 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BF9703370773106F4BF2856F /* Pods-GoogleAnalytics-iOS-SDK.xcconfig */,
-				7F0CC94A948BED5951785077 /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */,
-				A72CB019CD99E9C470131128 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */,
-				998B601A25DB504F7311C616 /* Pods-GoogleAnalytics-iOS-SDK-prefix.pch */,
+				5DE879B2E818A2317C42E0D8 /* AMPopTip */,
+				87E1970AB6BEA088ED9EFEE4 /* GoogleAnalytics-iOS-SDK */,
+				9165F326CF9ECC3D8F911D07 /* JBChartView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D201181CAF277B3171ADD95 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FA2FBE632ECD013EB90EAC2 /* Pods-GoogleAnalytics-iOS-SDK.xcconfig */,
+				29FC2AC59C03915D3EE9A9BB /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */,
+				5583551FAD619C62A8DA7FF0 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m */,
+				5EFDA943884F16584F7B2DD4 /* Pods-GoogleAnalytics-iOS-SDK-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-GoogleAnalytics-iOS-SDK";
 			sourceTree = "<group>";
 		};
+		3F38D39898968E640E051554 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27D21494ED1749582D834E13 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47311B3377D99B4CBB04BE85 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				62D6BD9EF2F47F1BB54895CA /* Pods-AMPopTip.xcconfig */,
+				57E5CF63C432D70DDDE6D639 /* Pods-AMPopTip-Private.xcconfig */,
+				839D8663667E55BF4992586F /* Pods-AMPopTip-dummy.m */,
+				668B4A743D5FCCA6606B2FCF /* Pods-AMPopTip-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-AMPopTip";
+			sourceTree = "<group>";
+		};
+		54379DE5464F997F8EDA2423 = {
+			isa = PBXGroup;
+			children = (
+				71B9E54D2940521DC7436011 /* Podfile */,
+				3F38D39898968E640E051554 /* Frameworks */,
+				27F751900A0042283DDAEE76 /* Pods */,
+				BDC21F131E0177BBEE25E998 /* Products */,
+				0698CE2F51290054D1FD4F3D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		5DE879B2E818A2317C42E0D8 /* AMPopTip */ = {
+			isa = PBXGroup;
+			children = (
+				84E4CE814BE0A2F46B8BF2EF /* AMPopTip.h */,
+				00F9C58D20C6BE44B5E502FA /* AMPopTip.m */,
+				47311B3377D99B4CBB04BE85 /* Support Files */,
+			);
+			path = AMPopTip;
+			sourceTree = "<group>";
+		};
+		87E1970AB6BEA088ED9EFEE4 /* GoogleAnalytics-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				DEF5E43D78AB92E44DDD93CD /* Core */,
+				2D201181CAF277B3171ADD95 /* Support Files */,
+			);
+			path = "GoogleAnalytics-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		9165F326CF9ECC3D8F911D07 /* JBChartView */ = {
+			isa = PBXGroup;
+			children = (
+				A6D44D0BA5D6FEE6F529B5F9 /* JBBarChartView.h */,
+				E74CAE963265A9142CD5048E /* JBBarChartView.m */,
+				23CC750F26F327C43573E528 /* JBChartView.h */,
+				DC0E196C4B1CDB66FC9FC72D /* JBChartView.m */,
+				8D8438E2469D24CD7DC18360 /* JBLineChartView.h */,
+				5C6B047963772B97603CA08E /* JBLineChartView.m */,
+				E36747EAD5C3694C84199152 /* Support Files */,
+			);
+			path = JBChartView;
+			sourceTree = "<group>";
+		};
+		BDC21F131E0177BBEE25E998 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFB5E2F3051481F0A5420F4B /* libPods.a */,
+				B1B2A3C719F808F4898BB99A /* libPods-AMPopTip.a */,
+				89CB3D4633956E90D0567225 /* libPods-GoogleAnalytics-iOS-SDK.a */,
+				E49951AF3C8962690D9672AF /* libPods-JBChartView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEF5E43D78AB92E44DDD93CD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				33DEBA24BC8A53809549BC03 /* GAI.h */,
+				44C7C921337D0FE68D2D5D35 /* GAIDictionaryBuilder.h */,
+				423300AA253E4FBF41E6273C /* GAIEcommerceFields.h */,
+				D2B215BA9A67887DA73C0119 /* GAIEcommerceProduct.h */,
+				A74D16EF3A95474EB3595070 /* GAIEcommerceProductAction.h */,
+				6397D2329E16750284E4E94B /* GAIEcommercePromotion.h */,
+				F1471B6EF9892C1805463ADB /* GAIFields.h */,
+				4A424C0D5369572919A61540 /* GAILogger.h */,
+				4419EE5813D17504192FB048 /* GAITrackedViewController.h */,
+				400ADC424685AFF995D4A65E /* GAITracker.h */,
+				063F58CC7E9592493A93CEF3 /* TAGContainer.h */,
+				EA3413D2D75E928BB58ACE7C /* TAGContainerOpener.h */,
+				F89907B43E7874AB4FC5870B /* TAGDataLayer.h */,
+				A8D180CBD1AF9DF1534CCB75 /* TAGLogger.h */,
+				4179EA4C35773ACA85C81E86 /* TAGManager.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		E36747EAD5C3694C84199152 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D10BD7C264CB05D24B8437F0 /* Pods-JBChartView.xcconfig */,
+				5A49CCCA379F2D331A2B6599 /* Pods-JBChartView-Private.xcconfig */,
+				1F624B29067FD5A80C5BFDD8 /* Pods-JBChartView-dummy.m */,
+				E85A78D59732212FF51FAAB4 /* Pods-JBChartView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-JBChartView";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		62E1451C1B044D9C8CA2E3BC /* Headers */ = {
+		2E51F6C7A046DFA0C3D55506 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9382CCFA885866954664C345 /* GAI.h in Headers */,
-				94FB32F0D5058FB7C1AC208F /* GAIDictionaryBuilder.h in Headers */,
-				36E295FBE33439F725E3C5BD /* GAIEcommerceFields.h in Headers */,
-				AF9E91A620BFE9F9F2E2E250 /* GAIEcommerceProduct.h in Headers */,
-				8DE891B55DF84F5EE101C99F /* GAIEcommerceProductAction.h in Headers */,
-				D13C4E17D7A5F02E7226CA83 /* GAIEcommercePromotion.h in Headers */,
-				20535CBAE05783D86EC6BCE3 /* GAIFields.h in Headers */,
-				1C8CA88357C58147ECDC92AB /* GAILogger.h in Headers */,
-				78B6AADF5CF861FC2F3FB580 /* GAITrackedViewController.h in Headers */,
-				0B4EAD88A22888F4355A56E0 /* GAITracker.h in Headers */,
-				475A0599BE560A88418A6BC4 /* TAGContainer.h in Headers */,
-				D67379B5FD6385364F6CF50E /* TAGContainerOpener.h in Headers */,
-				37C162E795FD93096C687451 /* TAGDataLayer.h in Headers */,
-				7E4A88561DC5DDE1B82A2767 /* TAGLogger.h in Headers */,
-				97F23F647E0BBC27134703CB /* TAGManager.h in Headers */,
+				F5A41AC1B881C6EC17B86254 /* GAI.h in Headers */,
+				F041EBBF9D9BA6F28BDA0758 /* GAIDictionaryBuilder.h in Headers */,
+				6D66C5544A26B03A510D9EB4 /* GAIEcommerceFields.h in Headers */,
+				246C54FCF833E79CBE705C87 /* GAIEcommerceProduct.h in Headers */,
+				F735F91D9B7F5903B5412DB3 /* GAIEcommerceProductAction.h in Headers */,
+				83253DCC82A57358A7AC8444 /* GAIEcommercePromotion.h in Headers */,
+				C2D132B56B50DE8DAAD8613C /* GAIFields.h in Headers */,
+				BC7C80B755FFAD6455CDBCF5 /* GAILogger.h in Headers */,
+				6F9931407B4691BE6BC8DD93 /* GAITrackedViewController.h in Headers */,
+				D0FC8537913E20348027365D /* GAITracker.h in Headers */,
+				42F672135670E4C6CC2C6AB0 /* TAGContainer.h in Headers */,
+				352837CA0755959E91079B76 /* TAGContainerOpener.h in Headers */,
+				1E9C28C5302517A0A017A7C4 /* TAGDataLayer.h in Headers */,
+				F3A8C770988FA02DE9F8816F /* TAGLogger.h in Headers */,
+				C42D97D484137F5652C321EF /* TAGManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B021365E512F9DBCB75EE89D /* Headers */ = {
+		3EEEB4D3A3F579EA3C4774F6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1210C10B6ADB09FBC59DE5AB /* JBBarChartView.h in Headers */,
-				825B0E780DBD7D3CF5744C3F /* JBChartView.h in Headers */,
-				2AAAED7292A6EAB6C14238E1 /* JBLineChartView.h in Headers */,
+				A3135AB61B4902F0A326FB2B /* AMPopTip.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1088DEC836F3B8052A58FD9 /* Headers */ = {
+		6DF1E919A3B66C6F6E0E9B29 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D405591EF5A6691E577CFE /* AMPopTip.h in Headers */,
+				F4452B5C983EAD1B2075A881 /* JBBarChartView.h in Headers */,
+				A01C21F117114A28887CB0E7 /* JBChartView.h in Headers */,
+				77906F69978A06B2F1DA88D0 /* JBLineChartView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		29A80E8CB04030FC6531A020 /* Pods */ = {
+		1584DA1A8376DD4C652328B0 /* Pods-GoogleAnalytics-iOS-SDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B41BF6CF5F127404013ED43 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = D14735BD24F7B8D15095E1C6 /* Build configuration list for PBXNativeTarget "Pods-GoogleAnalytics-iOS-SDK" */;
 			buildPhases = (
-				C28A878EE5D7FF10667E3A6E /* Sources */,
-				7635F9AAABF5C9508DFDE283 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80CCA3A6528A52B6CC5D723C /* PBXTargetDependency */,
-				136C3C2453B92D589DAFD385 /* PBXTargetDependency */,
-				BE5499A315C069DCEAE5BE91 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 0B4D774A824B2A8F0E5FDA9A /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		B4E65176BFFBFA204D331B19 /* Pods-AMPopTip */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E470CFD04418CB15D4ACA26F /* Build configuration list for PBXNativeTarget "Pods-AMPopTip" */;
-			buildPhases = (
-				B0A4F7200E7EFB44F7737A56 /* Sources */,
-				DA2BDEDC9F2A8632099BA861 /* Frameworks */,
-				D1088DEC836F3B8052A58FD9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-AMPopTip";
-			productName = "Pods-AMPopTip";
-			productReference = 8EA1AAF3954823A0AC3A5570 /* libPods-AMPopTip.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D60495A4E34E8F62196C9801 /* Pods-JBChartView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BA930223776C6CFD0114B91 /* Build configuration list for PBXNativeTarget "Pods-JBChartView" */;
-			buildPhases = (
-				5F0003590ADF470A5010DAED /* Sources */,
-				87DF9054F441C6F29786A62B /* Frameworks */,
-				B021365E512F9DBCB75EE89D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-JBChartView";
-			productName = "Pods-JBChartView";
-			productReference = FC674D0BDD4051A5810B8376 /* libPods-JBChartView.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		EBC77DFC9D37F6555FBA763D /* Pods-GoogleAnalytics-iOS-SDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B4C4DC96B491ABD6C3FB508A /* Build configuration list for PBXNativeTarget "Pods-GoogleAnalytics-iOS-SDK" */;
-			buildPhases = (
-				C9E2AA9244312F07FFBDD853 /* Sources */,
-				676D6233F30E36A83D30326B /* Frameworks */,
-				62E1451C1B044D9C8CA2E3BC /* Headers */,
+				9E935D395E74917987B8776A /* Sources */,
+				358C633DADD16C6CE77389BE /* Frameworks */,
+				2E51F6C7A046DFA0C3D55506 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -442,149 +389,170 @@
 			);
 			name = "Pods-GoogleAnalytics-iOS-SDK";
 			productName = "Pods-GoogleAnalytics-iOS-SDK";
-			productReference = F08A2E20DF2A517067022688 /* libPods-GoogleAnalytics-iOS-SDK.a */;
+			productReference = 89CB3D4633956E90D0567225 /* libPods-GoogleAnalytics-iOS-SDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5F3F8E72C3D07022C63D5BA7 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F34B19CACAA02B180C2F818B /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				43480F33FA2C24495E727C94 /* Sources */,
+				784C90ABC06959742BDDE633 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06D76B07F8A6DE37CE114AD7 /* PBXTargetDependency */,
+				B8B90B2250B7E6C778AE2CDB /* PBXTargetDependency */,
+				7E7BDD96E3566FA143143978 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = EFB5E2F3051481F0A5420F4B /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		90DEB84F6A9DB5708C4ADAB1 /* Pods-AMPopTip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 775710630E30101A84A014CF /* Build configuration list for PBXNativeTarget "Pods-AMPopTip" */;
+			buildPhases = (
+				4E5AD99E5605226C104AE7E5 /* Sources */,
+				B3BE966A3716E787A70324A5 /* Frameworks */,
+				3EEEB4D3A3F579EA3C4774F6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AMPopTip";
+			productName = "Pods-AMPopTip";
+			productReference = B1B2A3C719F808F4898BB99A /* libPods-AMPopTip.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FF4D82459A2A57826C296F74 /* Pods-JBChartView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1260250A526D6BC95FAD7A5C /* Build configuration list for PBXNativeTarget "Pods-JBChartView" */;
+			buildPhases = (
+				CC6E320453803475A8B192AA /* Sources */,
+				E7662E2439B858D1F2A826DF /* Frameworks */,
+				6DF1E919A3B66C6F6E0E9B29 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-JBChartView";
+			productName = "Pods-JBChartView";
+			productReference = E49951AF3C8962690D9672AF /* libPods-JBChartView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9DD0A2C0A7393C0997EE5905 /* Project object */ = {
+		4932F0F14656709A23896AE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = E02951E3F2700DAB6A9DDD61 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = AA7DD63E8C802E60B227DA2F /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6234EF77E61F44A64993570C;
-			productRefGroup = 1EF8A8A59DC8D8E358DEDA0D /* Products */;
+			mainGroup = 54379DE5464F997F8EDA2423;
+			productRefGroup = BDC21F131E0177BBEE25E998 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29A80E8CB04030FC6531A020 /* Pods */,
-				B4E65176BFFBFA204D331B19 /* Pods-AMPopTip */,
-				EBC77DFC9D37F6555FBA763D /* Pods-GoogleAnalytics-iOS-SDK */,
-				D60495A4E34E8F62196C9801 /* Pods-JBChartView */,
+				5F3F8E72C3D07022C63D5BA7 /* Pods */,
+				90DEB84F6A9DB5708C4ADAB1 /* Pods-AMPopTip */,
+				1584DA1A8376DD4C652328B0 /* Pods-GoogleAnalytics-iOS-SDK */,
+				FF4D82459A2A57826C296F74 /* Pods-JBChartView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5F0003590ADF470A5010DAED /* Sources */ = {
+		43480F33FA2C24495E727C94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39C77C5B5D0BA812B2A5F8C9 /* JBBarChartView.m in Sources */,
-				02A998D1AB714ED39AB4125B /* JBChartView.m in Sources */,
-				EC39D1507B8CA2A100739565 /* JBLineChartView.m in Sources */,
-				2BDA4FC856EDE057811C764B /* Pods-JBChartView-dummy.m in Sources */,
+				D349C652EC133D39D6058B9F /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0A4F7200E7EFB44F7737A56 /* Sources */ = {
+		4E5AD99E5605226C104AE7E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A12E6211184C2C3809C4F3E /* AMPopTip.m in Sources */,
-				0B1F9261124D6163F5C4F2C5 /* Pods-AMPopTip-dummy.m in Sources */,
+				FF411194B54DE3EE8B27B50F /* AMPopTip.m in Sources */,
+				018D6A09F77EF8E62551E4AF /* Pods-AMPopTip-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C28A878EE5D7FF10667E3A6E /* Sources */ = {
+		9E935D395E74917987B8776A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C8DCBE11C5C25A97D6EF89 /* Pods-dummy.m in Sources */,
+				9ECF50F7B420BCACD5A05DF3 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9E2AA9244312F07FFBDD853 /* Sources */ = {
+		CC6E320453803475A8B192AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEC474735C2ED81B8FF52C2 /* Pods-GoogleAnalytics-iOS-SDK-dummy.m in Sources */,
+				87970A254BB9756245D538AC /* JBBarChartView.m in Sources */,
+				6FC13F66CF72E87F1C1C4CF4 /* JBChartView.m in Sources */,
+				3343CAD8A2A7C97022263A7A /* JBLineChartView.m in Sources */,
+				F0AAFF9EDCC776BAE4EB7E37 /* Pods-JBChartView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		136C3C2453B92D589DAFD385 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-GoogleAnalytics-iOS-SDK";
-			target = EBC77DFC9D37F6555FBA763D /* Pods-GoogleAnalytics-iOS-SDK */;
-			targetProxy = A39043A775D90D4FFF0BFB17 /* PBXContainerItemProxy */;
-		};
-		80CCA3A6528A52B6CC5D723C /* PBXTargetDependency */ = {
+		06D76B07F8A6DE37CE114AD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-AMPopTip";
-			target = B4E65176BFFBFA204D331B19 /* Pods-AMPopTip */;
-			targetProxy = ED1B2403574D22109899789C /* PBXContainerItemProxy */;
+			target = 90DEB84F6A9DB5708C4ADAB1 /* Pods-AMPopTip */;
+			targetProxy = 1215C7924AB9FD31D9DE35AA /* PBXContainerItemProxy */;
 		};
-		BE5499A315C069DCEAE5BE91 /* PBXTargetDependency */ = {
+		7E7BDD96E3566FA143143978 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-JBChartView";
-			target = D60495A4E34E8F62196C9801 /* Pods-JBChartView */;
-			targetProxy = AD76BF252B99590192B57C25 /* PBXContainerItemProxy */;
+			target = FF4D82459A2A57826C296F74 /* Pods-JBChartView */;
+			targetProxy = 9FC63A9CCE75093DB6D6AB98 /* PBXContainerItemProxy */;
+		};
+		B8B90B2250B7E6C778AE2CDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-GoogleAnalytics-iOS-SDK";
+			target = 1584DA1A8376DD4C652328B0 /* Pods-GoogleAnalytics-iOS-SDK */;
+			targetProxy = BFADD5E863B71245D7F38456 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		17CCE2039AD8C9AE66FA58FE /* Debug */ = {
+		03B3D02CEC0AB8C38F01FC31 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F0CC94A948BED5951785077 /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */;
+			baseConfigurationReference = 7C080D705424517C6AE5365B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-GoogleAnalytics-iOS-SDK/Pods-GoogleAnalytics-iOS-SDK-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		1972AD5C1DE9A8C86EB85479 /* Debug */ = {
+		177459B6576DC7874D656447 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B98FCF3B50F9F85AF76BD97 /* Pods-AMPopTip-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-AMPopTip/Pods-AMPopTip-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		2CCEDD9B727A4D1E76AD7881 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38C24CB772169D892509C4EE /* Pods-JBChartView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-JBChartView/Pods-JBChartView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		39F52872AAE4710C1DD8B543 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B98FCF3B50F9F85AF76BD97 /* Pods-AMPopTip-Private.xcconfig */;
+			baseConfigurationReference = 57E5CF63C432D70DDDE6D639 /* Pods-AMPopTip-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-AMPopTip/Pods-AMPopTip-prefix.pch";
@@ -598,7 +566,23 @@
 			};
 			name = Release;
 		};
-		87A6D768116704F2FC888832 /* Release */ = {
+		5DDFB70C13A1AF5E18AA5BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29FC2AC59C03915D3EE9A9BB /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-GoogleAnalytics-iOS-SDK/Pods-GoogleAnalytics-iOS-SDK-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		73B87A4118C9A8708C039EE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -632,7 +616,23 @@
 			};
 			name = Release;
 		};
-		8EFA1300A41CC1B44BD6F500 /* Debug */ = {
+		76E400083391667FEA266FD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A49CCCA379F2D331A2B6599 /* Pods-JBChartView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-JBChartView/Pods-JBChartView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9221B78F33B43EF31D996B5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -671,9 +671,41 @@
 			};
 			name = Debug;
 		};
-		A8A44D22A8C2CD8AB0CA45B7 /* Release */ = {
+		9F788FAA319865AB399B72B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38C24CB772169D892509C4EE /* Pods-JBChartView-Private.xcconfig */;
+			baseConfigurationReference = 4EB2FD058068A6E289B27527 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E2294815A7E9529EEAB009F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E5CF63C432D70DDDE6D639 /* Pods-AMPopTip-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-AMPopTip/Pods-AMPopTip-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E2C566D39BEF0148AA4DD6FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A49CCCA379F2D331A2B6599 /* Pods-JBChartView-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-JBChartView/Pods-JBChartView-prefix.pch";
@@ -687,48 +719,16 @@
 			};
 			name = Release;
 		};
-		BD7914F6ECE04A80133370D3 /* Release */ = {
+		EA45320546DA086D880790F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F0CC94A948BED5951785077 /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */;
+			baseConfigurationReference = 29FC2AC59C03915D3EE9A9BB /* Pods-GoogleAnalytics-iOS-SDK-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-GoogleAnalytics-iOS-SDK/Pods-GoogleAnalytics-iOS-SDK-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		EE19B9ECDB6C9A2A355E1DFE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5762CE28003E30BA8B9F50D2 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		FD9205B017107A03C3339CD0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2A130863A0FD99759E43527 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -738,52 +738,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BA930223776C6CFD0114B91 /* Build configuration list for PBXNativeTarget "Pods-JBChartView" */ = {
+		1260250A526D6BC95FAD7A5C /* Build configuration list for PBXNativeTarget "Pods-JBChartView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CCEDD9B727A4D1E76AD7881 /* Debug */,
-				A8A44D22A8C2CD8AB0CA45B7 /* Release */,
+				76E400083391667FEA266FD6 /* Debug */,
+				E2C566D39BEF0148AA4DD6FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B41BF6CF5F127404013ED43 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		775710630E30101A84A014CF /* Build configuration list for PBXNativeTarget "Pods-AMPopTip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD9205B017107A03C3339CD0 /* Debug */,
-				EE19B9ECDB6C9A2A355E1DFE /* Release */,
+				E2294815A7E9529EEAB009F0 /* Debug */,
+				177459B6576DC7874D656447 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4C4DC96B491ABD6C3FB508A /* Build configuration list for PBXNativeTarget "Pods-GoogleAnalytics-iOS-SDK" */ = {
+		AA7DD63E8C802E60B227DA2F /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				17CCE2039AD8C9AE66FA58FE /* Debug */,
-				BD7914F6ECE04A80133370D3 /* Release */,
+				9221B78F33B43EF31D996B5F /* Debug */,
+				73B87A4118C9A8708C039EE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E02951E3F2700DAB6A9DDD61 /* Build configuration list for PBXProject "Pods" */ = {
+		D14735BD24F7B8D15095E1C6 /* Build configuration list for PBXNativeTarget "Pods-GoogleAnalytics-iOS-SDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8EFA1300A41CC1B44BD6F500 /* Debug */,
-				87A6D768116704F2FC888832 /* Release */,
+				EA45320546DA086D880790F8 /* Debug */,
+				5DDFB70C13A1AF5E18AA5BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E470CFD04418CB15D4ACA26F /* Build configuration list for PBXNativeTarget "Pods-AMPopTip" */ = {
+		F34B19CACAA02B180C2F818B /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1972AD5C1DE9A8C86EB85479 /* Debug */,
-				39F52872AAE4710C1DD8B543 /* Release */,
+				03B3D02CEC0AB8C38F01FC31 /* Debug */,
+				9F788FAA319865AB399B72B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9DD0A2C0A7393C0997EE5905 /* Project object */;
+	rootObject = 4932F0F14656709A23896AE8 /* Project object */;
 }
