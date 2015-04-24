@@ -353,15 +353,11 @@ class MoodViewController: GAITrackedViewController,
     override func prefersStatusBarHidden() -> Bool {
         return capturingMood
     }
-    
-//    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-//        return .LightContent
-//    }
-    
+
     override func shouldAutorotate() -> Bool {
         if let viewController = presentedViewController as? InfographViewController {
             return !viewController.orientationLocked
-        } else if presentedViewController != nil {
+        } else if let viewController = presentedViewController as? NonRotatingNavigationController {
             return false
         }
         return onMood
