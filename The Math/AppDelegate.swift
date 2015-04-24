@@ -1,5 +1,5 @@
 //
-//  👨
+//  👨🏻
 // 
 //  AppDelegate.swift
 //  The Math
