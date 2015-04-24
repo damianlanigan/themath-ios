@@ -110,7 +110,7 @@
                                     <constraint firstItem="B4i-fm-FUU" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" constant="8" id="yTM-Nt-ECI"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S87-zf-TIZ">
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S87-zf-TIZ">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="rating_high" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-8u-RSh">
