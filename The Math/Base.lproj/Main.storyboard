@@ -1418,7 +1418,7 @@
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="258" id="slE-6h-a3X"/>
                                                                                         </constraints>
-                                                                                        <string key="text">Where do you want to make progress in your life? 
+                                                                                        <string key="text">Where do you want to make progress in your life?
 
 Choose from a few broad categories to start. Soon you'll be able to track custom categories.</string>
                                                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -3331,7 +3331,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" id="6fu-iz-CYS"/>
+                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" constant="1" id="6fu-iz-CYS"/>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="20" id="6nC-T0-Hlm"/>
                             <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
                             <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" constant="16" id="T8M-2h-nzn"/>
@@ -3341,6 +3341,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                     </view>
                     <connections>
                         <outlet property="graphContainer" destination="KWU-uu-icG" id="hjD-i3-fsR"/>
+                        <outlet property="segmentedControl" destination="btq-JQ-AdL" id="wq0-1j-O16"/>
                         <segue destination="UyK-6z-rhn" kind="presentation" identifier="PresentDayDetail" id="2HV-4B-IG5"/>
                     </connections>
                 </viewController>

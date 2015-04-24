@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Mn-b1-TqJ" customClass="RoundableView" customModule="HowAmIDoing" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="599"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -24,7 +24,7 @@
             <constraints>
                 <constraint firstItem="5Mn-b1-TqJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Nlw-gI-lX4"/>
                 <constraint firstItem="5Mn-b1-TqJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PBT-jZ-Tvs"/>
-                <constraint firstAttribute="bottom" secondItem="5Mn-b1-TqJ" secondAttribute="bottom" constant="1" id="Y36-eI-nOz"/>
+                <constraint firstAttribute="bottom" secondItem="5Mn-b1-TqJ" secondAttribute="bottom" id="Y36-eI-nOz"/>
                 <constraint firstAttribute="trailing" secondItem="5Mn-b1-TqJ" secondAttribute="trailing" id="bvS-cs-s2Z"/>
             </constraints>
             <connections>
