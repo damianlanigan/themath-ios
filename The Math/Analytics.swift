@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Tracker: NSObject {
+class Analytics: NSObject {
 
     class func track(category: String, action: String, label: String) {
         let tracker = GAI.sharedInstance().defaultTracker

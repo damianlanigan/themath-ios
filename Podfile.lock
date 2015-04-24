@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (1.2.1)
   - AMPopTip (0.7.1)
   - GoogleAnalytics-iOS-SDK (3.10):
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
@@ -7,15 +6,13 @@ PODS:
   - JBChartView (2.8.13)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
   - AMPopTip
   - GoogleAnalytics-iOS-SDK (~> 3.10)
   - JBChartView
 
 SPEC CHECKSUMS:
-  Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
   AMPopTip: 5a78abc067fe3e2fb5d3980072ffae51c8c4f6c5
   GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
   JBChartView: 6cd003d4a5e833d45345b85f40efd9c7e7c6f589
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.4

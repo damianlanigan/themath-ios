@@ -426,7 +426,7 @@ class MoodViewController: GAITrackedViewController,
             self.settingsButton.alpha = 1.0
         }, withDelay: 0.9 )
         
-        Tracker.track("mood", action: "set", label: "\(percentage)%")
+        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     func tooltipForConfirmation() {
@@ -467,10 +467,10 @@ class MoodViewController: GAITrackedViewController,
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             presentOnboarding()
-            Tracker.track("onboarding", action: "replayed", label: "")
+            Analytics.track("onboarding", action: "replayed", label: "")
         } else if buttonIndex == 2 {
             showFeedbackEmail()
-            Tracker.track("send feedback", action: "tapped", label: "")
+            Analytics.track("send feedback", action: "tapped", label: "")
         }
     }
     
