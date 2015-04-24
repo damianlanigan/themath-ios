@@ -3325,13 +3325,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
-                                <rect key="frame" x="16" y="88" width="568" height="512"/>
+                                <rect key="frame" x="16" y="88" width="568" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" id="6fu-iz-CYS"/>
+                            <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" constant="1" id="6fu-iz-CYS"/>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="20" id="6nC-T0-Hlm"/>
                             <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
                             <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" constant="16" id="T8M-2h-nzn"/>
@@ -3341,6 +3341,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                     </view>
                     <connections>
                         <outlet property="graphContainer" destination="KWU-uu-icG" id="hjD-i3-fsR"/>
+                        <outlet property="segmentedControl" destination="btq-JQ-AdL" id="wq0-1j-O16"/>
                         <segue destination="UyK-6z-rhn" kind="presentation" identifier="PresentDayDetail" id="2HV-4B-IG5"/>
                     </connections>
                 </viewController>

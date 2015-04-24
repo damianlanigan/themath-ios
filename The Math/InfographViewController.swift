@@ -12,6 +12,7 @@ import UIKit
 class InfographViewController: GAITrackedViewController,
     ChartViewControllerDelegate {
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var graphContainer: UIView!
     var previouslySelectedSegmentIndex: Int = 1
     var viewControllers = [ChartViewController]()
@@ -23,10 +24,6 @@ class InfographViewController: GAITrackedViewController,
         
         loadViewControllers()
         reloadState()
-    }
-    
-    deinit {
-        println("deinit")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -49,6 +46,7 @@ class InfographViewController: GAITrackedViewController,
         if let viewController = selectedViewController {
             viewController.view.hidden = true
         }
+        segmentedControl.selectedSegmentIndex = index
         selectedViewController = viewControllers[index]
         selectedViewController!.view.hidden = false
         selectedViewController!.view.frame = graphContainer.bounds
@@ -72,17 +70,19 @@ class InfographViewController: GAITrackedViewController,
     func didSelectMoment() {
         orientationLocked = true
         performSegueWithIdentifier("PresentDayDetail", sender: self)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("InfographDayDetail") as! UIViewController
-        presentViewController(viewController, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyboard.instantiateViewControllerWithIdentifier("InfographDayDetail") as! UIViewController
+//        presentViewController(viewController, animated: true, completion: nil)
     }
     
     func didSelectDay(day: Int) {
         println(day)
+        navigateToViewControllerAtIndex(0)
     }
     
     func didSelectWeek(week: Int) {
         println(week)
+        navigateToViewControllerAtIndex(1)
     }
     
     // MARK: Utility
