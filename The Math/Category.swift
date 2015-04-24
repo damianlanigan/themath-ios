@@ -1,5 +1,5 @@
 //
-//  👨
+//  👨🏻
 //
 //  Category.swift
 //  The Math

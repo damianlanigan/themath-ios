@@ -46,6 +46,7 @@
 		8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138761AE85D7B0090C53C /* DayChartViewController.swift */; };
 		8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
+		8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */; };
 		8DD34C111A7F0B1F000C4073 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
 		8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */; };
@@ -110,6 +111,7 @@
 		8D9138761AE85D7B0090C53C /* DayChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartViewController.swift; sourceTree = "<group>"; };
 		8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthChartViewController.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
+		8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8DD34C101A7F0B1F000C4073 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
 		8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -194,12 +196,11 @@
 		27D411BF1A48710F008ACC14 /* The Math */ = {
 			isa = PBXGroup;
 			children = (
-				27D411C21A48710F008ACC14 /* AppDelegate.swift */,
+				8DD17BCB1AEA9E8B00F69892 /* Delegate */,
+				8DD17BCA1AEA9E7E00F69892 /* Interface */,
 				27C078391A5AF20C007E0BDF /* Model */,
 				8DED66171A7ED37900327B41 /* Modules */,
 				27A542B41A48BDDC00CC7CA6 /* Extensions */,
-				27D411C61A48710F008ACC14 /* Main.storyboard */,
-				27D411CB1A48710F008ACC14 /* LaunchScreen.xib */,
 				27D411C91A48710F008ACC14 /* Images.xcassets */,
 				27D411C01A48710F008ACC14 /* Supporting Files */,
 				8D531D0B1A7AD44D00EEAB88 /* The Math-Bridging-Header.h */,
@@ -267,15 +268,49 @@
 			name = Auth;
 			sourceTree = "<group>";
 		};
-		8DED66171A7ED37900327B41 /* Modules */ = {
+		8DD17BC91AEA9E6600F69892 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
 				8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */,
 				8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
+		8DD17BCA1AEA9E7E00F69892 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				27D411C61A48710F008ACC14 /* Main.storyboard */,
+				27D411CB1A48710F008ACC14 /* LaunchScreen.xib */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		8DD17BCB1AEA9E8B00F69892 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				27D411C21A48710F008ACC14 /* AppDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		8DD17BCE1AEA9EF000F69892 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		8DED66171A7ED37900327B41 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8DD17BC91AEA9E6600F69892 /* Transitions */,
 				8DED66181A7ED37E00327B41 /* Onboarding */,
 				8DED661A1A7ED38C00327B41 /* Mood */,
 				8DED66191A7ED38700327B41 /* Journal */,
 				8DED661B1A7ED39100327B41 /* Infograph */,
+				8DD17BCE1AEA9EF000F69892 /* Settings */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -493,6 +528,7 @@
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */,
 				8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */,
+				8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */,
 				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
 				8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */,
 				8D7A6DCD1AE5B27700AC2CD8 /* WorkCategoryView.swift in Sources */,

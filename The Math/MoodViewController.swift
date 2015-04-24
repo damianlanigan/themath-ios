@@ -310,6 +310,8 @@ class MoodViewController: GAITrackedViewController,
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         }
+        
+        onMood = false
     }
     
     private func presentInfograph() {
@@ -317,9 +319,12 @@ class MoodViewController: GAITrackedViewController,
             UIView.animateWithDuration(0.2, animations: {
                 self.view.alpha = 0.0
             })
-            if presentedViewController == nil {
+            if let viewController = presentedViewController as? InfographViewController {
+                
+            } else {
                 performSegueWithIdentifier("PresentInfograph", sender: self)
             }
+
         }
     }
     
@@ -395,7 +400,7 @@ class MoodViewController: GAITrackedViewController,
         toolTip.hide()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(0.8, animations: {
             self.touchPoint.opacity = 0.3
             self.moodReferenceView.alpha = 1.0
             self.settingsButton.alpha = 0.0
@@ -412,7 +417,7 @@ class MoodViewController: GAITrackedViewController,
         
         timer?.invalidate()
         
-        UIView.animateWithDuration(0.1, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.touchPoint.opacity = 0.0
             self.moodReferenceView.alpha = 0.0
         })
