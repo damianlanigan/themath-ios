@@ -32,7 +32,8 @@
                                     <exclude reference="kbI-3q-RzO"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="-77" y="30" width="349" height="44"/>
                                 <mask key="constraints">
                                     <include reference="kbI-3q-RzO"/>
                                 </mask>
@@ -40,6 +41,9 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
                             <rect key="frame" x="180" y="8" width="120" height="120"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="83" y="0.0" width="28" height="10"/>
+                            </variation>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -67,7 +71,8 @@
                             <exclude reference="WBy-LY-diZ"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="143" y="192" width="194" height="97"/>
                         <mask key="subviews">
                             <include reference="kId-c2-rCX"/>
                             <include reference="WVX-u4-Na3"/>
@@ -84,7 +89,7 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.18823529410000001" green="0.43921568630000002" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.59607843137254901" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>

@@ -232,7 +232,7 @@ class MoodViewController: GAITrackedViewController,
     
     @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
         toolTip.hide()
-        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Submit feedback")
+        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Send feedback")
         alert.show()
     }
     
