@@ -22,6 +22,7 @@ class MoodViewController: GAITrackedViewController,
     
     // MARK: INSTANCE VARIABLES
 
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var moodReferenceView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -267,12 +268,26 @@ class MoodViewController: GAITrackedViewController,
     }
     
     func addColorAnimationToLayer(layer: CAShapeLayer) {
-        let color: CABasicAnimation = CABasicAnimation(keyPath: "fillColor")
-        color.duration = animationDuration
-        color.fromValue = UIColor.mood_startColor().CGColor
-        color.toValue   = UIColor.mood_endColor().CGColor
-        layer.addAnimation(color, forKey: "fillColor")
-        layer.speed = 0.0;
+        
+        let colorAnim = CAKeyframeAnimation(keyPath:"fillColor")
+        let colors: [CGColor] = [
+            UIColor(red:0.000, green:0.396, blue:0.529, alpha: 1).CGColor,
+            UIColor(red:0.047, green:0.729, blue:0.702, alpha: 1).CGColor,
+            UIColor(red:0.373, green:0.824, blue:0.549, alpha: 1).CGColor,
+            UIColor(red:0.973, green:0.827, blue:0.310, alpha: 1).CGColor
+        ]
+        colorAnim.values = colors
+        colorAnim.calculationMode = kCAAnimationPaced
+        colorAnim.duration = animationDuration
+        layer.speed = 0.0
+        layer.addAnimation(colorAnim, forKey: "fillColor")
+        
+//        let color: CABasicAnimation = CABasicAnimation(keyPath: "fillColor")
+//        color.duration = animationDuration
+//        color.fromValue = UIColor.mood_startColor().CGColor
+//        color.toValue   = UIColor.mood_endColor().CGColor
+//        layer.addAnimation(color, forKey: "fillColor")
+//        layer.speed = 0.0;
     }
 
     func update() {
@@ -376,11 +391,6 @@ class MoodViewController: GAITrackedViewController,
 
 
     func moodViewTouchesBegan() {
-        UIView.animateWithDuration(0.2, animations: {
-            self.touchPoint.opacity = 0.3
-            self.moodReferenceView.alpha = 1.0
-        })
-
         beginMood()
     }
 
@@ -393,6 +403,12 @@ class MoodViewController: GAITrackedViewController,
         setNeedsStatusBarAppearanceUpdate()
         toolTip.hide()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            self.touchPoint.opacity = 0.3
+            self.moodReferenceView.alpha = 1.0
+            self.settingsButton.alpha = 0.0
+        })
     }
     
     private func endMood() {
@@ -415,6 +431,7 @@ class MoodViewController: GAITrackedViewController,
         _performBlock({ () -> Void in
             self.createNewMood()
             self.setNeedsStatusBarAppearanceUpdate()
+            self.settingsButton.alpha = 1.0
         }, withDelay: 0.9 )
         
         Tracker.track("mood", action: "set", label: "\(percentage)%")

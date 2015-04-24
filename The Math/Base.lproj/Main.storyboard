@@ -150,6 +150,7 @@
                         <outlet property="instructionLabel" destination="B4i-fm-FUU" id="KP8-uU-v3h"/>
                         <outlet property="moodReferenceView" destination="S87-zf-TIZ" id="O32-b2-k9U"/>
                         <outlet property="moodTrigger" destination="fhD-kS-Xfa" id="InW-JK-uQQ"/>
+                        <outlet property="settingsButton" destination="ud6-hh-uCA" id="1Yt-sS-eew"/>
                         <segue destination="fTm-Vk-pUw" kind="presentation" identifier="MoodToJournalTransition" id="ZGI-oe-XJA"/>
                         <segue destination="grH-6b-2HV" kind="presentation" identifier="PresentInfograph" id="5sG-9v-HXh"/>
                     </connections>
@@ -1903,7 +1904,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYt-o4-gyq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYt-o4-gyq">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-PQ-j7O" userLabel="Content View">
@@ -2400,7 +2401,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <constraint firstItem="pvZ-k1-yWH" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" id="qaC-cA-XCP"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORY-cW-RfJ">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORY-cW-RfJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -2459,7 +2460,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     <constraint firstAttribute="bottom" secondItem="HRk-PQ-j7O" secondAttribute="bottom" id="fYf-kA-K96"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-73-lTQ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-73-lTQ">
                                 <rect key="frame" x="0.0" y="756" width="400" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
