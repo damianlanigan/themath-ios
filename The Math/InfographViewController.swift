@@ -25,6 +25,10 @@ class InfographViewController: GAITrackedViewController,
         reloadState()
     }
     
+    deinit {
+        println("deinit")
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         orientationLocked = false
@@ -83,8 +87,10 @@ class InfographViewController: GAITrackedViewController,
     
     // MARK: Utility
     
+
+    
     override func shouldAutorotate() -> Bool {
-        return false
+        return true
     }
     
 }

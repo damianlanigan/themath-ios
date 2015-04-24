@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ChartViewControllerDelegate {
+protocol ChartViewControllerDelegate: class {
     func didSelectMoment()
     func didSelectDay(day: Int)
     func didSelectWeek(week: Int)
@@ -21,6 +21,6 @@ struct InfoGraphWeek {
 
 class ChartViewController: UIViewController {
 
-    var delegate: ChartViewControllerDelegate?
+    weak var delegate: ChartViewControllerDelegate?
 
 }
