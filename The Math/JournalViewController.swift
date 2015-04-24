@@ -67,6 +67,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     
     @IBAction func dismissButtonTapped(sender: AnyObject) {
         isCancelled = true
+        textView.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
     

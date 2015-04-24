@@ -1904,11 +1904,11 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYt-o4-gyq">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="756"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYt-o4-gyq">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="750"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-PQ-j7O" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="756"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="750"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday • 9:40 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVq-FT-xpZ">
                                                 <rect key="frame" x="142" y="20" width="117" height="16"/>
@@ -1916,7 +1916,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-74-r9g" userLabel="Category Container View">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-Lx-DjL">
+                                                <rect key="frame" x="175" y="54" width="50" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-74-r9g" userLabel="Category Container View">
                                                 <rect key="frame" x="6" y="105" width="388" height="228"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAE-Sy-OpA" customClass="LoveCategoryView" customModule="HowAmIDoing" customModuleProvider="target">
@@ -2362,8 +2368,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy">
-                                                <rect key="frame" x="0.0" y="353" width="400" height="359"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy">
+                                                <rect key="frame" x="0.0" y="353" width="400" height="397"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvZ-k1-yWH">
                                                         <rect key="frame" x="0.0" y="0.0" width="400" height="1"/>
@@ -2372,8 +2378,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                             <constraint firstAttribute="height" constant="1" id="Os8-QC-wlX"/>
                                                         </constraints>
                                                     </view>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Add a note..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
-                                                        <rect key="frame" x="14" y="20" width="372" height="339"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
+                                                        <rect key="frame" x="14" y="20" width="372" height="377"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2401,8 +2407,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <constraint firstItem="pvZ-k1-yWH" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" id="qaC-cA-XCP"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORY-cW-RfJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORY-cW-RfJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="93y-h4-7Cq"/>
@@ -2418,12 +2424,6 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <action selector="dismissButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="6nh-l7-iFF"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Why?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-Lx-DjL">
-                                                <rect key="frame" x="157" y="54" width="87" height="21"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -2434,20 +2434,20 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                             <constraint firstAttribute="centerX" secondItem="kVq-FT-xpZ" secondAttribute="centerX" id="WUC-Nz-TM1"/>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" id="cho-5Z-kjW"/>
                                             <constraint firstItem="kVq-FT-xpZ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" constant="20" id="dhj-t7-GTX"/>
-                                            <constraint firstAttribute="height" constant="756" id="eeb-k5-oq8"/>
+                                            <constraint firstAttribute="height" constant="750" id="eeb-k5-oq8"/>
                                             <constraint firstItem="v4c-Lx-DjL" firstAttribute="top" secondItem="kVq-FT-xpZ" secondAttribute="bottom" constant="18" id="fXe-83-uAX">
                                                 <variation key="heightClass=compact" constant="24"/>
                                             </constraint>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" id="gsE-YE-hn0"/>
                                             <constraint firstItem="sHr-74-r9g" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" constant="6" id="hTb-ay-hmb"/>
                                             <constraint firstAttribute="trailing" secondItem="sHr-74-r9g" secondAttribute="trailing" constant="6" id="i1l-9T-Dlp"/>
-                                            <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="30" id="oM5-vO-md4">
+                                            <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="v4c-Lx-DjL" secondAttribute="bottom" constant="28" id="oM5-vO-md4">
                                                 <variation key="heightClass=compact" constant="24"/>
                                             </constraint>
                                             <constraint firstAttribute="width" constant="400" id="sm3-sd-WZg"/>
                                             <constraint firstAttribute="trailing" secondItem="RvV-eo-xfy" secondAttribute="trailing" id="uqB-Th-KgO"/>
                                             <constraint firstItem="RvV-eo-xfy" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" id="usY-H6-goT"/>
-                                            <constraint firstAttribute="bottom" secondItem="RvV-eo-xfy" secondAttribute="bottom" constant="44" id="ySS-1H-uej">
+                                            <constraint firstAttribute="bottom" secondItem="RvV-eo-xfy" secondAttribute="bottom" id="ySS-1H-uej">
                                                 <variation key="heightClass=compact" constant="33"/>
                                             </constraint>
                                         </constraints>
@@ -2460,8 +2460,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     <constraint firstAttribute="bottom" secondItem="HRk-PQ-j7O" secondAttribute="bottom" id="fYf-kA-K96"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-73-lTQ">
-                                <rect key="frame" x="0.0" y="756" width="400" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-73-lTQ">
+                                <rect key="frame" x="0.0" y="750" width="400" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="oce-tT-rFg">
@@ -2519,7 +2519,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nri-9R-aOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="208.5"/>
+            <point key="canvasLocation" x="1237" y="208"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="xt9-mS-sC2">
