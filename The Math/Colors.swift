@@ -71,6 +71,18 @@ extension UIColor {
         return UIColor(red: 252/255.0, green: 94/255.0, blue: 66/255.0, alpha: 1.0)
     }
     
+    // gradient
+    
+    class func mood_gradientColors() -> [AnyObject] {
+        let colors: [AnyObject] = [
+            UIColor(red:0.000, green:0.396, blue:0.529, alpha: 1).CGColor,
+            UIColor(red:0.047, green:0.729, blue:0.702, alpha: 1).CGColor,
+            UIColor(red:0.373, green:0.824, blue:0.549, alpha: 1).CGColor,
+            UIColor(red:0.973, green:0.827, blue:0.310, alpha: 1).CGColor
+        ]
+        return colors
+    }
+    
     class func mood_blueColor() -> UIColor {
         return UIColor(red: 0/255.0, green: 121/255.0, blue: 255/255.0, alpha: 1.0)
     }
