@@ -1,6 +1,6 @@
 //
 //  👨🏻
-// 
+//
 //  AppDelegate.swift
 //  The Math
 //
@@ -19,24 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-                
         window?.backgroundColor = UIColor.blackColor()
-                
         setupFabric()
         setupAnalytics()
-        
+
         return true
     }
-    
+
     private func setupFabric() {
         Fabric.with([Crashlytics()])
     }
-    
+
     private func setupAnalytics() {
         GAI.sharedInstance().trackUncaughtExceptions = true
         GAI.sharedInstance().dispatchInterval = 20
         GAI.sharedInstance().logger.logLevel = .None
-        
+
         GAI.sharedInstance().trackerWithTrackingId("UA-55460587-3")
     }
 }
