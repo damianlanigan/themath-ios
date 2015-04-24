@@ -31,6 +31,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var savedLabel: UILabel!
     
+    var isCancelled = false
     var transitionColor: UIColor?
     var cachedScrollViewHeight: CGFloat = 0.0
 
@@ -65,6 +66,7 @@ class JournalViewController: GAITrackedViewController, UITextViewDelegate {
     }
     
     @IBAction func dismissButtonTapped(sender: AnyObject) {
+        isCancelled = true
         dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -44,9 +44,9 @@ class MaskAnimationController:  NSObject,
                     })
             })
         } else {
-            var buttonFrame = CGRectMake(0, 0, 160, 160)
-            buttonFrame.origin.x = toViewController!.view.center.x - 80
-            buttonFrame.origin.y = toViewController!.view.center.y - 80
+            var buttonFrame = (fromViewController! as! JournalViewController).isCancelled ? CGRectMake(0, 0, 80, 80) : CGRectMake(0, 0, 160, 160)
+            buttonFrame.origin.x = toViewController!.view.center.x - (buttonFrame.size.width / 2.0)
+            buttonFrame.origin.y = toViewController!.view.center.y - (buttonFrame.size.width / 2.0)
             var circleMaskPathFinal  = UIBezierPath(ovalInRect: buttonFrame)
             var extremePoint = CGPoint(x: toViewController!.view.center.x - 0, y: toViewController!.view.center.y - CGRectGetHeight(fromViewController!.view.bounds))
             var radius = sqrt((extremePoint.x * extremePoint.x) + (extremePoint.y * extremePoint.y))
@@ -66,26 +66,33 @@ class MaskAnimationController:  NSObject,
             
             let duration = 0.2
             
-            if let viewController = fromViewController as? JournalViewController {
-                viewController.fadeOutInitial(duration, completion: { () -> Void in
-                    let delay = 1.0 * Double(NSEC_PER_SEC)
-                    var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                    viewController.saved()
-                    dispatch_after(time, dispatch_get_main_queue(), {
-                        buttonFrame.size = CGSizeMake(70.0, 70.0)
-                        buttonFrame.origin.x = self.toViewController!.view.center.x - 35
-                        buttonFrame.origin.y = self.toViewController!.view.center.y - 35
-                        maskLayer.path = UIBezierPath(ovalInRect: buttonFrame).CGPath
-                        maskLayerAnimation.fromValue = circleMaskPathFinal.CGPath
-                        maskLayerAnimation.toValue = UIBezierPath(ovalInRect: buttonFrame)
-                        maskLayer.addAnimation(maskLayerAnimation, forKey: "path")
-                        
-                        viewController.fadeOutFinal(self.transitionDuration(transitionContext), completion: { () -> Void in
-                            self.toViewController!.view.userInteractionEnabled = true
-                            self.context!.completeTransition(true)
+            if (fromViewController! as! JournalViewController).isCancelled {
+                (fromViewController! as! JournalViewController).fadeOutFinal(self.transitionDuration(transitionContext), completion: { () -> Void in
+                    self.toViewController!.view.userInteractionEnabled = true
+                    self.context!.completeTransition(true)
+                })
+            } else {
+                if let viewController = fromViewController as? JournalViewController {
+                    viewController.fadeOutInitial(duration, completion: { () -> Void in
+                        let delay = 1.0 * Double(NSEC_PER_SEC)
+                        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        viewController.saved()
+                        dispatch_after(time, dispatch_get_main_queue(), {
+                            buttonFrame.size = CGSizeMake(70.0, 70.0)
+                            buttonFrame.origin.x = self.toViewController!.view.center.x - 35
+                            buttonFrame.origin.y = self.toViewController!.view.center.y - 35
+                            maskLayer.path = UIBezierPath(ovalInRect: buttonFrame).CGPath
+                            maskLayerAnimation.fromValue = circleMaskPathFinal.CGPath
+                            maskLayerAnimation.toValue = UIBezierPath(ovalInRect: buttonFrame)
+                            maskLayer.addAnimation(maskLayerAnimation, forKey: "path")
+                            
+                            viewController.fadeOutFinal(self.transitionDuration(transitionContext), completion: { () -> Void in
+                                self.toViewController!.view.userInteractionEnabled = true
+                                self.context!.completeTransition(true)
+                            })
                         })
                     })
-                })
+                }
             }
         }
     }
