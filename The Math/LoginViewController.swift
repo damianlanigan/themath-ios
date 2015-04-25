@@ -21,7 +21,14 @@ class LoginViewController: AuthViewController {
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        delegate?.userDidLogin?()
+        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let password = passwordField.text
+        let params = ["email" : email, "password" : password, "grant_type" : "password"]
+        request(Router.LoginAccount(params)).responseJSON { (request, response, data, error) in
+            println(data)
+        }
+
+//        delegate?.userDidLogin?()
     }
 
     override func viewWillAppear(animated: Bool) {

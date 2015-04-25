@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setupFabric()
         setupAnalytics()
+        
+        Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
+            "Content-Type": "application/json",
+            "X-Application-Id": "31f60218d62033240d67424aaac4a9e87d8e6ca74a42dd04509447627151c300"
+        ]
+
 
         return true
     }

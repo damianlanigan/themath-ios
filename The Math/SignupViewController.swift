@@ -20,7 +20,13 @@ class SignupViewController: AuthViewController {
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let password = passwordField.text
-        delegate?.userDidSignup?()
+        
+        let params = ["signup" : ["email" : email, "password" : password]]
+        request(Router.SignupAccount(params)).responseJSON { (request, response, data, error) in
+            println(data)
+        }
+        
+//        delegate?.userDidSignup?()
     }
 
 }
