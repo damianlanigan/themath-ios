@@ -225,7 +225,7 @@
                                                             </mask>
                                                         </variation>
                                                         <connections>
-                                                            <action selector="newUserButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="U3F-KE-h6O"/>
+                                                            <segue destination="Ca3-zE-Eun" kind="presentation" id="bec-ta-RnC"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UD3-0T-O21">
@@ -2844,7 +2844,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
             </objects>
             <point key="canvasLocation" x="808.5" y="-1276.5"/>
         </scene>
-        <!--Signup View Controller-->
+        <!--Sign Up-->
         <scene sceneID="jth-xF-Zw0">
             <objects>
                 <viewController storyboardIdentifier="SignupController" id="oNh-u3-zVN" customClass="SignupViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
@@ -3055,7 +3055,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                         <exclude reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                     <mask key="subviews">
                                         <include reference="cT8-8h-fiZ"/>
                                         <include reference="KxO-UT-QjV"/>
@@ -3111,6 +3112,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Sign Up" id="0XF-Gs-OBh"/>
                     <connections>
                         <outlet property="createAccountButton" destination="5bV-am-dwo" id="iml-Ta-qaG"/>
                         <outlet property="emailField" destination="hVP-Yh-igE" id="Rtd-zM-oV5"/>
@@ -3119,7 +3122,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-bT-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2259" y="-1287"/>
+            <point key="canvasLocation" x="870" y="-599.25"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="jXa-Kp-hXe">
@@ -3130,167 +3133,12 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aoI-6s-aN8" kind="relationship" relationship="rootViewController" id="ng2-wi-hD4"/>
+                        <segue destination="oNh-u3-zVN" kind="relationship" relationship="rootViewController" id="61K-7n-TO2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKM-S6-owT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="189" y="-599.25"/>
-        </scene>
-        <!--Signup Category Selection View Controller-->
-        <scene sceneID="WKw-X0-S2l">
-            <objects>
-                <viewController id="aoI-6s-aN8" customClass="SignupCategorySelectionViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8xk-Fh-7Ou"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jiw-SS-B73"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wq6-oK-vpk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mT8-RW-MJo">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8x-7X-xde">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLv-I4-qBs">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSn-k5-7Zz">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="RSn-k5-7Zz" secondAttribute="trailing" id="404-ym-367"/>
-                                            <constraint firstAttribute="bottom" secondItem="PLv-I4-qBs" secondAttribute="bottom" id="Agw-gb-IM8"/>
-                                            <constraint firstAttribute="bottom" secondItem="RSn-k5-7Zz" secondAttribute="bottom" id="Bk4-tM-UJH"/>
-                                            <constraint firstAttribute="width" constant="800" id="OZh-76-C4J"/>
-                                            <constraint firstItem="PLv-I4-qBs" firstAttribute="top" secondItem="J8x-7X-xde" secondAttribute="top" id="ggX-qF-Kvz"/>
-                                            <constraint firstItem="RSn-k5-7Zz" firstAttribute="top" secondItem="J8x-7X-xde" secondAttribute="top" id="hQx-hD-Vu3"/>
-                                            <constraint firstItem="PLv-I4-qBs" firstAttribute="leading" secondItem="J8x-7X-xde" secondAttribute="leading" id="iRM-DJ-W4b"/>
-                                            <constraint firstAttribute="height" constant="800" id="kth-u9-cEJ"/>
-                                            <constraint firstItem="RSn-k5-7Zz" firstAttribute="leading" secondItem="PLv-I4-qBs" secondAttribute="trailing" id="nxG-gX-gxj"/>
-                                            <constraint firstItem="RSn-k5-7Zz" firstAttribute="leading" secondItem="PLv-I4-qBs" secondAttribute="trailing" id="sKM-Le-JG5"/>
-                                            <constraint firstItem="RSn-k5-7Zz" firstAttribute="width" secondItem="PLv-I4-qBs" secondAttribute="width" id="tWv-zz-kPR"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="PLv-I4-qBs"/>
-                                                <exclude reference="RSn-k5-7Zz"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="OZh-76-C4J"/>
-                                                <exclude reference="kth-u9-cEJ"/>
-                                                <exclude reference="Agw-gb-IM8"/>
-                                                <exclude reference="ggX-qF-Kvz"/>
-                                                <exclude reference="iRM-DJ-W4b"/>
-                                                <exclude reference="404-ym-367"/>
-                                                <exclude reference="Bk4-tM-UJH"/>
-                                                <exclude reference="hQx-hD-Vu3"/>
-                                                <exclude reference="nxG-gX-gxj"/>
-                                                <exclude reference="sKM-Le-JG5"/>
-                                                <exclude reference="tWv-zz-kPR"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="PLv-I4-qBs"/>
-                                                <include reference="RSn-k5-7Zz"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <include reference="OZh-76-C4J"/>
-                                                <include reference="kth-u9-cEJ"/>
-                                                <include reference="Agw-gb-IM8"/>
-                                                <include reference="ggX-qF-Kvz"/>
-                                                <include reference="iRM-DJ-W4b"/>
-                                                <include reference="404-ym-367"/>
-                                                <include reference="Bk4-tM-UJH"/>
-                                                <include reference="hQx-hD-Vu3"/>
-                                                <include reference="nxG-gX-gxj"/>
-                                                <include reference="sKM-Le-JG5"/>
-                                                <include reference="tWv-zz-kPR"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="J8x-7X-xde" firstAttribute="top" secondItem="mT8-RW-MJo" secondAttribute="top" id="9Jb-r6-F0N"/>
-                                    <constraint firstItem="J8x-7X-xde" firstAttribute="leading" secondItem="mT8-RW-MJo" secondAttribute="leading" id="n82-FF-zLu"/>
-                                    <constraint firstAttribute="bottom" secondItem="J8x-7X-xde" secondAttribute="bottom" id="xEK-2W-d8t"/>
-                                    <constraint firstAttribute="trailing" secondItem="J8x-7X-xde" secondAttribute="trailing" id="xSI-wq-1Tj"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="J8x-7X-xde"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="9Jb-r6-F0N"/>
-                                        <exclude reference="n82-FF-zLu"/>
-                                        <exclude reference="xEK-2W-d8t"/>
-                                        <exclude reference="xSI-wq-1Tj"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="J8x-7X-xde"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="9Jb-r6-F0N"/>
-                                        <include reference="n82-FF-zLu"/>
-                                        <include reference="xEK-2W-d8t"/>
-                                        <include reference="xSI-wq-1Tj"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mT8-RW-MJo" firstAttribute="top" secondItem="wq6-oK-vpk" secondAttribute="top" id="I3a-97-xsg"/>
-                            <constraint firstAttribute="trailing" secondItem="mT8-RW-MJo" secondAttribute="trailing" id="aPa-GZ-goq"/>
-                            <constraint firstItem="Jiw-SS-B73" firstAttribute="top" secondItem="mT8-RW-MJo" secondAttribute="bottom" id="osW-u4-fsU"/>
-                            <constraint firstItem="mT8-RW-MJo" firstAttribute="leading" secondItem="wq6-oK-vpk" secondAttribute="leading" id="tIj-3a-tqb"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="mT8-RW-MJo"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="osW-u4-fsU"/>
-                                <exclude reference="I3a-97-xsg"/>
-                                <exclude reference="aPa-GZ-goq"/>
-                                <exclude reference="tIj-3a-tqb"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="mT8-RW-MJo"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="osW-u4-fsU"/>
-                                <include reference="I3a-97-xsg"/>
-                                <include reference="aPa-GZ-goq"/>
-                                <include reference="tIj-3a-tqb"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="Z2x-ko-BkB"/>
-                    <connections>
-                        <outlet property="categorySelectionContainerView" destination="PLv-I4-qBs" id="GGe-gF-kjX"/>
-                        <outlet property="contentViewHeightConstraint" destination="kth-u9-cEJ" id="jHV-fN-SK3"/>
-                        <outlet property="contentViewWidthConstraint" destination="OZh-76-C4J" id="H6H-4I-kCm"/>
-                        <outlet property="scrollView" destination="mT8-RW-MJo" id="VDK-Q2-bgw"/>
-                        <outlet property="signupContainerView" destination="RSn-k5-7Zz" id="TYA-ax-fgh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VnP-eX-bAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="892.5" y="-599.25"/>
         </scene>
         <!--Infograph View Controller-->
         <scene sceneID="3Yv-Rn-mI9">

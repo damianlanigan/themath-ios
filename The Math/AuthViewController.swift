@@ -33,6 +33,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         emailField.delegate = self
         passwordField.delegate = self
     }

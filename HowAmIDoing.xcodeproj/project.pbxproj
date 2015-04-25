@@ -20,6 +20,8 @@
 		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
 		6373BEF0A68655246E3EFC81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8547030B110DFB6DF08D49 /* libPods.a */; };
+		8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */; };
+		8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988251AEC1EEF008A2C33 /* Router.swift */; };
 		8D0B3FCC1AE9452400565DC1 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */; };
 		8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */; };
 		8D0B3FD11AE952E300565DC1 /* NonRotatingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */; };
@@ -84,6 +86,8 @@
 		27D411E41A48715D008ACC14 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		8D0988251AEC1EEF008A2C33 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
 		8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartDetailTableViewController.swift; sourceTree = "<group>"; };
 		8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonRotatingNavigationController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				8D59B27F1A7D4EE7007A29BB /* UIView.swift */,
 				27A542B01A48BAFA00CC7CA6 /* Colors.swift */,
 				2708DEE21A5C334800D99A28 /* Images.swift */,
+				8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				27A542AE1A48BA4300CC7CA6 /* Category.swift */,
 				8DF127491A8ACAEB000B5C4A /* Analytics.swift */,
 				8DB132D61AEAF97600021C40 /* Alamofire.swift */,
+				8D0988251AEC1EEF008A2C33 /* Router.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -542,7 +548,9 @@
 				8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */,
 				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
+				8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */,
 				8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */,
+				8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */,
 				8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */,
 				8D0B3FD11AE952E300565DC1 /* NonRotatingNavigationController.swift in Sources */,
 				8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */,

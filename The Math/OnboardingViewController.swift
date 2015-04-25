@@ -51,14 +51,10 @@ class OnboardingViewController: GAITrackedViewController,
         if let navController = segue.destinationViewController as? UINavigationController {
             if let viewController = navController.viewControllers[0] as? LoginViewController {
                 viewController.delegate = self
-            } else if let viewController = navController.viewControllers[0] as? SignupCategorySelectionViewController {
+            } else if let viewController = navController.viewControllers[0] as? SignupViewController {
                 viewController.delegate = self
             }
         }
-    }
-    
-    @IBAction func newUserButtonTapped(sender: AnyObject) {
-        activateOnboarding()
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {

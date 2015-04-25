@@ -18,7 +18,8 @@ class SignupViewController: AuthViewController {
     }
     
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
-        println("create account")
+        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let password = passwordField.text
         delegate?.userDidSignup?()
     }
 
