@@ -9,9 +9,9 @@
 import Foundation
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "http://localhost:3000"
+    static let baseURLString = DEBUG ? "http://localhost:3000" : "http://themath-api.herokuapp.com"
     static let urlProtocol = "http://"
-    static let urlDomain = "localhost:3000"
+    static let urlDomain = DEBUG ? "localhost:3000" : "themath-api.herokuapp.com"
     static let apiPath = "/api"
     static let apiVersion = "/v1"
     

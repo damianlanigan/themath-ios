@@ -12,6 +12,8 @@ import UIKit
 import Fabric
 import Crashlytics
 
+let DEBUG = false
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,9 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFabric()
         setupAnalytics()
         
+        let applicationId = DEBUG ?
+            "31f60218d62033240d67424aaac4a9e87d8e6ca74a42dd04509447627151c300" :
+            "0a5589d35f67d7aa81a3d2224a7db91433029ad9ccee7af7c1fac9da3e13b98d"
         Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
             "Content-Type": "application/json",
-            "X-Application-Id": "31f60218d62033240d67424aaac4a9e87d8e6ca74a42dd04509447627151c300"
+            "X-Application-Id" : applicationId
         ]
 
 
