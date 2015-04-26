@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class InfographViewController: GAITrackedViewController,
+class InfographViewController: UIViewController,
     ChartViewControllerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -28,8 +27,8 @@ class InfographViewController: GAITrackedViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         orientationLocked = false
-        screenName = "Infograph"
     }
     
     @IBAction func navigationControl(sender: UISegmentedControl) {

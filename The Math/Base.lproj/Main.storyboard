@@ -2853,7 +2853,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <viewControllerLayoutGuide type="bottom" id="odH-SY-D5K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QpU-Tm-4Ct">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-F2-Dbv">
@@ -3055,8 +3055,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                         <exclude reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="cT8-8h-fiZ"/>
                                         <include reference="KxO-UT-QjV"/>

@@ -10,14 +10,13 @@
 
 import UIKit
 
-
 struct JournalEntry {
     let categories: [String:AnyObject]
     let note: String
 
 }
 
-class JournalViewController: GAITrackedViewController, UITextViewDelegate {
+class JournalViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!

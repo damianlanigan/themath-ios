@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import JBChartView
 
 class DayChartViewController: ChartViewController,
     JBLineChartViewDelegate,

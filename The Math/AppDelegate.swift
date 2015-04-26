@@ -12,7 +12,6 @@ import UIKit
 import Fabric
 import Crashlytics
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -39,11 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupAnalytics() {
-        GAI.sharedInstance().trackUncaughtExceptions = true
-        GAI.sharedInstance().dispatchInterval = 20
-        GAI.sharedInstance().logger.logLevel = .None
-
-        GAI.sharedInstance().trackerWithTrackingId("UA-55460587-3")
     }
 }
 

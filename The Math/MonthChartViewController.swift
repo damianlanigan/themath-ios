@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JBChartView
 
 class MonthChartViewController: ChartViewController,
     JBBarChartViewDataSource,

@@ -24,11 +24,18 @@ class LoginViewController: AuthViewController {
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let password = passwordField.text
         let params = ["email" : email, "password" : password, "grant_type" : "password"]
-        request(Router.LoginAccount(params)).responseJSON { (request, response, data, error) in
-            println(data)
-        }
-
-//        delegate?.userDidLogin?()
+        Account.sharedAccount().login(params, callback: { (success, error) -> () in
+            if let error = error {
+                for (key, values) in error {
+                    println(key)
+                    for value in values {
+                        println(" " + value)
+                    }
+                }
+            } else if success {
+                self.delegate?.userDidLogin?()
+            }
+        })
     }
 
     override func viewWillAppear(animated: Bool) {

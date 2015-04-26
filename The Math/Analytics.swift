@@ -11,8 +11,7 @@ import UIKit
 class Analytics: NSObject {
 
     class func track(category: String, action: String, label: String) {
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: nil).build() as [NSObject:AnyObject])
+        
     }
 
 }

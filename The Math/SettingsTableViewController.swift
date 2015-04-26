@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SettingsTableViewControllerDelegate: class {
+    func didLogout()
+}
+
 class SettingsTableViewController: UITableViewController {
+    
+    weak var delegate: SettingsTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +22,15 @@ class SettingsTableViewController: UITableViewController {
         navigationItem.title = "Settings"
         let button = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
         navigationItem.leftBarButtonItem = button
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 2 {
+            Account.sharedAccount().logout({
+                println("logged out")
+                self.delegate?.didLogout()
+            })
+        }
     }
     
     func dismiss() {

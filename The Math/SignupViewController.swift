@@ -22,11 +22,17 @@ class SignupViewController: AuthViewController {
         let password = passwordField.text
         
         let params = ["signup" : ["email" : email, "password" : password]]
-        request(Router.SignupAccount(params)).responseJSON { (request, response, data, error) in
-            println(data)
-        }
-        
-//        delegate?.userDidSignup?()
+        Account.sharedAccount().signup(params, callback: { (success, error) -> () in
+            if let error = error {
+                for (key, values) in error {
+                    println(key)
+                    for value in values {
+                        println(" " + value)
+                    }
+                }
+            } else if success {
+                self.delegate?.userDidSignup?()
+            }
+        })
     }
-
 }

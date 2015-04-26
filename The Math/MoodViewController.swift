@@ -10,10 +10,12 @@
 
 import UIKit
 import MessageUI
+import AMPopTip
 
-class MoodViewController: GAITrackedViewController,
+class MoodViewController: UIViewController,
     MoodViewDelegate,
     OnboardingViewControllerDelegate,
+    SettingsTableViewControllerDelegate,
     UIAlertViewDelegate,
     MFMailComposeViewControllerDelegate,
     UINavigationControllerDelegate,
@@ -102,7 +104,6 @@ class MoodViewController: GAITrackedViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.screenName = "Mood"
         
         if firstAppearance {
             createAndAddMoodCircle()
@@ -118,7 +119,9 @@ class MoodViewController: GAITrackedViewController,
             isSetup = true
             showTooltip()
             
-            presentOnboarding()
+            if !Account.sharedAccount().isAuthenticated() {
+                presentOnboarding()
+            }
             
             _performBlock({ () -> Void in
                 UIView.animateWithDuration(0.2, animations: {
@@ -306,9 +309,13 @@ class MoodViewController: GAITrackedViewController,
             viewController.transitionColor = UIColor(CGColor: color)
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        } else  if let viewController = segue.destinationViewController as? InfographViewController {
+        } else if let viewController = segue.destinationViewController as? InfographViewController {
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        } else if let viewController = segue.destinationViewController as? NonRotatingNavigationController {
+            if let otherController = viewController.viewControllers[0] as? SettingsTableViewController {
+                otherController.delegate = self
+            }
         }
     }
     
@@ -482,7 +489,14 @@ class MoodViewController: GAITrackedViewController,
         dismissViewControllerAnimated(true, completion: nil)
         onMood = true
     }
-
+    
+    // MARK: <SettingsTableViewControllerDelegate>
+    
+    func didLogout() {
+        dismissViewControllerAnimated(false, completion: {
+            self.presentOnboarding()
+        })
+    }
     
     // MARK: <UIViewControllerTransitioningDelegate>
     

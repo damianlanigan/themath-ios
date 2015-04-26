@@ -12,7 +12,7 @@ protocol OnboardingViewControllerDelegate: class {
     func didFinishOnboarding(viewController: OnboardingViewController)
 }
 
-class OnboardingViewController: GAITrackedViewController,
+class OnboardingViewController: UIViewController,
     UIScrollViewDelegate,
     AuthViewControllerDelegate {
     
@@ -38,7 +38,6 @@ class OnboardingViewController: GAITrackedViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        screenName = "Onboarding"
         
         newUserButton.layer.cornerRadius = 6.0
         newUserButton.layer.borderWidth = 2.0
