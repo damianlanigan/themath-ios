@@ -25,22 +25,17 @@ class LoginViewController: AuthViewController {
         let password = passwordField.text
         let params = ["email" : email, "password" : password, "grant_type" : "password"]
         Account.sharedAccount().login(params, callback: { (success, error) -> () in
-            if let error = error {
-                for (key, values) in error {
-                    println(key)
-                    for value in values {
-                        println(" " + value)
-                    }
-                }
-            } else if success {
+            if success {
                 self.delegate?.userDidLogin?()
+            } else {
+                let alert = UIAlertView(title: "Something's wrong", message: "The username or password you entered is incorrect", delegate: nil, cancelButtonTitle: "Dismiss")
+                alert.show()
             }
         })
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
         
         loginButton.layer.cornerRadius = 6.0
     }
@@ -63,10 +58,6 @@ class LoginViewController: AuthViewController {
             ], range: boldRange)
         
         forgotPasswordButton.setAttributedTitle(string, forState: .Normal)
-    }
-
-    func cancel() {
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func shouldAutorotate() -> Bool {

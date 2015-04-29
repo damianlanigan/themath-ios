@@ -23,13 +23,16 @@ class SignupViewController: AuthViewController {
         
         let params = ["signup" : ["email" : email, "password" : password]]
         Account.sharedAccount().signup(params, callback: { (success, error) -> () in
+            var message = ""
             if let error = error {
                 for (key, values) in error {
-                    println(key)
+                    message += key + "\n"
                     for value in values {
-                        println(" " + value)
+                        message += " " + value + "\n"
                     }
                 }
+                let alert = UIAlertView(title: "Something's wrong", message: message, delegate: nil, cancelButtonTitle: "Dismiss")
+                alert.show()
             } else if success {
                 self.delegate?.userDidSignup?()
             }

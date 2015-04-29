@@ -14,7 +14,7 @@ enum Router: URLRequestConvertible {
     static let urlDomain = DEBUG ? "localhost:3000" : "themath-api.herokuapp.com"
     static let apiPath = "/api"
     static let apiVersion = "/v1"
-    
+
     case SignupAccount([String: AnyObject])
     case LoginAccount([String: AnyObject])
     case CreateJournalEntry([String: AnyObject])
