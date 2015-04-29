@@ -6,4 +6,3 @@ pod 'KeychainAccess'
 pod 'AMPopTip'
 pod 'JBChartView'
 
-# pod 'Reveal-iOS-SDK'
