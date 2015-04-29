@@ -10,10 +10,41 @@
 
 import UIKit
 
-struct JournalEntry {
-    let categories: [String:AnyObject]
-    let note: String
-
+class JournalEntry {
+    var categories: [String] = [String]()
+    var note = ""
+    var score: Int!
+    var timestamp: NSDate!
+    var lat: Double?
+    var lng: Double?
+    
+    func save(completion: () -> Void) {
+        request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
+            if let data = data as? [String: AnyObject] {
+                if let errors = data["errors"] as? [String: [String]] {
+                    println("something went wrong")
+                } else {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    private func asJSON() -> [String: AnyObject] {
+        var json = [
+            "score" : score,
+            "timestamp" : timestamp,
+            "categories" : categories,
+            "note" : note // TODO: shouldn't save if says "Add a note..."
+        ]
+        if let lat = lat {
+            json["lat"] = lat
+        }
+        if let lng = lng {
+            json["lng"] = lng
+        }
+        return json
+    }
 }
 
 class JournalViewController: UIViewController, UITextViewDelegate {
@@ -33,6 +64,9 @@ class JournalViewController: UIViewController, UITextViewDelegate {
     var isCancelled = false
     var transitionColor: UIColor?
     var cachedScrollViewHeight: CGFloat = 0.0
+    var mood: Int = 0
+    
+    var journalEntry = JournalEntry()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +81,14 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         
         dateLabel.text = currentDateTimeFormatted()
         textView.delegate = self
+        
+        journalEntry.score = self.mood
+        journalEntry.timestamp = NSDate()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,11 +99,15 @@ class JournalViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         textView.resignFirstResponder()
-        var results = [String: AnyObject]()
-        var selections = categoryViews.map({ results[$0.name()] = $0.selected })
-        var final = JournalEntry(categories: results, note: textView.text)
-        println(final)
-        dismissViewControllerAnimated(true, completion: nil)
+        var selections = categoryViews.filter({ $0.selected }).map({ $0.name() })
+        
+//        journalEntry.lat = 
+//        journalEntry.lng = 
+        journalEntry.categories = selections
+        journalEntry.note = textView.text
+        journalEntry.save { () -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     @IBAction func dismissButtonTapped(sender: AnyObject) {

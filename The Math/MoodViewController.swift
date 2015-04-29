@@ -33,6 +33,7 @@ class MoodViewController: UIViewController,
     var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
     private var timer: NSTimer?
+    private var currentMood = 0
     
     var transitionColor: UIColor?
     
@@ -308,6 +309,7 @@ class MoodViewController: UIViewController,
             let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
             viewController.transitionColor = UIColor(CGColor: color)
             viewController.transitioningDelegate = self
+            viewController.mood = currentMood
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         } else if let viewController = segue.destinationViewController as? InfographViewController {
             viewController.transitioningDelegate = self
@@ -418,14 +420,16 @@ class MoodViewController: UIViewController,
         let percentage = trunc(currentTime / animationDuration * 100)
         println("Mood: \(percentage)%")
         
+        currentMood = Int(percentage)
+        
         timer?.invalidate()
         
         UIView.animateWithDuration(0.2, animations: {
             self.touchPoint.opacity = 0.0
             self.moodReferenceView.alpha = 0.0
         })
+        
         self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
-
 
         _performBlock({ () -> Void in
             self.createNewMood()

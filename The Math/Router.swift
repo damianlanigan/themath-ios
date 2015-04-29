@@ -17,22 +17,27 @@ enum Router: URLRequestConvertible {
     
     case SignupAccount([String: AnyObject])
     case LoginAccount([String: AnyObject])
+    case CreateJournalEntry([String: AnyObject])
     
     var method: Method {
         switch self {
-            case .SignupAccount:
-                return .POST
-            case .LoginAccount:
-                return .POST
+        case .SignupAccount:
+            return .POST
+        case .LoginAccount:
+            return .POST
+        case .CreateJournalEntry:
+            return .POST
         }
     }
     
     var path: String {
         switch self {
-            case .SignupAccount:
-                return "/signup"
-            case .LoginAccount:
-                return "/oauth/token"
+        case .SignupAccount:
+            return "/signup"
+        case .LoginAccount:
+            return "/oauth/token"
+        case .CreateJournalEntry:
+            return "/users/self/journal_entry"
         }
     }
     
@@ -54,6 +59,8 @@ enum Router: URLRequestConvertible {
             case .LoginAccount(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             case .SignupAccount(let parameters):
+                return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+            case .CreateJournalEntry(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             default:
                 return mutableURLRequest

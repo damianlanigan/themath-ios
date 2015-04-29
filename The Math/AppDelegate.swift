@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "X-Application-Id" : applicationId
         ]
 
-
         return true
     }
 

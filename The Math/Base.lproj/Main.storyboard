@@ -2515,6 +2515,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <outlet property="scrollView" destination="tYt-o4-gyq" id="N4v-yc-tFe"/>
                         <outlet property="textView" destination="jDb-wj-8uM" id="bC2-pE-1R2"/>
                         <outletCollection property="categoryViews" destination="kAE-Sy-OpA" collectionClass="NSMutableArray" id="Yrn-vQ-4oC"/>
+                        <outletCollection property="categoryViews" destination="yfQ-as-LQn" collectionClass="NSMutableArray" id="BbU-Yd-Oa2"/>
+                        <outletCollection property="categoryViews" destination="enl-OF-ZvG" collectionClass="NSMutableArray" id="pQY-cq-LvF"/>
+                        <outletCollection property="categoryViews" destination="G6n-0f-kU3" collectionClass="NSMutableArray" id="PtI-Sg-Fzp"/>
+                        <outletCollection property="categoryViews" destination="N8b-fw-OCs" collectionClass="NSMutableArray" id="0dH-gS-KuT"/>
+                        <outletCollection property="categoryViews" destination="9hx-qB-Xb3" collectionClass="NSMutableArray" id="OXK-ue-3pE"/>
+                        <outletCollection property="categoryViews" destination="J0y-K1-MTh" collectionClass="NSMutableArray" id="dWQ-54-jhF"/>
+                        <outletCollection property="categoryViews" destination="3UB-zc-p7T" collectionClass="NSMutableArray" id="4dQ-9X-YZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nri-9R-aOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
