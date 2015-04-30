@@ -65,7 +65,9 @@ class ChartWeek: Week {
 }
 
 class Day {
+    
     let rawDate: NSDate!
+    
     init(date: NSDate) {
         rawDate = date
     }
@@ -76,7 +78,9 @@ class Day {
 }
 
 class ChartDay: Day {
+    
     let averageMood: Int!
+    
     init (mood: Int, timestamp: NSDate) {
         averageMood = mood
         super.init(date: timestamp)
