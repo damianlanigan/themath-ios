@@ -20,7 +20,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     var focusedTextField: UITextField?
     
     @IBOutlet weak var emailField: UITextField!
-    
     @IBOutlet weak var passwordField: UITextField!
     
     override func shouldAutorotate() -> Bool {
@@ -34,6 +33,11 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
+        emailField.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,6 +48,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     func cancel() {
+        focusedTextField?.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -43,6 +43,7 @@
 		8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */; };
 		8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */; };
 		8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C30981A8F194700903E76 /* BorderedView.swift */; };
+		8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */; };
 		8D9138701AE85CB90090C53C /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D91386F1AE85CB90090C53C /* BarView.swift */; };
 		8D9138721AE85CC10090C53C /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9138711AE85CC10090C53C /* BarView.xib */; };
 		8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138731AE85D0F0090C53C /* RoundableView.swift */; };
@@ -112,6 +113,7 @@
 		8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfCategoryView.swift; sourceTree = "<group>"; };
 		8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChaoticCategoryView.swift; sourceTree = "<group>"; };
 		8D8C30981A8F194700903E76 /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AF+Date+Extension.swift"; sourceTree = "<group>"; };
 		8D91386F1AE85CB90090C53C /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		8D9138711AE85CC10090C53C /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		8D9138731AE85D0F0090C53C /* RoundableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundableView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				27A542B01A48BAFA00CC7CA6 /* Colors.swift */,
 				2708DEE21A5C334800D99A28 /* Images.swift */,
 				8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */,
+				8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
+				8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
 				8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */,
 				8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */,

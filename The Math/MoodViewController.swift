@@ -120,6 +120,8 @@ class MoodViewController: UIViewController,
             isSetup = true
             showTooltip()
             
+            // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
+            // API REQUESTS
             if !Account.sharedAccount().isAuthenticated() {
                 presentOnboarding()
             }

@@ -13,13 +13,11 @@ class DayChartViewController: ChartViewController,
     JBLineChartViewDelegate,
     JBLineChartViewDataSource {
     
-    var chartData: [[CGFloat]] = [[CGFloat]]()
+    var chartData: [[Int]] = [[Int]]()
     let lineGraph = JBLineChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadSomeDummyData()
         
         lineGraph.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
         lineGraph.delegate = self
@@ -45,7 +43,7 @@ class DayChartViewController: ChartViewController,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        return chartData[Int(lineIndex)][Int(horizontalIndex)]
+        return CGFloat(chartData[Int(lineIndex)][Int(horizontalIndex)])
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -65,7 +63,9 @@ class DayChartViewController: ChartViewController,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: chartData[Int(lineIndex)][Int(horizontalIndex)] / 100.0)
+        let lIdx = Int(lineIndex)
+        let hIdx = Int(horizontalIndex)
+        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(chartData[lIdx][hIdx]) / 100.0)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
@@ -77,14 +77,4 @@ class DayChartViewController: ChartViewController,
             delegate?.didSelectMoment()
         }
     }
-    
-    private func loadSomeDummyData() {
-        let numberOfPoints = 2 + (arc4random() % 8)
-        var points = [CGFloat]()
-        for i in 0...numberOfPoints {
-            points.append(CGFloat(20 + (arc4random() % (101 - 20))))
-        }
-        chartData.append(points)
-    }
-
 }
