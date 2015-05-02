@@ -14,6 +14,48 @@ protocol ChartViewControllerDelegate: class {
     func didSelectWeek(week: Int)
 }
 
+class Month {
+    
+    let length: Int!
+    let firstDay: NSDate!
+    let lastDay: NSDate!
+    
+    init(date: NSDate) {
+        
+        let c = NSCalendar.currentCalendar()
+        let range = c.rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: date)
+
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let components = calendar!.components(.CalendarUnitEra | NSCalendarUnit.CalendarUnitYear | .CalendarUnitMonth, fromDate: NSDate())
+        components.day = 1;
+        
+        firstDay = calendar!.dateFromComponents(components)
+        lastDay = firstDay.dateByAddingDays(range.length)
+        length = range.length
+    }
+}
+
+class ChartMonth: Month {
+    var chartDays: [ChartDay] = [ChartDay]() {
+        didSet {
+//            var _days = chartDays
+//            let dayAbbrsWithIndex = ["mon" : 1, "tue" : 2, "wed" : 3, "thu" : 4, "fri" : 5, "sat" : 6, "sun" : 7]
+//            let dayAbbrs = chartDays.map { $0.rawDate.shortWeekdayToString().lowercaseString }
+//            
+//            for abbr in dayAbbrsWithIndex.keys {
+//                if find(dayAbbrs, abbr) == nil {
+//                    _days.append(ChartDay(mood: 0, timestamp: self.calendarDays.monday.rawDate.dateByAddingDays(dayAbbrsWithIndex[abbr]! - 1)))
+//                }
+//            }
+//            _days.sort { [unowned self] in
+//                dayAbbrsWithIndex[$0.rawDate.shortWeekdayToString().lowercaseString]! <
+//                    dayAbbrsWithIndex[$1.rawDate.shortWeekdayToString().lowercaseString]!
+//            }
+//            chartDays = _days
+        }
+    }
+}
+
 typealias CalendarWeekDays = (
     monday: Day,
     tuesday: Day,
@@ -29,7 +71,7 @@ class Week {
     let calendarDays: CalendarWeekDays
     
     init(date: NSDate) {
-        let num = date.weekday() - 1 == 0 ? 7 : date.weekday() - 1
+        let num = date.weekday() == 1 ? 7 : date.weekday() - 1
         let start = date.dateBySubtractingDays(num - 1)
         calendarDays = (
             Day(date: start),
@@ -52,7 +94,10 @@ class ChartWeek: Week {
 
             for abbr in dayAbbrsWithIndex.keys {
                 if find(dayAbbrs, abbr) == nil {
+                    println("\(dayAbbrs)")//, \(abbr)")
                     _days.append(ChartDay(mood: 0, timestamp: self.calendarDays.monday.rawDate.dateByAddingDays(dayAbbrsWithIndex[abbr]! - 1)))
+                } else {
+                    println("hey")
                 }
             }
             _days.sort { [unowned self] in
@@ -60,6 +105,7 @@ class ChartWeek: Week {
                     dayAbbrsWithIndex[$1.rawDate.shortWeekdayToString().lowercaseString]!
             }
             chartDays = _days
+            println(chartDays.map { $0.rawDate.shortWeekdayToString() })
         }
     }
 }
@@ -92,6 +138,7 @@ class ChartViewController: UIViewController {
 
     weak var delegate: ChartViewControllerDelegate?
     var selectedIdx: Int?
+    var hasLaidOutChart = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

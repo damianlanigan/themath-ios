@@ -22,14 +22,13 @@ class WeekChartViewController: ChartViewController,
         
         chart.dataSource = self
         chart.delegate = self
-        chart.minimumValue = 0.0
+        chart.minimumValue = 1.0
         chart.maximumValue = 100.0
         view.addSubview(chart)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         chart.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
     }
     
@@ -45,13 +44,13 @@ class WeekChartViewController: ChartViewController,
     // MARK: Data
     
     override func fetchAndDisplayLatestData() {
-        getWeekWithDate(NSDate(), completion: { (week: ChartWeek) -> Void in
+        fetchData(NSDate(), completion: { (week: ChartWeek) -> Void in
             self.currentWeek = week
             self.reloadChart()
         })
     }
     
-    private func getWeekWithDate(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
+    private func fetchData(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
         
         let params = [
             "start_date" : Week(date: date).calendarDays.monday.rawDate,
@@ -74,13 +73,14 @@ class WeekChartViewController: ChartViewController,
                 
                 let newWeek = ChartWeek(date: params["start_date"]!)
                 newWeek.chartDays = days
+                
                 completion(newWeek: newWeek)
             }
         }
     }
     
     
-    // MARK: Graph
+    // MARK: Chart
 
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let week = currentWeek {
