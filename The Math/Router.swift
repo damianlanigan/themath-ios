@@ -19,6 +19,7 @@ enum Router: URLRequestConvertible {
     case LoginAccount([String: AnyObject])
     case CreateJournalEntry([String: AnyObject])
     case AverageScore([String: AnyObject])
+    case JournalEntries([String: AnyObject])
     
     var method: Method {
         switch self {
@@ -29,6 +30,8 @@ enum Router: URLRequestConvertible {
         case .CreateJournalEntry:
             return .POST
         case .AverageScore:
+            return .GET
+        case .JournalEntries:
             return .GET
         }
     }
@@ -44,6 +47,8 @@ enum Router: URLRequestConvertible {
             return "/users/self/journal_entry"
         case .AverageScore:
             return "/users/self/reports/average_score_by_date"
+        case .JournalEntries:
+            return "/users/self/journal_entries"
         }
     }
     
@@ -69,6 +74,8 @@ enum Router: URLRequestConvertible {
             case .CreateJournalEntry(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             case .AverageScore(let parameters):
+                return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+            case .JournalEntries(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             default:
                 return mutableURLRequest

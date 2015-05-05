@@ -20,11 +20,7 @@ class WeekChartViewController: ChartViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chart.dataSource = self
-        chart.delegate = self
-        chart.minimumValue = 1.0
-        chart.maximumValue = 100.0
-        view.addSubview(chart)
+        addChartView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -36,24 +32,31 @@ class WeekChartViewController: ChartViewController,
         super.viewWillAppear(animated)
         reloadChart()
     }
+    private func addChartView() {
+        chart.dataSource = self
+        chart.delegate = self
+        chart.minimumValue = 1.0
+        chart.maximumValue = 100.0
+        view.addSubview(chart)
+    }
     
-    func reloadChart() {
+    private func reloadChart() {
         chart.reloadData()
     }
     
     // MARK: Data
     
     override func fetchAndDisplayLatestData() {
-        fetchData(NSDate(), completion: { (week: ChartWeek) -> Void in
-            self.currentWeek = week
-            self.reloadChart()
-        })
+//        fetchWeek(NSDate(), completion: { (week: ChartWeek) -> Void in
+//            self.currentWeek = week
+//            self.reloadChart()
+//        })
     }
     
-    private func fetchData(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
+    private func fetchWeek(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
         
         let params = [
-            "start_date" : Week(date: date).calendarDays.monday.rawDate,
+            "start_date" : Week(date: date).calendarDays.monday.floor,
             "end_date" : NSDate()
         ]
         
@@ -62,19 +65,19 @@ class WeekChartViewController: ChartViewController,
                 
                 // construct a Week from our data
                 
-                var days = [ChartDay]()
-                for d in data {
-                    for (date, score) in d {
-                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
-                        let day = ChartDay(mood: score, timestamp: timestamp)
-                        days.append(day)
-                    }
-                }
-                
-                let newWeek = ChartWeek(date: params["start_date"]!)
-                newWeek.chartDays = days
-                
-                completion(newWeek: newWeek)
+//                var days = [ChartDay]()
+//                for d in data {
+//                    for (date, score) in d {
+//                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
+//                        let day = ChartDay(mood: score, timestamp: timestamp)
+//                        days.append(day)
+//                    }
+//                }
+//                
+//                let newWeek = ChartWeek(date: params["start_date"]!)
+//                newWeek.chartDays = days
+
+//                completion(newWeek: newWeek)
             }
         }
     }
@@ -84,14 +87,15 @@ class WeekChartViewController: ChartViewController,
 
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let week = currentWeek {
-            return UInt(week.chartDays.count)
+//            return UInt(week.chartDays.count)
         }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
         let idx = Int(index)
-        return CGFloat(currentWeek!.chartDays[idx].averageMood)
+//        return CGFloat(currentWeek!.chartDays[idx].averageMood)
+        return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
@@ -105,12 +109,12 @@ class WeekChartViewController: ChartViewController,
     }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
-        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
-            let idx = Int(index)
-            let perc = CGFloat(currentWeek!.chartDays[idx].averageMood) / 100.0
-            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-            return view
-        }
+//        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
+//            let idx = Int(index)
+//            let perc = CGFloat(currentWeek!.chartDays[idx].averageMood) / 100.0
+//            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+//            return view
+//        }
         return UIView()
     }
     

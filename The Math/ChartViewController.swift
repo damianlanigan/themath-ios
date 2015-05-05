@@ -71,48 +71,36 @@ class Week {
     let calendarDays: CalendarWeekDays
     
     init(date: NSDate) {
+        
         let num = date.weekday() == 1 ? 7 : date.weekday() - 1
         let start = date.dateBySubtractingDays(num - 1)
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: start)
+        let beginning = calendar.dateFromComponents(components)!
+        
         calendarDays = (
-            Day(date: start),
-            Day(date: start.dateByAddingDays(1)),
-            Day(date: start.dateByAddingDays(2)),
-            Day(date: start.dateByAddingDays(3)),
-            Day(date: start.dateByAddingDays(4)),
-            Day(date: start.dateByAddingDays(5)),
-            Day(date: start.dateByAddingDays(6))
+            Day(date: beginning),
+            Day(date: beginning.dateByAddingDays(1)),
+            Day(date: beginning.dateByAddingDays(2)),
+            Day(date: beginning.dateByAddingDays(3)),
+            Day(date: beginning.dateByAddingDays(4)),
+            Day(date: beginning.dateByAddingDays(5)),
+            Day(date: beginning.dateByAddingDays(6))
         )
     }
 }
 
-class ChartWeek: Week {
-    var chartDays: [ChartDay] = [ChartDay]() {
-        didSet {
-            var _days = chartDays
-            let dayAbbrsWithIndex = ["mon" : 1, "tue" : 2, "wed" : 3, "thu" : 4, "fri" : 5, "sat" : 6, "sun" : 7]
-            let dayAbbrs = chartDays.map { $0.rawDate.shortWeekdayToString().lowercaseString }
-
-            for abbr in dayAbbrsWithIndex.keys {
-                if find(dayAbbrs, abbr) == nil {
-                    println("\(dayAbbrs)")//, \(abbr)")
-                    _days.append(ChartDay(mood: 0, timestamp: self.calendarDays.monday.rawDate.dateByAddingDays(dayAbbrsWithIndex[abbr]! - 1)))
-                } else {
-                    println("hey")
-                }
-            }
-            _days.sort { [unowned self] in
-                dayAbbrsWithIndex[$0.rawDate.shortWeekdayToString().lowercaseString]! <
-                    dayAbbrsWithIndex[$1.rawDate.shortWeekdayToString().lowercaseString]!
-            }
-            chartDays = _days
-            println(chartDays.map { $0.rawDate.shortWeekdayToString() })
-        }
-    }
-}
 
 class Day {
     
     let rawDate: NSDate!
+    
+    var floor: NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
+        let beginning = calendar.dateFromComponents(components)!
+        return beginning
+    }
     
     init(date: NSDate) {
         rawDate = date
@@ -121,16 +109,15 @@ class Day {
     func week() -> Week {
         return Week(date: rawDate)
     }
+    
 }
 
-class ChartDay: Day {
+class ChartWeek {
     
-    let averageMood: Int!
-    
-    init (mood: Int, timestamp: NSDate) {
-        averageMood = mood
-        super.init(date: timestamp)
-    }
+}
+
+class ChartDay {
+
 }
 
 

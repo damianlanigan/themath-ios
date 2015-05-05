@@ -14,24 +14,53 @@ class DayChartViewController: ChartViewController,
     JBLineChartViewDataSource {
     
     var chartData: [[Int]] = [[Int]]()
-    let lineGraph = JBLineChartView()
+    let chart = JBLineChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lineGraph.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
-        lineGraph.delegate = self
-        lineGraph.dataSource = self
-        lineGraph.minimumValue  = 1.0
-        lineGraph.maximumValue = 100.0
-        view.addSubview(lineGraph)
+        addChartView()
+        
+    }
+    private func addChartView() {
+        chart.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
+        chart.delegate = self
+        chart.dataSource = self
+        chart.minimumValue  = 1.0
+        chart.maximumValue = 100.0
+        view.addSubview(chart)
+    }
+    
+    private func reloadChart() {
+        chart.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        lineGraph.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
-        lineGraph.reloadData()
+        chart.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
+        chart.reloadData()
+    }
+    
+    override func fetchAndDisplayLatestData() {
+        fetchDay(NSDate(), completion: { (week: ChartDay) -> Void in
+            self.reloadChart()
+        })
+    }
+    
+    private func fetchDay(date: NSDate, completion: (day: ChartDay) -> Void) {
+        
+        let params = [
+            "start_datetime" : Day(date: NSDate()).floor,
+            "end_datetime" : NSDate()
+        ]
+        
+        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
+            println(data)
+            if let data = data as? Array<Dictionary<String,Int>> {
+                println(data)
+            }
+        }
     }
     
     func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {

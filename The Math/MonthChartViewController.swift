@@ -47,10 +47,10 @@ class MonthChartViewController: ChartViewController,
     // MARK: Data
     
     override func fetchAndDisplayLatestData() {
-        fetchData(NSDate(), completion: { (month: ChartMonth) -> Void in
-            self.currentMonth = month
-            self.reloadChart()
-        })
+//        fetchData(NSDate(), completion: { (month: ChartMonth) -> Void in
+//            self.currentMonth = month
+//            self.reloadChart()
+//        })
     }
     
     private func fetchData(date: NSDate, completion: (newMonth: ChartMonth) -> Void) {
@@ -66,13 +66,13 @@ class MonthChartViewController: ChartViewController,
                 // construct a Month from our data
                 
                 var days = [ChartDay]()
-                for d in data {
-                    for (date, score) in d {
-                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
-                        let day = ChartDay(mood: score, timestamp: timestamp)
-                        days.append(day)
-                    }
-                }
+//                for d in data {
+//                    for (date, score) in d {
+//                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
+//                        let day = ChartDay(mood: score, timestamp: timestamp)
+//                        days.append(day)
+//                    }
+//                }
                 
                 let newMonth = ChartMonth(date: params["start_date"]!)
                 newMonth.chartDays = days
