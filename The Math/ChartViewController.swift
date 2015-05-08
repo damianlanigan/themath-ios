@@ -14,6 +14,17 @@ protocol ChartViewControllerDelegate: class {
     func didSelectWeek(week: Int)
 }
 
+protocol Chartable {
+    
+}
+
+enum ChartTimeRange {
+    case Month
+    case Week
+    case Day
+    case Undefined
+}
+
 class Month {
     
     let length: Int!
@@ -38,20 +49,6 @@ class Month {
 class ChartMonth: Month {
     var chartDays: [ChartDay] = [ChartDay]() {
         didSet {
-//            var _days = chartDays
-//            let dayAbbrsWithIndex = ["mon" : 1, "tue" : 2, "wed" : 3, "thu" : 4, "fri" : 5, "sat" : 6, "sun" : 7]
-//            let dayAbbrs = chartDays.map { $0.rawDate.shortWeekdayToString().lowercaseString }
-//            
-//            for abbr in dayAbbrsWithIndex.keys {
-//                if find(dayAbbrs, abbr) == nil {
-//                    _days.append(ChartDay(mood: 0, timestamp: self.calendarDays.monday.rawDate.dateByAddingDays(dayAbbrsWithIndex[abbr]! - 1)))
-//                }
-//            }
-//            _days.sort { [unowned self] in
-//                dayAbbrsWithIndex[$0.rawDate.shortWeekdayToString().lowercaseString]! <
-//                    dayAbbrsWithIndex[$1.rawDate.shortWeekdayToString().lowercaseString]!
-//            }
-//            chartDays = _days
         }
     }
 }
@@ -87,17 +84,54 @@ class Week {
             Day(date: beginning.dateByAddingDays(5)),
             Day(date: beginning.dateByAddingDays(6))
         )
+        
     }
 }
 
+class ChartWeek: Week {
+    var days: [ChartDay] = [ChartDay]() {
+        didSet {
+            padWeek()
+        }
+    }
+    
+    private func padWeek() {
+        var have = days.map { $0.short }
+        var allDays = [Day]()
+        let mirror = reflect(calendarDays)
+        for i in 0..<mirror.count {
+            allDays.append(mirror[i].1.value as! Day)
+        }
+        
+        var _days = days
+        
+        for day in allDays {
+            if find(have, day.short) == nil {
+                _days.append(ChartDay(date: day.rawDate, score: 0))
+            }
+        }
+        
+        if days.count != _days.count {
+            days = _days
+            days.sort({
+                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
+            })
+        }
+    }
+}
 
 class Day {
     
     let rawDate: NSDate!
     
+    var short: String {
+        return rawDate.shortWeekdayToString().lowercaseString
+    }
+    
     var floor: NSDate {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
+        components.setValue(0, forComponent: NSCalendarUnit.CalendarUnitHour)
         let beginning = calendar.dateFromComponents(components)!
         return beginning
     }
@@ -112,12 +146,15 @@ class Day {
     
 }
 
-class ChartWeek {
+class ChartDay: Day, Chartable {
     
-}
+    let score: Int!
+    var entries = [JournalEntry]()
 
-class ChartDay {
-
+    init(date: NSDate, score: Int) {
+        self.score = score
+        super.init(date: date)
+    }
 }
 
 
@@ -127,13 +164,18 @@ class ChartViewController: UIViewController {
     var selectedIdx: Int?
     var hasLaidOutChart = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         fetchAndDisplayLatestData()
     }
     
     func fetchAndDisplayLatestData() {
         // abstract
+    }
+    
+    func chartType() -> ChartType {
+        // abstract
+        return .Undefined
     }
 
 }

@@ -83,7 +83,17 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         
         journalEntry.score = self.mood
-        journalEntry.timestamp = NSDate()
+        
+        let sourceDate = NSDate()
+        
+        let sourceTimeZone = NSTimeZone(abbreviation: "GMT")
+        let destinationTimeZone = NSTimeZone.systemTimeZone()
+        let sourceOffset = sourceTimeZone!.secondsFromGMTForDate(sourceDate)
+        let destinationOffset = destinationTimeZone.secondsFromGMTForDate(sourceDate)
+        let interval: NSTimeInterval = NSTimeInterval(destinationOffset - sourceOffset)
+        let destinationDate = NSDate(timeInterval: interval, sinceDate: sourceDate)
+        
+        journalEntry.timestamp = NSDate() // destinationDate
     }
     
     override func viewDidAppear(animated: Bool) {

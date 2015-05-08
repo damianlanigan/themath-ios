@@ -48,6 +48,7 @@ class InfographViewController: UIViewController,
         segmentedControl.selectedSegmentIndex = index
         selectedViewController = viewControllers[index]
         selectedViewController!.view.hidden = false
+        selectedViewController!.viewDidAppear(false)
         selectedViewController!.view.frame = graphContainer.bounds
         selectedViewController!.view.layoutIfNeeded()
     }
