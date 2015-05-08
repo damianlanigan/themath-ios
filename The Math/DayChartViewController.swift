@@ -51,14 +51,16 @@ class DayChartViewController: ChartViewController,
     private func fetchDay(date: NSDate, completion: (day: ChartDay) -> Void) {
         
         let params = [
-            "start_datetime" : Day(date: NSDate()).floor,
-            "end_datetime" : NSDate()
+            "start_datetime" : Day(date: date).floor,
+            "end_datetime" : Day(date: date).ceil
         ]
         
         request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
-            println(data)
-            if let data = data as? Array<Dictionary<String,Int>> {
-                println(data)
+            if let data = data as? Array<Dictionary<String,AnyObject>> {
+                for d in data {
+                    let entry = JournalEntry.fromJSONRequest(d)
+                    println(entry)
+                }
             }
         }
     }

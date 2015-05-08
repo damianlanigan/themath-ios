@@ -47,22 +47,27 @@ class WeekChartViewController: ChartViewController,
     // MARK: Data
     
     override func fetchAndDisplayLatestData() {
-//        fetchWeek(NSDate(), completion: { (week: ChartWeek) -> Void in
-//            self.currentWeek = week
-//            self.reloadChart()
-//        })
+        fetchWeek(NSDate(), completion: { (week: ChartWeek) -> Void in
+            self.currentWeek = week
+            self.reloadChart()
+        })
     }
     
     private func fetchWeek(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
         
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let monday = Week(date: date).calendarDays.monday.floor.adjustedFromLocalTime(calendar)
+        let today = NSDate().adjustedFromLocalTime(calendar)
         let params = [
-            "start_date" : Week(date: date).calendarDays.monday.floor,
-            "end_date" : NSDate()
+            "start_date" : monday,
+            "end_date" : today,
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
         ]
         
         request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
             if let data = data as? Array<Dictionary<String,Int>> {
                 
+                println(data)
                 // construct a Week from our data
                 
 //                var days = [ChartDay]()

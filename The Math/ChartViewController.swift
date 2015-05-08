@@ -74,18 +74,15 @@ class Week {
         
         let num = date.weekday() == 1 ? 7 : date.weekday() - 1
         let start = date.dateBySubtractingDays(num - 1)
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: start)
-        let beginning = calendar.dateFromComponents(components)!
         
         calendarDays = (
-            Day(date: beginning),
-            Day(date: beginning.dateByAddingDays(1)),
-            Day(date: beginning.dateByAddingDays(2)),
-            Day(date: beginning.dateByAddingDays(3)),
-            Day(date: beginning.dateByAddingDays(4)),
-            Day(date: beginning.dateByAddingDays(5)),
-            Day(date: beginning.dateByAddingDays(6))
+            Day(date: start),
+            Day(date: start.dateByAddingDays(1)),
+            Day(date: start.dateByAddingDays(2)),
+            Day(date: start.dateByAddingDays(3)),
+            Day(date: start.dateByAddingDays(4)),
+            Day(date: start.dateByAddingDays(5)),
+            Day(date: start.dateByAddingDays(6))
         )
     }
 }
@@ -96,8 +93,20 @@ class Day {
     let rawDate: NSDate!
     
     var floor: NSDate {
-        let calendar = NSCalendar.currentCalendar()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
+        let beginning = calendar.dateFromComponents(components)!
+        return beginning
+    }
+    
+    var ceil: NSDate {
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
+        let offset = 0 // (nstimezone.localtimezone().secondsfromgmt / 60 / 60)
+        components.setValue(23 + offset, forComponent: NSCalendarUnit.CalendarUnitHour)
+        components.setValue(59, forComponent: NSCalendarUnit.CalendarUnitMinute)
+        components.setValue(59, forComponent: NSCalendarUnit.CalendarUnitSecond)
         let beginning = calendar.dateFromComponents(components)!
         return beginning
     }
@@ -127,8 +136,8 @@ class ChartViewController: UIViewController {
     var selectedIdx: Int?
     var hasLaidOutChart = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         fetchAndDisplayLatestData()
     }
     

@@ -339,14 +339,14 @@ extension NSDate {
         return date.hour()
     }
     
-    func year () -> Int { return self.components().year  }
-    func month () -> Int { return self.components().month }
-    func week () -> Int { return self.components().weekOfYear }
-    func day () -> Int { return self.components().day }
-    func hour () -> Int { return self.components().hour }
-    func minute () -> Int { return self.components().minute }
-    func seconds () -> Int { return self.components().second }
-    func weekday () -> Int { return self.components().weekday }
+    func year (offset: Int = 0) -> Int { return self.components().year + offset }
+    func month   (offset: Int = 0) -> Int { return self.components().month + offset }
+    func week    (offset: Int = 0) -> Int { return self.components().weekOfYear + offset }
+    func day     (offset: Int = 0) -> Int { return self.components().day + offset }
+    func hour    (offset: Int = 0) -> Int { return self.components().hour + offset }
+    func minute  (offset: Int = 0) -> Int { return self.components().minute + offset }
+    func seconds (offset: Int = 0) -> Int { return self.components().second + offset }
+    func weekday (offset: Int = 0) -> Int { return self.components().weekday + offset }
     func nthWeekday () -> Int { return self.components().weekdayOrdinal } //// e.g. 2nd Tuesday of the month is 2
     func monthDays () -> Int { return NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: self).length }
     
@@ -405,6 +405,26 @@ extension NSDate {
         formatter.timeStyle = timeStyle
         formatter.doesRelativeDateFormatting = doesRelativeDateFormatting
         return formatter.stringFromDate(self)
+    }
+    
+    func adjustedFromLocalTime(calendar: NSCalendar) -> NSDate {
+        var components = NSDateComponents()
+        components.setValue(self.year(), forComponent: NSCalendarUnit.CalendarUnitYear)
+        components.setValue(self.month(), forComponent: NSCalendarUnit.CalendarUnitMonth)
+        components.setValue(self.day(), forComponent: NSCalendarUnit.CalendarUnitDay)
+        components.setValue(self.hour(offset: timeZoneOffsetSeconds(calendar) / 60 / 60), forComponent: NSCalendarUnit.CalendarUnitHour)
+        components.setValue(self.minute(), forComponent: NSCalendarUnit.CalendarUnitMinute)
+        components.setValue(self.seconds(), forComponent: NSCalendarUnit.CalendarUnitSecond)
+        return calendar.dateFromComponents(components)!
+    }
+    
+    func timeZoneOffsetSeconds(calendar: NSCalendar) -> Int {
+        return NSTimeZone.localTimeZone().secondsFromGMT
+    }
+    
+    func withoutTime(calendar: NSCalendar) -> NSDate {
+      let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: self)
+      return calendar.dateFromComponents(components)!
     }
     
     func relativeTimeToString() -> String

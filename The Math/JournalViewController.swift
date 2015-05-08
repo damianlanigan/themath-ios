@@ -45,6 +45,37 @@ class JournalEntry {
         }
         return json
     }
+    
+    class func fromJSONRequest(json: [String:AnyObject]) -> JournalEntry {
+        println(json)
+        let entry = JournalEntry()
+        entry.note = json["note"] as! String
+        entry.categories = json["categories"] as! [String]
+        entry.lat = json["lat"] as? Double
+        entry.lng = json["lng"] as? Double
+        entry.score = json["score"] as! Int
+        
+        let dateString = json["timestamp"] as! String
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        let date = formatter.dateFromString(dateString)
+        
+        var offset = NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60
+        var components = NSDateComponents()
+        components.setValue(date!.year(), forComponent: NSCalendarUnit.CalendarUnitYear)
+        components.setValue(date!.month(), forComponent: NSCalendarUnit.CalendarUnitMonth)
+        components.setValue(date!.day(), forComponent: NSCalendarUnit.CalendarUnitDay)
+        components.setValue(date!.hour(offset: offset), forComponent: NSCalendarUnit.CalendarUnitHour)
+        components.setValue(date!.minute(), forComponent: NSCalendarUnit.CalendarUnitMinute)
+        components.setValue(date!.seconds(), forComponent: NSCalendarUnit.CalendarUnitSecond)
+
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        entry.timestamp = calendar.dateFromComponents(components)
+        
+        return entry
+    }
+    
 }
 
 class JournalViewController: UIViewController, UITextViewDelegate {
