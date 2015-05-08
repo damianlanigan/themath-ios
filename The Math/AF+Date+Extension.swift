@@ -407,7 +407,7 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
-    func adjustedFromLocalTime(calendar: NSCalendar) -> NSDate {
+    func adjustedForLocalTime(calendar: NSCalendar) -> NSDate {
         var components = NSDateComponents()
         components.setValue(self.year(), forComponent: NSCalendarUnit.CalendarUnitYear)
         components.setValue(self.month(), forComponent: NSCalendarUnit.CalendarUnitMonth)

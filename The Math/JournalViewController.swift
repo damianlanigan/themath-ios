@@ -35,7 +35,7 @@ class JournalEntry {
             "score" : score,
             "timestamp" : timestamp,
             "categories" : categories,
-            "note" : note // TODO: shouldn't save if says "Add a note..."
+            "note" : note == "Add a note..." ? "" : note
         ]
         if let lat = lat {
             json["lat"] = lat
@@ -60,18 +60,10 @@ class JournalEntry {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         let date = formatter.dateFromString(dateString)
-        
-        var offset = NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60
-        var components = NSDateComponents()
-        components.setValue(date!.year(), forComponent: NSCalendarUnit.CalendarUnitYear)
-        components.setValue(date!.month(), forComponent: NSCalendarUnit.CalendarUnitMonth)
-        components.setValue(date!.day(), forComponent: NSCalendarUnit.CalendarUnitDay)
-        components.setValue(date!.hour(offset: offset), forComponent: NSCalendarUnit.CalendarUnitHour)
-        components.setValue(date!.minute(), forComponent: NSCalendarUnit.CalendarUnitMinute)
-        components.setValue(date!.seconds(), forComponent: NSCalendarUnit.CalendarUnitSecond)
-
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        entry.timestamp = calendar.dateFromComponents(components)
+        
+        entry.timestamp = date!.adjustedForLocalTime(calendar)
+        println(entry.timestamp)
         
         return entry
     }
@@ -116,12 +108,7 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         journalEntry.score = self.mood
         journalEntry.timestamp = NSDate()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-    
+  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         contentViewHeightConstraint.constant = view.frame.size.height - 44.0
@@ -241,21 +228,22 @@ class JournalViewController: UIViewController, UITextViewDelegate {
     
     private func currentDateTimeFormatted() -> String {
         let formatter = NSDateFormatter()
+        let date = NSDate()
         
         formatter.dateFormat = "mm"
-        var minute = formatter.stringFromDate(NSDate())
+        var minute = formatter.stringFromDate(date)
         minute = count(minute) < 2 ? "0\(minute)" : minute
         
         formatter.dateFormat = "h"
-        var hour = formatter.stringFromDate(NSDate())
+        var hour = formatter.stringFromDate(date)
         hour = count(hour) < 2 ? "0\(hour)" : hour
         
         formatter.dateFormat = "EEEE"
-        let weekday = formatter.stringFromDate(NSDate())
+        let weekday = formatter.stringFromDate(date)
         
         formatter.dateFormat = "a"
-        let aorp = formatter.stringFromDate(NSDate())
-        return "\(weekday) • \(hour):\(minute) \(aorp)"
+        let aORp = formatter.stringFromDate(date)
+        return "\(weekday) • \(hour):\(minute) \(aORp)"
     }
 
 

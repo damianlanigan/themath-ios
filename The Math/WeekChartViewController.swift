@@ -56,8 +56,9 @@ class WeekChartViewController: ChartViewController,
     private func fetchWeek(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
         
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let monday = Week(date: date).calendarDays.monday.floor.adjustedFromLocalTime(calendar)
-        let today = NSDate().adjustedFromLocalTime(calendar)
+        let monday = Week(date: date).calendarDays.monday.floor.adjustedForLocalTime(calendar)
+        let today = NSDate().adjustedForLocalTime(calendar)
+        
         let params = [
             "start_date" : monday,
             "end_date" : today,
