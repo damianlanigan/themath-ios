@@ -9,6 +9,12 @@
 import UIKit
 
 class DayChartDetailTableViewController: UITableViewController {
+    
+    var entry: JournalEntry? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,38 +23,41 @@ class DayChartDetailTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     func dismiss() {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+        if let entry = entry {
+           return 1
+        }
         return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
+        if let entry = entry {
+            return 1
+        }
         return 0
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("JournalEntryDetailCellIdentifier", forIndexPath: indexPath) as! UITableViewCell
 
-        // Configure the cell...
+        if let entry = entry {
+          cell.textLabel!.text = entry.note
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

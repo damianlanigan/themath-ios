@@ -69,20 +69,19 @@ class WeekChartViewController: ChartViewController,
             if let data = data as? Array<Dictionary<String,Int>> {
                 
                 println(data)
-                // construct a Week from our data
                 
 //                var days = [ChartDay]()
 //                for d in data {
 //                    for (date, score) in d {
 //                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
-//                        let day = ChartDay(mood: score, timestamp: timestamp)
+//                        let day = ChartDay(score, timestamp: timestamp)
 //                        days.append(day)
 //                    }
 //                }
 //                
 //                let newWeek = ChartWeek(date: params["start_date"]!)
 //                newWeek.chartDays = days
-
+//
 //                completion(newWeek: newWeek)
             }
         }

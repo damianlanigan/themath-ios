@@ -17,6 +17,7 @@ class InfographViewController: UIViewController,
     var viewControllers = [ChartViewController]()
     var selectedViewController: UIViewController?
     var orientationLocked = false
+    var entry: JournalEntry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,10 +66,21 @@ class InfographViewController: UIViewController,
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("preparing")
+        if let navController = segue.destinationViewController as? UINavigationController {
+            if let viewController = navController.viewControllers[0] as? DayChartDetailTableViewController {
+                println("happenin")
+                viewController.entry = entry!
+            }
+        }
+    }
+    
     // MARK: <ChartViewControllerDelegate>
     
-    func didSelectMoment() {
+    func didSelectMoment(entry: JournalEntry) {
         orientationLocked = true
+        self.entry = entry
         performSegueWithIdentifier("PresentDayDetail", sender: self)
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartViewControllerDelegate: class {
-    func didSelectMoment()
+    func didSelectMoment(entry: JournalEntry)
     func didSelectDay(day: Int)
     func didSelectWeek(week: Int)
 }

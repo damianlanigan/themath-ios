@@ -13,15 +13,15 @@ class DayChartViewController: ChartViewController,
     JBLineChartViewDelegate,
     JBLineChartViewDataSource {
     
-    var chartData: [[Int]] = [[Int]]()
+    var entries = [JournalEntry]()
     let chart = JBLineChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addChartView()
-        
     }
+    
     private func addChartView() {
         chart.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
         chart.delegate = self
@@ -37,18 +37,21 @@ class DayChartViewController: ChartViewController,
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         chart.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         chart.reloadData()
     }
     
     override func fetchAndDisplayLatestData() {
-        fetchDay(NSDate(), completion: { (week: ChartDay) -> Void in
+        fetchDay(NSDate(), completion: { () -> Void in
             self.reloadChart()
         })
     }
     
-    private func fetchDay(date: NSDate, completion: (day: ChartDay) -> Void) {
+    private func fetchDay(date: NSDate, completion: () -> Void) {
         
         let params = [
             "start_datetime" : Day(date: date).floor,
@@ -57,24 +60,27 @@ class DayChartViewController: ChartViewController,
         
         request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
             if let data = data as? Array<Dictionary<String,AnyObject>> {
+                self.entries = []
                 for d in data {
                     let entry = JournalEntry.fromJSONRequest(d)
-                    println(entry)
+                    self.entries.append(entry)
                 }
+                completion()
             }
         }
     }
     
     func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
-        return UInt(chartData.count)
+        return 1
     }
     
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        return UInt(chartData[Int(lineIndex)].count)
+        return UInt(entries.count)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        return CGFloat(chartData[Int(lineIndex)][Int(horizontalIndex)])
+        let idx = Int(horizontalIndex)
+        return CGFloat(entries[idx].score)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -96,7 +102,11 @@ class DayChartViewController: ChartViewController,
     func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
         let lIdx = Int(lineIndex)
         let hIdx = Int(horizontalIndex)
-        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(chartData[lIdx][hIdx]) / 100.0)
+        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(entries[hIdx].score) / 100.0)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("preparing")
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
@@ -105,7 +115,7 @@ class DayChartViewController: ChartViewController,
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         if let idx = selectedIdx {
-            delegate?.didSelectMoment()
+            delegate?.didSelectMoment(entries[idx])
         }
     }
 }
