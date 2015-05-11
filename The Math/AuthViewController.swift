@@ -33,18 +33,11 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
-        emailField.becomeFirstResponder()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         
         emailField.delegate = self
         passwordField.delegate = self
+        
+        emailField.becomeFirstResponder()
     }
     
     func cancel() {
