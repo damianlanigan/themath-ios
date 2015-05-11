@@ -32,6 +32,7 @@ class WeekChartViewController: ChartViewController,
         super.viewWillAppear(animated)
         reloadChart()
     }
+    
     private func addChartView() {
         chart.dataSource = self
         chart.delegate = self
@@ -70,15 +71,16 @@ class WeekChartViewController: ChartViewController,
                 
                 println(data)
                 
-//                var days = [ChartDay]()
-//                for d in data {
-//                    for (date, score) in d {
-//                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
-//                        let day = ChartDay(score, timestamp: timestamp)
-//                        days.append(day)
-//                    }
-//                }
-//                
+                var days = [ChartDay]()
+                for d in data {
+                    for (date, score) in d {
+                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
+                        let day = ChartDay(date: timestamp, score: score)
+                        days.append(day)
+                    }
+                }
+                println(days)
+
 //                let newWeek = ChartWeek(date: params["start_date"]!)
 //                newWeek.chartDays = days
 //

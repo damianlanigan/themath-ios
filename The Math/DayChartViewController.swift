@@ -105,10 +105,6 @@ class DayChartViewController: ChartViewController,
         return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(entries[hIdx].score) / 100.0)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("preparing")
-    }
-    
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
         selectedIdx = Int(horizontalIndex)
     }

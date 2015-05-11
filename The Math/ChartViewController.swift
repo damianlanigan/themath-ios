@@ -121,12 +121,47 @@ class Day {
     
 }
 
-class ChartWeek {
+class ChartWeek: Week {
+    var days: [ChartDay] = [ChartDay]() {
+        didSet {
+            padWeek()
+        }
+    }
     
+    private func padWeek() {
+        println(days.map { $0.rawDate })
+//        var have = days.map { $0.short }
+//        var allDays = [Day]()
+//        let mirror = reflect(calendarDays)
+//        for i in 0..<mirror.count {
+//            allDays.append(mirror[i].1.value as! Day)
+//        }
+//        
+//        var _days = days
+//        
+//        for day in allDays {
+//            if find(have, day.short) == nil {
+//                _days.append(ChartDay(date: day.rawDate, score: 0))
+//            }
+//        }
+//        
+//        if days.count != _days.count {
+//            days = _days
+//            days.sort({
+//                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
+//            })
+//        }
+    }
 }
 
-class ChartDay {
-
+class ChartDay: Day {
+    let score: Int!
+    var entries = [JournalEntry]()
+    
+    init(date: NSDate, score: Int) {
+        self.score = score
+        super.init(date: date)
+    }
 }
 
 
@@ -136,13 +171,13 @@ class ChartViewController: UIViewController {
     var selectedIdx: Int?
     var hasLaidOutChart = false
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        fetchAndDisplayLatestData()
-    }
     
     func fetchAndDisplayLatestData() {
         // abstract
+    }
+    
+    func makeActive() {
+        fetchAndDisplayLatestData()
     }
 
 }

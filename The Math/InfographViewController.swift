@@ -15,7 +15,7 @@ class InfographViewController: UIViewController,
     @IBOutlet weak var graphContainer: UIView!
     var previouslySelectedSegmentIndex: Int = 1
     var viewControllers = [ChartViewController]()
-    var selectedViewController: UIViewController?
+    var selectedViewController: ChartViewController?
     var orientationLocked = false
     var entry: JournalEntry?
     
@@ -49,7 +49,7 @@ class InfographViewController: UIViewController,
         segmentedControl.selectedSegmentIndex = index
         selectedViewController = viewControllers[index]
         selectedViewController!.view.hidden = false
-        selectedViewController!.viewDidAppear(false)
+        selectedViewController!.makeActive()
         selectedViewController!.view.frame = graphContainer.bounds
         selectedViewController!.view.layoutIfNeeded()
     }
