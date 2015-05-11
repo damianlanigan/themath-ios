@@ -31,6 +31,8 @@
 		8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3241A83F33A00B1B503 /* LoginViewController.swift */; };
 		8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3261A83F34A00B1B503 /* SignupViewController.swift */; };
 		8D4149C61AEC53EE000A4D2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4149C51AEC53EE000A4D2E /* User.swift */; };
+		8D432CF71B013BD700DCA8AD /* AnimatingCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D432CF51B013BD700DCA8AD /* AnimatingCircleContainerView.swift */; };
+		8D432CF81B013BD700DCA8AD /* AnimatingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D432CF61B013BD700DCA8AD /* AnimatingCircleView.swift */; };
 		8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59B27F1A7D4EE7007A29BB /* UIView.swift */; };
 		8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D791B661AEC4EFC00E68AB2 /* Account.swift */; };
 		8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DC81AE5AB6400AC2CD8 /* CategoryView.swift */; };
@@ -101,6 +103,8 @@
 		8D2CA3241A83F33A00B1B503 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8D2CA3261A83F34A00B1B503 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		8D4149C51AEC53EE000A4D2E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8D432CF51B013BD700DCA8AD /* AnimatingCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingCircleContainerView.swift; sourceTree = "<group>"; };
+		8D432CF61B013BD700DCA8AD /* AnimatingCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingCircleView.swift; sourceTree = "<group>"; };
 		8D531D0B1A7AD44D00EEAB88 /* The Math-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Math-Bridging-Header.h"; sourceTree = "<group>"; };
 		8D59B27F1A7D4EE7007A29BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8D791B661AEC4EFC00E68AB2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 				8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */,
 				8D91386F1AE85CB90090C53C /* BarView.swift */,
 				8D9138731AE85D0F0090C53C /* RoundableView.swift */,
+				8D432CF51B013BD700DCA8AD /* AnimatingCircleContainerView.swift */,
+				8D432CF61B013BD700DCA8AD /* AnimatingCircleView.swift */,
 				8D9138711AE85CC10090C53C /* BarView.xib */,
 			);
 			name = Infograph;
@@ -559,8 +565,10 @@
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */,
+				8D432CF81B013BD700DCA8AD /* AnimatingCircleView.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
 				8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */,
+				8D432CF71B013BD700DCA8AD /* AnimatingCircleContainerView.swift in Sources */,
 				8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */,

@@ -171,6 +171,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B" customClass="AnimatingCircleContainerView" customModule="HowAmIDoing" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-8K-X6n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -357,7 +361,7 @@
                                                         </variation>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.90980392156862744" green="0.92549019607843142" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="UD3-0T-O21" secondAttribute="trailing" id="B4b-RN-acW"/>
                                                     <constraint firstAttribute="bottom" secondItem="ahU-R9-r3u" secondAttribute="bottom" constant="26" id="Lnp-RU-Ayg"/>
@@ -1766,7 +1770,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 </variation>
                                             </scrollView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eVm-BZ-8Aj" secondAttribute="trailing" id="38e-I7-tMf"/>
                                             <constraint firstItem="eVm-BZ-8Aj" firstAttribute="height" secondItem="hLo-QK-3un" secondAttribute="height" id="8EW-7a-ASA"/>
@@ -1858,43 +1862,57 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="3Vf-8K-X6n" secondAttribute="bottom" id="BRx-CY-cj3"/>
                             <constraint firstAttribute="trailing" secondItem="3Vf-8K-X6n" secondAttribute="trailing" id="CQ0-Qf-M8l"/>
                             <constraint firstItem="3Vf-8K-X6n" firstAttribute="top" secondItem="JSo-7b-6go" secondAttribute="top" id="L4k-YK-Fsk"/>
+                            <constraint firstItem="2xN-95-F3B" firstAttribute="leading" secondItem="JSo-7b-6go" secondAttribute="leading" id="R2L-8J-mbn"/>
+                            <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="2xN-95-F3B" secondAttribute="bottom" id="Tdn-WW-eTX"/>
                             <constraint firstItem="3Vf-8K-X6n" firstAttribute="top" secondItem="JSo-7b-6go" secondAttribute="top" id="Tjc-JJ-47N"/>
                             <constraint firstItem="3Vf-8K-X6n" firstAttribute="leading" secondItem="JSo-7b-6go" secondAttribute="leading" id="Uwo-2R-SCu"/>
                             <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="3Vf-8K-X6n" secondAttribute="bottom" id="byX-Pk-Apa"/>
                             <constraint firstAttribute="trailing" secondItem="3Vf-8K-X6n" secondAttribute="trailing" id="fsk-p5-hfR"/>
                             <constraint firstItem="3Vf-8K-X6n" firstAttribute="leading" secondItem="JSo-7b-6go" secondAttribute="leading" id="hl8-no-X2y"/>
+                            <constraint firstItem="2xN-95-F3B" firstAttribute="top" secondItem="JSo-7b-6go" secondAttribute="top" id="tLd-gX-zNd"/>
+                            <constraint firstAttribute="trailing" secondItem="2xN-95-F3B" secondAttribute="trailing" id="tfF-cN-fAv"/>
                             <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="3Vf-8K-X6n" secondAttribute="bottom" id="yUI-iH-aW9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="2xN-95-F3B"/>
                                 <exclude reference="3Vf-8K-X6n"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BRx-CY-cj3"/>
-                                <exclude reference="byX-Pk-Apa"/>
-                                <exclude reference="yUI-iH-aW9"/>
+                                <exclude reference="R2L-8J-mbn"/>
+                                <exclude reference="tLd-gX-zNd"/>
+                                <exclude reference="tfF-cN-fAv"/>
                                 <exclude reference="CQ0-Qf-M8l"/>
                                 <exclude reference="L4k-YK-Fsk"/>
                                 <exclude reference="Tjc-JJ-47N"/>
                                 <exclude reference="Uwo-2R-SCu"/>
                                 <exclude reference="fsk-p5-hfR"/>
                                 <exclude reference="hl8-no-X2y"/>
+                                <exclude reference="BRx-CY-cj3"/>
+                                <exclude reference="Tdn-WW-eTX"/>
+                                <exclude reference="byX-Pk-Apa"/>
+                                <exclude reference="yUI-iH-aW9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="2xN-95-F3B"/>
                                 <include reference="3Vf-8K-X6n"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BRx-CY-cj3"/>
-                                <include reference="byX-Pk-Apa"/>
-                                <exclude reference="yUI-iH-aW9"/>
+                                <include reference="R2L-8J-mbn"/>
+                                <include reference="tLd-gX-zNd"/>
+                                <include reference="tfF-cN-fAv"/>
                                 <include reference="CQ0-Qf-M8l"/>
                                 <include reference="L4k-YK-Fsk"/>
                                 <exclude reference="Tjc-JJ-47N"/>
                                 <include reference="Uwo-2R-SCu"/>
                                 <exclude reference="fsk-p5-hfR"/>
                                 <exclude reference="hl8-no-X2y"/>
+                                <exclude reference="BRx-CY-cj3"/>
+                                <include reference="Tdn-WW-eTX"/>
+                                <include reference="byX-Pk-Apa"/>
+                                <exclude reference="yUI-iH-aW9"/>
                             </mask>
                         </variation>
                     </view>

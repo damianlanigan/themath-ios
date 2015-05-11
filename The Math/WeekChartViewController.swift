@@ -81,8 +81,10 @@ class WeekChartViewController: ChartViewController,
                 }
                 println(days)
 
-//                let newWeek = ChartWeek(date: params["start_date"]!)
-//                newWeek.chartDays = days
+
+//                let week = ChartWeek(date: params["start_date"]!)
+                let week = ChartWeek(date: (params["start_date"] as! NSDate))
+                week.days = days
 //
 //                completion(newWeek: newWeek)
             }

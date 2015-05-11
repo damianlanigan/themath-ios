@@ -129,6 +129,19 @@ class ChartWeek: Week {
     }
     
     private func padWeek() {
+        let allDays = [
+            "mon" : calendarDays.monday.rawDate,
+            "tue" : calendarDays.tuesday.rawDate,
+            "wed" : calendarDays.wednesday.rawDate,
+            "thu" : calendarDays.thursday.rawDate,
+            "fri" : calendarDays.friday.rawDate,
+            "sat" : calendarDays.saturday.rawDate,
+            "sun" : calendarDays.sunday.rawDate
+        ]
+        
+        var pad = [ChartDay]()
+        
+        var have = days.map { $0.rawDate.shortWeekdayToString().lowercaseString }
         println(days.map { $0.rawDate })
 //        var have = days.map { $0.short }
 //        var allDays = [Day]()
