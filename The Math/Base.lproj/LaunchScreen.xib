@@ -10,106 +10,49 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014 The Lanigan. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZB4-gY-CbC">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Am I Doing" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                            <rect key="frame" x="20" y="140" width="441" height="43"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="kbI-3q-RzO"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="29"/>
-                            <color key="textColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="kbI-3q-RzO"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="kbI-3q-RzO"/>
-                                </mask>
-                            </variation>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
-                            <rect key="frame" x="180" y="8" width="120" height="120"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
+                    <rect key="frame" x="180" y="8" width="120" height="120"/>
                     <constraints>
-                        <constraint firstItem="WVX-u4-Na3" firstAttribute="leading" secondItem="ZB4-gY-CbC" secondAttribute="leading" constant="83" id="1qj-WX-6rz"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="ZB4-gY-CbC" secondAttribute="leading" constant="-77" id="2bg-1L-wKI"/>
-                        <constraint firstAttribute="trailing" secondItem="WVX-u4-Na3" secondAttribute="trailing" constant="83" id="6hh-zx-VpW"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="WVX-u4-Na3" secondAttribute="bottom" constant="20" id="8OQ-ry-tqq"/>
-                        <constraint firstItem="WVX-u4-Na3" firstAttribute="top" secondItem="ZB4-gY-CbC" secondAttribute="top" id="WBy-LY-diZ"/>
-                        <constraint firstAttribute="bottom" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="23" id="XyX-Wn-otF"/>
-                        <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="-78" id="bKj-BF-myA"/>
+                        <constraint firstAttribute="width" constant="120" id="S98-eg-eKE"/>
+                        <constraint firstAttribute="height" constant="120" id="r9Z-tn-p3u"/>
                     </constraints>
                     <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="kId-c2-rCX"/>
-                            <exclude reference="WVX-u4-Na3"/>
-                        </mask>
                         <mask key="constraints">
-                            <exclude reference="2bg-1L-wKI"/>
-                            <exclude reference="8OQ-ry-tqq"/>
-                            <exclude reference="XyX-Wn-otF"/>
-                            <exclude reference="bKj-BF-myA"/>
-                            <exclude reference="1qj-WX-6rz"/>
-                            <exclude reference="6hh-zx-VpW"/>
-                            <exclude reference="WBy-LY-diZ"/>
+                            <exclude reference="S98-eg-eKE"/>
+                            <exclude reference="r9Z-tn-p3u"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="kId-c2-rCX"/>
-                            <include reference="WVX-u4-Na3"/>
-                        </mask>
                         <mask key="constraints">
-                            <include reference="2bg-1L-wKI"/>
-                            <include reference="8OQ-ry-tqq"/>
-                            <include reference="XyX-Wn-otF"/>
-                            <include reference="bKj-BF-myA"/>
-                            <include reference="1qj-WX-6rz"/>
-                            <include reference="6hh-zx-VpW"/>
-                            <include reference="WBy-LY-diZ"/>
+                            <include reference="S98-eg-eKE"/>
+                            <include reference="r9Z-tn-p3u"/>
                         </mask>
                     </variation>
-                </view>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="ZB4-gY-CbC" secondAttribute="centerX" id="Q1v-9h-O4B"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerY" secondItem="ZB4-gY-CbC" secondAttribute="centerY" id="r4P-jk-xPq"/>
+                <constraint firstAttribute="centerX" secondItem="WVX-u4-Na3" secondAttribute="centerX" id="XTZ-Mz-s9k"/>
+                <constraint firstAttribute="centerY" secondItem="WVX-u4-Na3" secondAttribute="centerY" id="l0P-PC-KJc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="ZB4-gY-CbC"/>
+                    <exclude reference="WVX-u4-Na3"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Q1v-9h-O4B"/>
-                    <exclude reference="r4P-jk-xPq"/>
+                    <exclude reference="XTZ-Mz-s9k"/>
+                    <exclude reference="l0P-PC-KJc"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
-                    <include reference="ZB4-gY-CbC"/>
+                    <include reference="WVX-u4-Na3"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Q1v-9h-O4B"/>
-                    <include reference="r4P-jk-xPq"/>
+                    <include reference="XTZ-Mz-s9k"/>
+                    <include reference="l0P-PC-KJc"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="548" y="455"/>
