@@ -38,11 +38,7 @@ class OnboardingViewController: UIViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        newUserButton.layer.cornerRadius = 6.0
-        newUserButton.layer.borderWidth = 2.0
-        newUserButton.layer.borderColor = UIColor.whiteColor().CGColor
-        
+                
         scrollView.delegate = self
     }
     
