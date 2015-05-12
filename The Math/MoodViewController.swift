@@ -29,7 +29,8 @@ class MoodViewController: UIViewController,
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
-    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var initialCircle: UIView!
+    
     var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
     private var timer: NSTimer?
@@ -207,6 +208,9 @@ class MoodViewController: UIViewController,
         circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
         
         moodTrigger.layer.addSublayer(circle)
+        
+        initialCircle.backgroundColor = UIColor.mood_initialColor()
+        initialCircle.layer.cornerRadius = initialRadius
         
         addGrowAnimationToLayer(circle)
         addColorAnimationToLayer(circle)
@@ -410,6 +414,7 @@ class MoodViewController: UIViewController,
         moodReferenceView.transform = CGAffineTransformMakeScale(0.95, 0.95)
         UIView.animateWithDuration(0.3, animations: {
             self.moodReferenceView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.initialCircle.alpha = 0.0
         })
         UIView.animateWithDuration(0.8, animations: {
             self.touchPoint.opacity = 0.3
@@ -442,6 +447,7 @@ class MoodViewController: UIViewController,
             self.createNewMood()
             self.setNeedsStatusBarAppearanceUpdate()
             self.settingsButton.alpha = 1.0
+            self.initialCircle.alpha = 1.0
         }, withDelay: 0.9 )
         
         Analytics.track("mood", action: "set", label: "\(percentage)%")

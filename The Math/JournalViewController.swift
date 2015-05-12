@@ -67,7 +67,6 @@ class JournalEntry {
         
         return entry
     }
-    
 }
 
 class JournalViewController: UIViewController, UITextViewDelegate {
@@ -207,7 +206,7 @@ class JournalViewController: UIViewController, UITextViewDelegate {
     
     func fadeOutFinal(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
-            self.scrollView.backgroundColor = UIColor.mood_startColor()
+            self.scrollView.backgroundColor = UIColor.mood_initialColor()
             self.savedLabel.alpha = 0.0
             if self.isCancelled {
                 self.contentView.alpha = 0.0

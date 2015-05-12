@@ -46,34 +46,64 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-4D-Sbv">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                                <color key="backgroundColor" red="1" green="0.61817507680485506" blue="0.84777172972033088" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="2Oo-Iv-2u9">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="80" id="FTP-aT-asL">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2Oo-Iv-2u9"/>
+                                                        <exclude reference="FTP-aT-asL"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="2Oo-Iv-2u9"/>
+                                                        <include reference="FTP-aT-asL"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="JMH-jw-cCn"/>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="MsW-3a-nt8"/>
+                                            <constraint firstAttribute="centerX" secondItem="FfP-4D-Sbv" secondAttribute="centerX" id="QWd-EH-BZn"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="XGF-R4-Qgc"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="aV3-Ju-jnQ"/>
+                                            <constraint firstAttribute="centerY" secondItem="FfP-4D-Sbv" secondAttribute="centerY" id="gbQ-hU-iiP"/>
                                             <constraint firstAttribute="width" secondItem="l2S-iq-kEm" secondAttribute="height" multiplier="1:1" id="zqQ-oD-Qpr"/>
                                         </constraints>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="FfP-4D-Sbv"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <exclude reference="QWd-EH-BZn"/>
+                                                <exclude reference="gbQ-hU-iiP"/>
                                                 <exclude reference="MsW-3a-nt8"/>
                                                 <exclude reference="aV3-Ju-jnQ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="FfP-4D-Sbv"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <include reference="QWd-EH-BZn"/>
+                                                <include reference="gbQ-hU-iiP"/>
                                                 <include reference="MsW-3a-nt8"/>
                                                 <include reference="aV3-Ju-jnQ"/>
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record you mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4i-fm-FUU">
-                                        <rect key="frame" x="8" y="175" width="384" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud6-hh-uCA">
                                         <rect key="frame" x="356" y="756" width="44" height="44"/>
                                         <constraints>
@@ -95,7 +125,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="B4i-fm-FUU" secondAttribute="trailing" constant="8" id="2RC-rR-dqw"/>
                                     <constraint firstAttribute="centerX" secondItem="l2S-iq-kEm" secondAttribute="centerX" id="A2M-CI-ezq"/>
                                     <constraint firstAttribute="trailing" secondItem="ud6-hh-uCA" secondAttribute="trailing" id="OeD-cC-Pvw">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -103,11 +132,9 @@
                                     <constraint firstItem="l2S-iq-kEm" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" id="SD0-n9-FNd"/>
                                     <constraint firstAttribute="trailing" secondItem="l2S-iq-kEm" secondAttribute="trailing" id="VsJ-6n-Y53"/>
                                     <constraint firstAttribute="centerY" secondItem="l2S-iq-kEm" secondAttribute="centerY" id="Zwq-FO-rg5"/>
-                                    <constraint firstItem="l2S-iq-kEm" firstAttribute="top" secondItem="B4i-fm-FUU" secondAttribute="bottom" constant="8" id="eD6-xl-8mA"/>
                                     <constraint firstAttribute="bottom" secondItem="ud6-hh-uCA" secondAttribute="bottom" id="n0f-XO-LmV">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
-                                    <constraint firstItem="B4i-fm-FUU" firstAttribute="leading" secondItem="Trb-Sw-z9Q" secondAttribute="leading" constant="8" id="yTM-Nt-ECI"/>
                                 </constraints>
                             </view>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S87-zf-TIZ">
@@ -147,7 +174,7 @@
                     <connections>
                         <outlet property="containerView" destination="Trb-Sw-z9Q" id="Iqt-vg-4yE"/>
                         <outlet property="contentView" destination="l2S-iq-kEm" id="Hvv-dS-Dpc"/>
-                        <outlet property="instructionLabel" destination="B4i-fm-FUU" id="KP8-uU-v3h"/>
+                        <outlet property="initialCircle" destination="FfP-4D-Sbv" id="wp1-en-lJg"/>
                         <outlet property="moodReferenceView" destination="S87-zf-TIZ" id="O32-b2-k9U"/>
                         <outlet property="moodTrigger" destination="fhD-kS-Xfa" id="InW-JK-uQQ"/>
                         <outlet property="settingsButton" destination="ud6-hh-uCA" id="Kcl-k9-AUQ"/>

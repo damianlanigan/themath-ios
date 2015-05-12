@@ -108,6 +108,10 @@ extension UIColor {
         return colors
     }
     
+    class func mood_initialColor() -> UIColor {
+        return UIColor(red:0.200, green:0.373, blue:1.000, alpha: 1)
+    }
+    
     class func mood_blueColor() -> UIColor {
         return UIColor(red:0/255.0, green:152/255.0, blue:203/255.0, alpha: 1)
     }
