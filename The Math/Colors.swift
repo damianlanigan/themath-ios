@@ -99,8 +99,8 @@ extension UIColor {
             UIColor(red:0.980, green:0.718, blue:0.267, alpha: 1).CGColor
             */
             
-            UIColor(red:0.153, green:0.184, blue:0.290, alpha: 1).CGColor,
-            UIColor(red:0.161, green:0.349, blue:0.471, alpha: 1).CGColor,
+            UIColor(red:0.149, green:0.180, blue:0.290, alpha: 1).CGColor,
+            UIColor(red:0.137, green:0.306, blue:0.416, alpha: 1).CGColor,
             UIColor(red:0.212, green:0.600, blue:0.659, alpha: 1).CGColor,
             UIColor(red:0.259, green:0.843, blue:0.843, alpha: 1).CGColor
             
