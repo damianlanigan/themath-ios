@@ -83,12 +83,27 @@ extension UIColor {
             UIColor(red:1.000, green:0.549, blue:0.953, alpha: 1).CGColor
             */
             
-
+            /* v2
             UIColor(red: 102/255.0,green: 102/255.0, blue: 102/255.0, alpha: 1).CGColor,
             UIColor(red: 93/255.0, green: 114/255.0, blue: 114/255.0, alpha: 1).CGColor,
             UIColor(red: 83/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1).CGColor,
             UIColor(red: 75/255.0, green: 143/255.0, blue: 143/255.0, alpha: 1).CGColor,
             UIColor(red: 63/255.0, green: 168/255.0, blue: 168/255.0, alpha: 1).CGColor
+            */
+            
+            /* orange green
+            UIColor(red:0.345, green:0.514, blue:0.404, alpha: 1).CGColor,
+            UIColor(red:0.561, green:0.600, blue:0.349, alpha: 1).CGColor,
+            UIColor(red:0.765, green:0.620, blue:0.318, alpha: 1).CGColor,
+            UIColor(red:0.890, green:0.627, blue:0.302, alpha: 1).CGColor,
+            UIColor(red:0.980, green:0.718, blue:0.267, alpha: 1).CGColor
+            */
+            
+            UIColor(red:0.153, green:0.184, blue:0.290, alpha: 1).CGColor,
+            UIColor(red:0.161, green:0.349, blue:0.471, alpha: 1).CGColor,
+            UIColor(red:0.212, green:0.600, blue:0.659, alpha: 1).CGColor,
+            UIColor(red:0.259, green:0.843, blue:0.843, alpha: 1).CGColor
+            
         ]
         return colors
     }
