@@ -407,7 +407,7 @@ class MoodViewController: UIViewController,
         toolTip.hide()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         
-        moodReferenceView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+        moodReferenceView.transform = CGAffineTransformMakeScale(0.95, 0.95)
         UIView.animateWithDuration(0.3, animations: {
             self.moodReferenceView.transform = CGAffineTransformMakeScale(1.0, 1.0)
         })
@@ -434,7 +434,6 @@ class MoodViewController: UIViewController,
         UIView.animateWithDuration(0.2, animations: {
             self.touchPoint.opacity = 0.0
             self.moodReferenceView.alpha = 0.0
-            self.moodReferenceView.transform = CGAffineTransformMakeScale(0.9, 0.9)
         })
         
         self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
