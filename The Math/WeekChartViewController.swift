@@ -82,11 +82,11 @@ class WeekChartViewController: ChartViewController,
                 println(days)
 
 
-//                let week = ChartWeek(date: params["start_date"]!)
-                let week = ChartWeek(date: (params["start_date"] as! NSDate))
+                let week = ChartWeek(date: date)
+                
                 week.days = days
-//
-//                completion(newWeek: newWeek)
+                
+                completion(newWeek: week)
             }
         }
     }
@@ -96,15 +96,14 @@ class WeekChartViewController: ChartViewController,
 
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let week = currentWeek {
-//            return UInt(week.chartDays.count)
+            return UInt(week.days.count)
         }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
         let idx = Int(index)
-//        return CGFloat(currentWeek!.chartDays[idx].averageMood)
-        return 0
+        return CGFloat(currentWeek!.days[idx].score)
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
@@ -118,12 +117,12 @@ class WeekChartViewController: ChartViewController,
     }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
-//        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
-//            let idx = Int(index)
-//            let perc = CGFloat(currentWeek!.chartDays[idx].averageMood) / 100.0
-//            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-//            return view
-//        }
+        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
+            let idx = Int(index)
+            let perc = CGFloat(currentWeek!.days[idx].score) / 100.0
+            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            return view
+        }
         return UIView()
     }
     

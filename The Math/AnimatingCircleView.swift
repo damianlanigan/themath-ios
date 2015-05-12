@@ -37,7 +37,6 @@ class AnimatingCircleView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        println("superview")
         let randX = CGFloat(arc4random() % UInt32(superview!.frame.size.width))
         let randY = CGFloat(arc4random() % UInt32(superview!.frame.size.height))
         frame = frameRect
@@ -45,14 +44,12 @@ class AnimatingCircleView: UIView {
         frame.origin.y = randY
         layer.cornerRadius = frame.size.width / 2.0
         
-        alpha = 1 / (frame.size.width / 4) 
-            
         addMotion()
     }
     
     private func addMotion() {
         
-        let offset = frame.size.width + (frame.size.width  / 3)
+        let offset = frame.size.width
         
         let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
         xAxis.minimumRelativeValue = -offset

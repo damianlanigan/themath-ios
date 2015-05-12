@@ -87,6 +87,47 @@ class Week {
     }
 }
 
+class ChartWeek: Week {
+    var days: [ChartDay] = [ChartDay]() {
+        didSet {
+            padWeek()
+        }
+    }
+    
+    private func padWeek() {
+        let allDays = [
+            "mon" : calendarDays.monday.rawDate,
+            "tue" : calendarDays.tuesday.rawDate,
+            "wed" : calendarDays.wednesday.rawDate,
+            "thu" : calendarDays.thursday.rawDate,
+            "fri" : calendarDays.friday.rawDate,
+            "sat" : calendarDays.saturday.rawDate,
+            "sun" : calendarDays.sunday.rawDate
+        ]
+        
+        var pad = [ChartDay]()
+        
+        var have = days.map { $0.rawDate.shortWeekdayToString().lowercaseString }
+        
+        let dayShorts = Array(allDays.keys)
+        
+        var _days = days
+        
+        for short in dayShorts {
+            if find(have, short) == nil {
+                println(short)
+                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: 0))
+            }
+        }
+        
+        if _days.count != days.count {
+            days = _days
+            days.sort({
+                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
+            })
+        }
+    }
+}
 
 class Day {
     
@@ -121,51 +162,6 @@ class Day {
     
 }
 
-class ChartWeek: Week {
-    var days: [ChartDay] = [ChartDay]() {
-        didSet {
-            padWeek()
-        }
-    }
-    
-    private func padWeek() {
-        let allDays = [
-            "mon" : calendarDays.monday.rawDate,
-            "tue" : calendarDays.tuesday.rawDate,
-            "wed" : calendarDays.wednesday.rawDate,
-            "thu" : calendarDays.thursday.rawDate,
-            "fri" : calendarDays.friday.rawDate,
-            "sat" : calendarDays.saturday.rawDate,
-            "sun" : calendarDays.sunday.rawDate
-        ]
-        
-        var pad = [ChartDay]()
-        
-        var have = days.map { $0.rawDate.shortWeekdayToString().lowercaseString }
-        println(days.map { $0.rawDate })
-//        var have = days.map { $0.short }
-//        var allDays = [Day]()
-//        let mirror = reflect(calendarDays)
-//        for i in 0..<mirror.count {
-//            allDays.append(mirror[i].1.value as! Day)
-//        }
-//        
-//        var _days = days
-//        
-//        for day in allDays {
-//            if find(have, day.short) == nil {
-//                _days.append(ChartDay(date: day.rawDate, score: 0))
-//            }
-//        }
-//        
-//        if days.count != _days.count {
-//            days = _days
-//            days.sort({
-//                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
-//            })
-//        }
-    }
-}
 
 class ChartDay: Day {
     let score: Int!
