@@ -46,59 +46,23 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-4D-Sbv">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" red="1" green="0.61817507680485506" blue="0.84777172972033088" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="2Oo-Iv-2u9">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
-                                                    </constraint>
-                                                    <constraint firstAttribute="height" constant="80" id="FTP-aT-asL">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
-                                                    </constraint>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="2Oo-Iv-2u9"/>
-                                                        <exclude reference="FTP-aT-asL"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="2Oo-Iv-2u9"/>
-                                                        <include reference="FTP-aT-asL"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="JMH-jw-cCn"/>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="MsW-3a-nt8"/>
-                                            <constraint firstAttribute="centerX" secondItem="FfP-4D-Sbv" secondAttribute="centerX" id="QWd-EH-BZn"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="XGF-R4-Qgc"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="aV3-Ju-jnQ"/>
-                                            <constraint firstAttribute="centerY" secondItem="FfP-4D-Sbv" secondAttribute="centerY" id="gbQ-hU-iiP"/>
                                             <constraint firstAttribute="width" secondItem="l2S-iq-kEm" secondAttribute="height" multiplier="1:1" id="zqQ-oD-Qpr"/>
                                         </constraints>
                                         <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="FfP-4D-Sbv"/>
-                                            </mask>
                                             <mask key="constraints">
-                                                <exclude reference="QWd-EH-BZn"/>
-                                                <exclude reference="gbQ-hU-iiP"/>
                                                 <exclude reference="MsW-3a-nt8"/>
                                                 <exclude reference="aV3-Ju-jnQ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="FfP-4D-Sbv"/>
-                                            </mask>
                                             <mask key="constraints">
-                                                <include reference="QWd-EH-BZn"/>
-                                                <include reference="gbQ-hU-iiP"/>
                                                 <include reference="MsW-3a-nt8"/>
                                                 <include reference="aV3-Ju-jnQ"/>
                                             </mask>
@@ -137,6 +101,32 @@
                                     </constraint>
                                 </constraints>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-4D-Sbv">
+                                <rect key="frame" x="164" y="364" width="72" height="72"/>
+                                <color key="backgroundColor" red="1" green="0.61817507680485506" blue="0.84777172972033088" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2Oo-Iv-2u9">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="80" id="FTP-aT-asL">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="72"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="72" id="uMt-lT-P5D"/>
+                                    <constraint firstAttribute="width" constant="72" id="znB-kp-3ek"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2Oo-Iv-2u9"/>
+                                        <exclude reference="FTP-aT-asL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2Oo-Iv-2u9"/>
+                                        <include reference="FTP-aT-asL"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S87-zf-TIZ">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 <subviews>
@@ -163,11 +153,30 @@
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="S87-zf-TIZ" secondAttribute="bottom" id="GDf-KN-VKW"/>
                             <constraint firstAttribute="trailing" secondItem="S87-zf-TIZ" secondAttribute="trailing" id="Hhj-4a-vpO"/>
                             <constraint firstItem="S87-zf-TIZ" firstAttribute="leading" secondItem="dMA-By-fQC" secondAttribute="leading" id="IWo-7W-fUq"/>
+                            <constraint firstAttribute="centerX" secondItem="FfP-4D-Sbv" secondAttribute="centerX" id="Lb9-yV-xYP"/>
                             <constraint firstItem="Trb-Sw-z9Q" firstAttribute="top" secondItem="dMA-By-fQC" secondAttribute="topMargin" id="aUI-L0-bOD"/>
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="Trb-Sw-z9Q" secondAttribute="bottom" id="c3v-Vw-3OL"/>
                             <constraint firstAttribute="trailing" secondItem="Trb-Sw-z9Q" secondAttribute="trailing" id="di0-gC-nVh"/>
+                            <constraint firstAttribute="centerY" secondItem="FfP-4D-Sbv" secondAttribute="centerY" id="kAa-Gc-Lhw"/>
                             <constraint firstItem="S87-zf-TIZ" firstAttribute="top" secondItem="dMA-By-fQC" secondAttribute="top" id="kBY-Vh-2yO"/>
+                            <constraint firstAttribute="centerX" secondItem="FfP-4D-Sbv" secondAttribute="centerX" id="ki6-HX-QZp"/>
+                            <constraint firstAttribute="centerY" secondItem="FfP-4D-Sbv" secondAttribute="centerY" id="pgG-wW-RoT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kAa-Gc-Lhw"/>
+                                <exclude reference="ki6-HX-QZp"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="FfP-4D-Sbv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="kAa-Gc-Lhw"/>
+                                <include reference="ki6-HX-QZp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="800"/>
@@ -184,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="208.5"/>
+            <point key="canvasLocation" x="96" y="208"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="0TN-xz-IaK">
@@ -2658,7 +2667,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqq-f2-VVW" customClass="BorderedView" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-De-DDh">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-De-DDh">
                                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
@@ -2958,7 +2967,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euI-RX-ipl" customClass="BorderedView" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-Yh-igE">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-Yh-igE">
                                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>

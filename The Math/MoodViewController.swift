@@ -124,7 +124,7 @@ class MoodViewController: UIViewController,
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
             if !Account.sharedAccount().isAuthenticated() {
-//                presentOnboarding()
+                presentOnboarding()
             }
             
             _performBlock({ () -> Void in
@@ -376,6 +376,7 @@ class MoodViewController: UIViewController,
             return false
         }
         return onMood
+        return true
     }
     
     func orientationDidChange(notification: NSNotification) {
@@ -451,30 +452,6 @@ class MoodViewController: UIViewController,
         }, withDelay: 0.9 )
         
         Analytics.track("mood", action: "set", label: "\(percentage)%")
-    }
-    
-    func tooltipForConfirmation() {
-        var tip = AMPopTip()
-        tip.shouldDismissOnTap = true
-        tip.edgeMargin = 10.0
-        tip.offset = 12
-        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        tip.textAlignment = .Center
-        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
-        var titleString = NSMutableAttributedString(string: "Mood saved")
-        
-        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let titleRange = NSMakeRange(0, count("Mood saved"))
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
-        
-        titleString.addAttributes([
-            NSFontAttributeName : titleFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-            ], range: titleRange)
-    
-        toolTip = tip
-        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame, duration: 2.0)
     }
     
     // MARK: <OnboardingViewControllerDelegate>
