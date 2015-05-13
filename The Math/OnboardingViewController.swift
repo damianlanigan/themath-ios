@@ -29,17 +29,44 @@ class OnboardingViewController: UIViewController,
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var subScrollView: UIScrollView!
     
+    @IBOutlet weak var parallaxImageContainerView: UIView!
     @IBOutlet weak var newUserButton: UIButton!
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutScrollView()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
                 
         scrollView.delegate = self
+        
+        let dots = [
+            UIImageView(image: UIImage(named: "dots_light")!),
+            UIImageView(image: UIImage(named: "dots_medium")!),
+            UIImageView(image: UIImage(named: "dots_dark")!)
+        ]
+        
+        for (idx, image) in enumerate(dots) {
+            let offset = (idx * 11) + 1
+            let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+            xAxis.minimumRelativeValue = -offset
+            xAxis.maximumRelativeValue = offset
+            
+            let yAxis = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+            yAxis.minimumRelativeValue = -offset
+            yAxis.maximumRelativeValue = offset
+            
+            let group = UIMotionEffectGroup()
+            group.motionEffects = [xAxis, yAxis]
+         
+            image.addMotionEffect(group)
+            image.center = view.center
+            
+            parallaxImageContainerView.addSubview(image)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -207,7 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B" customClass="AnimatingCircleContainerView" customModule="HowAmIDoing" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1958,6 +1958,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                         <outlet property="contentViewHeightConstraint" destination="BII-zL-8Zb" id="VXU-Oh-qUb"/>
                         <outlet property="contentViewWidthConstraint" destination="ZNl-7d-9TW" id="TFk-7v-pun"/>
                         <outlet property="newUserButton" destination="piy-OA-wsK" id="xRh-FA-5WO"/>
+                        <outlet property="parallaxImageContainerView" destination="2xN-95-F3B" id="wwV-Dj-xu6"/>
                         <outlet property="scrollView" destination="3Vf-8K-X6n" id="0oA-JT-iae"/>
                         <outlet property="subContentViewHeightConstraint" destination="UAP-Iw-d9Q" id="OwQ-rT-ZHT"/>
                         <outlet property="subContentViewWidthConstraint" destination="370-AD-jFd" id="h5l-VS-poT"/>

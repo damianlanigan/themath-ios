@@ -195,7 +195,7 @@ class ChartViewController: UIViewController,
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
+//        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
     }
     
     override func viewDidLayoutSubviews() {
@@ -239,6 +239,6 @@ class ChartViewController: UIViewController,
     // MARK: UIScrollViewDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+        println(CGFloat(coordinators.count) * view.frame.size.width)
     }
 }
