@@ -184,35 +184,28 @@ class ChartViewController: UIViewController,
     
     weak var delegate: ChartViewControllerDelegate?
     var selectedIdx: Int?
+    var editingScrollView = false
     
     var coordinators = [ChartCoordinator]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ensureBackQueue()
+        for i in 0...2 {
+            loadNextChartView()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
+        
+        scrollView.delegate = self
+        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         ensureContentSize()
-    }
-    
-    private func ensureBackQueue() {
-        if coordinators.count == 0 {
-            for i in 0...2 {
-                let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-                let week = Week(date: NSDate().dateBySubtractingDays(i * 7).adjustedForLocalTime(calendar))
-                let coordinator = ChartCoordinator(week: week)
-                coordinator.offset = i
-                coordinators.append(coordinator)
-            }
-        }
     }
     
     func fetchAndDisplayLatestData() {
@@ -224,21 +217,37 @@ class ChartViewController: UIViewController,
     }
     
     private func ensureContentSize() {
-
         contentViewHeightConstraint.constant = view.frame.size.height
         contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
-        
         for coordinator in coordinators {
             let v = coordinator.view
             v.frame = view.bounds
             v.frame.origin.x = view.bounds.size.width * CGFloat(coordinator.offset)
-            contentView.addSubview(v)
         }
+    }
+    
+    private func loadNextChartView() {
+        let idx = coordinators.count
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let week = Week(date: NSDate().dateBySubtractingDays(idx * 7).adjustedForLocalTime(calendar))
+        let coordinator = ChartCoordinator(week: week)
+        coordinator.offset = idx
+        coordinators.append(coordinator)
+        contentView.addSubview(coordinator.view)
+        
+        ensureContentSize()
+        
+        editingScrollView = false
     }
     
     // MARK: UIScrollViewDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        println(CGFloat(coordinators.count) * view.frame.size.width)
+        let totalWidth = CGFloat(coordinators.count - 1) * view.frame.size.width
+        let offsetX = scrollView.contentOffset.x
+        if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
+            editingScrollView = true
+            loadNextChartView()
+        }
     }
 }

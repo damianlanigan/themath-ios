@@ -121,7 +121,7 @@ class MoodViewController: UIViewController,
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
             if !Account.sharedAccount().isAuthenticated() {
-                presentOnboarding()
+//                presentOnboarding()
             }
             
             _performBlock({ () -> Void in

@@ -13,5 +13,9 @@ class NonRotatingNavigationController: UINavigationController {
     override func shouldAutorotate() -> Bool {
         return false
     }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientation.Portrait.rawValue)
+    }
 
 }

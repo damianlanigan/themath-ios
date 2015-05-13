@@ -65,8 +65,7 @@ class Account: NSObject {
                     }
                 }
             } else {
-                let alert = UIAlertView(title: "Oops", message: "We're having trouble connecting to the server", delegate: self, cancelButtonTitle: "Dismiss")
-                alert.show()
+                callback((false, nil))
             }
         }
     }
