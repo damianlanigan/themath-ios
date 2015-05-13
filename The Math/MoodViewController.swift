@@ -117,7 +117,6 @@ class MoodViewController: UIViewController,
             isSetup = true
             showTooltip()
             
-            createAndAddTouchPoint()
             
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
@@ -129,6 +128,7 @@ class MoodViewController: UIViewController,
                 UIView.animateWithDuration(0.2, animations: {
                     self.view.alpha = 1.0
                 })
+                self.createAndAddTouchPoint()
             }, withDelay: 0.2)
         }
     }
