@@ -50,7 +50,6 @@ class InfographViewController: UIViewController,
 //        selectedViewController = viewControllers[index]
         selectedViewController = viewControllers[0]
         selectedViewController!.view.hidden = false
-        selectedViewController!.makeActive()
         selectedViewController!.view.frame = graphContainer.bounds
         selectedViewController!.view.layoutIfNeeded()
     }
@@ -59,6 +58,7 @@ class InfographViewController: UIViewController,
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let dayViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
         let weekViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
+        weekViewController.scope = .Week
 //        let monthViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
 //        viewControllers = [dayViewController, weekViewController, monthViewController]
         viewControllers = [weekViewController]

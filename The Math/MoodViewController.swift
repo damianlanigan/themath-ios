@@ -121,7 +121,7 @@ class MoodViewController: UIViewController,
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
             if !Account.sharedAccount().isAuthenticated() {
-//                presentOnboarding()
+                presentOnboarding()
             }
             
             _performBlock({ () -> Void in
@@ -129,7 +129,7 @@ class MoodViewController: UIViewController,
                     self.view.alpha = 1.0
                 })
                 self.createAndAddTouchPoint()
-            }, withDelay: 0.2)
+            }, withDelay: 0.3)
         }
     }
     
@@ -190,7 +190,7 @@ class MoodViewController: UIViewController,
         touchPoint.shouldRasterize = true
         touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
         
-        touchPoint.position = CGPoint(x: view.center.x, y: view.center.y)
+        touchPoint.position = view.center
         touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
         touchPoint.fillColor = UIColor.blackColor().colorWithAlphaComponent(0.3).CGColor
         touchPoint.opacity = 0.0

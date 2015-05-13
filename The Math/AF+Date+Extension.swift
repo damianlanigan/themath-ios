@@ -151,6 +151,18 @@ extension NSDate {
         return abs(self.timeIntervalSinceDate(date)) < NSDate.weekInSeconds()
     }
     
+    func isSameMonthAsDate(date: NSDate) -> Bool
+    {
+        let comp1 = NSDate.components(fromDate: self)
+        let comp2 = NSDate.components(fromDate: date)
+        // Must be same week. 12/31 and 1/1 will both be week "1" if they are in the same week
+        if comp1.month != comp2.month {
+            return false
+        }
+        // Must have a time interval under 1 week
+        return abs(self.timeIntervalSinceDate(date)) < NSDate.yearInSeconds()
+    }
+    
     func isThisWeek() -> Bool
     {
         return self.isSameWeekAsDate(NSDate())
@@ -407,18 +419,12 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
-    func adjustedForLocalTime(calendar: NSCalendar) -> NSDate {
-        var components = NSDateComponents()
-        components.setValue(self.year(), forComponent: NSCalendarUnit.CalendarUnitYear)
-        components.setValue(self.month(), forComponent: NSCalendarUnit.CalendarUnitMonth)
-        components.setValue(self.day(), forComponent: NSCalendarUnit.CalendarUnitDay)
-        components.setValue(self.hour(offset: timeZoneOffsetSeconds(calendar) / 60 / 60), forComponent: NSCalendarUnit.CalendarUnitHour)
-        components.setValue(self.minute(), forComponent: NSCalendarUnit.CalendarUnitMinute)
-        components.setValue(self.seconds(), forComponent: NSCalendarUnit.CalendarUnitSecond)
-        return calendar.dateFromComponents(components)!
+    func dateAdjustedForLocalTime() -> NSDate {
+        components().setValue(self.hour(offset: timeZoneOffsetSeconds() / Int(NSDate.hourInSeconds())), forComponent: NSCalendarUnit.CalendarUnitHour)
+        return NSCalendar.currentCalendar().dateFromComponents(components())!
     }
     
-    func timeZoneOffsetSeconds(calendar: NSCalendar) -> Int {
+    func timeZoneOffsetSeconds() -> Int {
         return NSTimeZone.localTimeZone().secondsFromGMT
     }
     

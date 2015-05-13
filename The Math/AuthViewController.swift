@@ -13,7 +13,8 @@ import UIKit
     optional func userDidSignup()
 }
 
-class AuthViewController: UIViewController, UITextFieldDelegate {
+class AuthViewController: UIViewController,
+    UITextFieldDelegate {
 
     weak var delegate: AuthViewControllerDelegate?
     
@@ -24,6 +25,10 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     
     override func shouldAutorotate() -> Bool {
         return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientation.Portrait.rawValue)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -63,3 +68,4 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 }
+

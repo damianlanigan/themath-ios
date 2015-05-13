@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum CalendarScope: Int {
+    case Undefined
+    case Day
+    case Week
+    case Month
+}
 
 class Month {
     
@@ -83,7 +89,7 @@ class Week {
     
     // date is already adjusted for local timezone
     func contains(date: NSDate) -> Bool {
-        return calendarDays.sunday.ceil.compare(date) == .OrderedDescending
+        return calendarDays.sunday.rawDate.dateAtEndOfDay().compare(date) == .OrderedDescending
     }
 }
 
@@ -132,25 +138,6 @@ class Day {
     
     let rawDate: NSDate!
     
-    var floor: NSDate {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
-        let beginning = calendar.dateFromComponents(components)!
-        return beginning
-    }
-    
-    var ceil: NSDate {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        
-        let components = calendar.components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear, fromDate: rawDate)
-        let offset = 0 // (nstimezone.localtimezone().secondsfromgmt / 60 / 60)
-        components.setValue(23 + offset, forComponent: NSCalendarUnit.CalendarUnitHour)
-        components.setValue(59, forComponent: NSCalendarUnit.CalendarUnitMinute)
-        components.setValue(59, forComponent: NSCalendarUnit.CalendarUnitSecond)
-        let beginning = calendar.dateFromComponents(components)!
-        return beginning
-    }
-    
     init(date: NSDate) {
         rawDate = date
     }
@@ -190,6 +177,7 @@ class ChartViewController: UIViewController,
     weak var delegate: ChartViewControllerDelegate?
     var selectedIdx: Int?
     var editingScrollView = false
+    var scope: CalendarScope = .Undefined
     
     var coordinators = [ChartCoordinator]()
     
@@ -213,14 +201,6 @@ class ChartViewController: UIViewController,
         ensureContentSize()
     }
     
-    func fetchAndDisplayLatestData() {
-        // abstract
-    }
-    
-    func makeActive() {
-        fetchAndDisplayLatestData()
-    }
-    
     private func ensureContentSize() {
         contentViewHeightConstraint.constant = view.frame.size.height
         contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
@@ -233,10 +213,10 @@ class ChartViewController: UIViewController,
     
     private func loadNextChartView() {
         let idx = coordinators.count
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let week = Week(date: NSDate().dateBySubtractingDays(idx * 7).adjustedForLocalTime(calendar))
+        let week = Week(date: NSDate().dateBySubtractingDays(idx * 7).dateAdjustedForLocalTime())
         let coordinator = ChartCoordinator(week: week)
         coordinator.offset = idx
+        coordinator.scope = scope
         coordinators.append(coordinator)
         contentView.addSubview(coordinator.view)
         

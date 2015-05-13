@@ -11,7 +11,22 @@ import JBChartView
 
 class ChartView: UIView {
     
-    let chart = JBBarChartView()
+    lazy var chart: JBChartView = {
+        let c = JBBarChartView()
+        c.minimumValue = 1.0
+        c.maximumValue = 100.0
+        return c
+    }()
+    
+    lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "pudge"
+        label.frame = CGRectMake(0, 0, 200, 17)
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont(name: "AvenirNext-Medium", size: 12.0)
+        return label
+    }()
     
     lazy var loader: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
@@ -25,11 +40,9 @@ class ChartView: UIView {
         
         transform = CGAffineTransformMakeScale(-1.0, 1.0)
         
-        addSubview(loader)
-        
-        chart.minimumValue = 1.0
-        chart.maximumValue = 100.0
         addSubview(chart)
+        addSubview(loader)
+        addSubview(timeLabel)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -39,7 +52,8 @@ class ChartView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         loader.center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
-        chart.frame = CGRectMake(16, 0, frame.size.width - 32, frame.size.height)
+        chart.frame = CGRectMake(16, 53, frame.size.width - 32, frame.size.height - 53)
+        timeLabel.center.x = frame.size.width / 2.0
     }
     
     func reloadData() {

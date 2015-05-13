@@ -45,17 +45,11 @@ class DayChartViewController: ChartViewController,
         chart.reloadData()
     }
     
-    override func fetchAndDisplayLatestData() {
-        fetchDay(NSDate(), completion: { () -> Void in
-            self.reloadChart()
-        })
-    }
-    
     private func fetchDay(date: NSDate, completion: () -> Void) {
         
         let params = [
-            "start_datetime" : Day(date: date).floor,
-            "end_datetime" : Day(date: date).ceil
+            "start_datetime" : Day(date: date).rawDate.dateAtStartOfDay(),
+            "end_datetime" : Day(date: date).rawDate.dateAtEndOfDay()
         ]
         
         request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in

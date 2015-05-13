@@ -15,6 +15,7 @@ class ChartCoordinator: NSObject,
     
     let week: Week!
     var chartWeek: ChartWeek?
+    var scope: CalendarScope = .Undefined
     var offset: Int! {
         didSet {
             populateChart()
@@ -25,6 +26,8 @@ class ChartCoordinator: NSObject,
         let v = ChartView()
         v.chart.delegate = self
         v.chart.dataSource = self
+        let text = self.formattedTimeString()
+        v.timeLabel.text = text
         return v
     }()
     
@@ -34,6 +37,7 @@ class ChartCoordinator: NSObject,
     
     func populateChart() {
         fetchWeek { () -> Void in
+            println(self.scope.rawValue)
             self.view.loader.stopAnimating()
             self.view.reloadData()
         }
@@ -41,19 +45,18 @@ class ChartCoordinator: NSObject,
     
     private func fetchWeek(completion: () -> Void) {
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let monday = week.calendarDays.monday.rawDate
-        let today = NSDate().adjustedForLocalTime(calendar)
+        let monday = week.calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
         
         let params = [
             "start_date" : monday,
-            "end_date" : week.contains(today) ? today : week.calendarDays.sunday.ceil.adjustedForLocalTime(calendar),
+            "end_date" : monday.dateAtEndOfWeek().dateAtEndOfDay(),
             "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
         ]
         
         request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
             if let data = data as? Array<Dictionary<String,Int>> {
                 
+                println(data)
                 var days = [ChartDay]()
                 for d in data {
                     for (date, score) in d {
@@ -62,7 +65,7 @@ class ChartCoordinator: NSObject,
                         comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
                         comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
                         comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-                        let timestamp = calendar.dateFromComponents(comps)!
+                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
                         let day = ChartDay(date: timestamp, score: score)
                         days.append(day)
                     }
@@ -73,6 +76,18 @@ class ChartCoordinator: NSObject,
                 
                 completion()
             }
+        }
+    }
+    
+    private func formattedTimeString() -> String {
+        let monday = week.calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
+        let sunday = week.calendarDays.sunday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
+        let startMonth = monday.month(offset: 0)
+        let endMonth = sunday.month(offset: 0)
+        if startMonth == endMonth {
+            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.day(offset:0)), \(monday.year(offset: 0))"
+        } else {
+            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(monday.year(offset: 0))"
         }
     }
     

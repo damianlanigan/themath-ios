@@ -19,8 +19,6 @@ class MonthChartViewController: ChartViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchAndDisplayLatestData()
-        
         chart.dataSource = self
         chart.delegate = self
         chart.minimumValue = 1.0
@@ -45,13 +43,6 @@ class MonthChartViewController: ChartViewController,
     }
     
     // MARK: Data
-    
-    override func fetchAndDisplayLatestData() {
-//        fetchData(NSDate(), completion: { (month: ChartMonth) -> Void in
-//            self.currentMonth = month
-//            self.reloadChart()
-//        })
-    }
     
     private func fetchData(date: NSDate, completion: (newMonth: ChartMonth) -> Void) {
         

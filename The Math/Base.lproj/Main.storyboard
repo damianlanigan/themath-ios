@@ -246,6 +246,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piy-OA-wsK" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="zSl-PG-NEj"/>
                                                         </constraints>
@@ -3277,7 +3278,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
-                                <rect key="frame" x="0.0" y="88" width="600" height="511"/>
+                                <rect key="frame" x="0.0" y="84" width="600" height="515"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -3287,9 +3288,15 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="20" id="6nC-T0-Hlm"/>
                             <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
                             <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" id="T8M-2h-nzn"/>
+                            <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="16" id="XWi-O0-psN"/>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" id="dt1-m6-PRn"/>
                             <constraint firstAttribute="centerX" secondItem="btq-JQ-AdL" secondAttribute="centerX" id="jD3-Tu-I5S"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6nC-T0-Hlm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="graphContainer" destination="KWU-uu-icG" id="hjD-i3-fsR"/>

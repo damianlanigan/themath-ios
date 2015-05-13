@@ -60,10 +60,8 @@ class JournalEntry {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         let date = formatter.dateFromString(dateString)
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
-        entry.timestamp = date!.adjustedForLocalTime(calendar)
-        println(entry.timestamp)
+        entry.timestamp = date!.dateAdjustedForLocalTime()
         
         return entry
     }
