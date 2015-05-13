@@ -106,7 +106,6 @@ class MoodViewController: UIViewController,
         
         if firstAppearance {
             createAndAddMoodCircle()
-            createAndAddTouchPoint()
         }
     }
 
@@ -117,6 +116,8 @@ class MoodViewController: UIViewController,
             createNewMood()
             isSetup = true
             showTooltip()
+            
+            createAndAddTouchPoint()
             
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
@@ -373,7 +374,6 @@ class MoodViewController: UIViewController,
             return false
         }
         return onMood
-        return true
     }
     
     func orientationDidChange(notification: NSNotification) {
@@ -417,7 +417,6 @@ class MoodViewController: UIViewController,
         UIView.animateWithDuration(0.8, animations: {
             self.touchPoint.opacity = 0.3
             self.moodReferenceView.alpha = 1.0
-            
             self.settingsButton.alpha = 0.0
         })
     }
