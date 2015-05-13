@@ -50,7 +50,7 @@ class OnboardingViewController: UIViewController,
         ]
         
         for (idx, image) in enumerate(dots) {
-            let offset = (idx * 11) + 1
+            let offset = (idx * 16) + 1
             let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
             xAxis.minimumRelativeValue = -offset
             xAxis.maximumRelativeValue = offset

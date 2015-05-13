@@ -13,8 +13,12 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
                     <rect key="frame" x="180" y="8" width="120" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="S98-eg-eKE"/>
-                        <constraint firstAttribute="height" constant="120" id="r9Z-tn-p3u"/>
+                        <constraint firstAttribute="width" constant="120" id="S98-eg-eKE">
+                            <variation key="heightClass=regular-widthClass=compact" constant="98"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="120" id="r9Z-tn-p3u">
+                            <variation key="heightClass=regular-widthClass=compact" constant="98"/>
+                        </constraint>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -59,6 +63,6 @@
         </view>
     </objects>
     <resources>
-        <image name="launch_graphic" width="120" height="120"/>
+        <image name="launch_graphic" width="99" height="99"/>
     </resources>
 </document>
