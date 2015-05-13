@@ -34,6 +34,22 @@ class OnboardingViewController: UIViewController,
     
     var firstAppearance = true
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+        xAxis.minimumRelativeValue = -14
+        xAxis.maximumRelativeValue = 14
+        
+        let yAxis = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+        yAxis.minimumRelativeValue = -14
+        yAxis.maximumRelativeValue = 14
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [xAxis, yAxis]
+        
+        view.addMotionEffect(group)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutScrollView()
@@ -58,7 +74,8 @@ class OnboardingViewController: UIViewController,
         ]
         
         for (idx, image) in enumerate(dots) {
-            let offset = (idx * 16) + 1
+            let offset = (idx * 16) + 6
+            
             let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
             xAxis.minimumRelativeValue = -offset
             xAxis.maximumRelativeValue = offset
