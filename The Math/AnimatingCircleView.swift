@@ -37,14 +37,16 @@ class AnimatingCircleView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        let randX = CGFloat(arc4random() % UInt32(superview!.frame.size.width))
-        let randY = CGFloat(arc4random() % UInt32(superview!.frame.size.height))
-        frame = frameRect
-        frame.origin.x = randX
-        frame.origin.y = randY
-        layer.cornerRadius = frame.size.width / 2.0
-        
-        addMotion()
+        if let superview = superview {
+            let randX = CGFloat(arc4random() % UInt32(superview.frame.size.width))
+            let randY = CGFloat(arc4random() % UInt32(superview.frame.size.height))
+            frame = frameRect
+            frame.origin.x = randX
+            frame.origin.y = randY
+            layer.cornerRadius = frame.size.width / 2.0
+            
+            addMotion()
+        }
     }
     
     private func addMotion() {
