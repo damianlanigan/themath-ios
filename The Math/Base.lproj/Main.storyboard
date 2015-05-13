@@ -59,16 +59,12 @@
                                             <mask key="constraints">
                                                 <exclude reference="MsW-3a-nt8"/>
                                                 <exclude reference="aV3-Ju-jnQ"/>
-                                                <exclude reference="QWd-EH-BZn"/>
-                                                <exclude reference="gbQ-hU-iiP"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="MsW-3a-nt8"/>
                                                 <include reference="aV3-Ju-jnQ"/>
-                                                <include reference="QWd-EH-BZn"/>
-                                                <include reference="gbQ-hU-iiP"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -294,7 +290,7 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                                        <color key="textColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
@@ -378,7 +374,7 @@
                                                             <constraint firstItem="Lsu-cu-crd" firstAttribute="leading" secondItem="UD3-0T-O21" secondAttribute="leading" id="0dZ-HB-dYH"/>
                                                             <constraint firstAttribute="trailing" secondItem="Lsu-cu-crd" secondAttribute="trailing" id="HIl-uF-LGN"/>
                                                             <constraint firstAttribute="centerY" secondItem="Lsu-cu-crd" secondAttribute="centerY" id="bYC-Lr-TRP">
-                                                                <variation key="heightClass=regular-widthClass=compact" constant="22"/>
+                                                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                             </constraint>
                                                         </constraints>
                                                         <variation key="default">
@@ -2641,7 +2637,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg0-pX-v4H">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Gkf-PL-uRs"/>
                                         </constraints>
@@ -3092,7 +3088,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="An0-A4-Lk6"/>
                                         </constraints>
@@ -3497,5 +3493,5 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
         <image name="rating_low_light" width="44" height="44"/>
         <image name="settings_light" width="28" height="28"/>
     </resources>
-    <color key="tintColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
