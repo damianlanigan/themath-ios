@@ -32,17 +32,25 @@ class OnboardingViewController: UIViewController,
     @IBOutlet weak var parallaxImageContainerView: UIView!
     @IBOutlet weak var newUserButton: UIButton!
     
+    var firstAppearance = true
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutScrollView()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-                
+        
         scrollView.delegate = self
         
+        if firstAppearance {
+            firstAppearance = false
+            layoutDots()
+        }
+    }
+    
+    private func layoutDots() {
         let dots = [
             UIImageView(image: UIImage(named: "dots_light")!),
             UIImageView(image: UIImage(named: "dots_medium")!),
