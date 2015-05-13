@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import JBChartView
 
 class ChartView: UIView {
+    
+    let chart = JBBarChartView()
     
     lazy var loader: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
@@ -19,8 +22,14 @@ class ChartView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        transform = CGAffineTransformMakeScale(-1.0, 1.0)
+        
         addSubview(loader)
-       transform = CGAffineTransformMakeScale(-1.0, 1.0)
+        
+        chart.minimumValue = 1.0
+        chart.maximumValue = 100.0
+        addSubview(chart)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -30,7 +39,11 @@ class ChartView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         loader.center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
-        println(center)
+        chart.frame = CGRectMake(16, 0, frame.size.width - 32, frame.size.height)
+    }
+    
+    func reloadData() {
+        chart.reloadData()
     }
 
 }

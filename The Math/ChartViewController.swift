@@ -80,6 +80,11 @@ class Week {
             Day(date: start.dateByAddingDays(6))
         )
     }
+    
+    // date is already adjusted for local timezone
+    func contains(date: NSDate) -> Bool {
+        return calendarDays.sunday.ceil.compare(date) == .OrderedDescending
+    }
 }
 
 class ChartWeek: Week {
@@ -110,7 +115,7 @@ class ChartWeek: Week {
         
         for short in dayShorts {
             if find(have, short) == nil {
-                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: 0))
+                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: 2))
             }
         }
         

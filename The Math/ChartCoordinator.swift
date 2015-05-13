@@ -14,66 +14,83 @@ class ChartCoordinator: NSObject,
     JBBarChartViewDelegate {
     
     let week: Week!
-    var offset: Int!
+    var chartWeek: ChartWeek?
+    var offset: Int! {
+        didSet {
+            populateChart()
+        }
+    }
     
-    var view: ChartView = {
-        return ChartView()
+    lazy var view: ChartView = {
+        let v = ChartView()
+        v.chart.delegate = self
+        v.chart.dataSource = self
+        return v
     }()
     
     init(week: Week) {
         self.week = week
     }
     
-    private func fetchWeek(date: NSDate, completion: (newWeek: ChartWeek) -> Void) {
+    func populateChart() {
+        fetchWeek { () -> Void in
+            self.view.loader.stopAnimating()
+            self.view.reloadData()
+        }
+    }
+    
+    private func fetchWeek(completion: () -> Void) {
         
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let monday = Week(date: date).calendarDays.monday.floor.adjustedForLocalTime(calendar)
+        let monday = week.calendarDays.monday.rawDate
         let today = NSDate().adjustedForLocalTime(calendar)
         
         let params = [
             "start_date" : monday,
-            "end_date" : today,
+            "end_date" : week.contains(today) ? today : week.calendarDays.sunday.ceil.adjustedForLocalTime(calendar),
             "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
         ]
         
         request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
             if let data = data as? Array<Dictionary<String,Int>> {
                 
-                println(data)
-                
                 var days = [ChartDay]()
                 for d in data {
                     for (date, score) in d {
-                        let timestamp = NSDate(fromString: date, format: DateFormat.ISO8601)
+                        let comps = NSDateComponents()
+                        let parts = split(date) { $0 == "-" }
+                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+                        let timestamp = calendar.dateFromComponents(comps)!
                         let day = ChartDay(date: timestamp, score: score)
                         days.append(day)
                     }
                 }
-                println(days)
 
-
-                let week = ChartWeek(date: date)
+                self.chartWeek = ChartWeek(date: self.week.calendarDays.monday.rawDate)
+                self.chartWeek!.days = days
                 
-                week.days = days
-                
-                completion(newWeek: week)
+                completion()
             }
         }
     }
     
     // MARK: Chart
-
+    
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-//        if let week = currentWeek {
-//            return UInt(week.days.count)
-//        }
+        if let week = chartWeek {
+            return UInt(week.days.count)
+        }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
-//        let idx = Int(index)
-//        return CGFloat(currentWeek!.days[idx].score)
-        return 100
+        if let week = chartWeek {
+            let idx = Int(index)
+            return CGFloat(week.days[idx].score)
+        }
+        return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
@@ -87,12 +104,12 @@ class ChartCoordinator: NSObject,
     }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
-//        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
-//            let idx = Int(index)
-//            let perc = CGFloat(currentWeek!.days[idx].score) / 100.0
-//            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-//            return view
-//        }
+        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
+            let idx = Int(index)
+            let perc = CGFloat(chartWeek!.days[idx].score) / 100.0
+            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            return view
+        }
         return UIView()
     }
     
@@ -100,7 +117,5 @@ class ChartCoordinator: NSObject,
         return 30.0
     }
     
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        println("poop")
-    }
+
 }

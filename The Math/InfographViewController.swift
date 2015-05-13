@@ -47,7 +47,8 @@ class InfographViewController: UIViewController,
             viewController.view.hidden = true
         }
         segmentedControl.selectedSegmentIndex = index
-        selectedViewController = viewControllers[index]
+//        selectedViewController = viewControllers[index]
+        selectedViewController = viewControllers[0]
         selectedViewController!.view.hidden = false
         selectedViewController!.makeActive()
         selectedViewController!.view.frame = graphContainer.bounds
@@ -56,10 +57,11 @@ class InfographViewController: UIViewController,
     
     private func loadViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let dayViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
+//        let dayViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
         let weekViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
-        let monthViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
-        viewControllers = [dayViewController, weekViewController, monthViewController]
+//        let monthViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
+//        viewControllers = [dayViewController, weekViewController, monthViewController]
+        viewControllers = [weekViewController]
         for viewController in viewControllers {
             viewController.delegate = self
             viewController.view.hidden = true
