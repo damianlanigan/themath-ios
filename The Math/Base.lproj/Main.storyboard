@@ -290,7 +290,7 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                                        <color key="textColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
@@ -307,10 +307,10 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="150" id="D8g-Mu-zyM">
-                                                                                <variation key="heightClass=regular-widthClass=compact" constant="164"/>
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="212"/>
                                                                             </constraint>
                                                                             <constraint firstAttribute="height" constant="180" id="hrZ-6g-WON">
-                                                                                <variation key="heightClass=regular-widthClass=compact" constant="186"/>
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="214"/>
                                                                             </constraint>
                                                                         </constraints>
                                                                         <variation key="default">
@@ -333,7 +333,7 @@
                                                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                                                     </constraint>
                                                                     <constraint firstItem="gwS-7u-Nwi" firstAttribute="top" secondItem="IIY-59-PZc" secondAttribute="bottom" constant="22" id="I5Y-VH-6eW">
-                                                                        <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                                                        <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                                                     </constraint>
                                                                     <constraint firstAttribute="centerX" secondItem="IIY-59-PZc" secondAttribute="centerX" id="LcX-sZ-Gcf"/>
                                                                     <constraint firstAttribute="centerX" secondItem="gwS-7u-Nwi" secondAttribute="centerX" id="Lsn-ht-qZ7"/>
@@ -373,7 +373,9 @@
                                                         <constraints>
                                                             <constraint firstItem="Lsu-cu-crd" firstAttribute="leading" secondItem="UD3-0T-O21" secondAttribute="leading" id="0dZ-HB-dYH"/>
                                                             <constraint firstAttribute="trailing" secondItem="Lsu-cu-crd" secondAttribute="trailing" id="HIl-uF-LGN"/>
-                                                            <constraint firstAttribute="centerY" secondItem="Lsu-cu-crd" secondAttribute="centerY" id="bYC-Lr-TRP"/>
+                                                            <constraint firstAttribute="centerY" secondItem="Lsu-cu-crd" secondAttribute="centerY" id="bYC-Lr-TRP">
+                                                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                            </constraint>
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="subviews">
@@ -2635,7 +2637,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg0-pX-v4H">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Gkf-PL-uRs"/>
                                         </constraints>
@@ -3086,7 +3088,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="An0-A4-Lk6"/>
                                         </constraints>
@@ -3532,7 +3534,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
     </scenes>
     <resources>
         <image name="cancel" width="18" height="18"/>
-        <image name="info-logo" width="165" height="186"/>
+        <image name="info-logo" width="212" height="214"/>
         <image name="onboarding_02" width="192" height="322"/>
         <image name="onboarding_03" width="192" height="322"/>
         <image name="onboarding_04" width="320" height="256"/>
@@ -3542,5 +3544,5 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
         <image name="rating_low_light" width="44" height="44"/>
         <image name="settings_light" width="28" height="28"/>
     </resources>
-    <color key="tintColor" red="0.29005160927772522" green="0.46482408046722412" blue="0.98826318979263306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

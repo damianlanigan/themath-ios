@@ -25,7 +25,7 @@ class OnboardingButton: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.mood_startColor().CGColor
-        setTitleColor(UIColor.mood_startColor(), forState: .Normal)
+        layer.borderColor = UIColor.mood_blueColor().CGColor
+        setTitleColor(UIColor.mood_blueColor(), forState: .Normal)
     }
 }
