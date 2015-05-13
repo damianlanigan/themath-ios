@@ -21,9 +21,6 @@ class MoodViewController: UIViewController,
     UINavigationControllerDelegate,
     UIViewControllerTransitioningDelegate {
     
-    
-    // MARK: INSTANCE VARIABLES
-
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var moodReferenceView: UIView!
     @IBOutlet weak var containerView: UIView!

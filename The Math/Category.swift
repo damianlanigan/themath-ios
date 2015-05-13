@@ -20,7 +20,7 @@ enum CategoryType: String {
     case Work = "Work"
     case Health = "Health"
     case Personal = "Self"
-    case Chaotic = "Productivity"
+    case Productivity = "Productivity"
 }
 
 enum Mood: String {

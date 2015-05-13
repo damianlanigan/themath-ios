@@ -20,6 +20,8 @@
 		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
 		3CA0CB536367D6C733B6BAC5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47385D201AF9733A85DAB206 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8D00B2031B024D9F0099828C /* ChartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00B2021B024D9F0099828C /* ChartCoordinator.swift */; };
+		8D00B2051B02515B0099828C /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00B2041B02515B0099828C /* ChartView.swift */; };
 		8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */; };
 		8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988251AEC1EEF008A2C33 /* Router.swift */; };
 		8D0B3FCC1AE9452400565DC1 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */; };
@@ -43,7 +45,7 @@
 		8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */; };
 		8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */; };
 		8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */; };
-		8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */; };
+		8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ProductivityCategoryView.swift */; };
 		8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C30981A8F194700903E76 /* BorderedView.swift */; };
 		8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */; };
 		8D9138701AE85CB90090C53C /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D91386F1AE85CB90090C53C /* BarView.swift */; };
@@ -92,6 +94,8 @@
 		27D411E61A487315008ACC14 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		305714F6D9DCEB558838C92F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47385D201AF9733A85DAB206 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D00B2021B024D9F0099828C /* ChartCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCoordinator.swift; sourceTree = "<group>"; };
+		8D00B2041B02515B0099828C /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		8D0988251AEC1EEF008A2C33 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
@@ -116,7 +120,7 @@
 		8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
 		8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCategoryView.swift; sourceTree = "<group>"; };
 		8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfCategoryView.swift; sourceTree = "<group>"; };
-		8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChaoticCategoryView.swift; sourceTree = "<group>"; };
+		8D7A6DD81AE5B34400AC2CD8 /* ProductivityCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductivityCategoryView.swift; sourceTree = "<group>"; };
 		8D8C30981A8F194700903E76 /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AF+Date+Extension.swift"; sourceTree = "<group>"; };
 		8D91386F1AE85CB90090C53C /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
@@ -274,7 +278,7 @@
 				8D7A6DD21AE5B2E400AC2CD8 /* HomeCategoryView.swift */,
 				8D7A6DD41AE5B30100AC2CD8 /* HealthCategoryView.swift */,
 				8D7A6DD61AE5B32100AC2CD8 /* SelfCategoryView.swift */,
-				8D7A6DD81AE5B34400AC2CD8 /* ChaoticCategoryView.swift */,
+				8D7A6DD81AE5B34400AC2CD8 /* ProductivityCategoryView.swift */,
 			);
 			name = CategoryView;
 			sourceTree = "<group>";
@@ -376,6 +380,8 @@
 				8D9138761AE85D7B0090C53C /* DayChartViewController.swift */,
 				8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */,
 				8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */,
+				8D00B2021B024D9F0099828C /* ChartCoordinator.swift */,
+				8D00B2041B02515B0099828C /* ChartView.swift */,
 				8D91386F1AE85CB90090C53C /* BarView.swift */,
 				8D9138731AE85D0F0090C53C /* RoundableView.swift */,
 				8D432CF51B013BD700DCA8AD /* AnimatingCircleContainerView.swift */,
@@ -567,6 +573,7 @@
 				8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */,
 				8D432CF81B013BD700DCA8AD /* AnimatingCircleView.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
+				8D00B2031B024D9F0099828C /* ChartCoordinator.swift in Sources */,
 				8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */,
 				8D432CF71B013BD700DCA8AD /* AnimatingCircleContainerView.swift in Sources */,
 				8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */,
@@ -574,6 +581,7 @@
 				8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */,
 				8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */,
 				8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */,
+				8D00B2051B02515B0099828C /* ChartView.swift in Sources */,
 				E5149F5E1B012CDC005AC841 /* OnboardingButton.swift in Sources */,
 				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
 				8D4149C61AEC53EE000A4D2E /* User.swift in Sources */,
@@ -589,7 +597,7 @@
 				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
 				8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */,
-				8D7A6DD91AE5B34400AC2CD8 /* ChaoticCategoryView.swift in Sources */,
+				8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */,
 				8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */,
 				8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */,
 				8D0B3FD11AE952E300565DC1 /* NonRotatingNavigationController.swift in Sources */,

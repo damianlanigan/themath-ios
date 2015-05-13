@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ChaoticCategoryView: CategoryView {
+class ProductivityCategoryView: CategoryView {
 
     override func category() -> CategoryType {
-        return .Chaotic
+        return .Productivity
     }
 }

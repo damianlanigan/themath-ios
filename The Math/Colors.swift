@@ -27,8 +27,8 @@ extension UIColor {
             return UIColor.category_healthColor()
         case .Personal:
             return UIColor.category_selfColor()
-        case .Chaotic:
-            return UIColor.category_chaoticColor()
+        case .Productivity:
+            return UIColor.category_productivityColor()
         default:
             return UIColor.whiteColor()
         }
@@ -67,7 +67,7 @@ extension UIColor {
         return UIColor(red: 252/255.0, green: 162/255.0, blue: 66/255.0, alpha: 1.0)
     }
     
-    class func category_chaoticColor() -> UIColor {
+    class func category_productivityColor() -> UIColor {
         return UIColor(red: 252/255.0, green: 94/255.0, blue: 66/255.0, alpha: 1.0)
     }
     
@@ -75,35 +75,10 @@ extension UIColor {
     
     class func mood_gradientColors() -> [CGColorRef] {
         let colors: [CGColorRef] = [
-            
-            /* original
-            UIColor(red:0.012, green:0.067, blue:0.263, alpha: 1).CGColor,
-            UIColor(red:0.082, green:0.227, blue:0.741, alpha: 1).CGColor,
-            UIColor(red:0.200, green:0.373, blue:1.000, alpha: 1).CGColor,
-            UIColor(red:1.000, green:0.549, blue:0.953, alpha: 1).CGColor
-            */
-            
-            /* v2
-            UIColor(red: 102/255.0,green: 102/255.0, blue: 102/255.0, alpha: 1).CGColor,
-            UIColor(red: 93/255.0, green: 114/255.0, blue: 114/255.0, alpha: 1).CGColor,
-            UIColor(red: 83/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1).CGColor,
-            UIColor(red: 75/255.0, green: 143/255.0, blue: 143/255.0, alpha: 1).CGColor,
-            UIColor(red: 63/255.0, green: 168/255.0, blue: 168/255.0, alpha: 1).CGColor
-            */
-            
-            /* orange green
-            UIColor(red:0.345, green:0.514, blue:0.404, alpha: 1).CGColor,
-            UIColor(red:0.561, green:0.600, blue:0.349, alpha: 1).CGColor,
-            UIColor(red:0.765, green:0.620, blue:0.318, alpha: 1).CGColor,
-            UIColor(red:0.890, green:0.627, blue:0.302, alpha: 1).CGColor,
-            UIColor(red:0.980, green:0.718, blue:0.267, alpha: 1).CGColor
-            */
-            
             UIColor(red:0.149, green:0.180, blue:0.290, alpha: 1).CGColor,
             UIColor(red:0.137, green:0.306, blue:0.416, alpha: 1).CGColor,
             UIColor(red:0.212, green:0.600, blue:0.659, alpha: 1).CGColor,
             UIColor(red:0.259, green:0.843, blue:0.843, alpha: 1).CGColor
-            
         ]
         return colors
     }

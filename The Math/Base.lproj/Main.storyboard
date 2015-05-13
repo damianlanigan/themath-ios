@@ -2300,7 +2300,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                             <outlet property="nameLabel" destination="Xt9-An-9Uz" id="Ihq-VW-Cgn"/>
                                                         </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0y-K1-MTh" customClass="ChaoticCategoryView" customModule="HowAmIDoing" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0y-K1-MTh" customClass="ProductivityCategoryView" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="291" y="119" width="97" height="109"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doo-qT-rQM">
@@ -3274,7 +3274,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
-                                <rect key="frame" x="16" y="88" width="568" height="511"/>
+                                <rect key="frame" x="0.0" y="88" width="600" height="511"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -3283,8 +3283,8 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                             <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" constant="1" id="6fu-iz-CYS"/>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="20" id="6nC-T0-Hlm"/>
                             <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
-                            <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" constant="16" id="T8M-2h-nzn"/>
-                            <constraint firstItem="KWU-uu-icG" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" constant="16" id="dt1-m6-PRn"/>
+                            <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" id="T8M-2h-nzn"/>
+                            <constraint firstItem="KWU-uu-icG" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" id="dt1-m6-PRn"/>
                             <constraint firstAttribute="centerX" secondItem="btq-JQ-AdL" secondAttribute="centerX" id="jD3-Tu-I5S"/>
                         </constraints>
                     </view>
@@ -3328,6 +3328,57 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf4-Gu-g4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3372" y="-323"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="QgN-CS-YL3">
+            <objects>
+                <viewController storyboardIdentifier="ChartViewController" id="Brf-tU-vTV" customClass="ChartViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="88P-hn-E84"/>
+                        <viewControllerLayoutGuide type="bottom" id="tDC-Rx-6xu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3M7-lV-WF0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk6-pM-WbZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-oH-lkd">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="ZWi-hi-u5p"/>
+                                            <constraint firstAttribute="height" constant="600" id="gv8-1v-dlF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KVK-oH-lkd" secondAttribute="trailing" id="OrH-Ck-K2a"/>
+                                    <constraint firstAttribute="bottom" secondItem="KVK-oH-lkd" secondAttribute="bottom" id="bLZ-6u-jYG"/>
+                                    <constraint firstItem="KVK-oH-lkd" firstAttribute="leading" secondItem="Dk6-pM-WbZ" secondAttribute="leading" id="qd8-DC-AwN"/>
+                                    <constraint firstItem="KVK-oH-lkd" firstAttribute="top" secondItem="Dk6-pM-WbZ" secondAttribute="top" id="yuc-kO-p4N"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tDC-Rx-6xu" firstAttribute="top" secondItem="Dk6-pM-WbZ" secondAttribute="bottom" id="5s2-TU-2fE"/>
+                            <constraint firstItem="Dk6-pM-WbZ" firstAttribute="leading" secondItem="3M7-lV-WF0" secondAttribute="leading" id="8ca-WV-iQZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Dk6-pM-WbZ" secondAttribute="trailing" id="fbH-qr-v2W"/>
+                            <constraint firstItem="Dk6-pM-WbZ" firstAttribute="top" secondItem="3M7-lV-WF0" secondAttribute="top" id="o67-X6-lLH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="KVK-oH-lkd" id="Iwq-vt-Kwf"/>
+                        <outlet property="contentViewHeightConstraint" destination="gv8-1v-dlF" id="XyC-e6-fPW"/>
+                        <outlet property="contentViewWidthConstraint" destination="ZWi-hi-u5p" id="EBv-Fb-2RR"/>
+                        <outlet property="scrollView" destination="Dk6-pM-WbZ" id="IP2-rQ-yFS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDl-kD-Zp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2526" y="-1005"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="xII-wb-lPA">

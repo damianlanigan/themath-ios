@@ -55,9 +55,10 @@ class InfographViewController: UIViewController,
     }
     
     private func loadViewControllers() {
-        let dayViewController = DayChartViewController()
-        let weekViewController = WeekChartViewController()
-        let monthViewController = MonthChartViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let dayViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
+        let weekViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
+        let monthViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
         viewControllers = [dayViewController, weekViewController, monthViewController]
         for viewController in viewControllers {
             viewController.delegate = self

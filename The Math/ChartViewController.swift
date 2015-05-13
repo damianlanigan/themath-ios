@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol ChartViewControllerDelegate: class {
-    func didSelectMoment(entry: JournalEntry)
-    func didSelectDay(day: Int)
-    func didSelectWeek(week: Int)
-}
 
 class Month {
     
@@ -115,7 +110,6 @@ class ChartWeek: Week {
         
         for short in dayShorts {
             if find(have, short) == nil {
-                println(short)
                 _days.append(ChartDay(date: (allDays[short]! as NSDate), score: 0))
             }
         }
@@ -173,13 +167,53 @@ class ChartDay: Day {
     }
 }
 
+protocol ChartViewControllerDelegate: class {
+    func didSelectMoment(entry: JournalEntry)
+    func didSelectDay(day: Int)
+    func didSelectWeek(week: Int)
+}
 
-class ChartViewController: UIViewController {
+class ChartViewController: UIViewController,
+    UIScrollViewDelegate {
 
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
+    
     weak var delegate: ChartViewControllerDelegate?
     var selectedIdx: Int?
-    var hasLaidOutChart = false
     
+    var coordinators = [ChartCoordinator]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ensureBackQueue()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ensureContentSize()
+    }
+    
+    private func ensureBackQueue() {
+        if coordinators.count == 0 {
+            for i in 0...2 {
+                let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+                let week = Week(date: NSDate().dateBySubtractingDays(i * 7).adjustedForLocalTime(calendar))
+                let coordinator = ChartCoordinator(week: week)
+                coordinator.offset = i
+                coordinators.append(coordinator)
+            }
+        }
+    }
     
     func fetchAndDisplayLatestData() {
         // abstract
@@ -188,5 +222,23 @@ class ChartViewController: UIViewController {
     func makeActive() {
         fetchAndDisplayLatestData()
     }
+    
+    private func ensureContentSize() {
 
+        contentViewHeightConstraint.constant = view.frame.size.height
+        contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
+        
+        for coordinator in coordinators {
+            let v = coordinator.view
+            v.frame = view.bounds
+            v.frame.origin.x = view.bounds.size.width * CGFloat(coordinator.offset)
+            contentView.addSubview(v)
+        }
+    }
+    
+    // MARK: UIScrollViewDelegate
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+    }
 }
