@@ -9,7 +9,7 @@
 import Foundation
 import JBChartView
 
-class ChartCoordinator: NSObject,
+class ChartViewModel: NSObject,
     JBBarChartViewDataSource,
     JBBarChartViewDelegate {
     

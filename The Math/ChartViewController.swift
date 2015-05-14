@@ -179,7 +179,7 @@ class ChartViewController: UIViewController,
     var editingScrollView = false
     var scope: CalendarScope = .Undefined
     
-    var coordinators = [ChartCoordinator]()
+    var coordinators = [ChartViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,7 +214,16 @@ class ChartViewController: UIViewController,
     private func loadNextChartView() {
         let idx = coordinators.count
         let week = Week(date: NSDate().dateBySubtractingDays(idx * 7).dateAdjustedForLocalTime())
-        let coordinator = ChartCoordinator(week: week)
+        let date: NSDate!
+        switch scope {
+        case .Day:
+            date = NSDate().dateBySubtractingDays(idx * 1).dateAdjustedForLocalTime()
+        case .Week:
+            date = NSDate().dateBySubtractingDays(idx * 7).dateAdjustedForLocalTime()
+        default:
+            date = NSDate()
+        }
+        let coordinator = ChartViewModel(week: week)
         coordinator.offset = idx
         coordinator.scope = scope
         coordinators.append(coordinator)
