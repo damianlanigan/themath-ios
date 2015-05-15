@@ -150,7 +150,7 @@ class OnboardingViewController: UIViewController,
     }
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientation.Portrait.rawValue)
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
 }

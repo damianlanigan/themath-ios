@@ -28,7 +28,7 @@ class AuthViewController: UIViewController,
     }
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientation.Portrait.rawValue)
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
     
     override func prefersStatusBarHidden() -> Bool {

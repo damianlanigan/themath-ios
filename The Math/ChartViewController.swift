@@ -13,6 +13,7 @@ protocol TimeRepresentable {
 }
 
 protocol Chartable {
+    
 }
 
 enum CalendarScope: Int {
@@ -61,6 +62,7 @@ class Month: TimeRepresentable {
 }
 
 class ChartMonth: Month, Chartable {
+    
     var days: [ChartDay] = [ChartDay]() {
         didSet {
             padMonth()
@@ -84,6 +86,7 @@ class ChartMonth: Month, Chartable {
             days = _days
         }
     }
+    
 }
 
 typealias CalendarWeekDays = (
@@ -142,35 +145,20 @@ class ChartWeek: Week, Chartable {
     }
     
     private func padWeek() {
-        let allDays = [
-            "mon" : calendarDays.monday.rawDate,
-            "tue" : calendarDays.tuesday.rawDate,
-            "wed" : calendarDays.wednesday.rawDate,
-            "thu" : calendarDays.thursday.rawDate,
-            "fri" : calendarDays.friday.rawDate,
-            "sat" : calendarDays.saturday.rawDate,
-            "sun" : calendarDays.sunday.rawDate
-        ]
-        
-        var pad = [ChartDay]()
-        
-        var have = days.map { $0.rawDate.shortWeekdayToString().lowercaseString }
-        
-        let dayShorts = Array(allDays.keys)
+        let calendar = NSCalendar.currentCalendar()
+        let dates = days.map { $0.rawDate.withoutTime() }
         
         var _days = days
         
-        for short in dayShorts {
-            if find(have, short) == nil {
-                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: ChartDayMinimumDayAverage))
+        for i in 0..<7 {
+            let d = calendarDays.monday.rawDate.dateByAddingDays(i).withoutTime()
+            if find(dates, d) == nil {
+                _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
             }
         }
         
         if _days.count != days.count {
             days = _days
-            days.sort({
-                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
-            })
         }
     }
 }

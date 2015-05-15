@@ -15,7 +15,7 @@ class NonRotatingNavigationController: UINavigationController {
     }
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientation.Portrait.rawValue)
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
 
 }
