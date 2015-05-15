@@ -8,6 +8,14 @@
 
 import UIKit
 
+protocol TimeRepresentable {
+    func formattedDescription() -> String
+}
+
+protocol Chartable {
+    
+}
+
 enum CalendarScope: Int {
     case Undefined
     case Day
@@ -15,7 +23,7 @@ enum CalendarScope: Int {
     case Month
 }
 
-class Month {
+class Month: TimeRepresentable {
     
     let length: Int!
     let firstDay: NSDate!
@@ -34,9 +42,13 @@ class Month {
         lastDay = firstDay.dateByAddingDays(range.length)
         length = range.length
     }
+    
+    func formattedDescription() -> String {
+        return "\(firstDay.monthToString()), \(firstDay.year(offset: 0))"
+    }
 }
 
-class ChartMonth: Month {
+class ChartMonth: Month, Chartable {
     var chartDays: [ChartDay] = [ChartDay]() {
         didSet {
 //            var _days = chartDays
@@ -67,7 +79,7 @@ typealias CalendarWeekDays = (
     sunday: Day
 )
 
-class Week {
+class Week: TimeRepresentable {
     
     let calendarDays: CalendarWeekDays
     
@@ -91,9 +103,21 @@ class Week {
     func contains(date: NSDate) -> Bool {
         return calendarDays.sunday.rawDate.dateAtEndOfDay().compare(date) == .OrderedDescending
     }
+    
+    func formattedDescription() -> String {
+        let monday = calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
+        let sunday = calendarDays.sunday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
+        let startMonth = monday.month(offset: 0)
+        let endMonth = sunday.month(offset: 0)
+        if startMonth == endMonth {
+            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.day(offset:0)), \(monday.year(offset: 0))"
+        } else {
+            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(monday.year(offset: 0))"
+        }
+    }
 }
 
-class ChartWeek: Week {
+class ChartWeek: Week, Chartable {
     var days: [ChartDay] = [ChartDay]() {
         didSet {
             padWeek()
@@ -134,7 +158,7 @@ class ChartWeek: Week {
     }
 }
 
-class Day {
+class Day: TimeRepresentable {
     
     let rawDate: NSDate!
     
@@ -146,10 +170,13 @@ class Day {
         return Week(date: rawDate)
     }
     
+    func formattedDescription() -> String {
+        return "\(rawDate.shortMonthToString()) \(rawDate.day(offset: 0)), \(rawDate.year(offset: 0))"
+    }
 }
 
 
-class ChartDay: Day {
+class ChartDay: Day, Chartable {
     let score: Int!
     var entries = [JournalEntry]()
     
@@ -175,7 +202,6 @@ class ChartViewController: UIViewController,
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     
     weak var delegate: ChartViewControllerDelegate?
-    var selectedIdx: Int?
     var editingScrollView = false
     var scope: CalendarScope = .Undefined
     
@@ -204,34 +230,35 @@ class ChartViewController: UIViewController,
     private func ensureContentSize() {
         contentViewHeightConstraint.constant = view.frame.size.height
         contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
-        for coordinator in coordinators {
+        for (idx, coordinator) in enumerate(coordinators) {
             let v = coordinator.view
             v.frame = view.bounds
-            v.frame.origin.x = view.bounds.size.width * CGFloat(coordinator.offset)
+            v.frame.origin.x = view.bounds.size.width * CGFloat(idx)
         }
     }
     
     private func loadNextChartView() {
-        let idx = coordinators.count
-        let week = Week(date: NSDate().dateBySubtractingDays(idx * 7).dateAdjustedForLocalTime())
-        let date: NSDate!
-        switch scope {
-        case .Day:
-            date = NSDate().dateBySubtractingDays(idx * 1).dateAdjustedForLocalTime()
-        case .Week:
-            date = NSDate().dateBySubtractingDays(idx * 7).dateAdjustedForLocalTime()
-        default:
-            date = NSDate()
-        }
-        let coordinator = ChartViewModel(week: week)
+        let idx = nextIdx()
+        let coordinator = ChartViewModel(scope: scope)
+        coordinator.date = NSDate().dateBySubtractingDays(idx).dateAdjustedForLocalTime()
         coordinator.offset = idx
-        coordinator.scope = scope
         coordinators.append(coordinator)
         contentView.addSubview(coordinator.view)
         
         ensureContentSize()
         
         editingScrollView = false
+    }
+    
+    private func nextIdx() -> Int {
+        switch scope {
+        case .Day:
+            return coordinators.count
+        case .Week:
+            return coordinators.count * 7
+        default:
+            return 0
+        }
     }
     
     // MARK: UIScrollViewDelegate

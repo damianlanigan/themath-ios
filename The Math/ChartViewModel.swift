@@ -13,12 +13,27 @@ class ChartViewModel: NSObject,
     JBBarChartViewDataSource,
     JBBarChartViewDelegate {
     
-    let week: Week!
-    var chartWeek: ChartWeek?
     var scope: CalendarScope = .Undefined
+    
+    var dateValue: TimeRepresentable?
+    var chartableDateValue: Chartable?
+    
     var offset: Int! {
         didSet {
             populateChart()
+        }
+    }
+    
+    var date: NSDate! {
+        didSet {
+            assert(scope != .Undefined, "Cannot set date without a scope")
+            if scope == .Day {
+                dateValue = Day(date: date)
+            } else if scope == .Week {
+                dateValue = Week(date: date)
+            } else if scope == .Month {
+                dateValue = Month(date: date)
+            }
         }
     }
     
@@ -26,25 +41,36 @@ class ChartViewModel: NSObject,
         let v = ChartView()
         v.chart.delegate = self
         v.chart.dataSource = self
-        let text = self.formattedTimeString()
+        v.scope = self.scope
+        let text = self.dateValue!.formattedDescription()
         v.timeLabel.text = text
         return v
     }()
     
-    init(week: Week) {
-        self.week = week
+    init(scope: CalendarScope) {
+        self.scope = scope
     }
     
     func populateChart() {
-        fetchWeek { () -> Void in
-            println(self.scope.rawValue)
-            self.view.loader.stopAnimating()
-            self.view.reloadData()
+        if scope == .Week {
+            fetchWeek { () -> Void in
+                println(self.scope.rawValue)
+                self.view.loader.stopAnimating()
+                self.view.reloadData()
+            }
+        }
+        if scope == .Day {
+            fetchDay { () -> Void in
+            }
+        }
+        if scope == .Month {
+            fetchMonth { () -> Void in
+            }
         }
     }
     
     private func fetchWeek(completion: () -> Void) {
-        
+        let week = dateValue as! Week
         let monday = week.calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
         
         let params = [
@@ -71,37 +97,33 @@ class ChartViewModel: NSObject,
                     }
                 }
 
-                self.chartWeek = ChartWeek(date: self.week.calendarDays.monday.rawDate)
-                self.chartWeek!.days = days
+                self.chartableDateValue = ChartWeek(date: week.calendarDays.monday.rawDate)
+                (self.chartableDateValue as! ChartWeek).days = days
                 
                 completion()
             }
         }
     }
     
-    private func formattedTimeString() -> String {
-        let monday = week.calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
-        let sunday = week.calendarDays.sunday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
-        let startMonth = monday.month(offset: 0)
-        let endMonth = sunday.month(offset: 0)
-        if startMonth == endMonth {
-            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.day(offset:0)), \(monday.year(offset: 0))"
-        } else {
-            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(monday.year(offset: 0))"
-        }
+    private func fetchDay(completion: () -> Void) {
+        
+    }
+    
+    private func fetchMonth(completion: () -> Void) {
+        
     }
     
     // MARK: Chart
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-        if let week = chartWeek {
+        if let week = chartableDateValue as? ChartWeek {
             return UInt(week.days.count)
         }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
-        if let week = chartWeek {
+        if let week = chartableDateValue as? ChartWeek {
             let idx = Int(index)
             return CGFloat(week.days[idx].score)
         }
@@ -121,8 +143,12 @@ class ChartViewModel: NSObject,
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
         if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
             let idx = Int(index)
-            let perc = CGFloat(chartWeek!.days[idx].score) / 100.0
-            view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            
+            if let week = chartableDateValue as? ChartWeek {
+                let perc = CGFloat(week.days[idx].score) / 100.0
+                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            }
+            
             return view
         }
         return UIView()

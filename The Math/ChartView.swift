@@ -11,8 +11,10 @@ import JBChartView
 
 class ChartView: UIView {
     
+    var scope: CalendarScope!
+    
     lazy var chart: JBChartView = {
-        let c = JBBarChartView()
+        let c = self.scope == CalendarScope.Day ? JBLineChartView() : JBBarChartView()
         c.minimumValue = 1.0
         c.maximumValue = 100.0
         return c
