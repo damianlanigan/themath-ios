@@ -84,6 +84,9 @@ class ChartMonth: Month, Chartable {
         
         if _days.count != days.count {
             days = _days
+            days.sort({
+                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
+            })
         }
     }
     
@@ -159,6 +162,9 @@ class ChartWeek: Week, Chartable {
         
         if _days.count != days.count {
             days = _days
+            days.sort({
+                $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
+            })
         }
     }
 }
@@ -233,6 +239,7 @@ class ChartViewController: UIViewController,
         ensureContentSize()
         
         // kinda shitty but fixes some sizing issues
+        // also slow
         for (idx, coordinator) in enumerate(self.coordinators) {
             coordinator.view.setNeedsLayout()
             coordinator.view.layoutIfNeeded()

@@ -48,24 +48,32 @@ class ChartViewModel: NSObject,
     }
     
     func populateChart() {
-        if scope == .Week {
-            fetchWeek { () -> Void in
+        
+        let completion = { () -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.view.loader.stopAnimating()
                 self.view.reloadData()
-            }
+            })
         }
-        if scope == .Day {
-            fetchDay { () -> Void in
-                self.view.loader.stopAnimating()
-                self.view.reloadData()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+            let scope = self.scope
+            if scope == .Week {
+                self.fetchWeek { () -> Void in
+                    completion()
+                }
             }
-        }
-        if scope == .Month {
-            fetchMonth { () -> Void in
-                self.view.loader.stopAnimating()
-                self.view.reloadData()
+            if scope == .Day {
+                self.fetchDay { () -> Void in
+                    completion()
+                }
             }
-        }
+            if scope == .Month {
+                self.fetchMonth { () -> Void in
+                    completion()
+                }
+            }
+        })
     }
     
     private func fetchWeek(completion: () -> Void) {
