@@ -39,9 +39,13 @@ class ChartView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    init(scope: CalendarScope) {
+        self.scope = scope
+        super.init(frame: CGRectZero)
         
         transform = CGAffineTransformMakeScale(-1.0, 1.0)
-        
         addSubview(chart)
         addSubview(loader)
         addSubview(timeLabel)

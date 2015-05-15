@@ -10,6 +10,8 @@ import Foundation
 import JBChartView
 
 class ChartViewModel: NSObject,
+    JBLineChartViewDelegate,
+    JBLineChartViewDataSource,
     JBBarChartViewDataSource,
     JBBarChartViewDelegate {
     
@@ -38,10 +40,9 @@ class ChartViewModel: NSObject,
     }
     
     lazy var view: ChartView = {
-        let v = ChartView()
+        let v = ChartView(scope: self.scope)
         v.chart.delegate = self
         v.chart.dataSource = self
-        v.scope = self.scope
         let text = self.dateValue!.formattedDescription()
         v.timeLabel.text = text
         return v
@@ -54,13 +55,14 @@ class ChartViewModel: NSObject,
     func populateChart() {
         if scope == .Week {
             fetchWeek { () -> Void in
-                println(self.scope.rawValue)
                 self.view.loader.stopAnimating()
                 self.view.reloadData()
             }
         }
         if scope == .Day {
             fetchDay { () -> Void in
+                self.view.loader.stopAnimating()
+                self.view.reloadData()
             }
         }
         if scope == .Month {
@@ -71,7 +73,7 @@ class ChartViewModel: NSObject,
     
     private func fetchWeek(completion: () -> Void) {
         let week = dateValue as! Week
-        let monday = week.calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
+        let monday = week.calendarDays.monday.rawDate.dateAtStartOfDay()
         
         let params = [
             "start_date" : monday,
@@ -82,7 +84,6 @@ class ChartViewModel: NSObject,
         request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
             if let data = data as? Array<Dictionary<String,Int>> {
                 
-                println(data)
                 var days = [ChartDay]()
                 for d in data {
                     for (date, score) in d {
@@ -106,14 +107,37 @@ class ChartViewModel: NSObject,
     }
     
     private func fetchDay(completion: () -> Void) {
+        let day = dateValue as! Day
         
+        let params = [
+            "start_datetime" : day.rawDate.dateAtStartOfDay(),
+            "end_datetime" : day.rawDate.dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+        
+        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,AnyObject>> {
+                var entries: [JournalEntry] = [JournalEntry]()
+                for d in data {
+                    let entry = JournalEntry.fromJSONRequest(d)
+                    entries.append(entry)
+                }
+                
+                var scores: [Int] = entries.map { $0.score }
+                var sum = scores.reduce(0, combine: +)
+                let average = entries.count > 0 ? sum / entries.count : ChartDayMinimumDayAverage
+                self.chartableDateValue = ChartDay(date: day.rawDate, score: average)
+                (self.chartableDateValue as! ChartDay).entries = entries
+                completion()
+            }
+        }
     }
     
     private func fetchMonth(completion: () -> Void) {
         
     }
     
-    // MARK: Chart
+    // MARK: Chart BAR
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let week = chartableDateValue as? ChartWeek {
@@ -158,5 +182,55 @@ class ChartViewModel: NSObject,
         return 30.0
     }
     
+    // MARK: Chart LINE
+    
+    func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
+        if let day = chartableDateValue as? ChartDay {
+            return 1
+        }
+        return 0
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
+        if let day = chartableDateValue as? ChartDay {
+            return UInt(day.entries.count)
+        }
+        return 0
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+        if let day = chartableDateValue as? ChartDay {
+            let hIdx = Int(horizontalIndex)
+            return CGFloat(day.entries[hIdx].score)
+        }
+        return 0
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
+        return true
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+        return true
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
+        return 3.0
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.blackColor().colorWithAlphaComponent(0.3)
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+        
+        if let day = chartableDateValue as? ChartDay {
+            let lIdx = Int(lineIndex)
+            let hIdx = Int(horizontalIndex)
+            return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(day.entries[hIdx].score) / 100.0)
+        }
+
+        return UIColor.blackColor()
+    }
 
 }

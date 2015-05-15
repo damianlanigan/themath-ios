@@ -112,7 +112,7 @@ class Week: TimeRepresentable {
         if startMonth == endMonth {
             return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.day(offset:0)), \(monday.year(offset: 0))"
         } else {
-            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(monday.year(offset: 0))"
+            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(sunday.year(offset: 0))"
         }
     }
 }
@@ -145,7 +145,7 @@ class ChartWeek: Week, Chartable {
         
         for short in dayShorts {
             if find(have, short) == nil {
-                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: 2))
+                _days.append(ChartDay(date: (allDays[short]! as NSDate), score: ChartDayMinimumDayAverage))
             }
         }
         
@@ -176,6 +176,7 @@ class Day: TimeRepresentable {
 }
 
 
+let ChartDayMinimumDayAverage = 2
 class ChartDay: Day, Chartable {
     let score: Int!
     var entries = [JournalEntry]()
