@@ -33,7 +33,6 @@ class InfographViewController: UIViewController,
     }
     
     @IBAction func navigationControl(sender: UISegmentedControl) {
-        println(sender.selectedSegmentIndex)
         previouslySelectedSegmentIndex = sender.selectedSegmentIndex
         navigateToViewControllerAtIndex(previouslySelectedSegmentIndex)
     }
@@ -45,10 +44,12 @@ class InfographViewController: UIViewController,
     private func navigateToViewControllerAtIndex(index: Int) {
         if let viewController = selectedViewController {
             viewController.view.hidden = true
+            viewController.becameInactive()
         }
         segmentedControl.selectedSegmentIndex = index
         selectedViewController = viewControllers[index]
         selectedViewController!.view.hidden = false
+        selectedViewController!.becameActive()
         selectedViewController!.view.frame = graphContainer.bounds
         selectedViewController!.view.layoutIfNeeded()
     }
@@ -70,10 +71,8 @@ class InfographViewController: UIViewController,
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("preparing")
         if let navController = segue.destinationViewController as? UINavigationController {
             if let viewController = navController.viewControllers[0] as? DayChartDetailTableViewController {
-                println("happenin")
                 viewController.entry = entry!
             }
         }
@@ -88,12 +87,10 @@ class InfographViewController: UIViewController,
     }
     
     func didSelectDay(day: Int) {
-        println("Day selected: \(day)")
         navigateToViewControllerAtIndex(0)
     }
     
     func didSelectWeek(week: Int) {
-        println("Week selected: \(week)")
         navigateToViewControllerAtIndex(1)
     }
     

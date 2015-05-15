@@ -20,12 +20,6 @@ class ChartViewModel: NSObject,
     var dateValue: TimeRepresentable?
     var chartableDateValue: Chartable?
     
-    var offset: Int! {
-        didSet {
-            populateChart()
-        }
-    }
-    
     var date: NSDate! {
         didSet {
             assert(scope != .Undefined, "Cannot set date without a scope")
@@ -36,6 +30,7 @@ class ChartViewModel: NSObject,
             } else if scope == .Month {
                 dateValue = Month(date: date)
             }
+            populateChart()
         }
     }
     
@@ -67,6 +62,8 @@ class ChartViewModel: NSObject,
         }
         if scope == .Month {
             fetchMonth { () -> Void in
+                self.view.loader.stopAnimating()
+                self.view.reloadData()
             }
         }
     }
@@ -134,7 +131,38 @@ class ChartViewModel: NSObject,
     }
     
     private func fetchMonth(completion: () -> Void) {
+        let month = dateValue as! Month
         
+        let params = [
+            "start_date" : month.startDate.dateAtStartOfDay(),
+            "end_date" : month.endDate.dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+        
+        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,Int>> {
+                
+                var days = [ChartDay]()
+                for d in data {
+                    for (date, score) in d {
+                        let comps = NSDateComponents()
+                        let parts = split(date) { $0 == "-" }
+                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                        let day = ChartDay(date: timestamp, score: score)
+                        days.append(day)
+                    }
+                }
+            
+                
+                self.chartableDateValue = ChartMonth(date: month.startDate)
+                (self.chartableDateValue as! ChartMonth).days = days
+                
+                completion()
+            }
+        }
     }
     
     // MARK: Chart BAR
@@ -143,13 +171,19 @@ class ChartViewModel: NSObject,
         if let week = chartableDateValue as? ChartWeek {
             return UInt(week.days.count)
         }
+        if let month = chartableDateValue as? ChartMonth {
+            return UInt(month.days.count)
+        }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
+        let idx = Int(index)
         if let week = chartableDateValue as? ChartWeek {
-            let idx = Int(index)
             return CGFloat(week.days[idx].score)
+        }
+        if let month = chartableDateValue as? ChartMonth {
+            return CGFloat(month.days[idx].score)
         }
         return 0
     }
@@ -173,13 +207,24 @@ class ChartViewModel: NSObject,
                 view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
             }
             
+            if let month = chartableDateValue as? ChartMonth {
+                let perc = CGFloat(month.days[idx].score) / 100.0
+                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            }
+            
             return view
         }
         return UIView()
     }
     
     func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
-        return 30.0
+        if let week = chartableDateValue as? ChartWeek {
+          return 30.0
+        }
+        if let month = chartableDateValue as? ChartMonth {
+            return 4.0
+        }
+        return 0
     }
     
     // MARK: Chart LINE

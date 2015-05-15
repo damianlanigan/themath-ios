@@ -13,7 +13,6 @@ protocol TimeRepresentable {
 }
 
 protocol Chartable {
-    
 }
 
 enum CalendarScope: Int {
@@ -25,46 +24,64 @@ enum CalendarScope: Int {
 
 class Month: TimeRepresentable {
     
-    let length: Int!
-    let firstDay: NSDate!
-    let lastDay: NSDate!
+    let startDate: NSDate!
+    let endDate: NSDate!
+    let dayCount: Int!
     
     init(date: NSDate) {
         
-        let c = NSCalendar.currentCalendar()
-        let range = c.rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: date)
-
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let components = calendar!.components(.CalendarUnitEra | NSCalendarUnit.CalendarUnitYear | .CalendarUnitMonth, fromDate: NSDate())
-        components.day = 1;
+        let calendar = NSCalendar.currentCalendar()
+        let range = calendar.rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: date)
+        dayCount = range.length
         
-        firstDay = calendar!.dateFromComponents(components)
-        lastDay = firstDay.dateByAddingDays(range.length)
-        length = range.length
+        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: date)
+        components.setValue(1, forComponent: .CalendarUnitDay)
+        
+        startDate = calendar.dateFromComponents(components)
+        endDate = startDate.dateByAddingDays(dayCount - 1)
+    }
+    
+    func previous() -> Month {
+        let components = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: startDate)
+        components.setValue(components.month + 1, forComponent: .CalendarUnitMonth)
+        let month = Month(date: NSCalendar.currentCalendar().dateFromComponents(components)!)
+        return month
+    }
+    
+    func next() -> Month {
+        let components = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: startDate)
+        components.setValue(components.month - 1, forComponent: .CalendarUnitMonth)
+        let month = Month(date: NSCalendar.currentCalendar().dateFromComponents(components)!)
+        return month
     }
     
     func formattedDescription() -> String {
-        return "\(firstDay.monthToString()), \(firstDay.year(offset: 0))"
+        return "\(startDate.monthToString()), \(startDate.year(offset: 0))"
     }
 }
 
 class ChartMonth: Month, Chartable {
-    var chartDays: [ChartDay] = [ChartDay]() {
+    var days: [ChartDay] = [ChartDay]() {
         didSet {
-//            var _days = chartDays
-//            let dayAbbrsWithIndex = ["mon" : 1, "tue" : 2, "wed" : 3, "thu" : 4, "fri" : 5, "sat" : 6, "sun" : 7]
-//            let dayAbbrs = chartDays.map { $0.rawDate.shortWeekdayToString().lowercaseString }
-//            
-//            for abbr in dayAbbrsWithIndex.keys {
-//                if find(dayAbbrs, abbr) == nil {
-//                    _days.append(ChartDay(mood: 0, timestamp: self.calendarDays.monday.rawDate.dateByAddingDays(dayAbbrsWithIndex[abbr]! - 1)))
-//                }
-//            }
-//            _days.sort { [unowned self] in
-//                dayAbbrsWithIndex[$0.rawDate.shortWeekdayToString().lowercaseString]! <
-//                    dayAbbrsWithIndex[$1.rawDate.shortWeekdayToString().lowercaseString]!
-//            }
-//            chartDays = _days
+            padMonth()
+        }
+    }
+    
+    private func padMonth() {
+        let calendar = NSCalendar.currentCalendar()
+        let dates = days.map { $0.rawDate.withoutTime() }
+        
+        var _days = days
+        
+        for i in 0..<dayCount {
+            let d = startDate.dateByAddingDays(i).withoutTime()
+            if find(dates, d) == nil {
+                _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
+            }
+        }
+        
+        if _days.count != days.count {
+            days = _days
         }
     }
 }
@@ -226,6 +243,21 @@ class ChartViewController: UIViewController,
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         ensureContentSize()
+        
+        // kinda shitty but fixes some sizing issues
+        for (idx, coordinator) in enumerate(self.coordinators) {
+            coordinator.view.setNeedsLayout()
+            coordinator.view.layoutIfNeeded()
+            coordinator.view.reloadData()
+        }
+    }
+    
+    func becameActive() {
+        println("became active: \(scope.rawValue)")
+    }
+    
+    func becameInactive() {
+        println("became inactive: \(scope.rawValue)")
     }
     
     private func ensureContentSize() {
@@ -239,10 +271,8 @@ class ChartViewController: UIViewController,
     }
     
     private func loadNextChartView() {
-        let idx = nextIdx()
         let coordinator = ChartViewModel(scope: scope)
-        coordinator.date = NSDate().dateBySubtractingDays(idx).dateAdjustedForLocalTime()
-        coordinator.offset = idx
+        coordinator.date = nextDate()
         coordinators.append(coordinator)
         contentView.addSubview(coordinator.view)
         
@@ -251,15 +281,20 @@ class ChartViewController: UIViewController,
         editingScrollView = false
     }
     
-    private func nextIdx() -> Int {
+    private func nextDate() -> NSDate {
         switch scope {
         case .Day:
-            return coordinators.count
+            return NSDate().dateBySubtractingDays(coordinators.count).dateAdjustedForLocalTime()
         case .Week:
-            return coordinators.count * 7
+            return NSDate().dateBySubtractingDays(coordinators.count * 7).dateAdjustedForLocalTime()
+        case .Month:
+            if let m = coordinators.last?.dateValue as? Month {
+                return m.startDate.dateBySubtractingDays(1)
+            }
         default:
-            return 0
+            return NSDate()
         }
+        return NSDate()
     }
     
     // MARK: UIScrollViewDelegate

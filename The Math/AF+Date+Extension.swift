@@ -428,9 +428,10 @@ extension NSDate {
         return NSTimeZone.localTimeZone().secondsFromGMT
     }
     
-    func withoutTime(calendar: NSCalendar) -> NSDate {
-      let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: self)
-      return calendar.dateFromComponents(components)!
+    func withoutTime() -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: self)
+        return calendar.dateFromComponents(components)!
     }
     
     func relativeTimeToString() -> String

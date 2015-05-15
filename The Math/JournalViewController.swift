@@ -47,7 +47,6 @@ class JournalEntry {
     }
     
     class func fromJSONRequest(json: [String:AnyObject]) -> JournalEntry {
-        println(json)
         let entry = JournalEntry()
         entry.note = json["note"] as! String
         entry.categories = json["categories"] as! [String]
