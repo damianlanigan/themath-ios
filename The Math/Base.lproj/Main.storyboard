@@ -3296,6 +3296,62 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
             </objects>
             <point key="canvasLocation" x="1828" y="-474"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kHx-PW-3H0">
+            <objects>
+                <navigationController storyboardIdentifier="WebNavigationController" id="d7z-qT-cc2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GxR-TK-Rnp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6OS-s3-aeZ" kind="relationship" relationship="rootViewController" id="5T8-MH-aOn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41p-ht-Kji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3234" y="-1005"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Chh-TH-KQt">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="6OS-s3-aeZ" customClass="WebViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wgb-jj-CST"/>
+                        <viewControllerLayoutGuide type="bottom" id="P82-qP-CHu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GJr-Cu-TuA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRP-Vj-CJn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nRP-Vj-CJn" firstAttribute="top" secondItem="GJr-Cu-TuA" secondAttribute="top" id="43b-Xt-Jas"/>
+                            <constraint firstItem="nRP-Vj-CJn" firstAttribute="leading" secondItem="GJr-Cu-TuA" secondAttribute="leading" id="JXa-w1-Tuc"/>
+                            <constraint firstAttribute="trailing" secondItem="nRP-Vj-CJn" secondAttribute="trailing" id="dtp-T0-64P"/>
+                            <constraint firstItem="P82-qP-CHu" firstAttribute="top" secondItem="nRP-Vj-CJn" secondAttribute="bottom" id="fDy-Zs-kY4"/>
+                            <constraint firstItem="P82-qP-CHu" firstAttribute="top" secondItem="nRP-Vj-CJn" secondAttribute="bottom" id="x7l-NO-N9t"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="x7l-NO-N9t"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="IPe-Fa-IFl"/>
+                    <connections>
+                        <outlet property="webView" destination="nRP-Vj-CJn" id="bb0-Yb-yJF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-hf-HH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3888" y="-1005"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="GsB-up-rLm">
             <objects>
@@ -3326,6 +3382,32 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf4-Gu-g4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3372" y="-323"/>
+        </scene>
+        <!--Vendor Accounts Table View Controller-->
+        <scene sceneID="qvE-xx-e2G">
+            <objects>
+                <tableViewController id="QDD-Db-8qc" customClass="VendorAccountsTableViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wum-Cd-TOk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yaS-8n-KZ2">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yaS-8n-KZ2" id="xXt-Vi-WJW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QDD-Db-8qc" id="pcm-18-ckW"/>
+                            <outlet property="delegate" destination="QDD-Db-8qc" id="VAA-xf-aAS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqr-cl-oPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3096" y="462"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="QgN-CS-YL3">
@@ -3432,6 +3514,9 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QDD-Db-8qc" kind="show" id="GzD-Ic-kvX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

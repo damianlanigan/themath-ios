@@ -28,6 +28,8 @@
 		8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */; };
 		8D0B3FD11AE952E300565DC1 /* NonRotatingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */; };
 		8D0B3FD31AE971E000565DC1 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FD21AE971E000565DC1 /* ChartViewController.swift */; };
+		8D0CE7741B07C000006850CD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CE7731B07C000006850CD /* WebViewController.swift */; };
+		8D0CE7761B07C152006850CD /* VendorAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CE7751B07C152006850CD /* VendorAccountsTableViewController.swift */; };
 		8D25D49F1B06E6AE00859DCB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25D49E1B06E6AE00859DCB /* String.swift */; };
 		8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */; };
 		8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3201A83F2F900B1B503 /* AuthViewController.swift */; };
@@ -103,6 +105,8 @@
 		8D0B3FCE1AE94DA000565DC1 /* DayChartDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartDetailTableViewController.swift; sourceTree = "<group>"; };
 		8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonRotatingNavigationController.swift; sourceTree = "<group>"; };
 		8D0B3FD21AE971E000565DC1 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		8D0CE7731B07C000006850CD /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		8D0CE7751B07C152006850CD /* VendorAccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorAccountsTableViewController.swift; sourceTree = "<group>"; };
 		8D25D49E1B06E6AE00859DCB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8D2CA3201A83F2F900B1B503 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */,
+				8D0CE7731B07C000006850CD /* WebViewController.swift */,
+				8D0CE7751B07C152006850CD /* VendorAccountsTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0CE7761B07C152006850CD /* VendorAccountsTableViewController.swift in Sources */,
 				8D7A6DCB1AE5B1FE00AC2CD8 /* LoveCategoryView.swift in Sources */,
 				8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */,
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
@@ -574,6 +581,7 @@
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */,
+				8D0CE7741B07C000006850CD /* WebViewController.swift in Sources */,
 				8D432CF81B013BD700DCA8AD /* AnimatingCircleView.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,
 				8D00B2031B024D9F0099828C /* ChartViewModel.swift in Sources */,
