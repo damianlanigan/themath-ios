@@ -14,7 +14,7 @@ class FadeAnimationController: NSObject,
     var presenting = false
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.35
+        return presenting ? 0.35 : 0.0
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {

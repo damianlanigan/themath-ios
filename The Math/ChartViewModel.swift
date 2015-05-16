@@ -35,7 +35,7 @@ class ChartViewModel: NSObject,
     }
     
     lazy var view: ChartView = {
-        let v = ChartView(scope: self.scope)
+        let v = ChartView(scope: self.scope, model: self)
         v.chart.delegate = self
         v.chart.dataSource = self
         let text = self.dateValue!.formattedDescription()

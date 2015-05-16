@@ -187,15 +187,19 @@ class Day: TimeRepresentable {
 }
 
 
-let ChartDayMinimumDayAverage = 2
+let ChartDayMinimumDayAverage = 0
 class ChartDay: Day, Chartable {
     let score: Int!
     var entries = [JournalEntry]()
+    lazy var color: UIColor = {
+        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(self.score) / 100.0)
+    }()
     
     init(date: NSDate, score: Int) {
         self.score = score
         super.init(date: date)
     }
+    
 }
 
 protocol ChartViewControllerDelegate: class {
@@ -245,6 +249,10 @@ class ChartViewController: UIViewController,
             coordinator.view.layoutIfNeeded()
             coordinator.view.reloadData()
         }
+    }
+    
+    deinit {
+        println("CHART VIEW CONTROLLER DEINIT")
     }
     
     func becameActive() {

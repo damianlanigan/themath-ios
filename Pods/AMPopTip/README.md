@@ -2,19 +2,14 @@
   <img width="640" height="240" src="assets/logo.png"/>
 </p>
 
-[![Build Status](https://travis-ci.org/andreamazz/AMPopTip.png)](https://travis-ci.org/andreamazz/AMPopTip)
-[![Cocoapods](https://cocoapod-badges.herokuapp.com/v/AMPopTip/badge.png)](http://cocoapods.org/?q=ampoptip)
-[![Analytics](https://ga-beacon.appspot.com/UA-42282237-8/AMPopTip/README)](https://github.com/igrigorik/ga-beacon)
-
+[![Build Status](https://travis-ci.org/andreamazz/AMPopTip.svg)](https://travis-ci.org/andreamazz/AMPopTip)
+[![Cocoapods](https://cocoapod-badges.herokuapp.com/v/AMPopTip/badge.svg)](http://cocoapods.org/?q=ampoptip)
 
 Animated popover that pops out of a frame. You can specify the direction of the popover and the arrow that points to its origin. Color, border radius and font can be easily customized. 
-This popover can be used to leave subtle hints about your UI and provide fun looking onboarding popups.
-
+This popover can be used to leave subtle hints about your UI and provide fun looking onboarding popups.  
 
 #Screenshot
 ![AMPopTip](https://raw.githubusercontent.com/andreamazz/AMPopTip/master/assets/screenshot.gif)
-
-
 
 #Setup
 * Add ```pod 'AMPopTip'``` to your ```Podfile```
@@ -68,6 +63,53 @@ self.popTip.dismissHandler = ^{
 };
 ```
 
+#Custom entrance animation
+You can choose which animation should be performed when the poptip is displayed:
+```objc
+self.popTip.entranceAnimation = AMPopTipEntranceAnimationScale;
+```
+Available animations:
+```objc
+AMPopTipEntranceAnimationScale,
+AMPopTipEntranceAnimationTransition,
+AMPopTipEntranceAnimationNone,
+AMPopTipEntranceAnimationCustom
+```
+
+##AMPopTipEntranceAnimationCustom
+You can provide your own animation block when using `AMPopTipEntranceAnimationCustom`:
+```objc
+self.popTip.entranceAnimation = AMPopTipEntranceAnimationCustom;
+__weak AMViewController *weakSelf = self;
+self.popTip.entranceAnimationHandler = ^(void (^completion)(void)){
+    // Setup the animation
+    weakSelf.popTip.transform = CGAffineTransformMakeRotation(M_PI);
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:1.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^{
+        weakSelf.popTip.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL done){
+        completion();
+    }];
+}; 
+```
+This sample makes the poptip rotate on entrance. Make sure to call the completion block when the animation is done. Also note that the animation is fired as soon as the poptip is added as subview.
+
+#Action animations
+Action animations are subtle animations that can be performed to get the user's attention. 
+Set your preferred animation:
+```objc
+self.popTip.actionAnimation = AMPopTipActionAnimationBounce;
+```
+Available animations:
+```objc
+AMPopTipActionAnimationBounce,
+AMPopTipActionAnimationFloat,
+AMPopTipActionAnimationPulse,
+AMPopTipActionAnimationNone
+```
+The animation is fired as soon as the popover enters the scene and completes its entrance animation.
+
+![AMPopTip bounce](assets/bounce_effect.gif)
+
 #Customization
 Use the appearance proxy to customize the popover before creating the instance, or just use its public properties:
 ```objc
@@ -79,11 +121,17 @@ Use the appearance proxy to customize the popover before creating the instance, 
 [[AMPopTip appearance] setArrowSize:<#CGSize#>];
 [[AMPopTip appearance] setAnimationIn:<#NSInterval#>];
 [[AMPopTip appearance] setAnimationOut:<#NSInterval#>];
+[[AMPopTip appearance] setBounce:<#BOOL#>];
+[[AMPopTip appearance] setBounceOffset:<#NSInterval#>];
+[[AMPopTip appearance] setBounceAnimationIn:<#NSInterval#>];
+[[AMPopTip appearance] setBounceAnimationOut:<#NSInterval#>];
+[[AMPopTip appearance] setBounceDelayIn:<#NSInterval#>];
+[[AMPopTip appearance] setBounceDelayOut:<#NSInterval#>];
 ```
 
 #MIT License
 
-	Copyright (c) 2014 Andrea Mazzini. All rights reserved.
+	Copyright (c) 2015 Andrea Mazzini. All rights reserved.
 
 	Permission is hereby granted, free of charge, to any person obtaining a
 	copy of this software and associated documentation files (the "Software"),
