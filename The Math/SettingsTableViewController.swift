@@ -15,6 +15,9 @@ protocol SettingsTableViewControllerDelegate: class {
 class SettingsTableViewController: UITableViewController {
     
     weak var delegate: SettingsTableViewControllerDelegate?
+    var selectedIdx: Int?
+    let titles = ["About", "Privacy Policy", "Terms of Service"]
+    let urls = ["http://something.com", "http://something.com", "http://something.com"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,16 @@ class SettingsTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = button
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let idx = selectedIdx {
+            if let viewController = segue.destinationViewController as? WebViewController {
+                println(idx)
+                viewController.navigationTitle = titles[idx]
+                viewController.url = NSURL(string: urls[idx])
+            }
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 {
             Account.sharedAccount().logout({
@@ -31,6 +44,12 @@ class SettingsTableViewController: UITableViewController {
                 self.delegate?.didLogout()
             })
         }
+        
+        if indexPath.section == 1 {
+            selectedIdx = indexPath.row
+            performSegueWithIdentifier("ShowWebController", sender: self)
+        }
+        
     }
     
     func dismiss() {

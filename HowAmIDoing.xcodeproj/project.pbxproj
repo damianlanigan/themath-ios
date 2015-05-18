@@ -57,6 +57,7 @@
 		8D9138781AE85D7B0090C53C /* WeekChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138751AE85D7B0090C53C /* WeekChartViewController.swift */; };
 		8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138761AE85D7B0090C53C /* DayChartViewController.swift */; };
 		8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */; };
+		8D916E591B0A77F9001C4F0F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */; };
 		8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB132D61AEAF97600021C40 /* Alamofire.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
 		8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */; };
@@ -135,6 +136,7 @@
 		8D9138751AE85D7B0090C53C /* WeekChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekChartViewController.swift; sourceTree = "<group>"; };
 		8D9138761AE85D7B0090C53C /* DayChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartViewController.swift; sourceTree = "<group>"; };
 		8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthChartViewController.swift; sourceTree = "<group>"; };
+		8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		8DB132D61AEAF97600021C40 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */,
 				8D0CE7731B07C000006850CD /* WebViewController.swift */,
 				8D0CE7751B07C152006850CD /* VendorAccountsTableViewController.swift */,
+				8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
 				8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */,
+				8D916E591B0A77F9001C4F0F /* EditProfileTableViewController.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
 				8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */,
 				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,

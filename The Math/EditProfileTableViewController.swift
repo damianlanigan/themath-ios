@@ -1,19 +1,19 @@
 //
-//  VendorAccountsTableViewController.swift
+//  EditProfileTableViewController.swift
 //  HowAmIDoing
 //
-//  Created by Michael Kavouras on 5/16/15.
+//  Created by Michael Kavouras on 5/18/15.
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
 import UIKit
 
-class VendorAccountsTableViewController: UITableViewController {
+class EditProfileTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "Link Accounts"
+
+        navigationItem.title = "Edit Profile"
     }
 
     // MARK: - Table view data source
