@@ -19,7 +19,7 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://mikekavouras.com")!))
+        webView.loadRequest(NSURLRequest(URL: url))
     }
     
     override func viewWillAppear(animated: Bool) {

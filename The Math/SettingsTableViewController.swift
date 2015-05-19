@@ -17,7 +17,7 @@ class SettingsTableViewController: UITableViewController {
     weak var delegate: SettingsTableViewControllerDelegate?
     var selectedIdx: Int?
     let titles = ["About", "Privacy Policy", "Terms of Service"]
-    let urls = ["http://something.com", "http://something.com", "http://something.com"]
+    let urls = ["http://damianlanigan.github.io/about", "http://damianlanigan.github.io/privacy", "http://damianlanigan.github.io/terms"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
