@@ -87,7 +87,11 @@ class InfographViewController: UIViewController,
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("ChartDetailViewController") as! ChartDetailViewController
         viewController.hour = hour
-        presentViewController(viewController, animated: true, completion: nil)
+        
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [viewController]
+
+        presentViewController(navigationController, animated: true, completion: nil)
     }
     
     // MARK: Utility

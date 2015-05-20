@@ -65,6 +65,7 @@
 		8DE676291B0D2966002ECFDF /* ChartDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE676281B0D2966002ECFDF /* ChartDetailView.xib */; };
 		8DE6762B1B0D2988002ECFDF /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6762A1B0D2988002ECFDF /* ChartDetailView.swift */; };
 		8DE6762D1B0D2999002ECFDF /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6762C1B0D2999002ECFDF /* ChartDetailViewController.swift */; };
+		8DE676331B0D305A002ECFDF /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE676321B0D305A002ECFDF /* CircleProgressView.swift */; };
 		8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */; };
 		8DF1274A1A8ACAEB000B5C4A /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF127491A8ACAEB000B5C4A /* Analytics.swift */; };
 		8DF7C1AF1B0D0DDD009EFFAA /* ChartFooterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7C1AE1B0D0DDD009EFFAA /* ChartFooterLabel.swift */; };
@@ -163,6 +164,7 @@
 		8DE676281B0D2966002ECFDF /* ChartDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartDetailView.xib; sourceTree = "<group>"; };
 		8DE6762A1B0D2988002ECFDF /* ChartDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		8DE6762C1B0D2999002ECFDF /* ChartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDetailViewController.swift; sourceTree = "<group>"; };
+		8DE676321B0D305A002ECFDF /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskAnimationController.swift; sourceTree = "<group>"; };
 		8DF127491A8ACAEB000B5C4A /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		8DF7C1AE1B0D0DDD009EFFAA /* ChartFooterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartFooterLabel.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				8D9138711AE85CC10090C53C /* BarView.xib */,
 				8DE676281B0D2966002ECFDF /* ChartDetailView.xib */,
 				8DE6762A1B0D2988002ECFDF /* ChartDetailView.swift */,
+				8DE676321B0D305A002ECFDF /* CircleProgressView.swift */,
 			);
 			name = Chart;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				8D7A6DD11AE5B2C600AC2CD8 /* SocialCategoryView.swift in Sources */,
 				8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */,
 				27A542B11A48BAFA00CC7CA6 /* Colors.swift in Sources */,
+				8DE676331B0D305A002ECFDF /* CircleProgressView.swift in Sources */,
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				8DE6762B1B0D2988002ECFDF /* ChartDetailView.swift in Sources */,
 				8DE6762D1B0D2999002ECFDF /* ChartDetailViewController.swift in Sources */,

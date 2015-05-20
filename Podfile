@@ -5,6 +5,5 @@ use_frameworks!
 pod 'KeychainAccess'
 pod 'AMPopTip'
 pod 'JBChartView'
-pod 'CircleProgressView'
 
 # pod 'Reveal-iOS-SDK'

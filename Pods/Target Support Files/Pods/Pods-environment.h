@@ -12,12 +12,6 @@
 #define COCOAPODS_VERSION_MINOR_AMPopTip 9
 #define COCOAPODS_VERSION_PATCH_AMPopTip 0
 
-// CircleProgressView
-#define COCOAPODS_POD_AVAILABLE_CircleProgressView
-#define COCOAPODS_VERSION_MAJOR_CircleProgressView 1
-#define COCOAPODS_VERSION_MINOR_CircleProgressView 0
-#define COCOAPODS_VERSION_PATCH_CircleProgressView 5
-
 // JBChartView
 #define COCOAPODS_POD_AVAILABLE_JBChartView
 #define COCOAPODS_VERSION_MAJOR_JBChartView 2

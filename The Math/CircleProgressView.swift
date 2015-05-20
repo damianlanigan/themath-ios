@@ -8,8 +8,9 @@
 
 import UIKit
 
-@objc @IBDesignable public class CircleProgressView: UIView {
-
+@IBDesignable
+public class CircleProgressView: UIView {
+    
     internal struct Constants {
         let circleDegress = 360.0
         let minimumValue = 0.000001
@@ -18,63 +19,63 @@ import UIKit
         let twoSeventyDegrees = 270.0
         var contentView:UIView = UIView()
     }
-
+    
     let constants = Constants()
     private var internalProgress:Double = 0.0
-
+    
     @IBInspectable public var progress: Double = 0.000001 {
         didSet {
             internalProgress = progress
             setNeedsDisplay()
         }
     }
-
+    
     @IBInspectable public var clockwise: Bool = true {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackWidth: CGFloat = 10 {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackImage: UIImage? {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackBackgroundColor: UIColor = UIColor.grayColor() {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackFillColor: UIColor = UIColor.blueColor() {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackBorderColor:UIColor = UIColor.clearColor() {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var trackBorderWidth: CGFloat = 0 {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var centerFillColor: UIColor = UIColor.whiteColor() {
         didSet { setNeedsDisplay() }
     }
-
+    
     @IBInspectable public var contentView: UIView {
         return self.constants.contentView
     }
-
+    
     required override public init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(contentView)
     }
-
+    
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.addSubview(contentView)
     }
-
+    
     override public func drawRect(rect: CGRect) {
         
         super.drawRect(rect)
@@ -84,8 +85,8 @@ import UIKit
         internalProgress = (internalProgress/1.0) == 0.0 ? constants.minimumValue : progress
         internalProgress = (internalProgress/1.0) == 1.0 ? constants.maximumValue : progress
         internalProgress = clockwise ?
-                                (-constants.twoSeventyDegrees + ((1.0 - internalProgress) * constants.circleDegress)) :
-                                (constants.ninetyDegrees - ((1.0 - internalProgress) * constants.circleDegress))
+            (-constants.twoSeventyDegrees + ((1.0 - internalProgress) * constants.circleDegress)) :
+            (constants.ninetyDegrees - ((1.0 - internalProgress) * constants.circleDegress))
         
         let context = UIGraphicsGetCurrentContext()
         
