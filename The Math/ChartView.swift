@@ -16,7 +16,7 @@ class ChartView: UIView {
     weak var model: ChartViewModel!
     
     lazy var chart: JBChartView = {
-        let c = self.scope == CalendarScope.Day ? JBLineChartView() : JBBarChartView()
+        let c = JBBarChartView()
         c.minimumValue = 1.0
         c.maximumValue = 100.0
         return c
@@ -39,10 +39,6 @@ class ChartView: UIView {
         return activity
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     init(scope: CalendarScope, model: ChartViewModel) {
         self.scope = scope
         self.model = model
@@ -63,10 +59,11 @@ class ChartView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         loader.center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
+        
         // date label height = 17
         // footer height = 20
         chart.frame = CGRectMake(16, 32, frame.size.width - 32, frame.size.height - 52 - (chart.footerPadding * 2.0))
-        let padding: CGFloat = (scope == .Month || scope == .Day) ? 14.0 : 0.0
+        let padding: CGFloat = (scope == CalendarScope.Month || scope == CalendarScope.Day) ? 14.0 : 0.0
         chartFooterView().frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
         
         var labelCount = chartFooterView().subviews.filter { $0.isKindOfClass(UILabel.self) }.count

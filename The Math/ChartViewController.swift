@@ -251,10 +251,6 @@ class ChartViewController: UIViewController,
         }
     }
     
-    deinit {
-        println("CHART VIEW CONTROLLER DEINIT")
-    }
-    
     func becameActive() {
         println("became active: \(scope.rawValue)")
     }

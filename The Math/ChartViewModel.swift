@@ -176,6 +176,9 @@ class ChartViewModel: NSObject,
     // MARK: Chart BAR
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
+        if let day = chartableDateValue as? ChartDay {
+            return UInt(day.entries.count)
+        }
         if let week = chartableDateValue as? ChartWeek {
             return UInt(week.days.count)
         }
@@ -187,6 +190,9 @@ class ChartViewModel: NSObject,
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
         let idx = Int(index)
+        if let day = chartableDateValue as? ChartDay {
+            return CGFloat(day.score)
+        }
         if let week = chartableDateValue as? ChartWeek {
             return CGFloat(week.days[idx].score)
         }
@@ -210,6 +216,11 @@ class ChartViewModel: NSObject,
         if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
             let idx = Int(index)
             
+            if let day = chartableDateValue as? ChartDay {
+                let perc = CGFloat(day.entries[idx].score) / 100.0
+                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+            }
+            
             if let week = chartableDateValue as? ChartWeek {
                 let perc = CGFloat(week.days[idx].score) / 100.0
                 view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
@@ -226,10 +237,11 @@ class ChartViewModel: NSObject,
     }
     
     func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
-        if let week = chartableDateValue as? ChartWeek {
+        if let day = chartableDateValue as? ChartDay {
+            return 10.0
+        } else if let week = chartableDateValue as? ChartWeek {
           return 30.0
-        }
-        if let month = chartableDateValue as? ChartMonth {
+        } else if let month = chartableDateValue as? ChartMonth {
             return 4.0
         }
         return 0
