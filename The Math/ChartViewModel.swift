@@ -10,8 +10,6 @@ import Foundation
 import JBChartView
 
 class ChartViewModel: NSObject,
-    JBLineChartViewDelegate,
-    JBLineChartViewDataSource,
     JBBarChartViewDataSource,
     JBBarChartViewDelegate {
     
@@ -177,7 +175,7 @@ class ChartViewModel: NSObject,
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let day = chartableDateValue as? ChartDay {
-            return UInt(day.entries.count)
+            return UInt(day.hours.count)
         }
         if let week = chartableDateValue as? ChartWeek {
             return UInt(week.days.count)
@@ -191,7 +189,7 @@ class ChartViewModel: NSObject,
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
         let idx = Int(index)
         if let day = chartableDateValue as? ChartDay {
-            return CGFloat(day.score)
+            return CGFloat(day.hours[idx].score)
         }
         if let week = chartableDateValue as? ChartWeek {
             return CGFloat(week.days[idx].score)
@@ -202,22 +200,13 @@ class ChartViewModel: NSObject,
         return 0
     }
     
-    func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
-//        selectedIdx = Int(index)
-    }
-    
-    func didDeselectBarChartView(barChartView: JBBarChartView!) {
-//        if let idx = selectedIdx {
-//            delegate?.didSelectDay(idx)
-//        }
-    }
     
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
         if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
             let idx = Int(index)
             
             if let day = chartableDateValue as? ChartDay {
-                let perc = CGFloat(day.entries[idx].score) / 100.0
+                let perc = CGFloat(day.hours[idx].score) / 100.0
                 view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
             }
             
@@ -238,7 +227,7 @@ class ChartViewModel: NSObject,
     
     func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
         if let day = chartableDateValue as? ChartDay {
-            return 10.0
+            return 8.0
         } else if let week = chartableDateValue as? ChartWeek {
           return 30.0
         } else if let month = chartableDateValue as? ChartMonth {
@@ -247,55 +236,13 @@ class ChartViewModel: NSObject,
         return 0
     }
     
-    // MARK: Chart LINE
-    
-    func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
-        if let day = chartableDateValue as? ChartDay {
-            return 1
-        }
-        return 0
+    func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
+//        selectedIdx = Int(index)
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        if let day = chartableDateValue as? ChartDay {
-            return UInt(day.entries.count)
-        }
-        return 0
+    func didDeselectBarChartView(barChartView: JBBarChartView!) {
+//        if let idx = selectedIdx {
+//            delegate?.didSelectDay(idx)
+//        }
     }
-    
-    func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        if let day = chartableDateValue as? ChartDay {
-            let hIdx = Int(horizontalIndex)
-            return CGFloat(day.entries[hIdx].score)
-        }
-        return 0
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
-        return true
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
-        return true
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
-        return 3.0
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.blackColor().colorWithAlphaComponent(0.3)
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        
-        if let day = chartableDateValue as? ChartDay {
-            let lIdx = Int(lineIndex)
-            let hIdx = Int(horizontalIndex)
-            return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(day.entries[hIdx].score) / 100.0)
-        }
-
-        return UIColor.blackColor()
-    }
-
 }

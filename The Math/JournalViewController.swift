@@ -17,6 +17,7 @@ class JournalEntry {
     var timestamp: NSDate!
     var lat: Double?
     var lng: Double?
+    var userGenerated = true
     
     func save(completion: () -> Void) {
         request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
