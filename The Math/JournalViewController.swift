@@ -239,6 +239,7 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         
         formatter.dateFormat = "a"
         let aORp = formatter.stringFromDate(date)
+        
         return "\(weekday) • \(hour):\(minute) \(aORp)"
     }
 
