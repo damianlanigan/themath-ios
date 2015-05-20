@@ -229,7 +229,6 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         
         formatter.dateFormat = "mm"
         var minute = formatter.stringFromDate(date)
-        minute = count(minute) < 2 ? "0\(minute)" : minute
         
         formatter.dateFormat = "h"
         var hour = formatter.stringFromDate(date)
