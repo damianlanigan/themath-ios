@@ -13,7 +13,7 @@ class VendorAccountsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Link Accounts"
+        navigationItem.title = "Linked Accounts"
     }
     
 }

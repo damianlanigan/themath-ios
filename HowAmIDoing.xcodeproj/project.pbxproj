@@ -914,7 +914,7 @@
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HowAmIDoingTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowAmIDoing.app/HowAmIDoing";
 			};
 			name = Debug;
 		};
@@ -929,7 +929,7 @@
 				INFOPLIST_FILE = "The MathTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HowAmIDoingTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Math.app/The Math";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowAmIDoing.app/HowAmIDoing";
 			};
 			name = Release;
 		};
