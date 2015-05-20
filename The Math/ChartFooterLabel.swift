@@ -10,12 +10,7 @@ import UIKit
 
 class ChartFooterLabel: UILabel {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+    var leftPadding: CGFloat = 0.0
+    var rightPadding: CGFloat = 0.0
 
 }

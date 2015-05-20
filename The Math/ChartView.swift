@@ -64,21 +64,22 @@ class ChartView: UIView {
         // footer height = 20
         chart.frame = CGRectMake(16, 32, frame.size.width - 32, frame.size.height - 52 - (chart.footerPadding * 2.0))
         let padding: CGFloat = scope == CalendarScope.Month ? 14.0 : (scope == CalendarScope.Day ? 12.0 : 0.0)
-        chartFooterView().frame = CGRectMake(chart.frame.origin.x, chart.frame.size.height + chart.frame.origin.y + 1, chart.frame.size.width, 20.0)
+        chartFooterView().frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
         
         var labelCount = chartFooterView().subviews.filter { $0.isKindOfClass(UILabel.self) }.count
         let labelWidth = chartFooterView().frame.size.width / CGFloat(labelCount)
         for (idx, view) in enumerate(chartFooterView().subviews) {
             if let label = view as? UILabel {
-                label.textColor = xAxisLabelColor(idx)
-                label.frame = CGRectMake(CGFloat(idx) * labelWidth, 0, labelWidth, chartFooterView().frame.size.height)
+                label.textColor = UIColor.grayColor()
+                
+                let yOffset: CGFloat = 0.0
+                let width = labelWidth
+                let xOffset = CGFloat(idx) * width
+                let height: CGFloat = 20.0
+                label.frame = CGRectMake(xOffset, yOffset, width, height)
             }
         }
         timeLabel.center.x = frame.size.width / 2.0
-    }
-    
-    private func xAxisLabelColor(idx: Int) -> UIColor {
-        return UIColor.grayColor()
     }
     
     func reloadData() {
@@ -105,20 +106,22 @@ class ChartView: UIView {
     
     private func dayFooterView() -> UIView {
         let v = UIView()
-        
         var labels = [UILabel]()
         
         var hours = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+        
         for i in hours {
-            let label = UILabel()
-            label.text = i
-            label.textAlignment = .Center
-            labels.append(label)
+            let l = ChartFooterLabel()
+            l.leftPadding = 4.0
+            l.rightPadding = 4.0
+            l.text = i
+            l.textAlignment = .Center
+            labels.append(l)
         }
         
         for label in labels {
             label.textColor = UIColor.lightGrayColor()
-            label.font = UIFont(name: "AvenirNext-Medium", size: 12)
+            label.font = UIFont(name: CabritoSansFontName, size: 12)
             v.addSubview(label)
         }
         
@@ -129,9 +132,9 @@ class ChartView: UIView {
         let v = UIView()
         let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         for i in 0..<7 {
-            let l = UILabel()
+            let l = ChartFooterLabel()
             l.textAlignment = .Center
-            l.font = UIFont(name: "AvenirNext-Medium", size: 12.0)
+            l.font = UIFont(name: CabritoSansFontName, size: 12.0)
             l.text = days[i]
             l.textColor = UIColor.whiteColor()
             v.addSubview(l)
@@ -143,9 +146,9 @@ class ChartView: UIView {
         let v = UIView()
         let month = (self.model.dateValue as! Month)
         for i in 0..<month.dayCount {
-            let l = UILabel()
+            let l = ChartFooterLabel()
             l.textAlignment = .Center
-            l.font = UIFont(name: "AvenirNext-Medium", size: 12.0)
+            l.font = UIFont(name: CabritoSansFontName, size: 12.0)
             l.textColor = UIColor.lightGrayColor()
             
             let date = month.startDate.dateByAddingDays(i)

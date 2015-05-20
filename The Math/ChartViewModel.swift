@@ -237,7 +237,16 @@ class ChartViewModel: NSObject,
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
-//        selectedIdx = Int(index)
+        let idx = Int(index)
+        if let day = chartableDateValue as? ChartDay {
+            if day.hours[idx].entries.count > 0 {
+                if day.hours[idx].entries[0].userGenerated {
+                    println("show that")
+                } else {
+                    println("filler")
+                }
+            }
+        }
     }
     
     func didDeselectBarChartView(barChartView: JBBarChartView!) {

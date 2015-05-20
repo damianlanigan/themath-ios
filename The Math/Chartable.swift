@@ -222,14 +222,15 @@ class ChartDay: Day, Chartable {
         }
         
         var hours = chartHours.map { $0.hour }
-        for i in 0..<24 {
+        for i in 0..<25 {
             if find(hours, i) == nil {
                 
                 let j = JournalEntry()
-                j.score = 5
+                j.score = ChartDayMinimumDayAverage
                 let c = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: rawDate)
                 c.setValue(i, forComponent: .CalendarUnitHour)
                 j.timestamp = NSCalendar.currentCalendar().dateFromComponents(c)
+                j.userGenerated = false
                 
                 let h = ChartHour()
                 h.hour = i
