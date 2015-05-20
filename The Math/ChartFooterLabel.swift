@@ -10,7 +10,4 @@ import UIKit
 
 class ChartFooterLabel: UILabel {
 
-    var leftPadding: CGFloat = 0.0
-    var rightPadding: CGFloat = 0.0
-
 }

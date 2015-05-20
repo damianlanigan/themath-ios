@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -3371,7 +3372,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41p-ht-Kji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3234" y="-1005"/>
+            <point key="canvasLocation" x="3050" y="-1377"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Chh-TH-KQt">
@@ -3412,6 +3413,24 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-hf-HH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2824" y="1097"/>
+        </scene>
+        <!--Chart Detail View Controller-->
+        <scene sceneID="XfP-Wd-hVN">
+            <objects>
+                <viewController storyboardIdentifier="ChartDetailViewController" id="Sbh-b5-EAp" customClass="ChartDetailViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YcK-xw-9Eg"/>
+                        <viewControllerLayoutGuide type="bottom" id="TWq-xH-SQ7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EU6-Sc-gMI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueO-N2-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3866" y="-1125"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="GsB-up-rLm">
@@ -3533,14 +3552,14 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <exclude reference="DZ8-0S-w0r"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="Kmi-At-sCE"/>
-                                                    <exclude reference="Vqq-Hl-Qqz"/>
-                                                    <exclude reference="eG8-7l-SZ3"/>
                                                     <exclude reference="Md9-qj-uCC"/>
                                                     <exclude reference="TAb-3g-sWx"/>
                                                     <exclude reference="WS5-Qo-E0C"/>
                                                     <exclude reference="Xzg-un-9q3"/>
                                                     <exclude reference="ncb-fe-9aK"/>
+                                                    <exclude reference="Kmi-At-sCE"/>
+                                                    <exclude reference="Vqq-Hl-Qqz"/>
+                                                    <exclude reference="eG8-7l-SZ3"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3549,14 +3568,14 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <include reference="DZ8-0S-w0r"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="Kmi-At-sCE"/>
-                                                    <include reference="Vqq-Hl-Qqz"/>
-                                                    <include reference="eG8-7l-SZ3"/>
                                                     <include reference="Md9-qj-uCC"/>
                                                     <include reference="TAb-3g-sWx"/>
                                                     <include reference="WS5-Qo-E0C"/>
                                                     <include reference="Xzg-un-9q3"/>
                                                     <include reference="ncb-fe-9aK"/>
+                                                    <include reference="Kmi-At-sCE"/>
+                                                    <include reference="Vqq-Hl-Qqz"/>
+                                                    <include reference="eG8-7l-SZ3"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3611,13 +3630,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <exclude reference="im9-fd-4Mi"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="DZc-9a-gMt"/>
-                                                    <exclude reference="kjL-Jr-Vz7"/>
-                                                    <exclude reference="qn2-j0-VdB"/>
                                                     <exclude reference="ZWS-ln-Hfu"/>
                                                     <exclude reference="aO2-Co-3vE"/>
                                                     <exclude reference="hGK-YZ-4ht"/>
                                                     <exclude reference="mjX-L9-nLy"/>
+                                                    <exclude reference="DZc-9a-gMt"/>
+                                                    <exclude reference="kjL-Jr-Vz7"/>
+                                                    <exclude reference="qn2-j0-VdB"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3626,13 +3645,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <include reference="im9-fd-4Mi"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="DZc-9a-gMt"/>
-                                                    <include reference="kjL-Jr-Vz7"/>
-                                                    <include reference="qn2-j0-VdB"/>
                                                     <include reference="ZWS-ln-Hfu"/>
                                                     <include reference="aO2-Co-3vE"/>
                                                     <include reference="hGK-YZ-4ht"/>
                                                     <include reference="mjX-L9-nLy"/>
+                                                    <include reference="DZc-9a-gMt"/>
+                                                    <include reference="kjL-Jr-Vz7"/>
+                                                    <include reference="qn2-j0-VdB"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3656,14 +3675,14 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="f4h-Ih-Bm8"/>
                                                             <exclude reference="YTI-Zy-8fE"/>
+                                                            <exclude reference="f4h-Ih-Bm8"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="f4h-Ih-Bm8"/>
                                                             <include reference="YTI-Zy-8fE"/>
+                                                            <include reference="f4h-Ih-Bm8"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
@@ -3685,13 +3704,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <exclude reference="M0F-6v-nuA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="AwF-Oc-zeO"/>
-                                                    <exclude reference="qta-j4-bJB"/>
-                                                    <exclude reference="zWW-pU-TpD"/>
                                                     <exclude reference="FAW-OR-IY9"/>
                                                     <exclude reference="K1p-1h-QKO"/>
                                                     <exclude reference="QXZ-ld-ZRn"/>
                                                     <exclude reference="oFm-TI-L2a"/>
+                                                    <exclude reference="AwF-Oc-zeO"/>
+                                                    <exclude reference="qta-j4-bJB"/>
+                                                    <exclude reference="zWW-pU-TpD"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3700,13 +3719,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <include reference="M0F-6v-nuA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="AwF-Oc-zeO"/>
-                                                    <include reference="qta-j4-bJB"/>
-                                                    <include reference="zWW-pU-TpD"/>
                                                     <include reference="FAW-OR-IY9"/>
                                                     <include reference="K1p-1h-QKO"/>
                                                     <include reference="QXZ-ld-ZRn"/>
                                                     <include reference="oFm-TI-L2a"/>
+                                                    <include reference="AwF-Oc-zeO"/>
+                                                    <include reference="qta-j4-bJB"/>
+                                                    <include reference="zWW-pU-TpD"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3759,13 +3778,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <exclude reference="bvT-Kj-m6n"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="brn-xc-zFH"/>
-                                                    <exclude reference="eW9-1w-678"/>
-                                                    <exclude reference="zDw-TV-RFl"/>
                                                     <exclude reference="416-MD-Bti"/>
                                                     <exclude reference="ELb-zj-5jq"/>
                                                     <exclude reference="p0W-6g-VBD"/>
                                                     <exclude reference="vp2-Mt-QgT"/>
+                                                    <exclude reference="brn-xc-zFH"/>
+                                                    <exclude reference="eW9-1w-678"/>
+                                                    <exclude reference="zDw-TV-RFl"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3774,13 +3793,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <include reference="bvT-Kj-m6n"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="brn-xc-zFH"/>
-                                                    <include reference="eW9-1w-678"/>
-                                                    <include reference="zDw-TV-RFl"/>
                                                     <include reference="416-MD-Bti"/>
                                                     <include reference="ELb-zj-5jq"/>
                                                     <include reference="p0W-6g-VBD"/>
                                                     <include reference="vp2-Mt-QgT"/>
+                                                    <include reference="brn-xc-zFH"/>
+                                                    <include reference="eW9-1w-678"/>
+                                                    <include reference="zDw-TV-RFl"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3833,13 +3852,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <exclude reference="3ow-lr-fzA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="8Is-6v-q81"/>
-                                                    <exclude reference="UdJ-bh-OZL"/>
-                                                    <exclude reference="X1c-U8-Jfa"/>
                                                     <exclude reference="Eyl-Hu-6KY"/>
                                                     <exclude reference="Jma-Uy-fl7"/>
                                                     <exclude reference="T23-aJ-z40"/>
                                                     <exclude reference="VZJ-VP-XBv"/>
+                                                    <exclude reference="8Is-6v-q81"/>
+                                                    <exclude reference="UdJ-bh-OZL"/>
+                                                    <exclude reference="X1c-U8-Jfa"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3848,13 +3867,13 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                                                     <include reference="3ow-lr-fzA"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="8Is-6v-q81"/>
-                                                    <include reference="UdJ-bh-OZL"/>
-                                                    <include reference="X1c-U8-Jfa"/>
                                                     <include reference="Eyl-Hu-6KY"/>
                                                     <include reference="Jma-Uy-fl7"/>
                                                     <include reference="T23-aJ-z40"/>
                                                     <include reference="VZJ-VP-XBv"/>
+                                                    <include reference="8Is-6v-q81"/>
+                                                    <include reference="UdJ-bh-OZL"/>
+                                                    <include reference="X1c-U8-Jfa"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3921,7 +3940,7 @@ Choose from a few broad categories to start. Soon you'll be able to track custom
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDl-kD-Zp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="-1005"/>
+            <point key="canvasLocation" x="2342" y="-1377"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="xII-wb-lPA">

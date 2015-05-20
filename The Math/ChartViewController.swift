@@ -8,14 +8,15 @@
 
 import UIKit
 
-protocol ChartViewControllerDelegate: class {
-    func didSelectMoment(entry: JournalEntry)
+protocol ChartDelegate: class {
     func didSelectDay(day: Int)
     func didSelectWeek(week: Int)
+    func didSelectHour(hour: ChartHour)
 }
 
 class ChartViewController: UIViewController,
-    UIScrollViewDelegate {
+    UIScrollViewDelegate,
+    ChartDelegate {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -23,7 +24,7 @@ class ChartViewController: UIViewController,
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     
-    weak var delegate: ChartViewControllerDelegate?
+    weak var delegate: ChartDelegate?
     var editingScrollView = false
     var scope: CalendarScope = .Undefined
     
@@ -78,6 +79,7 @@ class ChartViewController: UIViewController,
     private func loadNextChartView() {
         let coordinator = ChartViewModel(scope: scope)
         coordinator.date = nextDate()
+        coordinator.delegate = self
         coordinators.append(coordinator)
         contentView.addSubview(coordinator.view)
         
@@ -111,5 +113,17 @@ class ChartViewController: UIViewController,
             editingScrollView = true
             loadNextChartView()
         }
+    }
+    
+    func didSelectWeek(week: Int) {
+        delegate?.didSelectWeek(week)
+    }
+    
+    func didSelectDay(day: Int) {
+        delegate?.didSelectDay(day)
+    }
+    
+    func didSelectHour(hour: ChartHour) {
+        delegate?.didSelectHour(hour)
     }
 }

@@ -112,8 +112,6 @@ class ChartView: UIView {
         
         for i in hours {
             let l = ChartFooterLabel()
-            l.leftPadding = 4.0
-            l.rightPadding = 4.0
             l.text = i
             l.textAlignment = .Center
             labels.append(l)

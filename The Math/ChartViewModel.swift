@@ -18,6 +18,10 @@ class ChartViewModel: NSObject,
     var dateValue: TimeRepresentable?
     var chartableDateValue: Chartable?
     
+    var selectedBarIdx: Int?
+    
+    weak var delegate: ChartDelegate?
+    
     var date: NSDate! {
         didSet {
             assert(scope != .Undefined, "Cannot set date without a scope")
@@ -241,7 +245,7 @@ class ChartViewModel: NSObject,
         if let day = chartableDateValue as? ChartDay {
             if day.hours[idx].entries.count > 0 {
                 if day.hours[idx].entries[0].userGenerated {
-                    println("show that")
+                    selectedBarIdx = idx
                 } else {
                     println("filler")
                 }
@@ -250,8 +254,10 @@ class ChartViewModel: NSObject,
     }
     
     func didDeselectBarChartView(barChartView: JBBarChartView!) {
-//        if let idx = selectedIdx {
-//            delegate?.didSelectDay(idx)
-//        }
+        if let idx = selectedBarIdx {
+            if let day = chartableDateValue as? ChartDay {
+                delegate?.didSelectHour(day.hours[idx])
+            }
+        }
     }
 }

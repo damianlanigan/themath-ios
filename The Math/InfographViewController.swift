@@ -9,7 +9,7 @@
 import UIKit
 
 class InfographViewController: UIViewController,
-    ChartViewControllerDelegate {
+    ChartDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var graphContainer: UIView!
@@ -70,28 +70,24 @@ class InfographViewController: UIViewController,
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let navController = segue.destinationViewController as? UINavigationController {
-            if let viewController = navController.viewControllers[0] as? DayChartDetailTableViewController {
-                viewController.entry = entry!
-            }
-        }
-    }
-    
     // MARK: <ChartViewControllerDelegate>
     
-    func didSelectMoment(entry: JournalEntry) {
-        orientationLocked = true
-        self.entry = entry
-        performSegueWithIdentifier("PresentDayDetail", sender: self)
-    }
-    
     func didSelectDay(day: Int) {
+        println("selected day: \(day)")
         navigateToViewControllerAtIndex(0)
     }
     
     func didSelectWeek(week: Int) {
+        println("selected week: \(week)")
         navigateToViewControllerAtIndex(1)
+    }
+    
+    func didSelectHour(hour: ChartHour) {
+        println("selected hour: \(hour)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("ChartDetailViewController") as! ChartDetailViewController
+        viewController.hour = hour
+        presentViewController(viewController, animated: true, completion: nil)
     }
     
     // MARK: Utility

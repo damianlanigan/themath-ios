@@ -49,11 +49,13 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'AMPopTip.framework'
+  install_framework 'CircleProgressView.framework'
   install_framework 'JBChartView.framework'
   install_framework 'KeychainAccess.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AMPopTip.framework'
+  install_framework 'CircleProgressView.framework'
   install_framework 'JBChartView.framework'
   install_framework 'KeychainAccess.framework'
 fi
