@@ -67,6 +67,12 @@
 		8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */; };
 		8DF1274A1A8ACAEB000B5C4A /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF127491A8ACAEB000B5C4A /* Analytics.swift */; };
 		E5149F5E1B012CDC005AC841 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */; };
+		E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */; };
+		E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE6E1B0CFD3A007D17DB /* Font.swift */; };
+		E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */; };
+		E5EADE741B0D0080007D17DB /* CabritoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE731B0D0080007D17DB /* CabritoButton.swift */; };
+		E5EADE761B0D02EE007D17DB /* CabritoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE751B0D02EE007D17DB /* CabritoTextView.swift */; };
+		E5EADE781B0D08BA007D17DB /* CabritoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE771B0D08BA007D17DB /* CabritoTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +153,12 @@
 		8DF127491A8ACAEB000B5C4A /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
+		E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabritoSans-NorMed.otf"; sourceTree = "<group>"; };
+		E5EADE6E1B0CFD3A007D17DB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoLabel.swift; sourceTree = "<group>"; };
+		E5EADE731B0D0080007D17DB /* CabritoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoButton.swift; sourceTree = "<group>"; };
+		E5EADE751B0D02EE007D17DB /* CabritoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoTextView.swift; sourceTree = "<group>"; };
+		E5EADE771B0D08BA007D17DB /* CabritoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +202,7 @@
 				8D25D49E1B06E6AE00859DCB /* String.swift */,
 				8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */,
 				8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */,
+				E5EADE6E1B0CFD3A007D17DB /* Font.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 				27D411C91A48710F008ACC14 /* Images.xcassets */,
 				27D411C01A48710F008ACC14 /* Supporting Files */,
 				8D531D0B1A7AD44D00EEAB88 /* The Math-Bridging-Header.h */,
+				E5EADE721B0CFE94007D17DB /* UI */,
 			);
 			path = "The Math";
 			sourceTree = "<group>";
@@ -245,6 +259,7 @@
 		27D411C01A48710F008ACC14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */,
 				27D411C11A48710F008ACC14 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -403,6 +418,17 @@
 			name = Infograph;
 			sourceTree = "<group>";
 		};
+		E5EADE721B0CFE94007D17DB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */,
+				E5EADE771B0D08BA007D17DB /* CabritoTextField.swift */,
+				E5EADE751B0D02EE007D17DB /* CabritoTextView.swift */,
+				E5EADE731B0D0080007D17DB /* CabritoButton.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,6 +516,7 @@
 			files = (
 				8D9138721AE85CC10090C53C /* BarView.xib in Resources */,
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
+				E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
@@ -575,6 +602,7 @@
 				8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */,
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
 				8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */,
+				E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */,
 				8D7A6DCF1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift in Sources */,
 				8DF1274A1A8ACAEB000B5C4A /* Analytics.swift in Sources */,
 				8D0B3FD31AE971E000565DC1 /* ChartViewController.swift in Sources */,
@@ -591,6 +619,7 @@
 				8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */,
 				8D432CF71B013BD700DCA8AD /* AnimatingCircleContainerView.swift in Sources */,
 				8D25D49F1B06E6AE00859DCB /* String.swift in Sources */,
+				E5EADE741B0D0080007D17DB /* CabritoButton.swift in Sources */,
 				8D0B3FCF1AE94DA000565DC1 /* DayChartDetailTableViewController.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,
 				8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */,
@@ -601,6 +630,7 @@
 				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
 				8D4149C61AEC53EE000A4D2E /* User.swift in Sources */,
 				8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */,
+				E5EADE781B0D08BA007D17DB /* CabritoTextField.swift in Sources */,
 				8D7A6DCD1AE5B27700AC2CD8 /* WorkCategoryView.swift in Sources */,
 				8D9138701AE85CB90090C53C /* BarView.swift in Sources */,
 				27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */,
@@ -612,6 +642,7 @@
 				8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */,
 				8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */,
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
+				E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */,
 				8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */,
 				8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */,
 				8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */,
@@ -619,6 +650,7 @@
 				8D0B3FD11AE952E300565DC1 /* NonRotatingNavigationController.swift in Sources */,
 				8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */,
 				8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */,
+				E5EADE761B0D02EE007D17DB /* CabritoTextView.swift in Sources */,
 				8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */,
 				8D0B3FCC1AE9452400565DC1 /* FadeAnimationController.swift in Sources */,
 				8D9138781AE85D7B0090C53C /* WeekChartViewController.swift in Sources */,

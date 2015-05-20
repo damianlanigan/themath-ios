@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setupFabric()
         setupAnalytics()
+        setupGlobalUI()
         
         let applicationId = DEBUG ?
             "31f60218d62033240d67424aaac4a9e87d8e6ca74a42dd04509447627151c300" :
@@ -43,6 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupAnalytics() {
+    }
+    
+    private func setupGlobalUI() {
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: CabritoSansFontName, size: 17)!]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: CabritoSansFontName, size: 17)!], forState: .Normal)
     }
 }
 

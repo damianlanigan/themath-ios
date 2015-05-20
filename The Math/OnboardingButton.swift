@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class OnboardingButton: UIButton {
+class OnboardingButton: CabritoButton {
 
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
@@ -23,9 +23,13 @@ class OnboardingButton: UIButton {
         }
     }
     
+    @IBInspectable var borderColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            layer.borderColor = borderColor.CGColor
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.mood_blueColor().CGColor
-        setTitleColor(UIColor.mood_blueColor(), forState: .Normal)
     }
 }
