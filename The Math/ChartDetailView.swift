@@ -20,11 +20,25 @@ class ChartDetailView: UIView {
     @IBOutlet weak var progressView: CircleProgressView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var categoryContainerView: UIView!
+    @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet weak var vendorInformationContainerView: UIView!
+    @IBOutlet weak var deleteMoodButton: CabritoButton!
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     
     var entry: JournalEntry! {
         didSet {
             updateUIForJournalEntry()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentViewWidthConstraint.constant = frame.size.width
+    }
+    
+    @IBAction func didTapDeleteMoodButton(sender: AnyObject) {
+        entry.delete()
     }
     
     private func updateUIForJournalEntry() {
@@ -52,6 +66,12 @@ class ChartDetailView: UIView {
         
         timeLabel.text = "\(weekday) at \(hour):\(minute) \(aORp)"
         dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(offset: 0))"
+        noteLabel.text = entry.note
+        
+        
+        for category in entry.categories {
+            println(category)
+        }
     }
 
 }

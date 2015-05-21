@@ -11,6 +11,8 @@ import UIKit
 
 extension UIColor {
     
+    // MARK: Category
+    
     class func colorForCategoryType(type: CategoryType) -> UIColor {
         switch type {
         case .Love:
@@ -33,9 +35,6 @@ extension UIColor {
             return UIColor.whiteColor()
         }
     }
-    
-    // MARK: Category
-    
     
     // MARK: Mood
         

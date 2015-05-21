@@ -49,8 +49,7 @@ class ChartViewController: UIViewController,
         super.viewDidLayoutSubviews()
         ensureContentSize()
         
-        // kinda shitty but fixes some sizing issues
-        // also slow
+        // TODO: This is super shitty and needs to be removed
         for (idx, coordinator) in enumerate(self.coordinators) {
             coordinator.view.setNeedsLayout()
             coordinator.view.layoutIfNeeded()

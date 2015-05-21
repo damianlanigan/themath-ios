@@ -11,7 +11,7 @@
 import UIKit
 
 class JournalEntry {
-    var categories: [String] = [String]()
+    var categories: [CategoryType] = [CategoryType]()
     var note = ""
     var score: Int!
     var timestamp: NSDate!
@@ -31,11 +31,15 @@ class JournalEntry {
         }
     }
     
+    func delete() {
+        println("delete this post")
+    }
+    
     private func asJSON() -> [String: AnyObject] {
         var json = [
             "score" : score,
             "timestamp" : timestamp,
-            "categories" : categories,
+            "categories" : categories.map { $0.rawValue },
             "note" : note == "Add a note..." ? "" : note
         ]
         if let lat = lat {
@@ -50,7 +54,7 @@ class JournalEntry {
     class func fromJSONRequest(json: [String:AnyObject]) -> JournalEntry {
         let entry = JournalEntry()
         entry.note = json["note"] as! String
-        entry.categories = json["categories"] as! [String]
+        entry.categories = (json["categories"] as! [String]).map ${ CategoryType(rawValue: $0.capitalizedString) }
         entry.lat = json["lat"] as? Double
         entry.lng = json["lng"] as? Double
         entry.score = json["score"] as! Int
