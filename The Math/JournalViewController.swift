@@ -54,7 +54,7 @@ class JournalEntry {
     class func fromJSONRequest(json: [String:AnyObject]) -> JournalEntry {
         let entry = JournalEntry()
         entry.note = json["note"] as! String
-        entry.categories = (json["categories"] as! [String]).map ${ CategoryType(rawValue: $0.capitalizedString) }
+        entry.categories = (json["categories"] as! [String]).map { CategoryType(rawValue: $0.capitalizedString)! }
         entry.lat = json["lat"] as? Double
         entry.lng = json["lng"] as? Double
         entry.score = json["score"] as! Int
@@ -122,7 +122,7 @@ class JournalViewController: UIViewController, UITextViewDelegate {
         
 //        journalEntry.lat = 
 //        journalEntry.lng = 
-        journalEntry.categories = selections
+        journalEntry.categories = selections.map { CategoryType(rawValue: $0.capitalizedString )! }
         journalEntry.note = textView.text
         journalEntry.save { () -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
