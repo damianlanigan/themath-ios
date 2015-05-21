@@ -130,7 +130,7 @@ class ChartView: UIView {
     
     private func weekFooterView() -> UIView {
         let v = UIView()
-        let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        let days = ["M", "T", "W", "T", "F", "S", "S"]
         for i in 0..<7 {
             let l = ChartFooterLabel()
             l.textAlignment = .Center
@@ -153,7 +153,6 @@ class ChartView: UIView {
             
             let date = month.startDate.dateByAddingDays(i)
             var day = "\(date.day())"
-            day = count(day) == 1 ? "0" + day : day
             l.text = day
             
             v.addSubview(l)
