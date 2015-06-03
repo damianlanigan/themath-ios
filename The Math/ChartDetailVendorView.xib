@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChartDetailVendorView" customModule="HowAmIDoing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="92"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smN-KE-5Lg">
+                    <rect key="frame" x="34" y="0.0" width="38" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="0fL-er-BFB"/>
+                        <constraint firstAttribute="height" constant="38" id="a89-LK-Jgs"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-Jx-mTF" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                    <rect key="frame" x="34" y="42" width="550" height="17.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guD-3Y-YAp" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                    <rect key="frame" x="34" y="67" width="550" height="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h0J-Jx-mTF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="34" id="4YB-H2-BOq"/>
+                <constraint firstAttribute="trailing" secondItem="h0J-Jx-mTF" secondAttribute="trailing" constant="16" id="D30-7v-UX9"/>
+                <constraint firstItem="smN-KE-5Lg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="34" id="EBk-mo-IPr"/>
+                <constraint firstItem="smN-KE-5Lg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IK3-JV-bYe"/>
+                <constraint firstAttribute="trailing" secondItem="guD-3Y-YAp" secondAttribute="trailing" constant="16" id="RKp-Ma-7pU"/>
+                <constraint firstAttribute="bottom" secondItem="guD-3Y-YAp" secondAttribute="bottom" id="RmZ-J8-2al"/>
+                <constraint firstItem="h0J-Jx-mTF" firstAttribute="top" secondItem="smN-KE-5Lg" secondAttribute="bottom" constant="4" id="UMq-6a-Bsm"/>
+                <constraint firstItem="guD-3Y-YAp" firstAttribute="top" secondItem="h0J-Jx-mTF" secondAttribute="bottom" constant="8" id="WiO-43-VO3"/>
+                <constraint firstItem="guD-3Y-YAp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="34" id="YB4-0P-IVf"/>
+                <constraint firstItem="guD-3Y-YAp" firstAttribute="top" secondItem="h0J-Jx-mTF" secondAttribute="bottom" constant="8" id="eHp-N5-wbI"/>
+                <constraint firstItem="h0J-Jx-mTF" firstAttribute="top" secondItem="smN-KE-5Lg" secondAttribute="bottom" constant="4" id="ivo-2t-Apg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eHp-N5-wbI"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="vendorContentLabel" destination="guD-3Y-YAp" id="cGR-Nv-VoE"/>
+                <outlet property="vendorImage" destination="smN-KE-5Lg" id="X1f-tg-rkM"/>
+                <outlet property="vendorTitleLabel" destination="h0J-Jx-mTF" id="2hv-ns-KAL"/>
+            </connections>
+            <point key="canvasLocation" x="359" y="-16"/>
+        </view>
+    </objects>
+</document>

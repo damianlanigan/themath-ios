@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-u4-Na3">
+                    <rect key="frame" x="180" y="8" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="S98-eg-eKE">
+                            <variation key="heightClass=regular-widthClass=compact" constant="98"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="120" id="r9Z-tn-p3u">
+                            <variation key="heightClass=regular-widthClass=compact" constant="98"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="S98-eg-eKE"/>
+                            <exclude reference="r9Z-tn-p3u"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="S98-eg-eKE"/>
+                            <include reference="r9Z-tn-p3u"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="WVX-u4-Na3" secondAttribute="centerX" id="XTZ-Mz-s9k"/>
+                <constraint firstAttribute="centerY" secondItem="WVX-u4-Na3" secondAttribute="centerY" id="l0P-PC-KJc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="WVX-u4-Na3"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="XTZ-Mz-s9k"/>
+                    <exclude reference="l0P-PC-KJc"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="WVX-u4-Na3"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="XTZ-Mz-s9k"/>
+                    <include reference="l0P-PC-KJc"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="launch_graphic" width="99" height="99"/>
+    </resources>
+</document>
