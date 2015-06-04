@@ -16,6 +16,10 @@ class OnboardingViewController: UIViewController,
     UIScrollViewDelegate,
     AuthViewControllerDelegate {
     
+    private let OnboardingMoodViewNibName = "OnboardingMoodView"
+    private let OnboardingJournalViewNibName = "OnboardingJournalView"
+    private let OnboardingReflectViewNibName = "OnboardingReflectView"
+    
     let numberOfPages: CGFloat = 2.0
     let numberOfSubPages: CGFloat = 5.0
     
@@ -28,6 +32,7 @@ class OnboardingViewController: UIViewController,
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var subScrollView: UIScrollView!
+    @IBOutlet weak var subContentView: UIView!
     
     @IBOutlet weak var parallaxImageContainerView: UIView!
     @IBOutlet weak var newUserButton: UIButton!
@@ -64,6 +69,31 @@ class OnboardingViewController: UIViewController,
             firstAppearance = false
             layoutDots()
         }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        loadSubContentOnboardingViews()
+    }
+    
+    private func loadSubContentOnboardingViews() {
+        
+        subContentView.backgroundColor = UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
+        
+        let moodView = UIView.viewFromNib(OnboardingMoodViewNibName)
+        let journalView = UIView.viewFromNib(OnboardingJournalViewNibName)
+        let reflectView = UIView.viewFromNib(OnboardingReflectViewNibName)
+        
+        moodView.frame = view.bounds
+        journalView.frame = view.bounds
+        reflectView.frame = view.bounds
+        journalView.frame.origin.y += view.frame.size.height
+        reflectView.frame.origin.y += view.frame.size.height * 2
+        
+        subContentView.addSubview(moodView)
+        subContentView.addSubview(journalView)
+        subContentView.addSubview(reflectView)
     }
     
     private func layoutDots() {
@@ -105,7 +135,8 @@ class OnboardingViewController: UIViewController,
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
-        delegate?.didFinishOnboarding(self)
+//        delegate?.didFinishOnboarding(self)
+        activateOnboarding()
     }
     
     private func activateOnboarding() {

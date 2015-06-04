@@ -51,6 +51,9 @@
 		8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DD81AE5B34400AC2CD8 /* ProductivityCategoryView.swift */; };
 		8D85997F1B0F81350053A555 /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85997E1B0F81350053A555 /* CalendarCoordinator.swift */; };
 		8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C30981A8F194700903E76 /* BorderedView.swift */; };
+		8D8D8D341B20B249008F37BE /* OnboardingMoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D8D331B20B249008F37BE /* OnboardingMoodView.xib */; };
+		8D8D8D371B20B25E008F37BE /* OnboardingJournalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D8D361B20B25E008F37BE /* OnboardingJournalView.xib */; };
+		8D8D8D391B20B265008F37BE /* OnboardingReflectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D8D381B20B265008F37BE /* OnboardingReflectView.xib */; };
 		8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */; };
 		8D8FA8DB1B0FE05D009FC857 /* CalendarSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8FA8DA1B0FE05D009FC857 /* CalendarSelectionTableViewController.swift */; };
 		8D9138701AE85CB90090C53C /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D91386F1AE85CB90090C53C /* BarView.swift */; };
@@ -158,6 +161,9 @@
 		8D7A6DD81AE5B34400AC2CD8 /* ProductivityCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductivityCategoryView.swift; sourceTree = "<group>"; };
 		8D85997E1B0F81350053A555 /* CalendarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 		8D8C30981A8F194700903E76 /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		8D8D8D331B20B249008F37BE /* OnboardingMoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingMoodView.xib; sourceTree = "<group>"; };
+		8D8D8D361B20B25E008F37BE /* OnboardingJournalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingJournalView.xib; sourceTree = "<group>"; };
+		8D8D8D381B20B265008F37BE /* OnboardingReflectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingReflectView.xib; sourceTree = "<group>"; };
 		8D8F91A21AF279F400389ADD /* AF+Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AF+Date+Extension.swift"; sourceTree = "<group>"; };
 		8D8FA8DA1B0FE05D009FC857 /* CalendarSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectionTableViewController.swift; sourceTree = "<group>"; };
 		8D91386F1AE85CB90090C53C /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
@@ -382,6 +388,16 @@
 			name = Vendor;
 			sourceTree = "<group>";
 		};
+		8D8D8D351B20B253008F37BE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8D8D8D331B20B249008F37BE /* OnboardingMoodView.xib */,
+				8D8D8D361B20B25E008F37BE /* OnboardingJournalView.xib */,
+				8D8D8D381B20B265008F37BE /* OnboardingReflectView.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		8DD17BC91AEA9E6600F69892 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +484,7 @@
 				8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */,
 				8D8C30981A8F194700903E76 /* BorderedView.swift */,
 				E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */,
+				8D8D8D351B20B253008F37BE /* UI */,
 				8D2CA3281A83F34D00B1B503 /* Auth */,
 			);
 			name = Onboarding;
@@ -602,10 +619,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D9138721AE85CC10090C53C /* BarView.xib in Resources */,
+				8D8D8D391B20B265008F37BE /* OnboardingReflectView.xib in Resources */,
 				8D47D9B71B0E947A005A9ADB /* ChartDetailVendorView.xib in Resources */,
 				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */,
+				8D8D8D341B20B249008F37BE /* OnboardingMoodView.xib in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
+				8D8D8D371B20B25E008F37BE /* OnboardingJournalView.xib in Resources */,
 				8DE676291B0D2966002ECFDF /* ChartDetailView.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
