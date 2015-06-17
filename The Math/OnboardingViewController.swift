@@ -19,9 +19,10 @@ class OnboardingViewController: UIViewController,
     private let OnboardingMoodViewNibName = "OnboardingMoodView"
     private let OnboardingJournalViewNibName = "OnboardingJournalView"
     private let OnboardingReflectViewNibName = "OnboardingReflectView"
+    private let OnboardingSignupViewNibName = "OnboardingSignupView"
     
     let numberOfPages: CGFloat = 2.0
-    let numberOfSubPages: CGFloat = 5.0
+    let numberOfSubPages: CGFloat = 4.0
     
     weak var delegate: OnboardingViewControllerDelegate?
     
@@ -84,16 +85,30 @@ class OnboardingViewController: UIViewController,
         let moodView = UIView.viewFromNib(OnboardingMoodViewNibName)
         let journalView = UIView.viewFromNib(OnboardingJournalViewNibName)
         let reflectView = UIView.viewFromNib(OnboardingReflectViewNibName)
+    
+        let lastView = UIView.viewFromNib(OnboardingSignupViewNibName) as! OnboardingSignupView
+        lastView.getStartedButton.addTarget(self, action: "signupButtonTapped", forControlEvents: .TouchUpInside);
         
         moodView.frame = view.bounds
         journalView.frame = view.bounds
         reflectView.frame = view.bounds
+        lastView.frame = view.bounds
+        
+        println(view.bounds)
+        println(moodView.frame);
+        println(journalView.frame);
+        println(reflectView.frame);
+        println(lastView.frame);
+        
         journalView.frame.origin.y += view.frame.size.height
         reflectView.frame.origin.y += view.frame.size.height * 2
+        lastView.frame.origin.y += view.frame.size.height * 3
+
         
         subContentView.addSubview(moodView)
         subContentView.addSubview(journalView)
         subContentView.addSubview(reflectView)
+        subContentView.addSubview(lastView)
     }
     
     private func layoutDots() {
@@ -132,6 +147,10 @@ class OnboardingViewController: UIViewController,
                 viewController.delegate = self
             }
         }
+    }
+    
+    func signupButtonTapped() {
+        performSegueWithIdentifier("ShowSignupSegue", sender: self)
     }
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {

@@ -19,7 +19,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko4-Et-uyu">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note what your mood might be related to, and write yourself a note to remember the moment better later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-xl-iHJ">
@@ -28,7 +28,7 @@
                                 <constraint firstAttribute="width" constant="236" id="Dj1-KI-vGt"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -60,14 +60,14 @@
                             <exclude reference="UuV-xl-iHJ"/>
                         </mask>
                         <mask key="constraints">
+                            <exclude reference="Mrr-jI-mpF"/>
+                            <exclude reference="k1J-0k-ahG"/>
+                            <exclude reference="kq7-H1-bFz"/>
                             <exclude reference="Fgw-JC-G2y"/>
                             <exclude reference="Rhi-Wh-zuc"/>
                             <exclude reference="AxW-v4-oki"/>
                             <exclude reference="UKy-7W-xgb"/>
                             <exclude reference="vzz-zD-6Q1"/>
-                            <exclude reference="Mrr-jI-mpF"/>
-                            <exclude reference="k1J-0k-ahG"/>
-                            <exclude reference="kq7-H1-bFz"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -77,14 +77,14 @@
                             <include reference="UuV-xl-iHJ"/>
                         </mask>
                         <mask key="constraints">
+                            <include reference="Mrr-jI-mpF"/>
+                            <include reference="k1J-0k-ahG"/>
+                            <include reference="kq7-H1-bFz"/>
                             <include reference="Fgw-JC-G2y"/>
                             <include reference="Rhi-Wh-zuc"/>
                             <include reference="AxW-v4-oki"/>
                             <include reference="UKy-7W-xgb"/>
                             <include reference="vzz-zD-6Q1"/>
-                            <include reference="Mrr-jI-mpF"/>
-                            <include reference="k1J-0k-ahG"/>
-                            <include reference="kq7-H1-bFz"/>
                         </mask>
                     </variation>
                 </view>

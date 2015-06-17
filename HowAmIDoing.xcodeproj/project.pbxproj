@@ -21,6 +21,7 @@
 		3CA0CB536367D6C733B6BAC5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47385D201AF9733A85DAB206 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8D00B2031B024D9F0099828C /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00B2021B024D9F0099828C /* ChartViewModel.swift */; };
 		8D00B2051B02515B0099828C /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00B2041B02515B0099828C /* ChartView.swift */; };
+		8D04CA7F1B31CD1A00DE0FD3 /* OnboardingSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04CA7E1B31CD1A00DE0FD3 /* OnboardingSignupView.swift */; };
 		8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */; };
 		8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0988251AEC1EEF008A2C33 /* Router.swift */; };
 		8D0B3FCC1AE9452400565DC1 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */; };
@@ -63,6 +64,7 @@
 		8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138761AE85D7B0090C53C /* DayChartViewController.swift */; };
 		8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */; };
 		8D916E591B0A77F9001C4F0F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */; };
+		8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
 		8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB132D61AEAF97600021C40 /* Alamofire.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
@@ -130,6 +132,7 @@
 		47385D201AF9733A85DAB206 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D00B2021B024D9F0099828C /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		8D00B2041B02515B0099828C /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		8D04CA7E1B31CD1A00DE0FD3 /* OnboardingSignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSignupView.swift; sourceTree = "<group>"; };
 		8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		8D0988251AEC1EEF008A2C33 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8D0B3FCB1AE9452400565DC1 /* FadeAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 		8D9138761AE85D7B0090C53C /* DayChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartViewController.swift; sourceTree = "<group>"; };
 		8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthChartViewController.swift; sourceTree = "<group>"; };
 		8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingSignupView.xib; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
 		8DB132D61AEAF97600021C40 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 				8D8D8D331B20B249008F37BE /* OnboardingMoodView.xib */,
 				8D8D8D361B20B25E008F37BE /* OnboardingJournalView.xib */,
 				8D8D8D381B20B265008F37BE /* OnboardingReflectView.xib */,
+				8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */,
+				8D04CA7E1B31CD1A00DE0FD3 /* OnboardingSignupView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				8D8D8D341B20B249008F37BE /* OnboardingMoodView.xib in Resources */,
 				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
 				8D8D8D371B20B25E008F37BE /* OnboardingJournalView.xib in Resources */,
+				8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */,
 				8DE676291B0D2966002ECFDF /* ChartDetailView.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
@@ -770,6 +777,7 @@
 				27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */,
 				E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */,
 				8DF7C1DB1B0D0F75009EFFAA /* Sequence.swift in Sources */,
+				8D04CA7F1B31CD1A00DE0FD3 /* OnboardingSignupView.swift in Sources */,
 				8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */,
 				8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */,
 				8D0988261AEC1EEF008A2C33 /* Router.swift in Sources */,

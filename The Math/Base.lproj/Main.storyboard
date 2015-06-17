@@ -705,6 +705,7 @@
                         <outlet property="subContentViewHeightConstraint" destination="UAP-Iw-d9Q" id="OwQ-rT-ZHT"/>
                         <outlet property="subContentViewWidthConstraint" destination="370-AD-jFd" id="h5l-VS-poT"/>
                         <outlet property="subScrollView" destination="hLo-QK-3un" id="xRb-v8-uT0"/>
+                        <segue destination="Ca3-zE-Eun" kind="presentation" identifier="ShowSignupSegue" id="Qgp-Ic-q5i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-5x-Qrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
