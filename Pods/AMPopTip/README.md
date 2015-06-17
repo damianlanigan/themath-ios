@@ -1,9 +1,12 @@
 <p align="center">
-  <img width="640" height="240" src="assets/logo.png"/>
+  <img width="400" height="240" src="assets/logo.png"/>
 </p>
 
 [![Build Status](https://travis-ci.org/andreamazz/AMPopTip.svg)](https://travis-ci.org/andreamazz/AMPopTip)
+[![Coverage Status](https://coveralls.io/repos/andreamazz/AMPopTip/badge.svg)](https://coveralls.io/r/andreamazz/AMPopTip)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/AMPopTip/badge.svg)](http://cocoapods.org/?q=ampoptip)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Join the chat at https://gitter.im/andreamazz/AMPopTip](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/andreamazz/AMPopTip?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Animated popover that pops out of a frame. You can specify the direction of the popover and the arrow that points to its origin. Color, border radius and font can be easily customized. 
 This popover can be used to leave subtle hints about your UI and provide fun looking onboarding popups.  
@@ -11,20 +14,36 @@ This popover can be used to leave subtle hints about your UI and provide fun loo
 #Screenshot
 ![AMPopTip](https://raw.githubusercontent.com/andreamazz/AMPopTip/master/assets/screenshot.gif)
 
-#Setup
+#Setup with Cocoapods
 * Add ```pod 'AMPopTip'``` to your ```Podfile```
 * Run ```pod install```
 * Run ```open App.xcworkspace```
+
+#Setup with Carthage
+* Add ```github "andreamazz/AMPopTip"```
+* Run ```carthage update```
+* Add ```AMPopTip.framework``` in your project
 
 #Usage
 The API is fairly straight forward, you can show and hide the popover at any time.
 
 ##Showing the popover
 You must specify the text that you want to display alongside the popover direction, its max width, the view that will contain it and the frame of the view that the popover's arrow will point to.
+
+####Objective-C
+
 ```objc
 self.popTip = [AMPopTip popTip];
 [self.popTip showText:@"I'm a popover popping over" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:someView.frame];
 ```
+
+####Swift
+
+```swift
+let popTip = AMPopTip()
+popTip.showText("Hello", direction: .Up, maxWidth: 200, inView: self.view, fromFrame: someView.frame)
+```
+
 You can also display the popover in the center, with no arrow, in this case the `fromFrame` parameter will be the whole view:
 ```objc
 [self.popTip showText:@"I'm a popover" direction:AMPopTipDirectionNone maxWidth:200 inView:self.view fromFrame:self.view.frame];
@@ -113,20 +132,33 @@ The animation is fired as soon as the popover enters the scene and completes its
 #Customization
 Use the appearance proxy to customize the popover before creating the instance, or just use its public properties:
 ```objc
-[[AMPopTip appearance] setFont:<#UIFont#>];
-[[AMPopTip appearance] setTextColor:<#UIColor#>];
-[[AMPopTip appearance] setPopoverColor:<#UIColor#>];
-[[AMPopTip appearance] setRadius:<#CGFloat#>];
-[[AMPopTip appearance] setPadding:<#CGFloat#>];
-[[AMPopTip appearance] setArrowSize:<#CGSize#>];
-[[AMPopTip appearance] setAnimationIn:<#NSInterval#>];
-[[AMPopTip appearance] setAnimationOut:<#NSInterval#>];
-[[AMPopTip appearance] setBounce:<#BOOL#>];
-[[AMPopTip appearance] setBounceOffset:<#NSInterval#>];
-[[AMPopTip appearance] setBounceAnimationIn:<#NSInterval#>];
-[[AMPopTip appearance] setBounceAnimationOut:<#NSInterval#>];
-[[AMPopTip appearance] setBounceDelayIn:<#NSInterval#>];
-[[AMPopTip appearance] setBounceDelayOut:<#NSInterval#>];
+AMPopTip *appearance = [AMPopTip appearance];
+appearance.font = <#UIFont#>;
+appearance.textColor = <#UIColor#>;
+appearance.textAlignment = NSTextAlignmentLeft;
+appearance.popoverColor = <#UIColor#>;
+appearance.borderColor = <#UIColor#>;
+appearance.borderWidth = <#CGFloat#>;
+appearance.radius = <#CGFloat#>; // Popover's border radius
+appearance.rounded = <#BOOL#>; // If set to YES the radius will equal frame.height / 2
+appearance.offset = <#CGFloat#>; // Offset between the popover and the origin
+appearance.padding = <#CGFloat#>;
+appearance.edgeInsets = <#UIEdgeInsets#>;
+appearance.arrowSize = <#CGSize#>;
+appearance.animationIn = <#NSInterval#>;
+appearance.animationOut = <#NSInterval#>;
+appearance.delayIn = <#NSInterval#>;
+appearance.delayOut = <#NSInterval#>;
+appearance.entranceAnimation = <#AMPopTipEntranceAnimation#>;
+appearance.actionAnimation = <#AMPopTipActionAnimation#>;
+appearance.actionFloatOffset = <#CGFloat#>;
+appearance.actionBounceOffset = <#CGFloat#>;
+appearance.actionPulseOffset = <#CGFloat#>;
+appearance.actionAnimationIn = <#NSInterval#>;
+appearance.actionAnimationOut = <#NSInterval#>;
+appearance.actionDelayIn = <#NSInterval#>;
+appearance.actionDelayOut = <#NSInterval#>;
+appearance.edgeMargin = <#CGFloat#>;
 ```
 
 #MIT License

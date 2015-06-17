@@ -70,7 +70,6 @@ class OnboardingViewController: UIViewController,
             firstAppearance = false
             layoutDots()
         }
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -85,30 +84,24 @@ class OnboardingViewController: UIViewController,
         let moodView = UIView.viewFromNib(OnboardingMoodViewNibName)
         let journalView = UIView.viewFromNib(OnboardingJournalViewNibName)
         let reflectView = UIView.viewFromNib(OnboardingReflectViewNibName)
-    
-        let lastView = UIView.viewFromNib(OnboardingSignupViewNibName) as! OnboardingSignupView
-        lastView.getStartedButton.addTarget(self, action: "signupButtonTapped", forControlEvents: .TouchUpInside);
+        
+        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
+        let signupView = signupViewController.view
+        _addContentViewController(signupViewController, toView: subContentView)
         
         moodView.frame = view.bounds
         journalView.frame = view.bounds
         reflectView.frame = view.bounds
-        lastView.frame = view.bounds
-        
-        println(view.bounds)
-        println(moodView.frame);
-        println(journalView.frame);
-        println(reflectView.frame);
-        println(lastView.frame);
-        
-        journalView.frame.origin.y += view.frame.size.height
-        reflectView.frame.origin.y += view.frame.size.height * 2
-        lastView.frame.origin.y += view.frame.size.height * 3
-
+        signupView.frame = view.bounds
         
         subContentView.addSubview(moodView)
         subContentView.addSubview(journalView)
         subContentView.addSubview(reflectView)
-        subContentView.addSubview(lastView)
+        subContentView.addSubview(signupView)
+        
+        journalView.frame.origin.y += view.frame.size.height
+        reflectView.frame.origin.y += view.frame.size.height * 2
+        signupView.frame.origin.y += view.frame.size.height * 3
     }
     
     private func layoutDots() {

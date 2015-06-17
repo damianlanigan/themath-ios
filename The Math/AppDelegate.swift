@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupAnalytics() {
+        
     }
     
     private func setupGlobalUI() {

@@ -1,8 +1,9 @@
 PODS:
-  - AMPopTip (0.9)
+  - AMPopTip (0.9.7)
   - CMDQueryStringSerialization (0.2.0)
   - JBChartView (2.8.14)
-  - KeychainAccess (1.2.0)
+  - KeychainAccess (1.2.1)
+  - Reveal-iOS-SDK (1.5.1)
   - SSKeychain (1.2.3)
   - VENCore (3.0.1):
     - CMDQueryStringSerialization (~> 0.2.0)
@@ -15,13 +16,15 @@ DEPENDENCIES:
   - AMPopTip
   - JBChartView
   - KeychainAccess
+  - Reveal-iOS-SDK
   - Venmo-iOS-SDK (~> 1.3)
 
 SPEC CHECKSUMS:
-  AMPopTip: 28545f7c437add3b2b19f355dd6e695895499a50
+  AMPopTip: c8fa5667451201249b6061d01126f80467fb69b6
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
   JBChartView: e89eabe6aefabd863ea345f3cedbfb773674647c
-  KeychainAccess: 6ff20bd4990b4840d8bde4e977f8c58e0fe7f3c1
+  KeychainAccess: 3d7922baf90762a976adb7f6030d74c1a4110a1d
+  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
   Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
