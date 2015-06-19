@@ -7,4 +7,6 @@ pod 'AMPopTip'
 pod 'JBChartView'
 pod 'Venmo-iOS-SDK', '~> 1.3'
 
+pod 'SwiftLoader'
+
 # pod 'Reveal-iOS-SDK'

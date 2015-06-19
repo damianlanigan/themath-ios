@@ -282,7 +282,7 @@
                                                             </mask>
                                                         </variation>
                                                         <connections>
-                                                            <segue destination="Lgr-ll-z7b" kind="presentation" id="bHI-fo-gKE"/>
+                                                            <segue destination="Lgr-ll-z7b" kind="presentation" id="BbU-uW-Xx6"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UD3-0T-O21">
@@ -443,6 +443,7 @@
                                                         </variation>
                                                         <connections>
                                                             <action selector="getStartedButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="CbP-Au-IDx"/>
+                                                            <segue destination="Ca3-zE-Eun" kind="presentation" id="3T4-aZ-xny"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -724,7 +725,6 @@
                         <outlet property="subContentViewHeightConstraint" destination="UAP-Iw-d9Q" id="OwQ-rT-ZHT"/>
                         <outlet property="subContentViewWidthConstraint" destination="370-AD-jFd" id="h5l-VS-poT"/>
                         <outlet property="subScrollView" destination="hLo-QK-3un" id="xRb-v8-uT0"/>
-                        <segue destination="Ca3-zE-Eun" kind="presentation" identifier="ShowSignupSegue" id="Qgp-Ic-q5i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-5x-Qrs" userLabel="First Responder" sceneMemberID="firstResponder"/>

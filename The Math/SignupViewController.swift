@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftLoader
 
 class SignupViewController: AuthViewController {
     
@@ -23,10 +24,15 @@ class SignupViewController: AuthViewController {
     }
     
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
+        // TODO: validation?
+        
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let password = passwordField.text
         
         let params = ["signup" : ["email" : email, "password" : password]]
+        
+        
+        SwiftLoader.show(animated: true)
         Account.sharedAccount().signup(params, callback: { (success, error) -> () in
             var message = ""
             if let error = error {
@@ -36,9 +42,11 @@ class SignupViewController: AuthViewController {
                         message += " " + value + "\n"
                     }
                 }
+                SwiftLoader.hide()
                 let alert = UIAlertView(title: "Something's wrong", message: message, delegate: nil, cancelButtonTitle: "Dismiss")
                 alert.show()
             } else if success {
+                SwiftLoader.hide()
                 self.delegate?.userDidSignup?()
             }
         })

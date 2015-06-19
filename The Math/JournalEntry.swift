@@ -44,6 +44,7 @@ class JournalEntry {
     }
     
     private func actuallySave() {
+        // TODO: HANDLE ERROR
         request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
             if let data = data as? [String: AnyObject] {
                 if let errors = data["errors"] as? [String: [String]] {

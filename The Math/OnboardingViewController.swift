@@ -97,10 +97,10 @@ class OnboardingViewController: UIViewController,
             view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
         }
         
-        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
-        _addContentViewController(signupViewController)
-        subContentView.addSubview(signupViewController.view)
-        signupViewController.view.frame = view.bounds
+//        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
+//        _addContentViewController(signupViewController)
+//        subContentView.addSubview(signupViewController.view)
+//        signupViewController.view.frame = view.bounds
         
         // TODO: weird problems
     }
@@ -149,7 +149,7 @@ class OnboardingViewController: UIViewController,
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
 //        delegate?.didFinishOnboarding(self)
-        activateOnboarding()
+//        activateOnboarding()
     }
     
     private func activateOnboarding() {

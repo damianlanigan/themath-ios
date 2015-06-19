@@ -10,6 +10,7 @@
 
 import UIKit
 import CoreLocation
+import SwiftLoader
 
 class JournalViewController: UIViewController,
     UITextViewDelegate,
@@ -76,6 +77,8 @@ class JournalViewController: UIViewController,
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
+        // show spinner
+        SwiftLoader.show(animated: true)
         textView.resignFirstResponder()
         var selections = categoryViews.filter({ $0.selected }).map({ $0.name() })
         
@@ -89,6 +92,8 @@ class JournalViewController: UIViewController,
         journalEntry.note = textView.text
         journalEntry.commitForSave = true
         journalEntry.save { () -> Void in
+            // hide spinner
+            SwiftLoader.hide()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

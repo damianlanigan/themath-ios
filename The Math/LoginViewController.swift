@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftLoader
 
 class LoginViewController: AuthViewController {
     
@@ -24,10 +25,14 @@ class LoginViewController: AuthViewController {
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let password = passwordField.text
         let params = ["email" : email, "password" : password, "grant_type" : "password"]
+        
+        SwiftLoader.show(animated: true);
         Account.sharedAccount().login(params, callback: { (success, error) -> () in
             if success {
+                SwiftLoader.hide()
                 self.delegate?.userDidLogin?()
             } else {
+                SwiftLoader.hide()
                 let alert = UIAlertView(title: "Something's wrong", message: "The username or password you entered is incorrect", delegate: nil, cancelButtonTitle: "Dismiss")
                 alert.show()
             }
