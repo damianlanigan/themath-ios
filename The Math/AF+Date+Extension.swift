@@ -444,18 +444,12 @@ extension NSDate {
         let hours = round(minutes/60)
         let days = round(hours/24)
         
-        if seconds < 10 {
-            return NSLocalizedString("just now", comment: "relative time")
-        } else if seconds < 60 {
-            return NSLocalizedString("\(Int(seconds)) seconds ago", comment: "relative time")
+        if seconds < 60 {
+            return "a moment ago"
         }
         
         if minutes < 60 {
-            if minutes == 1 {
-                return NSLocalizedString("1 minute ago", comment: "relative time")
-            } else {
-                return NSLocalizedString("\(Int(minutes)) minutes ago", comment: "relative time")
-            }
+            return NSLocalizedString("\(Int(minutes)) minutes ago", comment: "relative time")
         }
         
         if hours < 24 {
@@ -474,7 +468,7 @@ extension NSDate {
             }
         }
         
-        return self.toString()
+        return NSLocalizedString("\(Int(days)) days ago", comment: "relative time")
     }
     
     

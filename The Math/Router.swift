@@ -21,6 +21,7 @@ enum Router: URLRequestConvertible {
     case CreateJournalEntry([String: AnyObject])
     case AverageScore([String: AnyObject])
     case JournalEntries([String: AnyObject])
+    case LatestJournalEntry()
     
     var method: Method {
         switch self {
@@ -33,6 +34,8 @@ enum Router: URLRequestConvertible {
         case .AverageScore:
             return .GET
         case .JournalEntries:
+            return .GET
+        case .LatestJournalEntry:
             return .GET
         }
     }
@@ -49,7 +52,10 @@ enum Router: URLRequestConvertible {
             return "/users/self/reports/average_score_by_date"
         case .JournalEntries:
             return "/users/self/journal_entries"
+        case .LatestJournalEntry:
+            return "/users/self/journal_entries/latest"
         }
+        
     }
     
     var base: String {

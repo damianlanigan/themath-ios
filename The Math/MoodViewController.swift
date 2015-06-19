@@ -27,6 +27,7 @@ class MoodViewController: UIViewController,
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var moodTrigger: MoodView!
     @IBOutlet weak var initialCircle: UIView!
+    @IBOutlet weak var latestMoodLabel: CabritoLabel!
     
     var circle = CAShapeLayer()
     private var touchPoint = CAShapeLayer()
@@ -107,6 +108,8 @@ class MoodViewController: UIViewController,
         if firstAppearance {
             createAndAddMoodCircle()
         }
+        
+        updateLatestTimestamp();
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -124,13 +127,21 @@ class MoodViewController: UIViewController,
                 presentOnboarding()
             }
             
+            updateLatestTimestamp();
+            
             _performBlock({ () -> Void in
                 UIView.animateWithDuration(0.2, animations: {
                     self.view.alpha = 1.0
                 })
                 self.createAndAddTouchPoint()
             }, withDelay: 0.3)
+            
+            
         }
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.latestMoodLabel.alpha = 1.0
+        })
     }
     
     deinit {
@@ -179,6 +190,23 @@ class MoodViewController: UIViewController,
         titleString.appendAttributedString(bodyString)
 
         toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
+    }
+    
+    private func updateLatestTimestamp() {
+        request(Router.LatestJournalEntry()).responseJSON { (request, response, data, error) in
+            if data == nil {
+                self.latestMoodLabel.text = ""
+            } else {
+                let entry = JournalEntry.fromJSONRequest(data as! [String: AnyObject])
+                let lastMood = "Last mood\n"
+                let timestamp = "\(entry.timestamp.relativeTimeToString())"
+                var string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
+                let color = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(entry.score) / 100.0)
+                let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
+                string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+                self.latestMoodLabel.attributedText = string
+            }
+        }
     }
 
     // MARK: mood 
@@ -413,6 +441,7 @@ class MoodViewController: UIViewController,
         UIView.animateWithDuration(0.3, animations: {
             self.moodReferenceView.transform = CGAffineTransformMakeScale(1.0, 1.0)
             self.initialCircle.alpha = 0.0
+            self.latestMoodLabel.alpha = 0.0
         })
         UIView.animateWithDuration(0.8, animations: {
             self.touchPoint.opacity = 0.3

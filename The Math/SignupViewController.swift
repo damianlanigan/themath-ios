@@ -12,6 +12,11 @@ class SignupViewController: AuthViewController {
     
     @IBOutlet weak var createAccountButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         createAccountButton.layer.cornerRadius = 6.0

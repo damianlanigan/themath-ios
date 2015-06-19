@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -32,6 +32,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2S-iq-kEm" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="200" width="400" height="400"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNm-ZY-Z8h" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhD-kS-Xfa" customClass="MoodView" customModule="HowAmIDoing" customModuleProvider="target">
                                                 <rect key="frame" x="160" y="160" width="80" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -57,20 +63,32 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="fhD-kS-Xfa" firstAttribute="top" secondItem="UNm-ZY-Z8h" secondAttribute="bottom" constant="19" id="AyU-rY-axL"/>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="JMH-jw-cCn"/>
                                             <constraint firstAttribute="centerX" secondItem="fhD-kS-Xfa" secondAttribute="centerX" id="MsW-3a-nt8"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="XGF-R4-Qgc"/>
                                             <constraint firstAttribute="centerY" secondItem="fhD-kS-Xfa" secondAttribute="centerY" id="aV3-Ju-jnQ"/>
+                                            <constraint firstAttribute="centerX" secondItem="UNm-ZY-Z8h" secondAttribute="centerX" id="qA5-ph-uRT"/>
                                             <constraint firstAttribute="width" secondItem="l2S-iq-kEm" secondAttribute="height" multiplier="1:1" id="zqQ-oD-Qpr"/>
                                         </constraints>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="UNm-ZY-Z8h"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <exclude reference="qA5-ph-uRT"/>
+                                                <exclude reference="AyU-rY-axL"/>
                                                 <exclude reference="MsW-3a-nt8"/>
                                                 <exclude reference="aV3-Ju-jnQ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="UNm-ZY-Z8h"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <include reference="qA5-ph-uRT"/>
+                                                <include reference="AyU-rY-axL"/>
                                                 <include reference="MsW-3a-nt8"/>
                                                 <include reference="aV3-Ju-jnQ"/>
                                             </mask>
@@ -192,6 +210,7 @@
                         <outlet property="containerView" destination="Trb-Sw-z9Q" id="Iqt-vg-4yE"/>
                         <outlet property="contentView" destination="l2S-iq-kEm" id="Hvv-dS-Dpc"/>
                         <outlet property="initialCircle" destination="FfP-4D-Sbv" id="wp1-en-lJg"/>
+                        <outlet property="latestMoodLabel" destination="UNm-ZY-Z8h" id="8CL-IW-pQV"/>
                         <outlet property="moodReferenceView" destination="S87-zf-TIZ" id="O32-b2-k9U"/>
                         <outlet property="moodTrigger" destination="fhD-kS-Xfa" id="InW-JK-uQQ"/>
                         <outlet property="settingsButton" destination="ud6-hh-uCA" id="Kcl-k9-AUQ"/>
@@ -201,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="208"/>
+            <point key="canvasLocation" x="96" y="207.75"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="0TN-xz-IaK">
@@ -310,8 +329,7 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="50" y="232" width="300" height="44.5"/>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -345,8 +363,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="276.5"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
@@ -1864,7 +1881,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="top" secondItem="euI-RX-ipl" secondAttribute="bottom" constant="24" id="62g-Xl-5sM">
                                         <variation key="heightClass=regular-widthClass=compact" constant="25"/>

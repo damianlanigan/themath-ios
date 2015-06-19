@@ -75,33 +75,34 @@ class OnboardingViewController: UIViewController,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         loadSubContentOnboardingViews()
+        println(subScrollView.contentOffset)
+    }
+    
+    
+    private func onboardingViews() -> [UIView] {
+        return [
+            UIView.viewFromNib(OnboardingMoodViewNibName),
+            UIView.viewFromNib(OnboardingJournalViewNibName),
+            UIView.viewFromNib(OnboardingReflectViewNibName)
+        ]
     }
     
     private func loadSubContentOnboardingViews() {
         
         subContentView.backgroundColor = UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
         
-        let moodView = UIView.viewFromNib(OnboardingMoodViewNibName)
-        let journalView = UIView.viewFromNib(OnboardingJournalViewNibName)
-        let reflectView = UIView.viewFromNib(OnboardingReflectViewNibName)
+        for (idx, view) in enumerate(onboardingViews()) {
+            view.frame = self.view.bounds
+            subContentView.addSubview(view)
+            view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
+        }
         
         let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
-        let signupView = signupViewController.view
-        _addContentViewController(signupViewController, toView: subContentView)
+        _addContentViewController(signupViewController)
+        subContentView.addSubview(signupViewController.view)
+        signupViewController.view.frame = view.bounds
         
-        moodView.frame = view.bounds
-        journalView.frame = view.bounds
-        reflectView.frame = view.bounds
-        signupView.frame = view.bounds
-        
-        subContentView.addSubview(moodView)
-        subContentView.addSubview(journalView)
-        subContentView.addSubview(reflectView)
-        subContentView.addSubview(signupView)
-        
-        journalView.frame.origin.y += view.frame.size.height
-        reflectView.frame.origin.y += view.frame.size.height * 2
-        signupView.frame.origin.y += view.frame.size.height * 3
+        // TODO: weird problems
     }
     
     private func layoutDots() {

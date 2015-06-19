@@ -20,10 +20,15 @@ class MaskAnimationController:  NSObject,
         return 0.35
     }
     
+    func animationEnded(transitionCompleted: Bool) {
+        toViewController!.endAppearanceTransition()
+    }
+    
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         context = transitionContext
         fromViewController = context!.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         toViewController = context!.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        toViewController!.beginAppearanceTransition(true, animated: true);
         let containerView = context!.containerView()
         
         if presenting {

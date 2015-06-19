@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_FRAMEWORK_BUILD_PATH" "$(PODS_ROOT)/Reveal-iOS-SDK/Reveal-Framework-1.5.1"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_FRAMEWORK_BUILD_PATH"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AMPopTip.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/CMDQueryStringSerialization.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/JBChartView.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/KeychainAccess.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Reveal_iOS_SDK.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SSKeychain.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/VENCore.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Venmo_iOS_SDK.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"z" -framework "AMPopTip" -framework "CFNetwork" -framework "CMDQueryStringSerialization" -framework "CoreGraphics" -framework "JBChartView" -framework "KeychainAccess" -framework "QuartzCore" -framework "Reveal" -framework "SSKeychain" -framework "VENCore" -framework "Venmo_iOS_SDK"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AMPopTip.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/CMDQueryStringSerialization.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/JBChartView.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/KeychainAccess.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SSKeychain.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/VENCore.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Venmo_iOS_SDK.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AMPopTip" -framework "CMDQueryStringSerialization" -framework "JBChartView" -framework "KeychainAccess" -framework "SSKeychain" -framework "VENCore" -framework "Venmo_iOS_SDK"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
