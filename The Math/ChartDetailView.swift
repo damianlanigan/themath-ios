@@ -32,10 +32,6 @@ class ChartDetailView: UIView {
         subcontentViewWidthConstraint.constant = frame.size.width
     }
     
-    @IBAction func didTapDeleteMoodButton(sender: AnyObject) {
-        entry.delete()
-    }
-    
     private func updateUIForJournalEntry() {
         let perc = CGFloat(entry.score) / 100.0
         let color = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
