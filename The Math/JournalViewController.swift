@@ -14,6 +14,7 @@ import SwiftLoader
 
 class JournalViewController: UIViewController,
     UITextViewDelegate,
+    UIAlertViewDelegate,
     LocationCoordinatorDelegate {
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
@@ -99,9 +100,8 @@ class JournalViewController: UIViewController,
     }
     
     @IBAction func dismissButtonTapped(sender: AnyObject) {
-        isCancelled = true
-        textView.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
+        let alert = UIAlertView(title: "Are you sure you want to cancel this mood?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles:"Cancel Mood")
+        alert.show()
     }
     
     // MARK: Setup
@@ -269,6 +269,16 @@ class JournalViewController: UIViewController,
     func locationCoordinator(coordinator: LocationCoordinator, didReceiveLocation location: CLLocation) {
         journalEntry.addLocation(location)
         coordinator.stop() // we only need 1 location
+    }
+    
+    // <UIAlertViewDelegate>
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            isCancelled = true
+            textView.resignFirstResponder()
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
 }

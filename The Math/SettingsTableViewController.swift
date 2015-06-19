@@ -12,7 +12,7 @@ protocol SettingsTableViewControllerDelegate: class {
     func didLogout()
 }
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     
     weak var delegate: SettingsTableViewControllerDelegate?
     var selectedIdx: Int?
@@ -39,10 +39,8 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 {
-            Account.sharedAccount().logout({
-                println("logged out")
-                self.delegate?.didLogout()
-            })
+            let alert = UIAlertView(title: "Logout?", message: "Are you sure you want to log out?", delegate: self, cancelButtonTitle: "not now", otherButtonTitles: "yes")
+            alert.show()
         }
         
         if indexPath.section == 1 {
@@ -50,9 +48,23 @@ class SettingsTableViewController: UITableViewController {
             performSegueWithIdentifier("ShowWebController", sender: self)
         }
         
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
     
     func dismiss() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // <UIAlertViewDelegate>
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            Account.sharedAccount().logout({
+                println("logged out")
+                self.delegate?.didLogout()
+            })
+        }
+    }
+    
 }
