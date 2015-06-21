@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ChartDetailView: UIView {
 
@@ -15,10 +16,9 @@ class ChartDetailView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryContainerView: UIView!
     @IBOutlet weak var noteLabel: UILabel!
-    @IBOutlet weak var vendorInformationContainerView: UIView!
-    @IBOutlet weak var deleteMoodButton: CabritoButton!
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var subcontentViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapContainerView: UIView!
     
     var entry: JournalEntry! {
         didSet {
@@ -29,7 +29,8 @@ class ChartDetailView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentViewWidthConstraint.constant = frame.size.width
-        subcontentViewWidthConstraint.constant = frame.size.width
+        mapContainerView.layer.cornerRadius = 10.0
+        mapContainerView.clipsToBounds = true
     }
     
     private func updateUIForJournalEntry() {
@@ -57,6 +58,17 @@ class ChartDetailView: UIView {
         
         timeLabel.text = "\(weekday) at \(hour):\(minute) \(aORp)"
         dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(offset: 0))"
+        if let location = entry.location {
+            let v = Vendor(type: VendorType.Location, content: entry.locationString!)
+            dateLabel.text = "\(dateLabel.text!) • \(entry.locationString!)"
+            
+            mapView.centerCoordinate = location.coordinate
+            mapView.region = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.01, 0.01))
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            mapView.addAnnotation(annotation)
+            
+        }
         noteLabel.text = entry.note
         
         var size = CGSizeMake(32, 32)
@@ -73,22 +85,22 @@ class ChartDetailView: UIView {
             categoryContainerView.addSubview(view)
         }
         
-        var vendors = [Vendor]()
-        if let location = entry.lat {
-            let v = Vendor(type: VendorType.Location, content: entry.locationString!)
-            vendors.append(v)
-        }
-        
-        for (idx, vendor) in enumerate(vendors) {
-            let v = UIView.viewFromNib("ChartDetailVendorView") as! ChartDetailVendorView
-            v.vendorTitleLabel.text = vendor.title
-            v.vendorImage.image = vendor.image
-            v.vendorContentLabel.text = vendor.content
-            
-            let width: CGFloat = 278.0
-            v.frame = CGRectMake(CGFloat(idx) * width, 0.0, width, vendorInformationContainerView.frame.size.height)
-            vendorInformationContainerView.addSubview(v)
-        }
+//        var vendors = [Vendor]()
+//        if let location = entry.lat {
+//            let v = Vendor(type: VendorType.Location, content: entry.locationString!)
+//            vendors.append(v)
+//        }
+//        
+//        for (idx, vendor) in enumerate(vendors) {
+//            let v = UIView.viewFromNib("ChartDetailVendorView") as! ChartDetailVendorView
+//            v.vendorTitleLabel.text = vendor.title
+//            v.vendorImage.image = vendor.image
+//            v.vendorContentLabel.text = vendor.content
+//            
+//            let width: CGFloat = 278.0
+//            v.frame = CGRectMake(CGFloat(idx) * width, 0.0, width, vendorInformationContainerView.frame.size.height)
+//            vendorInformationContainerView.addSubview(v)
+//        }
         
     }
     
