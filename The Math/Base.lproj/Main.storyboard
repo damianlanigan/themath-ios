@@ -236,7 +236,7 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-8K-X6n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -314,7 +314,7 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep track of your mood and find insights to help improve your life." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-7u-Nwi" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep track of your mood and find insights to help improve your life" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-7u-Nwi" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="236" id="kUO-JO-Gjx">
@@ -363,8 +363,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="277"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
@@ -657,7 +656,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="3Vf-8K-X6n" secondAttribute="bottom" id="BRx-CY-cj3"/>
                             <constraint firstAttribute="trailing" secondItem="3Vf-8K-X6n" secondAttribute="trailing" id="CQ0-Qf-M8l"/>
@@ -1375,7 +1374,7 @@
             </objects>
             <point key="canvasLocation" x="151.5" y="-1276.5"/>
         </scene>
-        <!--Sign In-->
+        <!--Log in-->
         <scene sceneID="IbN-wH-Ina">
             <objects>
                 <viewController storyboardIdentifier="LoginController" id="8P5-Gh-dQP" customClass="LoginViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
@@ -1397,7 +1396,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Gkf-PL-uRs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                        <state key="normal" title="Log In">
+                                        <state key="normal" title="Log in">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1550,7 +1549,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmz-Fk-MG9" customClass="CabritoButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Forgot your password? Reset Password">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1561,7 +1560,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97415274381637573" green="0.98096650838851929" blue="0.9815642237663269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Pmz-Fk-MG9" firstAttribute="top" secondItem="kg0-pX-v4H" secondAttribute="bottom" constant="86" id="2wW-Wh-pTl">
                                         <variation key="heightClass=regular-widthClass=compact" constant="29"/>
@@ -1692,7 +1691,7 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Sign In" id="ghU-2d-DFF"/>
+                    <navigationItem key="navigationItem" title="Log in" id="ghU-2d-DFF"/>
                     <connections>
                         <outlet property="emailField" destination="a8S-De-DDh" id="aXT-0X-ayb"/>
                         <outlet property="forgotPasswordButton" destination="Pmz-Fk-MG9" id="qws-kz-ZP4"/>
@@ -1704,7 +1703,7 @@
             </objects>
             <point key="canvasLocation" x="808.5" y="-1276.5"/>
         </scene>
-        <!--Sign Up-->
+        <!--Sign up-->
         <scene sceneID="jth-xF-Zw0">
             <objects>
                 <viewController storyboardIdentifier="SignupController" id="oNh-u3-zVN" customClass="SignupViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
@@ -1728,6 +1727,15 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxO-UT-QjV" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <string key="text">Your data is never shared to anyone, and is always encrypted.
+
+By tapping create account you submit that you have read the Privacy Policy and agree to the Terms of Service.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1859,7 +1867,7 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="An0-A4-Lk6"/>
+                                            <constraint firstAttribute="height" constant="40" id="LMp-oQ-3ag"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1869,12 +1877,12 @@
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="An0-A4-Lk6"/>
+                                                <exclude reference="LMp-oQ-3ag"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="An0-A4-Lk6"/>
+                                                <include reference="LMp-oQ-3ag"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -1882,8 +1890,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.97020000219345093" green="0.97901993989944458" blue="0.9800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WNQ-Nn-cDE" secondAttribute="trailing" constant="11" id="1Iz-Zt-ZkU"/>
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="top" secondItem="euI-RX-ipl" secondAttribute="bottom" constant="24" id="62g-Xl-5sM">
                                         <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                                     </constraint>
@@ -1893,15 +1902,16 @@
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="ROe-F2-Dbv" secondAttribute="top" constant="33" id="Cd6-bK-br9">
                                         <variation key="heightClass=regular-widthClass=compact" constant="34"/>
                                     </constraint>
-                                    <constraint firstItem="5bV-am-dwo" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="30" id="Dfy-B4-qy5">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
-                                    </constraint>
                                     <constraint firstItem="euI-RX-ipl" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" id="Ffn-Ex-DHf"/>
+                                    <constraint firstAttribute="trailing" secondItem="WNQ-Nn-cDE" secondAttribute="trailing" constant="11" id="JPp-wu-Foq"/>
+                                    <constraint firstItem="5bV-am-dwo" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="K4L-8r-HF7"/>
                                     <constraint firstAttribute="trailing" secondItem="euI-RX-ipl" secondAttribute="trailing" id="L9N-AF-Dex"/>
                                     <constraint firstItem="5bV-am-dwo" firstAttribute="top" secondItem="NtO-C5-XDb" secondAttribute="bottom" constant="26" id="NqD-Jq-i7h"/>
+                                    <constraint firstItem="5bV-am-dwo" firstAttribute="top" secondItem="WNQ-Nn-cDE" secondAttribute="bottom" constant="22" id="Tae-4R-NlR"/>
                                     <constraint firstItem="NtO-C5-XDb" firstAttribute="top" secondItem="cT8-8h-fiZ" secondAttribute="bottom" constant="6" id="Ue1-CG-1z5">
                                         <variation key="heightClass=regular-widthClass=compact" constant="7"/>
                                     </constraint>
+                                    <constraint firstItem="WNQ-Nn-cDE" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="YKq-u5-06p"/>
                                     <constraint firstAttribute="trailing" secondItem="NtO-C5-XDb" secondAttribute="trailing" id="fre-jq-mLg"/>
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="15" id="gaR-pW-wtR">
                                         <variation key="heightClass=regular-widthClass=compact" constant="10"/>
@@ -1910,14 +1920,16 @@
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="15" id="kcQ-L0-FFK">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
                                     </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="5bV-am-dwo" secondAttribute="trailing" constant="30" id="tVA-sS-aa4">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
-                                    </constraint>
+                                    <constraint firstItem="WNQ-Nn-cDE" firstAttribute="top" secondItem="NtO-C5-XDb" secondAttribute="bottom" constant="22" id="pER-u0-bLm"/>
+                                    <constraint firstItem="WNQ-Nn-cDE" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="x8C-xU-H0K"/>
+                                    <constraint firstAttribute="trailing" secondItem="5bV-am-dwo" secondAttribute="trailing" constant="11" id="xjw-jA-eLd"/>
+                                    <constraint firstAttribute="centerX" secondItem="WNQ-Nn-cDE" secondAttribute="centerX" id="yJZ-WA-UbU"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="cT8-8h-fiZ"/>
                                         <exclude reference="KxO-UT-QjV"/>
+                                        <exclude reference="WNQ-Nn-cDE"/>
                                         <exclude reference="euI-RX-ipl"/>
                                         <exclude reference="NtO-C5-XDb"/>
                                         <exclude reference="5bV-am-dwo"/>
@@ -1925,23 +1937,31 @@
                                     <mask key="constraints">
                                         <exclude reference="Cd6-bK-br9"/>
                                         <exclude reference="gaR-pW-wtR"/>
-                                        <exclude reference="62g-Xl-5sM"/>
-                                        <exclude reference="kcQ-L0-FFK"/>
-                                        <exclude reference="Dfy-B4-qy5"/>
-                                        <exclude reference="NqD-Jq-i7h"/>
-                                        <exclude reference="tVA-sS-aa4"/>
-                                        <exclude reference="Ue1-CG-1z5"/>
-                                        <exclude reference="fre-jq-mLg"/>
-                                        <exclude reference="h0G-Ss-CRe"/>
                                         <exclude reference="67U-Co-4Oz"/>
                                         <exclude reference="Ffn-Ex-DHf"/>
                                         <exclude reference="L9N-AF-Dex"/>
+                                        <exclude reference="62g-Xl-5sM"/>
+                                        <exclude reference="kcQ-L0-FFK"/>
+                                        <exclude reference="Ue1-CG-1z5"/>
+                                        <exclude reference="fre-jq-mLg"/>
+                                        <exclude reference="h0G-Ss-CRe"/>
+                                        <exclude reference="1Iz-Zt-ZkU"/>
+                                        <exclude reference="JPp-wu-Foq"/>
+                                        <exclude reference="YKq-u5-06p"/>
+                                        <exclude reference="pER-u0-bLm"/>
+                                        <exclude reference="x8C-xU-H0K"/>
+                                        <exclude reference="yJZ-WA-UbU"/>
+                                        <exclude reference="K4L-8r-HF7"/>
+                                        <exclude reference="NqD-Jq-i7h"/>
+                                        <exclude reference="Tae-4R-NlR"/>
+                                        <exclude reference="xjw-jA-eLd"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="cT8-8h-fiZ"/>
                                         <include reference="KxO-UT-QjV"/>
+                                        <include reference="WNQ-Nn-cDE"/>
                                         <include reference="euI-RX-ipl"/>
                                         <include reference="NtO-C5-XDb"/>
                                         <include reference="5bV-am-dwo"/>
@@ -1949,17 +1969,24 @@
                                     <mask key="constraints">
                                         <include reference="Cd6-bK-br9"/>
                                         <include reference="gaR-pW-wtR"/>
-                                        <include reference="62g-Xl-5sM"/>
-                                        <include reference="kcQ-L0-FFK"/>
-                                        <include reference="Dfy-B4-qy5"/>
-                                        <include reference="NqD-Jq-i7h"/>
-                                        <include reference="tVA-sS-aa4"/>
-                                        <include reference="Ue1-CG-1z5"/>
-                                        <include reference="fre-jq-mLg"/>
-                                        <include reference="h0G-Ss-CRe"/>
                                         <include reference="67U-Co-4Oz"/>
                                         <include reference="Ffn-Ex-DHf"/>
                                         <include reference="L9N-AF-Dex"/>
+                                        <include reference="62g-Xl-5sM"/>
+                                        <include reference="kcQ-L0-FFK"/>
+                                        <include reference="Ue1-CG-1z5"/>
+                                        <include reference="fre-jq-mLg"/>
+                                        <include reference="h0G-Ss-CRe"/>
+                                        <exclude reference="1Iz-Zt-ZkU"/>
+                                        <include reference="JPp-wu-Foq"/>
+                                        <include reference="YKq-u5-06p"/>
+                                        <include reference="pER-u0-bLm"/>
+                                        <exclude reference="x8C-xU-H0K"/>
+                                        <exclude reference="yJZ-WA-UbU"/>
+                                        <include reference="K4L-8r-HF7"/>
+                                        <exclude reference="NqD-Jq-i7h"/>
+                                        <include reference="Tae-4R-NlR"/>
+                                        <include reference="xjw-jA-eLd"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1995,7 +2022,7 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Sign Up" id="0XF-Gs-OBh"/>
+                    <navigationItem key="navigationItem" title="Sign up" id="0XF-Gs-OBh"/>
                     <connections>
                         <outlet property="createAccountButton" destination="5bV-am-dwo" id="iml-Ta-qaG"/>
                         <outlet property="emailField" destination="hVP-Yh-igE" id="Rtd-zM-oV5"/>
