@@ -33,7 +33,7 @@ class LoginViewController: AuthViewController {
                 self.delegate?.userDidLogin?()
             } else {
                 SwiftLoader.hide()
-                let alert = UIAlertView(title: "Something's wrong", message: "The username or password you entered is incorrect", delegate: nil, cancelButtonTitle: "Dismiss")
+                let alert = UIAlertView(title: "Something's wrong", message: "The email or password is incorrect", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
             }
         })

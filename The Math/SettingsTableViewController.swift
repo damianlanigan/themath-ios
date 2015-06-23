@@ -39,7 +39,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 {
-            let alert = UIAlertView(title: "Logout?", message: "Are you sure you want to log out?", delegate: self, cancelButtonTitle: "not now", otherButtonTitles: "yes")
+            let alert = UIAlertView(title: "Logout?", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
             alert.show()
         }
         
