@@ -43,6 +43,7 @@ class LoginViewController: AuthViewController {
         super.viewWillAppear(animated)
         
         loginButton.layer.cornerRadius = 6.0
+        emailField.becomeFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {

@@ -194,10 +194,8 @@ class MoodViewController: UIViewController,
     
     private func updateLatestTimestamp() {
         request(Router.LatestJournalEntry()).responseJSON { (request, response, data, error) in
-            if data == nil {
-                self.latestMoodLabel.text = ""
-            } else {
-                let entry = JournalEntry.fromJSONRequest(data as! [String: AnyObject])
+            if let data = data as? [String: AnyObject] {
+                let entry = JournalEntry.fromJSONRequest(data)
                 let lastMood = "Last mood\n"
                 let timestamp = "\(entry.timestamp.relativeTimeToString())"
                 var string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
@@ -205,6 +203,8 @@ class MoodViewController: UIViewController,
                 let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
                 string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
                 self.latestMoodLabel.attributedText = string
+            } else {
+                self.latestMoodLabel.text = ""
             }
         }
     }

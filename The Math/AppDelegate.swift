@@ -12,7 +12,7 @@ import UIKit
 import Fabric
 import Crashlytics
 
-let DEBUG = false
+let DEBUG = true
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

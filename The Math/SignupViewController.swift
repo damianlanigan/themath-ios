@@ -23,6 +23,11 @@ class SignupViewController: AuthViewController {
         createAccountButton.layer.cornerRadius = 6.0
     }
     
+    func hideKeyboard() {
+        focusedTextField?.resignFirstResponder()
+        focusedTextField = nil
+    }
+    
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
         // TODO: validation?
         

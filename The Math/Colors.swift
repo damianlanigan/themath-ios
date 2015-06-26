@@ -36,6 +36,12 @@ extension UIColor {
         }
     }
     
+    // MARK: Onboarding
+    
+    class func onboardingBackgroundColor() -> UIColor {
+        return UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
+    }
+    
     // MARK: Mood
         
     class func category_loveColor() -> UIColor {

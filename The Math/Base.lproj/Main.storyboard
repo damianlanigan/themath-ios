@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -262,7 +262,7 @@
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="6"/>
+                                                                <real key="value" value="9"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="2"/>
@@ -422,7 +422,7 @@
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="6"/>
+                                                                <real key="value" value="9"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="2"/>
@@ -443,7 +443,6 @@
                                                         </variation>
                                                         <connections>
                                                             <action selector="getStartedButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="CbP-Au-IDx"/>
-                                                            <segue destination="Ca3-zE-Eun" kind="presentation" id="3T4-aZ-xny"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -454,7 +453,7 @@
                                                         <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="piy-OA-wsK" secondAttribute="trailing" constant="20" id="PCJ-ta-0BZ">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstItem="UD3-0T-O21" firstAttribute="top" secondItem="eVm-BZ-8Aj" secondAttribute="top" id="ZeH-FQ-RvP"/>
                                                     <constraint firstItem="ahU-R9-r3u" firstAttribute="top" secondItem="piy-OA-wsK" secondAttribute="bottom" constant="14" id="cWj-BN-ZAB">
@@ -465,13 +464,13 @@
                                                     </constraint>
                                                     <constraint firstItem="UD3-0T-O21" firstAttribute="leading" secondItem="eVm-BZ-8Aj" secondAttribute="leading" id="l2h-nm-S3w"/>
                                                     <constraint firstItem="ahU-R9-r3u" firstAttribute="leading" secondItem="eVm-BZ-8Aj" secondAttribute="leading" constant="8" id="mBL-2d-hT9">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstItem="piy-OA-wsK" firstAttribute="leading" secondItem="eVm-BZ-8Aj" secondAttribute="leading" constant="20" id="svN-Fm-exE">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="ahU-R9-r3u" secondAttribute="trailing" constant="8" id="txP-i9-wCk">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                 </constraints>
                                                 <variation key="default">
@@ -1863,7 +1862,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             </mask>
                                         </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo" customClass="CabritoButton" customModule="HowAmIDoing" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1875,6 +1874,11 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="9"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="LMp-oQ-3ag"/>
@@ -1937,24 +1941,24 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                     <mask key="constraints">
                                         <exclude reference="Cd6-bK-br9"/>
                                         <exclude reference="gaR-pW-wtR"/>
-                                        <exclude reference="67U-Co-4Oz"/>
-                                        <exclude reference="Ffn-Ex-DHf"/>
-                                        <exclude reference="L9N-AF-Dex"/>
-                                        <exclude reference="62g-Xl-5sM"/>
-                                        <exclude reference="kcQ-L0-FFK"/>
-                                        <exclude reference="Ue1-CG-1z5"/>
-                                        <exclude reference="fre-jq-mLg"/>
-                                        <exclude reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <exclude reference="JPp-wu-Foq"/>
                                         <exclude reference="YKq-u5-06p"/>
                                         <exclude reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
+                                        <exclude reference="62g-Xl-5sM"/>
+                                        <exclude reference="kcQ-L0-FFK"/>
                                         <exclude reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <exclude reference="Tae-4R-NlR"/>
                                         <exclude reference="xjw-jA-eLd"/>
+                                        <exclude reference="Ue1-CG-1z5"/>
+                                        <exclude reference="fre-jq-mLg"/>
+                                        <exclude reference="h0G-Ss-CRe"/>
+                                        <exclude reference="67U-Co-4Oz"/>
+                                        <exclude reference="Ffn-Ex-DHf"/>
+                                        <exclude reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -1969,24 +1973,24 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                     <mask key="constraints">
                                         <include reference="Cd6-bK-br9"/>
                                         <include reference="gaR-pW-wtR"/>
-                                        <include reference="67U-Co-4Oz"/>
-                                        <include reference="Ffn-Ex-DHf"/>
-                                        <include reference="L9N-AF-Dex"/>
-                                        <include reference="62g-Xl-5sM"/>
-                                        <include reference="kcQ-L0-FFK"/>
-                                        <include reference="Ue1-CG-1z5"/>
-                                        <include reference="fre-jq-mLg"/>
-                                        <include reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <include reference="JPp-wu-Foq"/>
                                         <include reference="YKq-u5-06p"/>
                                         <include reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
+                                        <include reference="62g-Xl-5sM"/>
+                                        <include reference="kcQ-L0-FFK"/>
                                         <include reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <include reference="Tae-4R-NlR"/>
                                         <include reference="xjw-jA-eLd"/>
+                                        <include reference="Ue1-CG-1z5"/>
+                                        <include reference="fre-jq-mLg"/>
+                                        <include reference="h0G-Ss-CRe"/>
+                                        <include reference="67U-Co-4Oz"/>
+                                        <include reference="Ffn-Ex-DHf"/>
+                                        <include reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                             </view>

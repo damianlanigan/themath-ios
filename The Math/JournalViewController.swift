@@ -109,9 +109,6 @@ class JournalViewController: UIViewController,
     private func setupObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        
-        // THIS HAPPENS WHEN LOCATION PERMISSIONS ARE DETERMINED
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     private func setColors() {
@@ -127,22 +124,13 @@ class JournalViewController: UIViewController,
     // updating locations. It will do nothing if permissions
     // are turned off
     private func setupLocationServices() {
-        if LocationCoordinator.isActive() || LocationCoordinator.needsRequestAuthorization() {
+        if LocationCoordinator.isActive() {
             println("starting or requesting permissions")
-            LocationCoordinator.activate()
-            LocationCoordinator.sharedCoordinator.requestAuthorization()
             LocationCoordinator.sharedCoordinator.delegate = self
             LocationCoordinator.sharedCoordinator.start()
         } else {
-            LocationCoordinator.deactivate()
             println("we don't have location permissions")
         }
-    }
-    
-    // MARK: Notifications
-    
-    func applicationDidBecomeActive() {
-        setupLocationServices()
     }
     
     func keyboardWillShow(notification: NSNotification!) {

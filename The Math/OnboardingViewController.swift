@@ -20,9 +20,10 @@ class OnboardingViewController: UIViewController,
     private let OnboardingJournalViewNibName = "OnboardingJournalView"
     private let OnboardingReflectViewNibName = "OnboardingReflectView"
     private let OnboardingSignupViewNibName = "OnboardingSignupView"
+    private let OnboardingLocationViewNibName = "OnboardingLocationView"
     
     let numberOfPages: CGFloat = 2.0
-    let numberOfSubPages: CGFloat = 4.0
+    let numberOfSubPages: CGFloat = 5.0
     
     weak var delegate: OnboardingViewControllerDelegate?
     
@@ -75,7 +76,7 @@ class OnboardingViewController: UIViewController,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         loadSubContentOnboardingViews()
-        println(subScrollView.contentOffset)
+        subScrollView.delegate = self
     }
     
     
@@ -83,26 +84,31 @@ class OnboardingViewController: UIViewController,
         return [
             UIView.viewFromNib(OnboardingMoodViewNibName),
             UIView.viewFromNib(OnboardingJournalViewNibName),
-            UIView.viewFromNib(OnboardingReflectViewNibName)
+            UIView.viewFromNib(OnboardingReflectViewNibName),
+            UIView.viewFromNib(OnboardingLocationViewNibName)
         ]
     }
     
     private func loadSubContentOnboardingViews() {
         
-        subContentView.backgroundColor = UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
+        subContentView.backgroundColor = UIColor.onboardingBackgroundColor()
         
         for (idx, view) in enumerate(onboardingViews()) {
             view.frame = self.view.bounds
             subContentView.addSubview(view)
             view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
+            
+            if let locationView = view as? OnboardingLocationView {
+                locationView.allowLocationButton.addTarget(self, action: "setupLocationServices", forControlEvents: .TouchUpInside)
+            }
         }
         
-//        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
-//        _addContentViewController(signupViewController)
-//        subContentView.addSubview(signupViewController.view)
-//        signupViewController.view.frame = view.bounds
-        
-        // TODO: weird problems
+        let signupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupController") as! SignupViewController
+        signupViewController.delegate = self
+        _addContentViewController(signupViewController)
+        subContentView.addSubview(signupViewController.view)
+        signupViewController.view.frame = view.bounds
+        signupViewController.view.frame.origin.y += view.frame.size.height * 4.0
     }
     
     private func layoutDots() {
@@ -133,6 +139,33 @@ class OnboardingViewController: UIViewController,
         }
     }
     
+    private func setupNotificationObservers() {
+        // THIS HAPPENS WHEN LOCATION PERMISSIONS ARE DETERMINED
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    // This is the only method that needs to be called 
+    // in order to enable location on posts. This method
+    // will request authorization if needed and start
+    // updating locations. It will do nothing if permissions
+    // are turned off
+    func setupLocationServices() {
+        if LocationCoordinator.isActive() || LocationCoordinator.needsRequestAuthorization() {
+            println("starting or requesting permissions")
+            LocationCoordinator.activate()
+            LocationCoordinator.sharedCoordinator.requestAuthorization()
+        } else {
+            LocationCoordinator.deactivate()
+            println("we don't have location permissions")
+        }
+    }
+    
+    // MARK: Notifications
+    
+    func applicationDidBecomeActive() {
+        setupLocationServices()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navController = segue.destinationViewController as? UINavigationController {
             if let viewController = navController.viewControllers[0] as? LoginViewController {
@@ -149,7 +182,7 @@ class OnboardingViewController: UIViewController,
     
     @IBAction func getStartedButtonTapped(sender: AnyObject) {
 //        delegate?.didFinishOnboarding(self)
-//        activateOnboarding()
+        activateOnboarding()
     }
     
     private func activateOnboarding() {
@@ -172,6 +205,20 @@ class OnboardingViewController: UIViewController,
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView == self.scrollView && scrollView.contentOffset.y == 0 {
             scrollView.scrollEnabled = false
+        }
+    }
+    
+    lazy var lastOffset: CGFloat = {
+        return self.view.frame.size.height * (self.numberOfSubPages - 1)
+    }()
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == subScrollView {
+            if subScrollView.contentOffset.y < lastOffset && subScrollView.contentOffset.y > lastOffset - 20 {
+                if let viewController = childViewControllers.first as? SignupViewController {
+                    viewController.hideKeyboard()
+                }
+            }
         }
     }
     

@@ -42,7 +42,6 @@ class AuthViewController: UIViewController,
         emailField.delegate = self
         passwordField.delegate = self
         
-        emailField.becomeFirstResponder()
     }
     
     func cancel() {
