@@ -137,6 +137,7 @@ class MoodViewController: UIViewController,
             CATransaction.commit()
             
         case .Ended:
+            self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
                     self.moodCircle.center = self.view.center
                     self.view.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc:
@@ -190,7 +191,7 @@ class MoodViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
-//            viewController.transitionColor = UIColor(CGColor: color)
+            viewController.transitionColor = UIColor.mood_startColor()
             viewController.transitioningDelegate = self
             viewController.mood = currentMood
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
