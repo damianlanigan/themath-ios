@@ -38,12 +38,12 @@ class MaskAnimationController:  NSObject,
             containerView.bringSubviewToFront(toViewController!.view)
             toViewController!.view.alpha = 0.0
             UIView.animateWithDuration(0.45, animations: {
-                (self.fromViewController! as! MoodViewController).contentView.transform = CGAffineTransformMakeScale(10.5, 10.5)
+//                (self.fromViewController! as! MoodViewController).contentView.transform = CGAffineTransformMakeScale(10.5, 10.5)
                 }, completion: { (done: Bool) -> Void in
                     UIView.animateWithDuration(0.2, animations: {
                         self.toViewController!.view.alpha = 1.0
                         }, completion: { (done: Bool) -> Void in
-                            (self.fromViewController! as! MoodViewController).contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+//                            (self.fromViewController! as! MoodViewController).contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
                             self.toViewController!.view.userInteractionEnabled = true
                             self.context!.completeTransition(true)
                     })

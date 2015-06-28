@@ -12,7 +12,6 @@ import UIKit
 import MessageUI
 
 class MoodViewController: UIViewController,
-    MoodViewDelegate,
     OnboardingViewControllerDelegate,
     SettingsTableViewControllerDelegate,
     UIAlertViewDelegate,
@@ -20,52 +19,31 @@ class MoodViewController: UIViewController,
     UINavigationControllerDelegate,
     UIViewControllerTransitioningDelegate {
     
-    @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var moodReferenceView: UIView!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var moodTrigger: MoodView!
-    @IBOutlet weak var initialCircle: UIView!
-    @IBOutlet weak var latestMoodLabel: CabritoLabel!
+//    @IBOutlet weak var latestMoodLabel: CabritoLabel!
     
-    var circle = CAShapeLayer()
-    private var touchPoint = CAShapeLayer()
-    private var timer: NSTimer?
     private var currentMood = 0
     
     var transitionColor: UIColor?
-    
-    // MARK: constants
-    
-    private var multiplier: CFTimeInterval = 1.0
-    private let animationDuration: CFTimeInterval = 28.0
-    private let animationSpeed: CFTimeInterval = 0.15
-    private let panMinDistanceThreshold = 10.0
-    
-    private let gutter: CGFloat = 0.0
-    private let initialRadius: CGFloat = 36.0
-    private lazy var initialRect: CGRect = {
-        return CGRect(x: 0, y: 0, width: self.initialRadius * 2.0, height: self.initialRadius * 2.0)
-    }()
-    private lazy var finalRadius: CGFloat = {
-        return self.view.frame.size.height / 2.0 - self.gutter
-    }()
-    private lazy var finalRect: CGRect = {
-        let x: CGFloat = -(self.view.frame.size.height / 2.0 - (self.initialRadius + self.gutter))
-        let finalOrigin = CGPoint(x: x, y: x)
-        return CGRect(x: finalOrigin.x, y: finalOrigin.y, width: self.finalRadius * 2.0, height: self.finalRadius * 2.0)
-    }()
 
+    @IBOutlet weak var moodCircle: RoundableView!
+    
     // MARK: state
     
     private var capturingMood = false
-    private var currentTime: CFTimeInterval = 0.0
     private var firstAppearance = true
-    private var isSetup = false
     private var onMood = true
-    private var isPanning = false
     private var previousOrientation: UIDeviceOrientation = .Portrait
-
+    
+    lazy var backgroundGradient: CAGradientLayer = {
+        let gl = CAGradientLayer()
+        gl.colors = [
+            UIColor.mood_endColor().CGColor,
+            UIColor.colorAtPercentage(UIColor.mood_endColor(), color2: UIColor.mood_startColor(), perc: 0.5).CGColor,
+            UIColor.mood_startColor().CGColor
+        ]
+        gl.locations = [0.0, 0.7, 1.0]
+        return gl
+    }()
     
     lazy var infographViewController: InfographViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -79,20 +57,16 @@ class MoodViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.alpha = 0.0
-        moodTrigger.delegate = self
+//        view.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: 0.5)
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: "panning:")
-        moodTrigger.addGestureRecognizer(panGesture)
+        view.layer.addSublayer(backgroundGradient)
+        backgroundGradient.frame = view.layer.bounds
         
         setup()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if firstAppearance {
-            createAndAddMoodCircle()
-        }
         
         updateLatestTimestamp();
     }
@@ -101,9 +75,6 @@ class MoodViewController: UIViewController,
         super.viewDidAppear(animated)
         if firstAppearance {
             firstAppearance = false
-            createNewMood()
-            isSetup = true
-            showTooltip()
             
             
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
@@ -118,14 +89,13 @@ class MoodViewController: UIViewController,
                 UIView.animateWithDuration(0.2, animations: {
                     self.view.alpha = 1.0
                 })
-                self.createAndAddTouchPoint()
             }, withDelay: 0.3)
             
             
         }
         
         UIView.animateWithDuration(0.3, animations: {
-            self.latestMoodLabel.alpha = 1.0
+//            self.latestMoodLabel.alpha = 1.0
         })
     }
     
@@ -135,40 +105,48 @@ class MoodViewController: UIViewController,
     
     // MARK: SETUP
     
-    // MARK:lviewcontroller
+    // MARK: viewcontroller
     
     private func setup() {
-        setupObservers()
+        setupNotificationObservers()
+        setupGestureRecognizers()
     }
     
-    private func setupObservers() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    private func setupNotificationObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
-    private func showTooltip() {
-        
-        var titleString = NSMutableAttributedString(string: "Hold Down")
-        var bodyString = NSMutableAttributedString(string: "\nThe better you're feeling the longer you hold.")
-        
-        let titleFont = UIFont(name: "AvenirNext-DemiBold", size: 16)!
-        let bodyFont = UIFont(name: "AvenirNext-Medium", size: 16)!
-        let titleRange = NSMakeRange(0, 9)
-        let bodyRange = NSMakeRange(0, count(bodyString.string))
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
-        
-        titleString.addAttributes([
-            NSFontAttributeName : titleFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-        ], range: titleRange)
-        
-        bodyString.addAttributes([
-            NSFontAttributeName : bodyFont,
-            NSParagraphStyleAttributeName : paragraphStyle
-        ], range: bodyRange)
-        
-        titleString.appendAttributedString(bodyString)
+    private func setupGestureRecognizers() {
+        let gesture = UIPanGestureRecognizer(target: self, action: "panMoodCircle:")
+        moodCircle.addGestureRecognizer(gesture)
+    }
+    
+    func panMoodCircle(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .Began:
+            println("began")
+        case .Changed:
+            let point = gesture.locationInView(view) // translationInView(view)
+            self.moodCircle.center = point
+            
+            let y: CGFloat = 1 - (self.moodCircle.center.y / self.view.frame.size.height)
+            // ((high - low) / 0.5) * y + low
+            CATransaction.begin()
+            CATransaction.setValue(true, forKey: kCATransactionDisableActions)
+            backgroundGradient.locations = [0.0, 0.4 * y + 0.3, 1.0]
+            CATransaction.commit()
+            
+        case .Ended:
+            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                    self.moodCircle.center = self.view.center
+                    self.view.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc:
+                0.5)
+                }, completion: { (_: Bool) -> Void in
+            })
+        default:
+            return
+        }
+>>>>>>> rip out old code add in new code
     }
     
     private func updateLatestTimestamp() {
@@ -181,67 +159,13 @@ class MoodViewController: UIViewController,
                 let color = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(entry.score) / 100.0)
                 let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
                 string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
-                self.latestMoodLabel.attributedText = string
+//                self.latestMoodLabel.attributedText = string
             } else {
-                self.latestMoodLabel.text = ""
+//                self.latestMoodLabel.text = ""
             }
         }
     }
 
-    // MARK: mood 
-    
-    private func createAndAddTouchPoint() {
-        let touchRadius: CGFloat = initialRadius
-        let touchRect: CGRect = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
-        touchPoint.rasterizationScale = UIScreen.mainScreen().scale
-        touchPoint.shouldRasterize = true
-        touchPoint.frame = CGRect(x: 0, y: 0, width: touchRadius * 2.0, height: touchRadius * 2.0)
-        
-        touchPoint.position = view.center
-        touchPoint.path = UIBezierPath(roundedRect: touchRect, cornerRadius: touchRadius).CGPath
-        touchPoint.fillColor = UIColor.blackColor().colorWithAlphaComponent(0.3).CGColor
-        touchPoint.opacity = 0.0
-        
-        view.layer.addSublayer(touchPoint)
-    }
-    
-    private func createAndAddMoodCircle() {
-        circle.rasterizationScale = UIScreen.mainScreen().scale
-        circle.shouldRasterize = true
-        circle.frame = CGRect(x: 0, y: 0, width: initialRadius * 2.0, height: initialRadius * 2.0)
-        circle.position = CGPoint(x: moodTrigger.frame.size.width / 2.0, y: moodTrigger.frame.size.width / 2.0)
-        circle.path = UIBezierPath(roundedRect: initialRect, cornerRadius: initialRadius).CGPath
-        
-        moodTrigger.layer.addSublayer(circle)
-        
-        initialCircle.backgroundColor = UIColor.mood_initialColor()
-        initialCircle.layer.cornerRadius = initialRadius
-        
-        addGrowAnimationToLayer(circle)
-        addColorAnimationToLayer(circle)
-    }
-    
-    func panning(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case .Changed:
-            if (abs(gesture.translationInView(view).x) > 25) || (abs(gesture.translationInView(view).y) > 25) || isPanning {
-                isPanning = true
-                timer?.invalidate()
-                let location = gesture.locationInView(view)
-                var x = abs(view.center.x - location.x)
-                var y = abs(view.center.y - location.y)
-                let distance = sqrt(pow(x, 2)) + sqrt(pow(y, 2))
-                currentTime = NSTimeInterval(distance / view.center.y) * animationDuration
-                update()
-            }
-        case .Ended:
-            if capturingMood {
-                endMood()
-            }
-        default:
-            return
-        }
-    }
     
     // MARK: IBACTION
     
@@ -250,58 +174,8 @@ class MoodViewController: UIViewController,
         alert.show()
     }
     
-    // MARK: NOTIFICATIONS
-    
-    func applicationDidEnterForeground() {
-        if isSetup {
-            addGrowAnimationToLayer(circle)
-            addColorAnimationToLayer(circle)
-        }
-    }
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    private func createNewMood() {
-        UIView.animateWithDuration(0.4, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
-            self.circle.timeOffset = 0.0
-            self.currentTime = 0
-            self.contentView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-            self.contentView.alpha = 1.0
-            }) { (done: Bool) -> Void in
-                return()
-        }
-    }
-
-    func addGrowAnimationToLayer(layer: CAShapeLayer) {
-        let morph: CABasicAnimation = CABasicAnimation(keyPath: "path")
-        morph.duration = animationDuration
-        morph.fromValue = layer.path
-        morph.toValue   = toPath()
-        layer.addAnimation(morph, forKey: "path")
-        layer.speed = 0.0;
-    }
-    
-    func addColorAnimationToLayer(layer: CAShapeLayer) {
-        let colorAnim = CAKeyframeAnimation(keyPath:"fillColor")
-        let colors = UIColor.mood_gradientColors()
-        colorAnim.values = colors
-        colorAnim.calculationMode = kCAAnimationPaced
-        colorAnim.duration = animationDuration
-        layer.speed = 0.0
-        layer.addAnimation(colorAnim, forKey: "fillColor")        
-    }
-
-    func update() {
-        currentTime += animationSpeed * multiplier
-        circle.timeOffset = currentTime
-
-        if circle.timeOffset <= 0.0 || circle.timeOffset >= animationDuration {
-            let newValue = circle.timeOffset <= 0.0 ? 0.0 : animationDuration
-            currentTime = newValue
-            circle.timeOffset = newValue
-            multiplier *= -1
-        }
-    }
     
     private func showFeedbackEmail() {
         let viewController = MFMailComposeViewController()
@@ -316,8 +190,7 @@ class MoodViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
-            let color = circle.presentationLayer().valueForKeyPath("fillColor") as! CGColor
-            viewController.transitionColor = UIColor(CGColor: color)
+//            viewController.transitionColor = UIColor(CGColor: color)
             viewController.transitioningDelegate = self
             viewController.mood = currentMood
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -365,10 +238,6 @@ class MoodViewController: UIViewController,
     // MARK: UTILITY
 
 
-    private func toPath() -> CGPath {
-        return UIBezierPath(roundedRect: finalRect, cornerRadius: finalRadius).CGPath
-    }
-    
     override func prefersStatusBarHidden() -> Bool {
         return capturingMood
     }
@@ -412,48 +281,29 @@ class MoodViewController: UIViewController,
     private func beginMood() {
         capturingMood = true
         setNeedsStatusBarAppearanceUpdate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         
-        moodReferenceView.transform = CGAffineTransformMakeScale(0.95, 0.95)
         UIView.animateWithDuration(0.3, animations: {
-            self.moodReferenceView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-            self.initialCircle.alpha = 0.0
-            self.latestMoodLabel.alpha = 0.0
-        })
-        UIView.animateWithDuration(0.8, animations: {
-            self.touchPoint.opacity = 0.3
-            self.moodReferenceView.alpha = 1.0
-            self.settingsButton.alpha = 0.0
+//            self.latestMoodLabel.alpha = 0.0
         })
     }
     
     private func endMood() {
         capturingMood = false
-        isPanning = false
         
         // for API
-        let percentage = trunc(currentTime / animationDuration * 100)
-        println("Mood: \(percentage)%")
+//        let percentage = trunc(currentTime / animationDuration * 100)
+//        println("Mood: \(percentage)%")
         
-        currentMood = Int(percentage)
+//        currentMood = Int(percentage)
         
-        timer?.invalidate()
-        
-        UIView.animateWithDuration(0.2, animations: {
-            self.touchPoint.opacity = 0.0
-            self.moodReferenceView.alpha = 0.0
-        })
         
         self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
 
         _performBlock({ () -> Void in
-            self.createNewMood()
             self.setNeedsStatusBarAppearanceUpdate()
-            self.settingsButton.alpha = 1.0
-            self.initialCircle.alpha = 1.0
         }, withDelay: 0.9 )
         
-        Analytics.track("mood", action: "set", label: "\(percentage)%")
+//        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     // MARK: <OnboardingViewControllerDelegate>
