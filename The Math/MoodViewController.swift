@@ -126,22 +126,21 @@ class MoodViewController: UIViewController,
         case .Began:
             println("began")
         case .Changed:
-            let point = gesture.locationInView(view) // translationInView(view)
-            self.moodCircle.center = point
+            let point = gesture.translationInView(view)
+            self.moodCircle.transform = CGAffineTransformMakeTranslation(point.x, point.y)
             
-            let y: CGFloat = 1 - (self.moodCircle.center.y / self.view.frame.size.height)
+            let y: CGFloat = 1 - ((self.moodCircle.center.y + point.y) / self.view.frame.size.height)
             // ((high - low) / 0.5) * y + low
             CATransaction.begin()
             CATransaction.setValue(true, forKey: kCATransactionDisableActions)
-            backgroundGradient.locations = [0.0, 0.4 * y + 0.3, 1.0]
+            backgroundGradient.locations = [0.0, 0.6 * y + 0.2, 1.0]
             CATransaction.commit()
             
         case .Ended:
             self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-                    self.moodCircle.center = self.view.center
-                    self.view.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc:
-                0.5)
+                    self.moodCircle.transform = CGAffineTransformIdentity;
+                    self.backgroundGradient.locations = [0.0, 0.5, 1.0]
                 }, completion: { (_: Bool) -> Void in
             })
         default:
@@ -241,6 +240,10 @@ class MoodViewController: UIViewController,
 
     override func prefersStatusBarHidden() -> Bool {
         return capturingMood
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 
     override func shouldAutorotate() -> Bool {
