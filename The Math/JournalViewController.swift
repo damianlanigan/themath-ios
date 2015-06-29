@@ -43,7 +43,7 @@ class JournalViewController: UIViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.mood_startColor()
+        view.backgroundColor = UIColor.whiteColor()
         
         setupObservers()
     }
@@ -190,7 +190,7 @@ class JournalViewController: UIViewController,
     
     func fadeOutFinal(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
-            self.scrollView.backgroundColor = UIColor.mood_initialColor()
+            self.scrollView.backgroundColor = UIColor.whiteColor()
             self.savedLabel.alpha = 0.0
             if self.isCancelled {
                 self.contentView.alpha = 0.0

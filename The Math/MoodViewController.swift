@@ -122,9 +122,10 @@ class MoodViewController: UIViewController,
     }
     
     func panMoodCircle(gesture: UIPanGestureRecognizer) {
+    
         switch gesture.state {
         case .Began:
-            println("began")
+            beginMood()
         case .Changed:
             let point = gesture.translationInView(view)
             self.moodCircle.transform = CGAffineTransformMakeTranslation(point.x, point.y)
@@ -137,16 +138,41 @@ class MoodViewController: UIViewController,
             CATransaction.commit()
             
         case .Ended:
-            self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
-            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-                    self.moodCircle.transform = CGAffineTransformIdentity;
-                    self.backgroundGradient.locations = [0.0, 0.5, 1.0]
-                }, completion: { (_: Bool) -> Void in
-            })
+            let y: CGFloat = 1 - ((self.moodCircle.center.y + gesture.translationInView(view).y) / self.view.frame.size.height)
+            let percentage = trunc(y * 100)
+            println("Mood: \(percentage)%")
+            
+            currentMood = Int(percentage)
+        
+            endMood()
         default:
             return
         }
 >>>>>>> rip out old code add in new code
+    }
+    
+    private func beginMood() {
+        capturingMood = true
+        setNeedsStatusBarAppearanceUpdate()
+        UIView.animateWithDuration(0.3, animations: {
+            //            self.latestMoodLabel.alpha = 0.0
+        })
+    }
+    
+    private func endMood() {
+        
+        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            self.moodCircle.transform = CGAffineTransformIdentity;
+            self.backgroundGradient.locations = [0.0, 0.5, 1.0]
+            }, completion: { (_: Bool) -> Void in
+        })
+        
+        self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+        
+        _performBlock({ () -> Void in
+            self.setNeedsStatusBarAppearanceUpdate()
+            }, withDelay: 0.9 )
+    //        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     private func updateLatestTimestamp() {
@@ -190,7 +216,7 @@ class MoodViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
-            viewController.transitionColor = UIColor.mood_startColor()
+            viewController.transitionColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(currentMood) / 100.0)
             viewController.transitioningDelegate = self
             viewController.mood = currentMood
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -271,44 +297,7 @@ class MoodViewController: UIViewController,
     
     //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
-    // MARK: <MoodViewDelegate>
-
-
-    func moodViewTouchesBegan() {
-        beginMood()
-    }
-
-    func moodViewTouchesEnded() {
-        endMood()
-    }
     
-    private func beginMood() {
-        capturingMood = true
-        setNeedsStatusBarAppearanceUpdate()
-        
-        UIView.animateWithDuration(0.3, animations: {
-//            self.latestMoodLabel.alpha = 0.0
-        })
-    }
-    
-    private func endMood() {
-        capturingMood = false
-        
-        // for API
-//        let percentage = trunc(currentTime / animationDuration * 100)
-//        println("Mood: \(percentage)%")
-        
-//        currentMood = Int(percentage)
-        
-        
-        self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
-
-        _performBlock({ () -> Void in
-            self.setNeedsStatusBarAppearanceUpdate()
-        }, withDelay: 0.9 )
-        
-//        Analytics.track("mood", action: "set", label: "\(percentage)%")
-    }
     
     // MARK: <OnboardingViewControllerDelegate>
     
