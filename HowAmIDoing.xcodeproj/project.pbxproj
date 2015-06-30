@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2708DEE31A5C334800D99A28 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2708DEE21A5C334800D99A28 /* Images.swift */; };
-		279AA1141A60629C00ADA43F /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279AA1131A60629C00ADA43F /* MoodView.swift */; };
 		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
 		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
 		27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C21A48710F008ACC14 /* AppDelegate.swift */; };
@@ -68,6 +67,7 @@
 		8D9351B71B4486BB00138C42 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9351B61B4486BB00138C42 /* Day.swift */; };
 		8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */; };
 		8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */; };
+		8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
 		8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB132D61AEAF97600021C40 /* Alamofire.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
@@ -116,7 +116,6 @@
 
 /* Begin PBXFileReference section */
 		2708DEE21A5C334800D99A28 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		279AA1131A60629C00ADA43F /* MoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		27A542AE1A48BA4300CC7CA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		27A542B01A48BAFA00CC7CA6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27A713CC1A48754600344431 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		8D9351B61B4486BB00138C42 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingSignupView.xib; sourceTree = "<group>"; };
 		8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLocationView.xib; sourceTree = "<group>"; };
+		8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleDistanceView.swift; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
 		8DB132D61AEAF97600021C40 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
@@ -517,7 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				27D411E61A487315008ACC14 /* MoodViewController.swift */,
-				279AA1131A60629C00ADA43F /* MoodView.swift */,
+				8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */,
 			);
 			name = Mood;
 			sourceTree = "<group>";
@@ -733,6 +733,7 @@
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
 				8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */,
 				E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */,
+				8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */,
 				8D7A6DCF1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift in Sources */,
 				8DF1274A1A8ACAEB000B5C4A /* Analytics.swift in Sources */,
 				8D0B3FD31AE971E000565DC1 /* ChartViewController.swift in Sources */,
@@ -746,7 +747,6 @@
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
 				8DE6762B1B0D2988002ECFDF /* ChartDetailView.swift in Sources */,
 				8DE6762D1B0D2999002ECFDF /* ChartDetailViewController.swift in Sources */,
-				279AA1141A60629C00ADA43F /* MoodView.swift in Sources */,
 				8D8F91A31AF279F400389ADD /* AF+Date+Extension.swift in Sources */,
 				8D0CE7741B07C000006850CD /* WebViewController.swift in Sources */,
 				8D7A6DD31AE5B2E400AC2CD8 /* HomeCategoryView.swift in Sources */,

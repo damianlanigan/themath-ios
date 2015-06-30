@@ -26,23 +26,61 @@ class MoodViewController: UIViewController,
     var transitionColor: UIColor?
 
     @IBOutlet weak var moodCircle: RoundableView!
+    @IBOutlet weak var ratingHighImageView: UIImageView!
+    @IBOutlet weak var ratingLowImageView: UIImageView!
     
     // MARK: state
     
-    private var capturingMood = false
     private var firstAppearance = true
     private var onMood = true
     private var previousOrientation: UIDeviceOrientation = .Portrait
     
-    lazy var backgroundGradient: CAGradientLayer = {
-        let gl = CAGradientLayer()
-        gl.colors = [
+    lazy var topBackgroundGradient: CAGradientLayer = {
+       let g = CAGradientLayer()
+        g.colors = [
             UIColor.mood_endColor().CGColor,
-            UIColor.colorAtPercentage(UIColor.mood_endColor(), color2: UIColor.mood_startColor(), perc: 0.5).CGColor,
+            UIColor.mood_endColor().colorWithAlphaComponent(0.0).CGColor
+        ]
+        g.locations = [0.0, 0.5]
+        g.frame = self.view.bounds
+        return g
+    }()
+    
+    lazy var bottomBackgroundGradient: CAGradientLayer = {
+       let g = CAGradientLayer()
+        g.colors = [
+            UIColor.mood_startColor().colorWithAlphaComponent(0.0).CGColor,
             UIColor.mood_startColor().CGColor
         ]
-        gl.locations = [0.0, 0.7, 1.0]
-        return gl
+        g.locations = [0.5, 1.0]
+        g.frame = self.view.bounds
+        return g
+    }()
+    
+    lazy var gradientContainerView: UIView = {
+        let view = UIView()
+        view.frame = self.view.bounds
+        view.layer.addSublayer(self.topBackgroundGradient)
+        view.layer.addSublayer(self.bottomBackgroundGradient)
+        return view
+    }()
+    
+    lazy var cancelMoodView: ScaleDistanceView = {
+        let view = ScaleDistanceView()
+        view.layer.cornerRadius = 35.0
+        view.frame = CGRectMake(0.0, 0.0, 70.0, 70.0)
+        view.center = self.view.center
+        view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.15)
+        return view
+    }()
+    
+    lazy var lineView: UIView = {
+        let view = UIView()
+        view.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, 1.0)
+        view.center = self.view.center
+        view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15)
+        view.alpha = 0.0
+        return view
     }()
     
     lazy var infographViewController: InfographViewController = {
@@ -57,10 +95,11 @@ class MoodViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.alpha = 0.0
-//        view.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: 0.5)
+        view.backgroundColor = UIColor.mood_blueColor();
         
-        view.layer.addSublayer(backgroundGradient)
-        backgroundGradient.frame = view.layer.bounds
+        view.addSubview(gradientContainerView)
+        view.addSubview(lineView)
+        view.addSubview(cancelMoodView)
         
         setup()
     }
@@ -76,6 +115,10 @@ class MoodViewController: UIViewController,
         if firstAppearance {
             firstAppearance = false
             
+            moodCircle.layer.shadowOpacity = 0.2
+            moodCircle.layer.shadowOffset = CGSizeMake(0.0, 6.0)
+            moodCircle.layer.shadowColor = UIColor.blackColor().CGColor
+            moodCircle.layer.shadowRadius = 5.0
             
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
@@ -90,7 +133,6 @@ class MoodViewController: UIViewController,
                     self.view.alpha = 1.0
                 })
             }, withDelay: 0.3)
-            
             
         }
         
@@ -127,22 +169,21 @@ class MoodViewController: UIViewController,
         case .Began:
             beginMood()
         case .Changed:
-            let point = gesture.translationInView(view)
-            self.moodCircle.transform = CGAffineTransformMakeTranslation(point.x, point.y)
+            let translationPoint = gesture.translationInView(view)
+            let actualPoint = gesture.locationInView(view)
+            moodCircle.transform = CGAffineTransformMakeTranslation(translationPoint.x, translationPoint.y)
             
-            let y: CGFloat = 1 - ((self.moodCircle.center.y + point.y) / self.view.frame.size.height)
-            // ((high - low) / 0.5) * y + low
-            CATransaction.begin()
-            CATransaction.setValue(true, forKey: kCATransactionDisableActions)
-            backgroundGradient.locations = [0.0, 0.6 * y + 0.2, 1.0]
-            CATransaction.commit()
+            let xDist = fabs(translationPoint.x)
+            let yDist = fabs(translationPoint.y)
+            
+            cancelMoodView.active = xDist < 60 && yDist < 60
             
         case .Ended:
             let y: CGFloat = 1 - ((self.moodCircle.center.y + gesture.translationInView(view).y) / self.view.frame.size.height)
-            let percentage = trunc(y * 100)
-            println("Mood: \(percentage)%")
-            
-            currentMood = Int(percentage)
+            currentMood = Int(trunc(y * 100))
+            UIView.animateWithDuration(0.2, animations: {
+                self.cancelMoodView.transform = CGAffineTransformIdentity
+            })
         
             endMood()
         default:
@@ -152,27 +193,42 @@ class MoodViewController: UIViewController,
     }
     
     private func beginMood() {
-        capturingMood = true
         setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.3, animations: {
+            self.lineView.alpha = 1.0
+            self.ratingHighImageView.alpha = 1.0
+            self.ratingLowImageView.alpha = 1.0
             //            self.latestMoodLabel.alpha = 0.0
         })
     }
     
     private func endMood() {
         
+        let scale = CGAffineTransformMakeScale(10.0, 10.0)
+        
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-            self.moodCircle.transform = CGAffineTransformIdentity;
-            self.backgroundGradient.locations = [0.0, 0.5, 1.0]
+            self.lineView.alpha = 0.0
+            self.ratingHighImageView.alpha = 0.0
+            self.ratingLowImageView.alpha = 0.0
             }, completion: { (_: Bool) -> Void in
         })
         
-        self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+        if !cancelMoodView.active {
+            self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+            _performBlock({ () -> Void in
+                self.moodCircle.transform = CGAffineTransformIdentity;
+                }, withDelay: 0.9 )
+        } else {
+            setNeedsStatusBarAppearanceUpdate()
+            UIView.animateWithDuration(0.3, animations: {
+                self.moodCircle.transform = CGAffineTransformIdentity;
+            })
+
+        }
         
-        _performBlock({ () -> Void in
-            self.setNeedsStatusBarAppearanceUpdate()
-            }, withDelay: 0.9 )
-    //        Analytics.track("mood", action: "set", label: "\(percentage)%")
+        cancelMoodView.active = false
+        
+//        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     private func updateLatestTimestamp() {
@@ -265,7 +321,7 @@ class MoodViewController: UIViewController,
 
 
     override func prefersStatusBarHidden() -> Bool {
-        return capturingMood
+        return true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

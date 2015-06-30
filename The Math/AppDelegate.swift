@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        window?.backgroundColor = UIColor.whiteColor()
 
+        window?.backgroundColor = UIColor.mood_blueColor()
         setupFabric()
-        setupAnalytics()
+//        setupAnalytics()
         setupGlobalUI()
-        
+//
         let applicationId = DEBUG ?
             "31f60218d62033240d67424aaac4a9e87d8e6ca74a42dd04509447627151c300" :
 //            "02841f8d59cee62615fd7566ef75df5d5b62b02e68f5c31eb977621a9d588244" :

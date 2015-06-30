@@ -31,15 +31,15 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Bio-PX-Bkp">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="60" id="SHV-JS-uc3">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                                     </constraint>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="40"/>
+                                        <real key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -55,17 +55,33 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_high_light" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-CY-TuO">
+                                <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
+                                <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ujP-CY-TuO" secondAttribute="centerX" id="1jJ-ne-Wf8"/>
+                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="tU0-tU-fyv" secondAttribute="bottom" constant="20" id="ZTk-ba-aqZ"/>
                             <constraint firstAttribute="centerY" secondItem="90V-Oh-iAs" secondAttribute="centerY" id="bkZ-RM-ZPg"/>
+                            <constraint firstAttribute="centerX" secondItem="tU0-tU-fyv" secondAttribute="centerX" id="feg-gy-zO9"/>
+                            <constraint firstItem="ujP-CY-TuO" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="8" id="lEb-Bt-cgl"/>
                             <constraint firstAttribute="centerX" secondItem="90V-Oh-iAs" secondAttribute="centerX" id="wXK-87-3Zh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="90V-Oh-iAs"/>
+                                <exclude reference="ujP-CY-TuO"/>
+                                <exclude reference="tU0-tU-fyv"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="feg-gy-zO9"/>
+                                <exclude reference="1jJ-ne-Wf8"/>
+                                <exclude reference="lEb-Bt-cgl"/>
                                 <exclude reference="bkZ-RM-ZPg"/>
                                 <exclude reference="wXK-87-3Zh"/>
                             </mask>
@@ -73,8 +89,14 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="90V-Oh-iAs"/>
+                                <include reference="ujP-CY-TuO"/>
+                                <include reference="tU0-tU-fyv"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ZTk-ba-aqZ"/>
+                                <include reference="feg-gy-zO9"/>
+                                <include reference="1jJ-ne-Wf8"/>
+                                <include reference="lEb-Bt-cgl"/>
                                 <include reference="bkZ-RM-ZPg"/>
                                 <include reference="wXK-87-3Zh"/>
                             </mask>
@@ -84,6 +106,8 @@
                     <size key="freeformSize" width="400" height="800"/>
                     <connections>
                         <outlet property="moodCircle" destination="90V-Oh-iAs" id="e7A-Y6-bId"/>
+                        <outlet property="ratingHighImageView" destination="ujP-CY-TuO" id="bPt-VY-p8D"/>
+                        <outlet property="ratingLowImageView" destination="tU0-tU-fyv" id="EZW-X6-z2U"/>
                         <segue destination="fTm-Vk-pUw" kind="presentation" identifier="MoodToJournalTransition" id="ZGI-oe-XJA"/>
                         <segue destination="grH-6b-2HV" kind="presentation" identifier="PresentInfograph" id="5sG-9v-HXh"/>
                     </connections>
@@ -235,7 +259,7 @@
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="199" width="400" height="274"/>
+                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
@@ -2117,7 +2141,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wum-Cd-TOk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="wVK-yK-4Ed">
                                 <cells>
@@ -2676,6 +2700,8 @@ By tapping create account you submit that you have read the Privacy Policy and a
         <image name="linked_location" width="28" height="28"/>
         <image name="linked_music" width="28" height="28"/>
         <image name="linked_venmo" width="28" height="28"/>
+        <image name="rating_high_light" width="44" height="44"/>
+        <image name="rating_low_dark" width="44" height="44"/>
     </resources>
     <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

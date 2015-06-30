@@ -15,8 +15,12 @@ class RoundableView: UIView {
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
-            layer.masksToBounds = true
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
     }
     
 }
