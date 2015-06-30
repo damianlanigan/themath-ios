@@ -48,22 +48,12 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'AMPopTip.framework'
-  install_framework 'CMDQueryStringSerialization.framework'
   install_framework 'JBChartView.framework'
   install_framework 'KeychainAccess.framework'
-  install_framework 'SSKeychain.framework'
   install_framework 'SwiftLoader.framework'
-  install_framework 'VENCore.framework'
-  install_framework 'Venmo_iOS_SDK.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'AMPopTip.framework'
-  install_framework 'CMDQueryStringSerialization.framework'
   install_framework 'JBChartView.framework'
   install_framework 'KeychainAccess.framework'
-  install_framework 'SSKeychain.framework'
   install_framework 'SwiftLoader.framework'
-  install_framework 'VENCore.framework'
-  install_framework 'Venmo_iOS_SDK.framework'
 fi
