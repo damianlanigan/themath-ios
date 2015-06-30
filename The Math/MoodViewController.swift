@@ -71,6 +71,13 @@ class MoodViewController: UIViewController,
         view.frame = CGRectMake(0.0, 0.0, 70.0, 70.0)
         view.center = self.view.center
         view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.15)
+        
+        let image = UIImage(named: "cancel")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = UIViewContentMode.Center
+        imageView.frame = view.bounds
+        view.addSubview(imageView)
+        
         return view
     }()
     
