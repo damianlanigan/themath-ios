@@ -188,6 +188,7 @@ class MoodViewController: UIViewController,
             
         case .Ended:
             let y: CGFloat = 1 - ((self.moodCircle.center.y + gesture.translationInView(view).y) / self.view.frame.size.height)
+            println("\(view.colorAtPoint(CGPointMake(0, y)))")
             currentMood = Int(trunc(y * 100))
             UIView.animateWithDuration(0.2, animations: {
                 self.cancelMoodView.transform = CGAffineTransformIdentity
@@ -283,7 +284,9 @@ class MoodViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
-            viewController.transitionColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(currentMood) / 100.0)
+            let height = view.frame.size.height
+            let y = height - (height * (CGFloat(currentMood) / 100.0))
+            viewController.transitionColor = view.colorAtPoint(CGPointMake(0, y))
             viewController.transitioningDelegate = self
             viewController.mood = currentMood
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom

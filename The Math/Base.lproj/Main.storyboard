@@ -63,11 +63,27 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-On-qM4">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BzJ-C4-zML"/>
+                                    <constraint firstAttribute="width" constant="60" id="qWW-Wb-yFt"/>
+                                </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.63" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="settings_dark">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BzJ-C4-zML"/>
+                                        <exclude reference="qWW-Wb-yFt"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BzJ-C4-zML"/>
+                                        <include reference="qWW-Wb-yFt"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="XBp-4j-f4v" kind="presentation" id="75o-C7-Qkf"/>
                                 </connections>
@@ -76,12 +92,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ujP-CY-TuO" secondAttribute="centerX" id="1jJ-ne-Wf8"/>
-                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="3lH-On-qM4" secondAttribute="bottom" constant="20" id="JvS-Hb-KRv"/>
+                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="3lH-On-qM4" secondAttribute="bottom" constant="20" id="JvS-Hb-KRv">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="tU0-tU-fyv" secondAttribute="bottom" constant="20" id="ZTk-ba-aqZ"/>
                             <constraint firstItem="3lH-On-qM4" firstAttribute="trailing" secondItem="dMA-By-fQC" secondAttribute="trailingMargin" id="ZuE-Ag-SCN"/>
                             <constraint firstAttribute="centerY" secondItem="90V-Oh-iAs" secondAttribute="centerY" id="bkZ-RM-ZPg"/>
                             <constraint firstAttribute="centerX" secondItem="tU0-tU-fyv" secondAttribute="centerX" id="feg-gy-zO9"/>
                             <constraint firstItem="ujP-CY-TuO" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="8" id="lEb-Bt-cgl"/>
+                            <constraint firstAttribute="trailing" secondItem="3lH-On-qM4" secondAttribute="trailing" id="pyN-dW-vh2"/>
                             <constraint firstAttribute="centerX" secondItem="90V-Oh-iAs" secondAttribute="centerX" id="wXK-87-3Zh"/>
                         </constraints>
                         <variation key="default">
@@ -98,6 +117,7 @@
                                 <exclude reference="1jJ-ne-Wf8"/>
                                 <exclude reference="lEb-Bt-cgl"/>
                                 <exclude reference="ZuE-Ag-SCN"/>
+                                <exclude reference="pyN-dW-vh2"/>
                                 <exclude reference="bkZ-RM-ZPg"/>
                                 <exclude reference="wXK-87-3Zh"/>
                             </mask>
@@ -115,7 +135,8 @@
                                 <include reference="feg-gy-zO9"/>
                                 <include reference="1jJ-ne-Wf8"/>
                                 <include reference="lEb-Bt-cgl"/>
-                                <include reference="ZuE-Ag-SCN"/>
+                                <exclude reference="ZuE-Ag-SCN"/>
+                                <include reference="pyN-dW-vh2"/>
                                 <include reference="bkZ-RM-ZPg"/>
                                 <include reference="wXK-87-3Zh"/>
                             </mask>
