@@ -13,7 +13,7 @@ class InfographViewController: UIViewController,
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var graphContainer: UIView!
-    var previouslySelectedSegmentIndex: Int = 1
+    var previouslySelectedSegmentIndex: Int = 0
     var viewControllers = [ChartViewController]()
     var selectedViewController: ChartViewController?
     var orientationLocked = false
@@ -56,13 +56,11 @@ class InfographViewController: UIViewController,
     
     private func loadViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let dayViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
-        dayViewController.scope = .Day
         let weekViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
         weekViewController.scope = .Week
         let monthViewController = storyboard.instantiateViewControllerWithIdentifier("ChartViewController") as! ChartViewController
         monthViewController.scope = .Month
-        viewControllers = [dayViewController, weekViewController, monthViewController]
+        viewControllers = [weekViewController, monthViewController]
         for viewController in viewControllers {
             viewController.delegate = self
             viewController.view.hidden = true
