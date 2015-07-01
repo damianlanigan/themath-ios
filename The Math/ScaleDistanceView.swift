@@ -21,15 +21,16 @@ class ScaleDistanceView: UIView {
     }
     
     private func grow() {
-        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: .CurveEaseInOut, animations: {
-            self.transform = CGAffineTransformMakeScale(1.15, 1.15)
+        UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: .CurveEaseIn, animations: {
+            self.transform = CGAffineTransformMakeScale(1.18, 1.18)
             }, completion: { (_: Bool) -> Void in
         })
     }
     
     private func shrink() {
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseOut, animations: {
             self.transform = CGAffineTransformIdentity
+            }, completion: { (_: Bool) -> Void in
         })
     }
 

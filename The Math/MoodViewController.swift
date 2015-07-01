@@ -201,6 +201,7 @@ class MoodViewController: UIViewController,
     }
     
     private func beginMood() {
+        
         setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.3, animations: {
             self.lineView.alpha = 1.0

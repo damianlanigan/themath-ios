@@ -92,14 +92,14 @@
                                 <exclude reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1jJ-ne-Wf8"/>
-                                <exclude reference="lEb-Bt-cgl"/>
-                                <exclude reference="bkZ-RM-ZPg"/>
-                                <exclude reference="wXK-87-3Zh"/>
-                                <exclude reference="feg-gy-zO9"/>
                                 <exclude reference="JvS-Hb-KRv"/>
                                 <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="feg-gy-zO9"/>
+                                <exclude reference="1jJ-ne-Wf8"/>
+                                <exclude reference="lEb-Bt-cgl"/>
                                 <exclude reference="ZuE-Ag-SCN"/>
+                                <exclude reference="bkZ-RM-ZPg"/>
+                                <exclude reference="wXK-87-3Zh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -110,14 +110,14 @@
                                 <include reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1jJ-ne-Wf8"/>
-                                <include reference="lEb-Bt-cgl"/>
-                                <include reference="bkZ-RM-ZPg"/>
-                                <include reference="wXK-87-3Zh"/>
-                                <include reference="feg-gy-zO9"/>
                                 <include reference="JvS-Hb-KRv"/>
                                 <include reference="ZTk-ba-aqZ"/>
+                                <include reference="feg-gy-zO9"/>
+                                <include reference="1jJ-ne-Wf8"/>
+                                <include reference="lEb-Bt-cgl"/>
                                 <include reference="ZuE-Ag-SCN"/>
+                                <include reference="bkZ-RM-ZPg"/>
+                                <include reference="wXK-87-3Zh"/>
                             </mask>
                         </variation>
                     </view>
@@ -243,8 +243,7 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -278,8 +277,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
