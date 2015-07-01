@@ -96,12 +96,8 @@ class ChartViewModel: NSObject,
     }
     
     func didDeselectBarChartView(barChartView: JBBarChartView!) {
-        if let idx = selectedBarIdx {
-            if let day = chartableDateValue as? ChartDay {
-                delegate?.didSelectHour(day.hours[idx])
-            } else if let week = chartableDateValue as? ChartWeek {
-                delegate?.didSelectDay(week.days[idx])
-            }
+        if let idx = selectedBarIdx, chartable = chartableDateValue {
+            delegate?.didSelectChartDateValue(chartable)
         }
     }
 }

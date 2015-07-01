@@ -72,6 +72,10 @@ class InfographViewController: UIViewController,
     
     // MARK: <ChartViewControllerDelegate>
     
+    func didSelectChartDateValue(value: Chartable) {
+        println(value.self)
+    }
+    
     func didSelectDay(day: ChartDay) {
         println("selected day: \(day)")
         // show all of the entries for that day

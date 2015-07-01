@@ -9,9 +9,7 @@
 import UIKit
 
 protocol ChartDelegate: class {
-    func didSelectDay(day: ChartDay)
-    func didSelectWeek(week: ChartWeek)
-    func didSelectHour(hour: ChartHour)
+    func didSelectChartDateValue(value: Chartable)
 }
 
 class ChartViewController: UIViewController,
@@ -114,15 +112,7 @@ class ChartViewController: UIViewController,
         }
     }
     
-    func didSelectWeek(week: ChartWeek) {
-        delegate?.didSelectWeek(week)
-    }
-    
-    func didSelectDay(day: ChartDay) {
-        delegate?.didSelectDay(day)
-    }
-    
-    func didSelectHour(hour: ChartHour) {
-        delegate?.didSelectHour(hour)
+    func didSelectChartDateValue(value: Chartable) {
+        delegate?.didSelectChartDateValue(value)
     }
 }

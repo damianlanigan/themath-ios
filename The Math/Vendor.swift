@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum VendorType: String {
     case Location = "Location"

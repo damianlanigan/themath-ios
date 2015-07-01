@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CalendarMonth: TimeRepresentable {
     
@@ -82,10 +83,6 @@ class CalendarMonth: TimeRepresentable {
 
 class ChartMonth: CalendarMonth, Chartable {
     
-    var values: [AnyObject] {
-        return days
-    }
-    
     var days: [ChartDay] = [ChartDay]() {
         didSet {
             padMonth()
@@ -115,6 +112,10 @@ class ChartMonth: CalendarMonth, Chartable {
     
     // MARK: Chartable
     
+    var values: [AnyObject] {
+        return days
+    }
+    
     func barPadding() -> CGFloat {
         return 4.0
     }
@@ -131,7 +132,7 @@ class ChartMonth: CalendarMonth, Chartable {
     }
     
     func hasValueAtIndex(index: Int) -> Bool {
-        return false
+        return days[index].score > 0
     }
     
 }

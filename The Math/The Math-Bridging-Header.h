@@ -3,7 +3,6 @@
 //
 
 // TOOLTIPS
-#import <AMPopTip/AMPopTip.h>
 
 //// GOOGLE ANALYTICS
 //#import <GoogleAnalytics-iOS-SDK/GAI.h>

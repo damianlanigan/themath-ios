@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CalendarDay: TimeRepresentable {
     
@@ -52,10 +53,6 @@ class CalendarDay: TimeRepresentable {
 
 let ChartDayMinimumDayAverage = 0
 class ChartDay: CalendarDay, Chartable {
-    
-    var values: [AnyObject] {
-        return hours
-    }
     
     // cache
     private var _score: Int!
@@ -125,6 +122,10 @@ class ChartDay: CalendarDay, Chartable {
     
     // MARK: Chartable
     
+    var values: [AnyObject] {
+        return hours
+    }
+    
     func barPadding() -> CGFloat {
         return 8.0
     }
@@ -143,6 +144,7 @@ class ChartDay: CalendarDay, Chartable {
     func hasValueAtIndex(index: Int) -> Bool {
         return hours[index].entries.count > 0 && hours[index].entries[0].userGenerated
     }
+    
 }
 
 class ChartHour {

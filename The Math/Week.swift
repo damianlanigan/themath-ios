@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CalendarWeek: TimeRepresentable {
     
@@ -83,9 +84,6 @@ class CalendarWeek: TimeRepresentable {
 }
 
 class ChartWeek: CalendarWeek, Chartable {
-    var values: [AnyObject] {
-        return days
-    }
     
     var days: [ChartDay] = [ChartDay]() {
         didSet {
@@ -115,6 +113,10 @@ class ChartWeek: CalendarWeek, Chartable {
     }
     
     // MARK: Chartable
+    
+    var values: [AnyObject] {
+        return days
+    }
     
     func barPadding() -> CGFloat {
         return 30.0
