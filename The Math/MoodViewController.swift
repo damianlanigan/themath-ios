@@ -10,7 +10,6 @@
 
 import UIKit
 import MessageUI
-import AMPopTip
 
 class MoodViewController: UIViewController,
     MoodViewDelegate,
@@ -67,17 +66,6 @@ class MoodViewController: UIViewController,
     private var isPanning = false
     private var previousOrientation: UIDeviceOrientation = .Portrait
 
-    
-    lazy var toolTip: AMPopTip = {
-        var tip = AMPopTip()
-        tip.shouldDismissOnTap = true
-        tip.edgeMargin = 10.0
-        tip.offset = 12
-        tip.edgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        tip.textAlignment = .Center
-        tip.popoverColor = UIColor(red: 228/255.0, green: 238/255.0, blue: 251/255.0, alpha: 1.0)
-        return tip
-    }()
     
     lazy var infographViewController: InfographViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -164,8 +152,6 @@ class MoodViewController: UIViewController,
     }
     
     private func showTooltip() {
-        AMPopTip.appearance().textColor = UIColor.blackColor()
-        AMPopTip.appearance().textAlignment = .Center
         
         var titleString = NSMutableAttributedString(string: "Hold Down")
         var bodyString = NSMutableAttributedString(string: "\nThe better you're feeling the longer you hold.")
@@ -188,8 +174,6 @@ class MoodViewController: UIViewController,
         ], range: bodyRange)
         
         titleString.appendAttributedString(bodyString)
-
-        toolTip.showAttributedText(titleString, direction: .Up, maxWidth: 200, inView: contentView, fromFrame: moodTrigger.frame)
     }
     
     private func updateLatestTimestamp() {
@@ -267,7 +251,6 @@ class MoodViewController: UIViewController,
     // MARK: IBACTION
     
     @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
-        toolTip.hide()
         let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Send feedback")
         alert.show()
     }
@@ -434,7 +417,6 @@ class MoodViewController: UIViewController,
     private func beginMood() {
         capturingMood = true
         setNeedsStatusBarAppearanceUpdate()
-        toolTip.hide()
         timer = NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "update", userInfo: nil, repeats: true)
         
         moodReferenceView.transform = CGAffineTransformMakeScale(0.95, 0.95)

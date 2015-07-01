@@ -72,12 +72,12 @@ class InfographViewController: UIViewController,
     
     // MARK: <ChartViewControllerDelegate>
     
-    func didSelectDay(day: Int) {
+    func didSelectDay(day: ChartDay) {
         println("selected day: \(day)")
         navigateToViewControllerAtIndex(0)
     }
     
-    func didSelectWeek(week: Int) {
+    func didSelectWeek(week: ChartWeek) {
         println("selected week: \(week)")
         navigateToViewControllerAtIndex(1)
     }

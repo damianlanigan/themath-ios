@@ -19,7 +19,6 @@ class ChartView: UIView, JBChartViewDelegate {
         let c = JBBarChartView()
         c.minimumValue = 1.0
         c.maximumValue = 100.0
-        c.delegate = self
         return c
     }()
     
