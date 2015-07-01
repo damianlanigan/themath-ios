@@ -18,13 +18,13 @@ class CalendarWeek: TimeRepresentable {
         let start = date.dateBySubtractingDays(num - 1)
         
         calendarDays = (
-            Day(date: start),
-            Day(date: start.dateByAddingDays(1)),
-            Day(date: start.dateByAddingDays(2)),
-            Day(date: start.dateByAddingDays(3)),
-            Day(date: start.dateByAddingDays(4)),
-            Day(date: start.dateByAddingDays(5)),
-            Day(date: start.dateByAddingDays(6))
+            CalendarDay(date: start),
+            CalendarDay(date: start.dateByAddingDays(1)),
+            CalendarDay(date: start.dateByAddingDays(2)),
+            CalendarDay(date: start.dateByAddingDays(3)),
+            CalendarDay(date: start.dateByAddingDays(4)),
+            CalendarDay(date: start.dateByAddingDays(5)),
+            CalendarDay(date: start.dateByAddingDays(6))
         )
     }
     

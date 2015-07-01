@@ -94,7 +94,7 @@ class ChartViewController: UIViewController,
         case .Week:
             return NSDate().dateBySubtractingDays(coordinators.count * 7).dateAdjustedForLocalTime()
         case .Month:
-            if let m = coordinators.last?.dateValue as? Month {
+            if let m = coordinators.last?.dateValue as? CalendarMonth {
                 return m.startDate.dateBySubtractingDays(1)
             }
         default:

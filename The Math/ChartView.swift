@@ -142,7 +142,7 @@ class ChartView: UIView, JBChartViewDelegate {
     
     private func monthFooterView() -> UIView {
         let v = UIView()
-        let month = (self.model.dateValue as! Month)
+        let month = (self.model.dateValue as! CalendarMonth)
         for i in 0..<month.dayCount {
             let l = ChartFooterLabel()
             l.textAlignment = .Center

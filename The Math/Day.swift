@@ -17,7 +17,7 @@ class CalendarDay: TimeRepresentable {
     }
     
     func week() -> CalendarWeek {
-        return Week(date: rawDate)
+        return CalendarWeek(date: rawDate)
     }
     
     func formattedDescription() -> String {
