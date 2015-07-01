@@ -10,6 +10,7 @@ import Foundation
 
 protocol TimeRepresentable {
     func formattedDescription() -> String
+    func fetchChartableRepresentation(completion: (result: Chartable) -> Void)
 }
 
 protocol Chartable {
@@ -58,6 +59,42 @@ class Month: TimeRepresentable {
     
     func formattedDescription() -> String {
         return "\(startDate.monthToString()), \(startDate.year(offset: 0))"
+    }
+    
+    var params: [String: AnyObject] {
+        return [
+            "start_date" : startDate.dateAtStartOfDay(),
+            "end_date" : endDate.dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+    }
+    
+    func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
+        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,Int>> {
+                
+                
+                var days = [ChartDay]()
+                for d in data {
+                    for (date, score) in d {
+                        let comps = NSDateComponents()
+                        let parts = split(date) { $0 == "-" }
+                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                        let day = ChartDay(date: timestamp, score: score)
+                        days.append(day)
+                    }
+                }
+            
+                
+                let chartable = ChartMonth(date: self.startDate)
+                chartable.days = days
+                
+                completion(result: chartable)
+            }
+        }
     }
 }
 
@@ -138,6 +175,42 @@ class Week: TimeRepresentable {
             return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(sunday.year(offset: 0))"
         }
     }
+    
+    var params: [String: AnyObject]  {
+        let monday = calendarDays.monday.rawDate.dateAtStartOfDay()
+        return [
+            "start_date" : monday,
+            "end_date" : monday.dateAtEndOfWeek().dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+    }
+    
+    
+    func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
+        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,Int>> {
+                let chartable = ChartWeek(date: self.calendarDays.monday.rawDate)
+                
+                var days = [ChartDay]()
+                for d in data {
+                    for (date, score) in d {
+                        let comps = NSDateComponents()
+                        let parts = split(date) { $0 == "-" }
+                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                        let day = ChartDay(date: timestamp, score: score)
+                        days.append(day)
+                    }
+                }
+
+                chartable.days = days
+                
+                completion(result: chartable)
+            }
+        }
+    }
 }
 
 class ChartWeek: Week, Chartable {
@@ -184,29 +257,60 @@ class Day: TimeRepresentable {
     func formattedDescription() -> String {
         return "\(rawDate.shortMonthToString()) \(rawDate.day(offset: 0)), \(rawDate.year(offset: 0))"
     }
+    
+    var params: [String: AnyObject] {
+        return [
+            "start_datetime" : rawDate.dateAtStartOfDay(),
+            "end_datetime" : rawDate.dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+    }
+    
+    func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
+        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,AnyObject>> {
+                let chartable = ChartDay(date: self.rawDate)
+                var entries: [JournalEntry] = [JournalEntry]()
+                for d in data {
+                    let entry = JournalEntry.fromJSONRequest(d)
+                    entries.append(entry)
+                }
+                chartable.entries = entries
+                
+                completion(result: chartable)
+            }
+        }
+    }
 }
 
 
 let ChartDayMinimumDayAverage = 0
 class ChartDay: Day, Chartable {
     
-    let score: Int!
-    
-    var entries = [JournalEntry]() {
-        didSet {
-            padDay()
+    // cache
+    private var _score: Int!
+    var score: Int {
+        if _score == nil {
+            var scores: [Int] = self.entries.map { $0.score }
+            let sum = scores.reduce(0, combine: +)
+            return self.entries.count > 0 ? sum / self.entries.count : ChartDayMinimumDayAverage
         }
+        return _score
     }
     
     var hours = [ChartHour]()
+    
+    var entries = [JournalEntry]() {
+        didSet { padDay() }
+    }
     
     lazy var color: UIColor = {
         return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(self.score) / 100.0)
     }()
     
-    init(date: NSDate, score: Int) {
-        self.score = score
-        super.init(date: date)
+    convenience init(date: NSDate, score: Int) {
+        self.init(date: date)
+        _score = score
     }
     
     private func padDay() {
@@ -254,11 +358,11 @@ class ChartDay: Day, Chartable {
 class ChartHour {
     var hour: Int = 0
     var entries = [JournalEntry]()
-    var score: Int {
+    lazy var score: Int = {
         // TODO: potentially slow
         if self.entries.count == 0 {
             return 0
         }
         return self.entries.map { $0.score }.reduce(0, combine: +) / self.entries.count
-    }
+    }()
 }

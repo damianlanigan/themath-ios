@@ -12,7 +12,7 @@ import JBChartView
 
 class ChartView: UIView, JBChartViewDelegate {
     
-    var scope: CalendarScope!
+    var scope: CalendarScope = .Undefined
     weak var model: ChartViewModel!
     
     lazy var chart: JBChartView = {
@@ -42,12 +42,13 @@ class ChartView: UIView, JBChartViewDelegate {
     init(scope: CalendarScope, model: ChartViewModel) {
         self.scope = scope
         self.model = model
+        
         super.init(frame: CGRectZero)
         
         transform = CGAffineTransformMakeScale(-1.0, 1.0)
         
         addSubview(chart)
-        addSubview(chartFooterView())
+        addSubview(footerView)
         addSubview(loader)
         addSubview(timeLabel)
     }
@@ -64,11 +65,11 @@ class ChartView: UIView, JBChartViewDelegate {
         // footer height = 20
         chart.frame = CGRectMake(16, 32, frame.size.width - 32, frame.size.height - 52 - (chart.footerPadding * 2.0))
         let padding: CGFloat = scope == CalendarScope.Month ? 14.0 : (scope == CalendarScope.Day ? 12.0 : 0.0)
-        chartFooterView().frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
+        footerView.frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
         
-        var labelCount = chartFooterView().subviews.filter { $0.isKindOfClass(UILabel.self) }.count
-        let labelWidth = chartFooterView().frame.size.width / CGFloat(labelCount)
-        for (idx, view) in enumerate(chartFooterView().subviews) {
+        var labelCount = footerView.subviews.filter { $0.isKindOfClass(UILabel.self) }.count
+        let labelWidth = footerView.frame.size.width / CGFloat(labelCount)
+        for (idx, view) in enumerate(footerView.subviews) {
             if let label = view as? UILabel {
                 label.textColor = UIColor.grayColor()
                 
@@ -88,21 +89,20 @@ class ChartView: UIView, JBChartViewDelegate {
     
     // MARK: Footer View
     
-    private var _footerView: UIView?
+    // cache
     
-    func chartFooterView() -> UIView {
-        if _footerView != nil {
-            return _footerView!
+    lazy var footerView: UIView = {
+        switch self.scope {
+        case CalendarScope.Day:
+            return self.dayFooterView()
+        case CalendarScope.Week:
+            return self.weekFooterView()
+        case CalendarScope.Month:
+            return self.monthFooterView()
+        default:
+            return UIView()
         }
-        if scope == .Day {
-            _footerView = dayFooterView()
-        } else if scope == .Week {
-            _footerView = weekFooterView()
-        } else if scope == .Month {
-            _footerView = monthFooterView()
-        }
-        return _footerView!
-    }
+    }()
     
     private func dayFooterView() -> UIView {
         let v = UIView()

@@ -14,7 +14,6 @@ class ChartViewModel: NSObject,
     JBBarChartViewDelegate {
     
     var scope: CalendarScope = .Undefined
-    
     var dateValue: TimeRepresentable?
     var chartableDateValue: Chartable?
     
@@ -50,130 +49,15 @@ class ChartViewModel: NSObject,
     }
     
     func populateChart() {
-        
-        let completion = { () -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.view.loader.stopAnimating()
-                self.view.reloadData()
-            })
-        }
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-            let scope = self.scope
-            if scope == .Week {
-                self.fetchWeek { () -> Void in
-                    completion()
-                }
-            }
-            if scope == .Day {
-                self.fetchDay { () -> Void in
-                    completion()
-                }
-            }
-            if scope == .Month {
-                self.fetchMonth { () -> Void in
-                    completion()
-                }
-            }
+            self.dateValue?.fetchChartableRepresentation({ (result) -> Void in
+                self.chartableDateValue = result
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.view.loader.stopAnimating()
+                    self.view.reloadData()
+                })
+            })
         })
-    }
-    
-    private func fetchDay(completion: () -> Void) {
-        let day = dateValue as! Day
-        
-        let params = [
-            "start_datetime" : day.rawDate.dateAtStartOfDay(),
-            "end_datetime" : day.rawDate.dateAtEndOfDay(),
-            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
-        ]
-        
-        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? Array<Dictionary<String,AnyObject>> {
-                var entries: [JournalEntry] = [JournalEntry]()
-                for d in data {
-                    let entry = JournalEntry.fromJSONRequest(d)
-                    entries.append(entry)
-                }
-                
-                var scores: [Int] = entries.map { $0.score }
-                var sum = scores.reduce(0, combine: +)
-                let average = entries.count > 0 ? sum / entries.count : ChartDayMinimumDayAverage
-                self.chartableDateValue = ChartDay(date: day.rawDate, score: average)
-                (self.chartableDateValue as! ChartDay).entries = entries
-                completion()
-            }
-        }
-    }
-    
-    private func fetchWeek(completion: () -> Void) {
-        let week = dateValue as! Week
-        let monday = week.calendarDays.monday.rawDate.dateAtStartOfDay()
-        
-        let params = [
-            "start_date" : monday,
-            "end_date" : monday.dateAtEndOfWeek().dateAtEndOfDay(),
-            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
-        ]
-        
-        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? Array<Dictionary<String,Int>> {
-                
-                var days = [ChartDay]()
-                for d in data {
-                    for (date, score) in d {
-                        let comps = NSDateComponents()
-                        let parts = split(date) { $0 == "-" }
-                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-                        let day = ChartDay(date: timestamp, score: score)
-                        days.append(day)
-                    }
-                }
-
-                self.chartableDateValue = ChartWeek(date: week.calendarDays.monday.rawDate)
-                (self.chartableDateValue as! ChartWeek).days = days
-                
-                completion()
-            }
-        }
-    }
-    
-    private func fetchMonth(completion: () -> Void) {
-        let month = dateValue as! Month
-        
-        // these fetches should probably happen on the classes
-        let params = [
-            "start_date" : month.startDate.dateAtStartOfDay(),
-            "end_date" : month.endDate.dateAtEndOfDay(),
-            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
-        ]
-        
-        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? Array<Dictionary<String,Int>> {
-                
-                var days = [ChartDay]()
-                for d in data {
-                    for (date, score) in d {
-                        let comps = NSDateComponents()
-                        let parts = split(date) { $0 == "-" }
-                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-                        let day = ChartDay(date: timestamp, score: score)
-                        days.append(day)
-                    }
-                }
-            
-                
-                self.chartableDateValue = ChartMonth(date: month.startDate)
-                (self.chartableDateValue as! ChartMonth).days = days
-                
-                completion()
-            }
-        }
     }
     
     // MARK: Chart BAR
