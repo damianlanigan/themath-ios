@@ -65,6 +65,9 @@
 		8D9138791AE85D7B0090C53C /* DayChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138761AE85D7B0090C53C /* DayChartViewController.swift */; };
 		8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */; };
 		8D916E591B0A77F9001C4F0F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */; };
+		8D9351B31B4486B100138C42 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9351B21B4486B100138C42 /* Month.swift */; };
+		8D9351B51B4486B600138C42 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9351B41B4486B600138C42 /* Week.swift */; };
+		8D9351B71B4486BB00138C42 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9351B61B4486BB00138C42 /* Day.swift */; };
 		8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */; };
 		8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
@@ -179,6 +182,9 @@
 		8D9138761AE85D7B0090C53C /* DayChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartViewController.swift; sourceTree = "<group>"; };
 		8D9138771AE85D7B0090C53C /* MonthChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthChartViewController.swift; sourceTree = "<group>"; };
 		8D916E581B0A77F9001C4F0F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		8D9351B21B4486B100138C42 /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		8D9351B41B4486B600138C42 /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		8D9351B61B4486BB00138C42 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingSignupView.xib; sourceTree = "<group>"; };
 		8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLocationView.xib; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
@@ -531,6 +537,9 @@
 				8D0B3FD01AE952E300565DC1 /* NonRotatingNavigationController.swift */,
 				8D00B2021B024D9F0099828C /* ChartViewModel.swift */,
 				8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */,
+				8D9351B21B4486B100138C42 /* Month.swift */,
+				8D9351B41B4486B600138C42 /* Week.swift */,
+				8D9351B61B4486BB00138C42 /* Day.swift */,
 				8DE6762C1B0D2999002ECFDF /* ChartDetailViewController.swift */,
 			);
 			name = Infograph;
@@ -737,6 +746,7 @@
 				8DF7C1D21B0D0F75009EFFAA /* Bool.swift in Sources */,
 				8D85997F1B0F81350053A555 /* CalendarCoordinator.swift in Sources */,
 				8D7A6DD11AE5B2C600AC2CD8 /* SocialCategoryView.swift in Sources */,
+				8D9351B51B4486B600138C42 /* Week.swift in Sources */,
 				8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */,
 				8DE676331B0D305A002ECFDF /* CircleProgressView.swift in Sources */,
 				8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */,
@@ -765,6 +775,7 @@
 				E5149F5E1B012CDC005AC841 /* OnboardingButton.swift in Sources */,
 				8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */,
 				8DFEFA5C1B0E7487004533A1 /* JournalEntry.swift in Sources */,
+				8D9351B31B4486B100138C42 /* Month.swift in Sources */,
 				8D8FA8DB1B0FE05D009FC857 /* CalendarSelectionTableViewController.swift in Sources */,
 				8D4149C61AEC53EE000A4D2E /* User.swift in Sources */,
 				8D7A6DD71AE5B32100AC2CD8 /* SelfCategoryView.swift in Sources */,
@@ -777,6 +788,7 @@
 				8D8C30991A8F194700903E76 /* BorderedView.swift in Sources */,
 				27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */,
 				8D91387A1AE85D7B0090C53C /* MonthChartViewController.swift in Sources */,
+				8D9351B71B4486BB00138C42 /* Day.swift in Sources */,
 				8D916E591B0A77F9001C4F0F /* EditProfileTableViewController.swift in Sources */,
 				27A713CD1A48754600344431 /* JournalViewController.swift in Sources */,
 				8D9138741AE85D0F0090C53C /* RoundableView.swift in Sources */,

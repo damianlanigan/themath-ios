@@ -24,13 +24,7 @@ class ChartViewModel: NSObject,
     var date: NSDate! {
         didSet {
             assert(scope != .Undefined, "Cannot set date without a scope")
-            if scope == .Day {
-                dateValue = Day(date: date)
-            } else if scope == .Week {
-                dateValue = Week(date: date)
-            } else if scope == .Month {
-                dateValue = Month(date: date)
-            }
+            dateValue = scope.timeValue(date)
             populateChart()
         }
     }
@@ -63,82 +57,37 @@ class ChartViewModel: NSObject,
     // MARK: Chart BAR
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-        if let day = chartableDateValue as? ChartDay {
-            return UInt(day.hours.count)
-        }
-        if let week = chartableDateValue as? ChartWeek {
-            return UInt(week.days.count)
-        }
-        if let month = chartableDateValue as? ChartMonth {
-            return UInt(month.days.count)
+        if let chartable = chartableDateValue {
+            return UInt(chartable.values.count)
         }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
-        let idx = Int(index)
-        if let day = chartableDateValue as? ChartDay {
-            return CGFloat(day.hours[idx].score)
-        }
-        if let week = chartableDateValue as? ChartWeek {
-            return CGFloat(week.days[idx].score)
-        }
-        if let month = chartableDateValue as? ChartMonth {
-            return CGFloat(month.days[idx].score)
+        if let chartable = chartableDateValue {
+            return chartable.valueAtIndex(Int(index))
         }
         return 0
     }
     
-    
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
-        if let view: BarView = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as? BarView {
-            let idx = Int(index)
-            
-            if let day = chartableDateValue as? ChartDay {
-                let perc = CGFloat(day.hours[idx].score) / 100.0
-                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-            }
-            
-            if let week = chartableDateValue as? ChartWeek {
-                let perc = CGFloat(week.days[idx].score) / 100.0
-                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-            }
-            
-            if let month = chartableDateValue as? ChartMonth {
-                let perc = CGFloat(month.days[idx].score) / 100.0
-                view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
-            }
-            
-            return view
+        if let chartable = chartableDateValue {
+            return chartable.viewAtIndex(Int(index))
         }
         return UIView()
     }
     
     func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
-        if let day = chartableDateValue as? ChartDay {
-            return 8.0
-        } else if let week = chartableDateValue as? ChartWeek {
-          return 30.0
-        } else if let month = chartableDateValue as? ChartMonth {
-            return 4.0
+        if let chartable = chartableDateValue {
+            return chartable.barPadding()
         }
         return 0
     }
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
         let idx = Int(index)
-        if let day = chartableDateValue as? ChartDay {
-            if day.hours[idx].entries.count > 0 {
-                if day.hours[idx].entries[0].userGenerated {
-                    selectedBarIdx = idx
-                } else {
-                    println("filler")
-                }
-            }
-        }
-        // week is just average score so there are no entries
-        if let week = chartableDateValue as? ChartWeek {
-            if week.days[idx].score > 0 {
+        if let chartable = chartableDateValue {
+            if chartable.hasValueAtIndex(idx) {
                 selectedBarIdx = idx
             }
         }
