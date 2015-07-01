@@ -97,7 +97,7 @@ class ChartViewModel: NSObject,
     
     func didDeselectBarChartView(barChartView: JBBarChartView!) {
         if let idx = selectedBarIdx, chartable = chartableDateValue {
-            delegate?.didSelectChartDateValue(chartable)
+            delegate?.didSelectChartDateValue(chartable.values[idx])
         }
     }
 }

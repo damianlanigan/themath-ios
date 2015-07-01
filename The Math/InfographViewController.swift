@@ -70,8 +70,15 @@ class InfographViewController: UIViewController,
     
     // MARK: <ChartViewControllerDelegate>
     
-    func didSelectChartDateValue(value: Chartable) {
-        println(value.self)
+    func didSelectChartDateValue(value: AnyObject) {
+        if let value = value as? ChartDay {
+            value.fetchChartableRepresentation({ (result) -> Void in
+                let navigationController = UINavigationController()
+                let tableViewController = UITableViewController()
+                navigationController.viewControllers = [tableViewController]
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            })
+        }
     }
     
     func didSelectDay(day: ChartDay) {

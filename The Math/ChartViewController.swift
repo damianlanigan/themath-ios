@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartDelegate: class {
-    func didSelectChartDateValue(value: Chartable)
+    func didSelectChartDateValue(value: AnyObject)
 }
 
 class ChartViewController: UIViewController,
@@ -112,7 +112,7 @@ class ChartViewController: UIViewController,
         }
     }
     
-    func didSelectChartDateValue(value: Chartable) {
+    func didSelectChartDateValue(value: AnyObject) {
         delegate?.didSelectChartDateValue(value)
     }
 }
