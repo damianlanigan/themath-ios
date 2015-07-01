@@ -28,6 +28,7 @@ class MoodViewController: UIViewController,
     @IBOutlet weak var moodCircle: RoundableView!
     @IBOutlet weak var ratingHighImageView: UIImageView!
     @IBOutlet weak var ratingLowImageView: UIImageView!
+    @IBOutlet weak var settingsButton: UIButton!
     
     // MARK: state
     
@@ -205,6 +206,7 @@ class MoodViewController: UIViewController,
             self.lineView.alpha = 1.0
             self.ratingHighImageView.alpha = 1.0
             self.ratingLowImageView.alpha = 1.0
+            self.settingsButton.alpha = 0.0
             //            self.latestMoodLabel.alpha = 0.0
         })
     }
@@ -216,6 +218,7 @@ class MoodViewController: UIViewController,
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
             self.lineView.alpha = 0.0
             self.ratingHighImageView.alpha = 0.0
+            self.settingsButton.alpha = 1.0
             self.ratingLowImageView.alpha = 0.0
             }, completion: { (_: Bool) -> Void in
         })

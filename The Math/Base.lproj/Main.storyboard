@@ -61,11 +61,24 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
                                 <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-On-qM4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.63" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="settings_dark">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XBp-4j-f4v" kind="presentation" id="75o-C7-Qkf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ujP-CY-TuO" secondAttribute="centerX" id="1jJ-ne-Wf8"/>
+                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="3lH-On-qM4" secondAttribute="bottom" constant="20" id="JvS-Hb-KRv"/>
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="tU0-tU-fyv" secondAttribute="bottom" constant="20" id="ZTk-ba-aqZ"/>
+                            <constraint firstItem="3lH-On-qM4" firstAttribute="trailing" secondItem="dMA-By-fQC" secondAttribute="trailingMargin" id="ZuE-Ag-SCN"/>
                             <constraint firstAttribute="centerY" secondItem="90V-Oh-iAs" secondAttribute="centerY" id="bkZ-RM-ZPg"/>
                             <constraint firstAttribute="centerX" secondItem="tU0-tU-fyv" secondAttribute="centerX" id="feg-gy-zO9"/>
                             <constraint firstItem="ujP-CY-TuO" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="8" id="lEb-Bt-cgl"/>
@@ -76,14 +89,17 @@
                                 <exclude reference="90V-Oh-iAs"/>
                                 <exclude reference="ujP-CY-TuO"/>
                                 <exclude reference="tU0-tU-fyv"/>
+                                <exclude reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ZTk-ba-aqZ"/>
-                                <exclude reference="feg-gy-zO9"/>
                                 <exclude reference="1jJ-ne-Wf8"/>
                                 <exclude reference="lEb-Bt-cgl"/>
                                 <exclude reference="bkZ-RM-ZPg"/>
                                 <exclude reference="wXK-87-3Zh"/>
+                                <exclude reference="feg-gy-zO9"/>
+                                <exclude reference="JvS-Hb-KRv"/>
+                                <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="ZuE-Ag-SCN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -91,14 +107,17 @@
                                 <include reference="90V-Oh-iAs"/>
                                 <include reference="ujP-CY-TuO"/>
                                 <include reference="tU0-tU-fyv"/>
+                                <include reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ZTk-ba-aqZ"/>
-                                <include reference="feg-gy-zO9"/>
                                 <include reference="1jJ-ne-Wf8"/>
                                 <include reference="lEb-Bt-cgl"/>
                                 <include reference="bkZ-RM-ZPg"/>
                                 <include reference="wXK-87-3Zh"/>
+                                <include reference="feg-gy-zO9"/>
+                                <include reference="JvS-Hb-KRv"/>
+                                <include reference="ZTk-ba-aqZ"/>
+                                <include reference="ZuE-Ag-SCN"/>
                             </mask>
                         </variation>
                     </view>
@@ -108,6 +127,7 @@
                         <outlet property="moodCircle" destination="90V-Oh-iAs" id="e7A-Y6-bId"/>
                         <outlet property="ratingHighImageView" destination="ujP-CY-TuO" id="bPt-VY-p8D"/>
                         <outlet property="ratingLowImageView" destination="tU0-tU-fyv" id="EZW-X6-z2U"/>
+                        <outlet property="settingsButton" destination="3lH-On-qM4" id="qR3-5f-rdU"/>
                         <segue destination="fTm-Vk-pUw" kind="presentation" identifier="MoodToJournalTransition" id="ZGI-oe-XJA"/>
                         <segue destination="grH-6b-2HV" kind="presentation" identifier="PresentInfograph" id="5sG-9v-HXh"/>
                     </connections>
@@ -2702,6 +2722,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
         <image name="linked_venmo" width="28" height="28"/>
         <image name="rating_high_light" width="44" height="44"/>
         <image name="rating_low_dark" width="44" height="44"/>
+        <image name="settings_dark" width="28" height="28"/>
     </resources>
     <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
