@@ -78,6 +78,33 @@ class ChartViewModel: NSObject,
         })
     }
     
+    private func fetchDay(completion: () -> Void) {
+        let day = dateValue as! Day
+        
+        let params = [
+            "start_datetime" : day.rawDate.dateAtStartOfDay(),
+            "end_datetime" : day.rawDate.dateAtEndOfDay(),
+            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
+        ]
+        
+        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
+            if let data = data as? Array<Dictionary<String,AnyObject>> {
+                var entries: [JournalEntry] = [JournalEntry]()
+                for d in data {
+                    let entry = JournalEntry.fromJSONRequest(d)
+                    entries.append(entry)
+                }
+                
+                var scores: [Int] = entries.map { $0.score }
+                var sum = scores.reduce(0, combine: +)
+                let average = entries.count > 0 ? sum / entries.count : ChartDayMinimumDayAverage
+                self.chartableDateValue = ChartDay(date: day.rawDate, score: average)
+                (self.chartableDateValue as! ChartDay).entries = entries
+                completion()
+            }
+        }
+    }
+    
     private func fetchWeek(completion: () -> Void) {
         let week = dateValue as! Week
         let monday = week.calendarDays.monday.rawDate.dateAtStartOfDay()
@@ -113,36 +140,10 @@ class ChartViewModel: NSObject,
         }
     }
     
-    private func fetchDay(completion: () -> Void) {
-        let day = dateValue as! Day
-        
-        let params = [
-            "start_datetime" : day.rawDate.dateAtStartOfDay(),
-            "end_datetime" : day.rawDate.dateAtEndOfDay(),
-            "timezone_offset" : (NSTimeZone.localTimeZone().secondsFromGMT / 60 / 60)
-        ]
-        
-        request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? Array<Dictionary<String,AnyObject>> {
-                var entries: [JournalEntry] = [JournalEntry]()
-                for d in data {
-                    let entry = JournalEntry.fromJSONRequest(d)
-                    entries.append(entry)
-                }
-                
-                var scores: [Int] = entries.map { $0.score }
-                var sum = scores.reduce(0, combine: +)
-                let average = entries.count > 0 ? sum / entries.count : ChartDayMinimumDayAverage
-                self.chartableDateValue = ChartDay(date: day.rawDate, score: average)
-                (self.chartableDateValue as! ChartDay).entries = entries
-                completion()
-            }
-        }
-    }
-    
     private func fetchMonth(completion: () -> Void) {
         let month = dateValue as! Month
         
+        // these fetches should probably happen on the classes
         let params = [
             "start_date" : month.startDate.dateAtStartOfDay(),
             "end_date" : month.endDate.dateAtEndOfDay(),
@@ -249,6 +250,12 @@ class ChartViewModel: NSObject,
                 } else {
                     println("filler")
                 }
+            }
+        }
+        // week is just average score so there are no entries
+        if let week = chartableDateValue as? ChartWeek {
+            if week.days[idx].score > 0 {
+                selectedBarIdx = idx
             }
         }
     }

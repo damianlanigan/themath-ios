@@ -74,12 +74,14 @@ class InfographViewController: UIViewController,
     
     func didSelectDay(day: ChartDay) {
         println("selected day: \(day)")
-        navigateToViewControllerAtIndex(0)
+        // show all of the entries for that day
+        // currently only pulling average score for 
+        // the week so we'll need to do another request
     }
     
     func didSelectWeek(week: ChartWeek) {
         println("selected week: \(week)")
-        navigateToViewControllerAtIndex(1)
+//        navigateToViewControllerAtIndex(1)
     }
     
     func didSelectHour(hour: ChartHour) {
