@@ -54,7 +54,7 @@ class ChartViewModel: NSObject,
         })
     }
     
-    // MARK: Chart BAR
+    // MARK: <JBBarChartViewDataSource>
     
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
         if let chartable = chartableDateValue {
@@ -83,6 +83,8 @@ class ChartViewModel: NSObject,
         }
         return 0
     }
+    
+    // MARK: <JBBarChartViewDelegate>
     
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt) {
         let idx = Int(index)

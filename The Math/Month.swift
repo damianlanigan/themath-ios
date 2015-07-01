@@ -120,7 +120,7 @@ class ChartMonth: CalendarMonth, Chartable {
     }
     
     func viewAtIndex(index: Int) -> UIView {
-        let view = NSBundle.mainBundle().loadNibNamed("BarView", owner: self, options: nil)[0] as! BarView
+        let view = NSBundle.mainBundle().loadNibNamed("BarView", owner: nil, options: nil)[0] as! BarView
         let perc = CGFloat(days[index].score) / 100.0
         view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
         return view
