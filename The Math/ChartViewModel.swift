@@ -257,6 +257,8 @@ class ChartViewModel: NSObject,
         if let idx = selectedBarIdx {
             if let day = chartableDateValue as? ChartDay {
                 delegate?.didSelectHour(day.hours[idx])
+            } else if let week = chartableDateValue as? ChartWeek {
+                delegate?.didSelectDay(week.days[idx])
             }
         }
     }

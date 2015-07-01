@@ -10,7 +10,7 @@
 import UIKit
 import JBChartView
 
-class ChartView: UIView {
+class ChartView: UIView, JBChartViewDelegate {
     
     var scope: CalendarScope!
     weak var model: ChartViewModel!
@@ -19,6 +19,7 @@ class ChartView: UIView {
         let c = JBBarChartView()
         c.minimumValue = 1.0
         c.maximumValue = 100.0
+        c.delegate = self
         return c
     }()
     
@@ -157,5 +158,6 @@ class ChartView: UIView {
         }
         return v
     }
+    
 
 }
