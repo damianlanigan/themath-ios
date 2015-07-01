@@ -74,11 +74,8 @@ class MoodViewController: UIViewController,
     }()
     
     
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    // MARK: LIFE CYCLE
+    // MARK: Life Cycle
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.alpha = 0.0
@@ -136,11 +133,9 @@ class MoodViewController: UIViewController,
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    
     // MARK: SETUP
     
-    
-    // MARK: viewcontroller
+    // MARK:lviewcontroller
     
     private func setup() {
         setupObservers()
