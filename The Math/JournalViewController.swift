@@ -41,6 +41,7 @@ class JournalViewController: UIViewController,
     
     var journalEntry = JournalEntry()
 
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -76,6 +77,8 @@ class JournalViewController: UIViewController,
         contentViewHeightConstraint.constant = view.frame.size.height - 44.0
         contentViewWidthConstraint.constant = view.frame.size.width
     }
+    
+    // MARK: IBAction
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         // show spinner
@@ -133,6 +136,7 @@ class JournalViewController: UIViewController,
         }
     }
     
+    // MARK: Notifications
     func keyboardWillShow(notification: NSNotification!) {
         cachedScrollViewHeight = scrollView.contentSize.height
         let info = notification.userInfo
@@ -179,6 +183,8 @@ class JournalViewController: UIViewController,
         }
     }
     
+    // MARK: Exit transition animations
+    
     func fadeOutInitial(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
             self.contentView.alpha = 0.0
@@ -209,6 +215,38 @@ class JournalViewController: UIViewController,
         }
     }
     
+    // MARK: <UITextFieldDelegate>
+
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Add a note..." {
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add a note..."
+        }
+    }
+    // MARK: <LocationCoordinatorDelegate>
+    
+    func locationCoordinator(coordinator: LocationCoordinator, didReceiveLocation location: CLLocation) {
+        journalEntry.addLocation(location)
+        coordinator.stop() // we only need 1 location
+    }
+    
+    // MARK: <UIAlertViewDelegate>
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            isCancelled = true
+            textView.resignFirstResponder()
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+
+    // MARK: Utility - Date Helper
+    
     private func currentDateTimeFormatted() -> String {
         let formatter = NSDateFormatter()
         let date = NSDate()
@@ -230,43 +268,13 @@ class JournalViewController: UIViewController,
     }
 
 
-    // <UITextFieldDelegate>
-
-    func textViewDidBeginEditing(textView: UITextView) {
-        if textView.text == "Add a note..." {
-            textView.text = ""
-        }
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Add a note..."
-        }
-    }
-
+    // MARK: Behavior
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
     override func shouldAutorotate() -> Bool {
         return false
-    }
-    
-    // <LocationCoordinatorDelegate>
-    
-    func locationCoordinator(coordinator: LocationCoordinator, didReceiveLocation location: CLLocation) {
-        journalEntry.addLocation(location)
-        coordinator.stop() // we only need 1 location
-    }
-    
-    // <UIAlertViewDelegate>
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
-            isCancelled = true
-            textView.resignFirstResponder()
-            dismissViewControllerAnimated(true, completion: nil)
-        }
     }
     
 }
