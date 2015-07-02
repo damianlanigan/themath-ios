@@ -43,14 +43,10 @@ class ChartViewModel: NSObject,
     }
     
     func populateChart() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-            self.dateValue?.fetchChartableRepresentation({ (result) -> Void in
-                self.chartableDateValue = result
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.view.loader.stopAnimating()
-                    self.view.reloadData()
-                })
-            })
+        self.dateValue?.fetchChartableRepresentation({ (result) -> Void in
+            self.chartableDateValue = result
+            self.view.loader.stopAnimating()
+            self.view.reloadData()
         })
     }
     

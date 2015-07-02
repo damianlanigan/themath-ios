@@ -57,29 +57,33 @@ class CalendarWeek: TimeRepresentable {
     
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
-        request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? Array<Dictionary<String,Int>> {
-                let chartable = ChartWeek(date: self.calendarDays.monday.rawDate)
-                
-                var days = [ChartDay]()
-                for d in data {
-                    for (date, score) in d {
-                        let comps = NSDateComponents()
-                        let parts = split(date) { $0 == "-" }
-                        comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-                        comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-                        comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-                        let day = ChartDay(date: timestamp, score: score)
-                        days.append(day)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
+                if let data = data as? Array<Dictionary<String,Int>> {
+                    let chartable = ChartWeek(date: self.calendarDays.monday.rawDate)
+                    
+                    var days = [ChartDay]()
+                    for d in data {
+                        for (date, score) in d {
+                            let comps = NSDateComponents()
+                            let parts = split(date) { $0 == "-" }
+                            comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+                            comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+                            comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                            let day = ChartDay(date: timestamp, score: score)
+                            days.append(day)
+                        }
                     }
-                }
 
-                chartable.days = days
-                
-                completion(result: chartable)
+                    chartable.days = days
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completion(result: chartable)
+                    })
+                }
             }
-        }
+        })
     }
 }
 
