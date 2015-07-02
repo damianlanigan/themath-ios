@@ -10,7 +10,7 @@ import UIKit
 
 class ChartDetailViewController: UIViewController {
     
-    var hour: ChartHour!
+    var entry: JournalEntry!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,19 +19,11 @@ class ChartDetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println(hour.entries.count)
         
-        for entry in hour.entries {
-            let v = UIView.viewFromNib("ChartDetailView") as! ChartDetailView
-            v.entry = entry
-            view.addSubview(v)
-        }
+        let v = UIView.viewFromNib("ChartDetailView") as! ChartDetailView
+        v.entry = entry
+        view.addSubview(v)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
-    }
-    
-    func done() {
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewWillLayoutSubviews() {

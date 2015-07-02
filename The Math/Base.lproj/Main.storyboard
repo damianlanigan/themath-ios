@@ -329,7 +329,8 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -363,7 +364,8 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
@@ -2108,12 +2110,36 @@ By tapping create account you submit that you have read the Privacy Policy and a
                     <connections>
                         <outlet property="graphContainer" destination="KWU-uu-icG" id="hjD-i3-fsR"/>
                         <outlet property="segmentedControl" destination="btq-JQ-AdL" id="wq0-1j-O16"/>
-                        <segue destination="UyK-6z-rhn" kind="presentation" identifier="PresentDayDetail" id="2HV-4B-IG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1Y-iI-4v0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828" y="-474"/>
+        </scene>
+        <!--Day Selection Table View Controller-->
+        <scene sceneID="gg2-Eh-sLb">
+            <objects>
+                <tableViewController id="9rN-jZ-EqD" customClass="DaySelectionTableViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3oc-Dz-pf6">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PleaseWorkCell" id="CrL-ag-ZJY">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CrL-ag-ZJY" id="2tp-G9-QtO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9rN-jZ-EqD" id="iCH-KT-GC0"/>
+                            <outlet property="delegate" destination="9rN-jZ-EqD" id="ccs-xF-chY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pM-1Y-mFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2527.5" y="-466.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kHx-PW-3H0">
@@ -2186,37 +2212,6 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueO-N2-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4058" y="-241"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="GsB-up-rLm">
-            <objects>
-                <tableViewController storyboardIdentifier="InfographDayDetail" id="cyb-6c-1C7" customClass="DayChartDetailTableViewController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nTz-XY-54T">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JournalEntryDetailCellIdentifier" id="eqe-cH-PbA">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eqe-cH-PbA" id="2PR-6L-gIb">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cyb-6c-1C7" id="WUT-DL-Bww"/>
-                            <outlet property="delegate" destination="cyb-6c-1C7" id="Oik-gA-V8r"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="IJp-h8-OY4"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="4xB-PJ-UWs"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lf4-Gu-g4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3372" y="-323"/>
         </scene>
         <!--Edit Profile Table View Controller-->
         <scene sceneID="hum-z2-9xc">
@@ -2615,22 +2610,6 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDl-kD-Zp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2342" y="-1377"/>
-        </scene>
-        <!--Non Rotating Navigation Controller-->
-        <scene sceneID="xII-wb-lPA">
-            <objects>
-                <navigationController id="UyK-6z-rhn" customClass="NonRotatingNavigationController" customModule="HowAmIDoing" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="her-cg-TO3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="cyb-6c-1C7" kind="relationship" relationship="rootViewController" id="f7a-If-vqr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NNr-Fk-dVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2552" y="-323"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="z7u-iF-7oG">

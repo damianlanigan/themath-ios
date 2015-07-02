@@ -74,7 +74,8 @@ class InfographViewController: UIViewController,
         if let value = value as? ChartDay {
             value.fetchChartableRepresentation({ (result) -> Void in
                 let navigationController = UINavigationController()
-                let tableViewController = UITableViewController()
+                let tableViewController = DaySelectionTableViewController()
+                tableViewController.day = result as? ChartDay
                 navigationController.viewControllers = [tableViewController]
                 self.presentViewController(navigationController, animated: true, completion: nil)
             })
@@ -91,18 +92,6 @@ class InfographViewController: UIViewController,
     func didSelectWeek(week: ChartWeek) {
         println("selected week: \(week)")
 //        navigateToViewControllerAtIndex(1)
-    }
-    
-    func didSelectHour(hour: ChartHour) {
-        println("selected hour: \(hour)")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("ChartDetailViewController") as! ChartDetailViewController
-        viewController.hour = hour
-        
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [viewController]
-
-        presentViewController(navigationController, animated: true, completion: nil)
     }
     
     // MARK: Utility
