@@ -198,7 +198,6 @@ class MoodViewController: UIViewController,
         default:
             return
         }
->>>>>>> rip out old code add in new code
     }
     
     private func beginMood() {
