@@ -17,7 +17,7 @@ class JournalEntry {
     var lat: Double?
     var lng: Double?
     var locationAccuracy: Double?
-    var locationString: String?
+    var geocodedLocationString: String?
     
     var userGenerated = true
     var commitForSave = false
@@ -30,21 +30,32 @@ class JournalEntry {
         }
     }
     
+    var shouldWaitOnLocation: Bool {
+        return LocationCoordinator.isActive() && geocodedLocationString == nil
+    }
+    
+    var hasLocation: Bool {
+        return location != nil
+    }
+    
     // MARK: State
-    var waitingOnGeocode = false
     var onSaveCallback: (() -> Void)?
     
+    // overly confusing implementation. Race condition between
+    // when user hits save and location/geocoding
     func save(completion: (() -> Void)? = nil) {
-        onSaveCallback = completion
-        commitForSave = true
+        if completion != nil {
+            onSaveCallback = completion
+        }
         
-        if !waitingOnGeocode {
-           actuallySave()
+        if !shouldWaitOnLocation && onSaveCallback != nil {
+            actuallySave()
         }
     }
     
     private func actuallySave() {
         // TODO: HANDLE ERROR
+        println("ACTUALLY SAVING")
         request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
             if let data = data as? [String: AnyObject] {
                 if let errors = data["errors"] as? [String: [String]] {
@@ -71,18 +82,14 @@ class JournalEntry {
     
     private func geocode() {
         println("geocoding... \(NSDate())")
-        waitingOnGeocode = true
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location, completionHandler: { (places: [AnyObject]!, error: NSError!) -> Void in
             if let place = places[0] as? CLPlacemark {
                 println(place.subLocality)
-                self.locationString = place.subLocality
+                self.geocodedLocationString = place.subLocality
             }
             println("finished geocoding... \(NSDate())")
-            self.waitingOnGeocode = false
-            if self.commitForSave {
-                self.save()
-            }
+            self.save()
         })
     }
     
@@ -104,7 +111,7 @@ class JournalEntry {
             json["lng"] = lng
             json["location_accuracy"] = acc
             
-            if let str = locationString {
+            if let str = geocodedLocationString {
                 json["location_string"] = str
             }
         }
@@ -125,7 +132,7 @@ class JournalEntry {
             entry.lng = lng.doubleValue()
         }
         
-        entry.locationString = json["location_string"] as? String
+        entry.geocodedLocationString = json["location_string"] as? String
         entry.score = json["score"] as! Int
         
         let dateString = json["timestamp"] as! String

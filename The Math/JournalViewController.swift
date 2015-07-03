@@ -228,6 +228,7 @@ class JournalViewController: UIViewController,
             textView.text = "Add a note..."
         }
     }
+    
     // MARK: <LocationCoordinatorDelegate>
     
     func locationCoordinator(coordinator: LocationCoordinator, didReceiveLocation location: CLLocation) {

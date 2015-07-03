@@ -19,6 +19,7 @@ class LocationCoordinator: NSObject,
     CLLocationManagerDelegate {
     
     private let AccuracyThreshold = 100.0
+    private let TimeThreshold = 30.0
     
     weak var delegate: LocationCoordinatorDelegate?
     
@@ -48,8 +49,10 @@ class LocationCoordinator: NSObject,
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let location = locations[0] as? CLLocation {
-            if location.horizontalAccuracy <= AccuracyThreshold {
-                delegate?.locationCoordinator(self, didReceiveLocation: location)
+            if abs(location.timestamp.timeIntervalSinceNow) < TimeThreshold {
+                if location.horizontalAccuracy <= AccuracyThreshold {
+                    delegate?.locationCoordinator(self, didReceiveLocation: location)
+                }
             }
         }
     }
