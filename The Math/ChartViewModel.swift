@@ -30,12 +30,11 @@ class ChartViewModel: NSObject,
     }
     
     lazy var view: ChartView = {
-        let v = ChartView(scope: self.scope, model: self)
-        v.chart.delegate = self
-        v.chart.dataSource = self
-        let text = self.dateValue!.formattedDescription()
-        v.timeLabel.text = text
-        return v
+        let chartView = ChartView(scope: self.scope, model: self)
+        chartView.chart.delegate = self
+        chartView.chart.dataSource = self
+        chartView.timeLabel.text = self.dateValue!.formattedDescription()
+        return chartView
     }()
     
     init(scope: CalendarScope) {
@@ -95,5 +94,6 @@ class ChartViewModel: NSObject,
         if let idx = selectedBarIdx, chartable = chartableDateValue {
             delegate?.didSelectChartDateValue(chartable.values[idx])
         }
+        selectedBarIdx = nil
     }
 }
