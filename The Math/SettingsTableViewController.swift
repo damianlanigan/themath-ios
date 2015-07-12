@@ -38,14 +38,15 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 2 {
-            let alert = UIAlertView(title: "Logout?", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
-            alert.show()
-        }
         
         if indexPath.section == 1 {
             selectedIdx = indexPath.row
             performSegueWithIdentifier("ShowWebController", sender: self)
+        }
+        
+        if indexPath.section == 2 {
+            let alert = UIAlertView(title: "Logout?", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
+            alert.show()
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
