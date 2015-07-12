@@ -187,12 +187,12 @@ class MoodViewController: UIViewController,
             cancelMoodView.active = xDist < 60 && yDist < 60
             
         case .Ended:
-            let y: CGFloat = 1 - ((self.moodCircle.center.y + gesture.translationInView(view).y) / self.view.frame.size.height)
-            println("\(view.colorAtPoint(CGPointMake(0, y)))")
+            let center = moodCircle.center
+            let tPoint = gesture.translationInView(view)
+            let vSize = view.frame.size
+            let y: CGFloat = 1 - (center.y + tPoint.y) / vSize.height
+            
             currentMood = Int(trunc(y * 100))
-            UIView.animateWithDuration(0.2, animations: {
-                self.cancelMoodView.transform = CGAffineTransformIdentity
-            })
         
             endMood()
         default:
@@ -201,20 +201,18 @@ class MoodViewController: UIViewController,
     }
     
     private func beginMood() {
-        
         setNeedsStatusBarAppearanceUpdate()
+        
         UIView.animateWithDuration(0.3, animations: {
             self.lineView.alpha = 1.0
             self.ratingHighImageView.alpha = 1.0
             self.ratingLowImageView.alpha = 1.0
             self.settingsButton.alpha = 0.0
-            //            self.latestMoodLabel.alpha = 0.0
+//            self.latestMoodLabel.alpha = 0.0
         })
     }
     
     private func endMood() {
-        
-        let scale = CGAffineTransformMakeScale(10.0, 10.0)
         
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
             self.lineView.alpha = 0.0
@@ -243,20 +241,9 @@ class MoodViewController: UIViewController,
     }
     
     private func updateLatestTimestamp() {
-        request(Router.LatestJournalEntry()).responseJSON { (request, response, data, error) in
-            if let data = data as? [String: AnyObject] {
-                let entry = JournalEntry.fromJSONRequest(data)
-                let lastMood = "Last mood\n"
-                let timestamp = "\(entry.timestamp.relativeTimeToString())"
-                var string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
-                let color = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(entry.score) / 100.0)
-                let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
-                string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
-//                self.latestMoodLabel.attributedText = string
-            } else {
-//                self.latestMoodLabel.text = ""
-            }
-        }
+        Account.currentUser().getLatestMood({
+           println("**got latest mood but not doing anything with it**")
+        })
     }
 
     
@@ -286,8 +273,11 @@ class MoodViewController: UIViewController,
             let height = view.frame.size.height
             let y = height - (height * (CGFloat(currentMood) / 100.0))
             viewController.transitionColor = view.colorAtPoint(CGPointMake(0, y))
-            viewController.transitioningDelegate = self
+            if (viewController.transitionColor == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) {
+               viewController.transitionColor = view.colorAtPoint(CGPointMake(100, y))
+            }
             viewController.mood = currentMood
+            viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         } else if let viewController = segue.destinationViewController as? InfographViewController {
             viewController.transitioningDelegate = self
