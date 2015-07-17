@@ -67,6 +67,8 @@
 		8D9351B71B4486BB00138C42 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9351B61B4486BB00138C42 /* Day.swift */; };
 		8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */; };
 		8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */; };
+		8DA1BA8E1B596EB600198472 /* Colors_Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1BA8D1B596EB600198472 /* Colors_Category.swift */; };
+		8DA1BA901B596EF500198472 /* Colors_Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */; };
 		8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
 		8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB132D61AEAF97600021C40 /* Alamofire.swift */; };
@@ -182,6 +184,8 @@
 		8D9351B61B4486BB00138C42 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		8D95FE1B1B30E97300B26158 /* OnboardingSignupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingSignupView.xib; sourceTree = "<group>"; };
 		8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLocationView.xib; sourceTree = "<group>"; };
+		8DA1BA8D1B596EB600198472 /* Colors_Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors_Category.swift; sourceTree = "<group>"; };
+		8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors_Mood.swift; sourceTree = "<group>"; };
 		8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleDistanceView.swift; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
 		8DB132D61AEAF97600021C40 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 				27D411E41A48715D008ACC14 /* UIViewController.swift */,
 				8D59B27F1A7D4EE7007A29BB /* UIView.swift */,
 				27A542B01A48BAFA00CC7CA6 /* Colors.swift */,
+				8DA1BA8D1B596EB600198472 /* Colors_Category.swift */,
+				8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */,
 				2708DEE21A5C334800D99A28 /* Images.swift */,
 				8D25D49E1B06E6AE00859DCB /* String.swift */,
 				8D0988231AEC1C7F008A2C33 /* AlamofireRequest.swift */,
@@ -739,6 +745,7 @@
 				8D0B3FD31AE971E000565DC1 /* ChartViewController.swift in Sources */,
 				2708DEE31A5C334800D99A28 /* Images.swift in Sources */,
 				8DF7C1D21B0D0F75009EFFAA /* Bool.swift in Sources */,
+				8DA1BA901B596EF500198472 /* Colors_Mood.swift in Sources */,
 				8D85997F1B0F81350053A555 /* CalendarCoordinator.swift in Sources */,
 				8D7A6DD11AE5B2C600AC2CD8 /* SocialCategoryView.swift in Sources */,
 				8D9351B51B4486B600138C42 /* Week.swift in Sources */,
@@ -799,6 +806,7 @@
 				8D7A6DD51AE5B30100AC2CD8 /* HealthCategoryView.swift in Sources */,
 				8D2CA3271A83F34A00B1B503 /* SignupViewController.swift in Sources */,
 				E5EADE761B0D02EE007D17DB /* CabritoTextView.swift in Sources */,
+				8DA1BA8E1B596EB600198472 /* Colors_Category.swift in Sources */,
 				8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */,
 				8D0B3FCC1AE9452400565DC1 /* FadeAnimationController.swift in Sources */,
 				8D47D9B91B0E94C1005A9ADB /* ChartDetailVendorView.swift in Sources */,

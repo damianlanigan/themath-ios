@@ -133,6 +133,7 @@ class MoodViewController: UIViewController,
             moodCircle.layer.shadowOffset = CGSizeMake(0.0, 6.0)
             moodCircle.layer.shadowColor = UIColor.blackColor().CGColor
             moodCircle.layer.shadowRadius = 5.0
+            moodCircle.backgroundColor = UIColor.mood_blueColor()
             
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
@@ -234,10 +235,7 @@ class MoodViewController: UIViewController,
                 self.ratingLowImageView.alpha = 0.0
                 self.latestMoodLabel.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformIdentity;
-                if let entry = Account.currentUser().latestEntry {
-                    self.moodCircle.backgroundColor = entry.color
-                    self.moodCircle.alpha = 1.0
-                }
+                self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
                 }, completion: { (_: Bool) -> Void in
             })
         }
@@ -270,7 +268,9 @@ class MoodViewController: UIViewController,
                 let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
                 string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
                 self.latestMoodLabel.attributedText = string
-                self.moodCircle.backgroundColor = color
+                UIView.animateWithDuration(0.3, animations: {
+                    self.moodCircle.backgroundColor = color
+                })
             } else {
                 self.latestMoodLabel.text = ""
             }

@@ -197,7 +197,7 @@ class JournalViewController: UIViewController,
     
     func fadeOutFinal(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
-            self.scrollView.backgroundColor = Account.currentUser().latestEntry == nil ? UIColor.whiteColor() : Account.currentUser().latestEntry!.color
+            self.scrollView.backgroundColor = UIColor.mood_latestMoodColor()
             self.savedLabel.alpha = 0.0
             if self.isCancelled {
                 self.contentView.alpha = 0.0
