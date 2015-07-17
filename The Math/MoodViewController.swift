@@ -62,6 +62,7 @@ class MoodViewController: UIViewController,
     
     lazy var gradientContainerView: UIView = {
         let view = UIView()
+        view.alpha = 0.0
         view.frame = self.view.bounds
         view.layer.addSublayer(self.topBackgroundGradient)
         view.layer.addSublayer(self.bottomBackgroundGradient)
@@ -105,7 +106,7 @@ class MoodViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.alpha = 0.0
-        view.backgroundColor = UIColor.mood_blueColor();
+        view.backgroundColor = UIColor.whiteColor()
         
         view.addSubview(gradientContainerView)
         view.addSubview(lineView)
@@ -207,9 +208,11 @@ class MoodViewController: UIViewController,
         
         UIView.animateWithDuration(0.3, animations: {
             self.lineView.alpha = 1.0
+            self.gradientContainerView.alpha = 1.0
             self.ratingHighImageView.alpha = 1.0
             self.ratingLowImageView.alpha = 1.0
             self.settingsButton.alpha = 0.0
+            self.view.backgroundColor = UIColor.mood_blueColor()
 //            self.latestMoodLabel.alpha = 0.0
         })
     }
@@ -217,7 +220,9 @@ class MoodViewController: UIViewController,
     private func endMood() {
         
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            self.gradientContainerView.alpha = 0.0
             self.lineView.alpha = 0.0
+            self.view.backgroundColor = UIColor.whiteColor()
             self.ratingHighImageView.alpha = 0.0
             self.settingsButton.alpha = 1.0
             self.ratingLowImageView.alpha = 0.0
