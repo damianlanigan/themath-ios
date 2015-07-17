@@ -97,6 +97,7 @@ class JournalViewController: UIViewController,
         journalEntry.commitForSave = true
         journalEntry.save { () -> Void in
             // hide spinner
+            Account.currentUser().latestEntry = self.journalEntry
             SwiftLoader.hide()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -196,7 +197,7 @@ class JournalViewController: UIViewController,
     
     func fadeOutFinal(duration: NSTimeInterval, completion: () -> Void) {
         UIView.animateWithDuration(duration, animations: {
-            self.scrollView.backgroundColor = UIColor.whiteColor()
+            self.scrollView.backgroundColor = Account.currentUser().latestEntry == nil ? UIColor.whiteColor() : Account.currentUser().latestEntry!.color
             self.savedLabel.alpha = 0.0
             if self.isCancelled {
                 self.contentView.alpha = 0.0

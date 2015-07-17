@@ -238,21 +238,23 @@ class MoodViewController: UIViewController,
         
         cancelMoodView.active = false
         
-        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-            self.gradientContainerView.alpha = 0.0
-            self.lineView.alpha = 0.0
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.ratingHighImageView.alpha = 0.0
-            self.settingsButton.alpha = 1.0
-            self.ratingLowImageView.alpha = 0.0
-            self.latestMoodLabel.alpha = 1.0
-            if let entry = Account.currentUser().latestEntry {
-                self.moodCircle.backgroundColor = entry.color
-                self.moodCircle.alpha = 1.0
-            }
-            }, completion: { (_: Bool) -> Void in
-        })
         
+        _performBlock({
+            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                self.gradientContainerView.alpha = 0.0
+                self.lineView.alpha = 0.0
+                self.view.backgroundColor = UIColor.whiteColor()
+                self.ratingHighImageView.alpha = 0.0
+                self.settingsButton.alpha = 1.0
+                self.ratingLowImageView.alpha = 0.0
+                self.latestMoodLabel.alpha = 1.0
+                if let entry = Account.currentUser().latestEntry {
+                    self.moodCircle.backgroundColor = entry.color
+                    self.moodCircle.alpha = 1.0
+                }
+                }, completion: { (_: Bool) -> Void in
+            })
+        }, withDelay: 0.5)
         
 //        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
