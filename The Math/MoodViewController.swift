@@ -19,6 +19,8 @@ class MoodViewController: UIViewController,
     UINavigationControllerDelegate,
     UIViewControllerTransitioningDelegate {
     
+    let CancelMoodDistanceThreshold: CGFloat = 60.0
+    
 //    @IBOutlet weak var latestMoodLabel: CabritoLabel!
     
     private var currentMood = 0
@@ -184,7 +186,7 @@ class MoodViewController: UIViewController,
             let xDist = fabs(translationPoint.x)
             let yDist = fabs(translationPoint.y)
             
-            cancelMoodView.active = xDist < 60 && yDist < 60
+            cancelMoodView.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
             
         case .Ended:
             let center = moodCircle.center
@@ -317,11 +319,7 @@ class MoodViewController: UIViewController,
         viewController.delegate = self
     }
     
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
     // MARK: UTILITY
-
 
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -352,11 +350,6 @@ class MoodViewController: UIViewController,
             }
         }
     }
-
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    
     
     // MARK: <OnboardingViewControllerDelegate>
     
@@ -364,9 +357,7 @@ class MoodViewController: UIViewController,
         onMood = true
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
+  
     // MARK: <UIAlertViewDelegate>
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
@@ -378,8 +369,6 @@ class MoodViewController: UIViewController,
             Analytics.track("send feedback", action: "tapped", label: "")
         }
     }
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     
     // MARK: <UIAlertViewDelegate>
     

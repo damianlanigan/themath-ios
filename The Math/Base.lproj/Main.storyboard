@@ -264,7 +264,8 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -1205,8 +1206,12 @@
                                             <constraint firstItem="kVq-FT-xpZ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" constant="20" id="dhj-t7-GTX"/>
                                             <constraint firstAttribute="height" constant="750" id="eeb-k5-oq8"/>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" id="gsE-YE-hn0"/>
-                                            <constraint firstItem="sHr-74-r9g" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" constant="6" id="hTb-ay-hmb"/>
-                                            <constraint firstAttribute="trailing" secondItem="sHr-74-r9g" secondAttribute="trailing" constant="6" id="i1l-9T-Dlp"/>
+                                            <constraint firstItem="sHr-74-r9g" firstAttribute="leading" secondItem="HRk-PQ-j7O" secondAttribute="leading" constant="6" id="hTb-ay-hmb">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="sHr-74-r9g" secondAttribute="trailing" constant="6" id="i1l-9T-Dlp">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                            </constraint>
                                             <constraint firstAttribute="width" constant="400" id="sm3-sd-WZg">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="400"/>
                                             </constraint>
