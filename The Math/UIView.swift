@@ -14,4 +14,18 @@ extension UIView {
         let views = NSBundle.mainBundle().loadNibNamed(name, owner: self, options: nil)
         return views[0] as! UIView
     }
+    
+    func colorAtPoint(point: CGPoint) -> UIColor {
+        let pixel = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
+        var colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        let context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace, bitmapInfo)
+        
+        CGContextTranslateCTM(context, -point.x, -point.y)
+        layer.renderInContext(context)
+        var color:UIColor = UIColor(red: CGFloat(pixel[0])/255.0, green: CGFloat(pixel[1])/255.0, blue: CGFloat(pixel[2])/255.0, alpha: CGFloat(pixel[3])/255.0)
+        
+        pixel.dealloc(4)
+        return color
+    }
 }

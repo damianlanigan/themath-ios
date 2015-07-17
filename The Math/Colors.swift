@@ -11,108 +11,18 @@ import UIKit
 
 extension UIColor {
     
-    // MARK: Category
-    
-    class func colorForCategoryType(type: CategoryType) -> UIColor {
-        switch type {
-        case .Love:
-            return UIColor.category_loveColor()
-        case .Money:
-            return UIColor.category_moneyColor()
-        case .Social:
-            return UIColor.category_socialColor()
-        case .Work:
-            return UIColor.category_workColor()
-        case .Home:
-            return UIColor.category_homeColor()
-        case .Health:
-            return UIColor.category_healthColor()
-        case .Personal:
-            return UIColor.category_selfColor()
-        case .Productivity:
-            return UIColor.category_productivityColor()
-        default:
-            return UIColor.whiteColor()
-        }
-    }
-    
-    // MARK: Onboarding
-    
     class func onboardingBackgroundColor() -> UIColor {
         return UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
     }
-    
-    // MARK: Mood
-        
-    class func category_loveColor() -> UIColor {
-        return UIColor(red:0.961, green:0.165, blue:0.498, alpha: 1)
-    }
-    
-    class func category_moneyColor() -> UIColor {
-        return UIColor(red:0.310, green:0.945, blue:0.667, alpha: 1)
-    }
-    
-    class func category_socialColor() -> UIColor {
-        return UIColor(red:1.000, green:0.647, blue:0.161, alpha: 1)
-    }
-    
-    class func category_workColor() -> UIColor {
-        return UIColor(red:0.329, green:0.424, blue:1.000, alpha: 1)
-    }
-
-    class func category_homeColor() -> UIColor {
-        return UIColor(red:1.000, green:0.800, blue:0.161, alpha: 1)
-    }
-    
-    class func category_healthColor() -> UIColor {
-        return UIColor(red:0.055, green:0.922, blue:1.000, alpha: 1)
-    }
-    
-    class func category_selfColor() -> UIColor {
-        return UIColor(red:0.941, green:0.286, blue:0.906, alpha: 1)
-    }
-    
-    class func category_productivityColor() -> UIColor {
-        return UIColor(red:0.639, green:0.929, blue:0.427, alpha: 1)
-    }
-    
-    // gradient
-    
-    class func mood_gradientColors() -> [CGColorRef] {
-        let colors: [CGColorRef] = [
-            UIColor(red:0.149, green:0.180, blue:0.290, alpha: 1).CGColor,
-            UIColor(red:0.137, green:0.306, blue:0.416, alpha: 1).CGColor,
-            UIColor(red:0.212, green:0.600, blue:0.659, alpha: 1).CGColor,
-            UIColor(red:0.259, green:0.843, blue:0.843, alpha: 1).CGColor
-        ]
-        return colors
-    }
-    
-    class func mood_initialColor() -> UIColor {
-        return UIColor(red:0.133, green:0.733, blue:0.965, alpha: 1)
-    }
-    
-    class func mood_blueColor() -> UIColor {
-        return UIColor(red:0.133, green:0.733, blue:0.965, alpha: 1)
-    }
-    
-    class func mood_startColor() -> UIColor {
-        let colors = UIColor.mood_gradientColors()
-        return UIColor(CGColor: colors[0])!
-    }
-    
-    class func mood_endColor() -> UIColor {
-        let colors = UIColor.mood_gradientColors()
-        return UIColor(CGColor: colors[colors.count - 1])!
-    }
-    
-    // MARK: Journal
     
     class func journal_tintColor() -> UIColor {
         return UIColor(red: 0.33, green: 0.33, blue: 0.33, alpha: 0.2)
     }
     
-    // MARK: Utility
+    
+    class func moodColorAtPercentage(percentage: CGFloat) -> UIColor {
+        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: percentage)
+    }
     
     class func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
         

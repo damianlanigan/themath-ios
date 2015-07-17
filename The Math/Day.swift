@@ -76,7 +76,7 @@ class ChartDay: CalendarDay, Chartable {
     }
     
     lazy var color: UIColor = {
-        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: CGFloat(self.score) / 100.0)
+        return UIColor.moodColorAtPercentage(CGFloat(self.score) / 100.0)
     }()
     
     convenience init(date: NSDate, score: Int) {
@@ -137,7 +137,7 @@ class ChartDay: CalendarDay, Chartable {
     func viewAtIndex(index: Int) -> UIView {
         let view = NSBundle.mainBundle().loadNibNamed("BarView", owner: nil, options: nil)[0] as! BarView
         let perc = CGFloat(hours[index].score) / 100.0
-        view.barContainer.backgroundColor = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+        view.barContainer.backgroundColor = UIColor.moodColorAtPercentage(perc)
         return view
     }
     

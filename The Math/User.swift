@@ -9,5 +9,17 @@
 import UIKit
 
 class User: NSObject {
-   
+    
+    var latestEntry: JournalEntry?
+    
+    func getLatestMood(completion: (entry: JournalEntry?) -> Void) {
+        request(Router.LatestJournalEntry()).responseJSON { (request, response, data, error) in
+            if let data = data as? [String: AnyObject] {
+                self.latestEntry = JournalEntry.fromJSONRequest(data)
+                completion(entry: self.latestEntry)
+            } else {
+                completion(entry: nil)
+            }
+        }
+    }
 }

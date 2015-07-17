@@ -35,7 +35,7 @@ class ChartDetailView: UIView {
     
     private func updateUIForJournalEntry() {
         let perc = CGFloat(entry.score) / 100.0
-        let color = UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: perc)
+        let color = entry.color
         progressView.progress = Double(perc)
         progressView.trackFillColor = color
         timeLabel.textColor = color
@@ -59,8 +59,8 @@ class ChartDetailView: UIView {
         timeLabel.text = "\(weekday) at \(hour):\(minute) \(aORp)"
         dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(offset: 0))"
         if let location = entry.location {
-            let v = Vendor(type: VendorType.Location, content: entry.locationString!)
-            dateLabel.text = "\(dateLabel.text!) • \(entry.locationString!)"
+            let v = Vendor(type: VendorType.Location, content: entry.geocodedLocationString!)
+            dateLabel.text = "\(dateLabel.text!) • \(entry.geocodedLocationString!)"
             
             mapView.centerCoordinate = location.coordinate
             mapView.region = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.01, 0.01))
