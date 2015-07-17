@@ -26,10 +26,6 @@ class MoodViewController: UIViewController,
     let CancelMoodDistanceThreshold: CGFloat = 60.0
     
     @IBOutlet weak var latestMoodLabel: CabritoLabel!
-    
-    private var currentMood = 0
-    
-    var transitionColor: UIColor?
 
     @IBOutlet weak var moodCircle: RoundableView!
     @IBOutlet weak var ratingHighImageView: UIImageView!
@@ -38,9 +34,11 @@ class MoodViewController: UIViewController,
     
     // MARK: state
     
+    private var currentMood = 0
     private var firstAppearance = true
     private var onMood = true
     private var previousOrientation: UIDeviceOrientation = .Portrait
+    private var transitionColor = UIColor.whiteColor()
     
     lazy var topBackgroundGradient: CAGradientLayer = {
        let g = CAGradientLayer()
@@ -118,11 +116,6 @@ class MoodViewController: UIViewController,
         
         setup()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -150,10 +143,6 @@ class MoodViewController: UIViewController,
             }, withDelay: 0.3)
             
         }
-        
-        UIView.animateWithDuration(0.3, animations: {
-//            self.latestMoodLabel.alpha = 1.0
-        })
     }
     
     deinit {
@@ -184,12 +173,11 @@ class MoodViewController: UIViewController,
         case .Began:
             beginMood()
         case .Changed:
-            let translationPoint = gesture.translationInView(view)
-            let actualPoint = gesture.locationInView(view)
-            moodCircle.transform = CGAffineTransformMakeTranslation(translationPoint.x, translationPoint.y)
+            let point = gesture.locationInView(view)
+            moodCircle.center = point
             
-            let xDist = fabs(translationPoint.x)
-            let yDist = fabs(translationPoint.y)
+            let xDist = fabs(view.center.x - point.x)
+            let yDist = fabs(view.center.y - point.y)
             
             cancelMoodView.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
             
@@ -235,6 +223,7 @@ class MoodViewController: UIViewController,
                 self.ratingLowImageView.alpha = 0.0
                 self.latestMoodLabel.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformIdentity;
+                self.moodCircle.center = self.view.center
                 self.moodCircle.alpha = 1.0
                 self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
                 }, completion: { (_: Bool) -> Void in
@@ -242,14 +231,22 @@ class MoodViewController: UIViewController,
         }
         
         if !cancelMoodView.active {
-            let transform = self.moodCircle.transform
-            UIView.animateWithDuration(1.0, animations: {
-                self.moodCircle.transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(5.0, 5.0))
+            
+            let height = view.frame.size.height
+            let y = height - (height * (CGFloat(currentMood) / 100.0))
+            transitionColor = view.colorAtPoint(CGPointMake(0, y))
+            if (transitionColor == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) {
+               transitionColor = view.colorAtPoint(CGPointMake(100, y))
+            }
+            
+            UIView.animateWithDuration(0.6, animations: {
+                self.moodCircle.backgroundColor = self.transitionColor
+                self.moodCircle.transform = CGAffineTransformMakeScale(22.0, 22.0)
             })
             
             _performBlock({
                 self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
-            }, withDelay: 1.3)
+            }, withDelay: 0.2)
             
             _performBlock({ () -> Void in
                 resetBlock()
@@ -304,12 +301,7 @@ class MoodViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? JournalViewController {
-            let height = view.frame.size.height
-            let y = height - (height * (CGFloat(currentMood) / 100.0))
-            viewController.transitionColor = view.colorAtPoint(CGPointMake(0, y))
-            if (viewController.transitionColor == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) {
-               viewController.transitionColor = view.colorAtPoint(CGPointMake(100, y))
-            }
+            viewController.transitionColor = transitionColor
             viewController.mood = currentMood
             viewController.transitioningDelegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.Custom

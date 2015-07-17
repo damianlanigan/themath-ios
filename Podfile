@@ -5,7 +5,5 @@ use_frameworks!
 pod 'KeychainAccess'
 pod 'SwiftLoader'
 pod 'JBChartView'
-# pod 'Venmo-iOS-SDK', '~> 1.3'
-
 
 # pod 'Reveal-iOS-SDK'
