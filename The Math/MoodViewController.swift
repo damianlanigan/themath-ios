@@ -224,22 +224,7 @@ class MoodViewController: UIViewController,
     
     private func endMood() {
         
-        if !cancelMoodView.active {
-            self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
-            _performBlock({ () -> Void in
-                self.moodCircle.transform = CGAffineTransformIdentity;
-                }, withDelay: 0.9 )
-        } else {
-            setNeedsStatusBarAppearanceUpdate()
-            UIView.animateWithDuration(0.3, animations: {
-                self.moodCircle.transform = CGAffineTransformIdentity;
-            })
-        }
-        
-        cancelMoodView.active = false
-        
-        
-        _performBlock({
+        let resetBlock: () -> Void = {
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
                 self.gradientContainerView.alpha = 0.0
                 self.lineView.alpha = 0.0
@@ -248,12 +233,28 @@ class MoodViewController: UIViewController,
                 self.settingsButton.alpha = 1.0
                 self.ratingLowImageView.alpha = 0.0
                 self.latestMoodLabel.alpha = 1.0
+                self.moodCircle.transform = CGAffineTransformIdentity;
                 if let entry = Account.currentUser().latestEntry {
                     self.moodCircle.backgroundColor = entry.color
                     self.moodCircle.alpha = 1.0
                 }
                 }, completion: { (_: Bool) -> Void in
             })
+        }
+        
+        if !cancelMoodView.active {
+            self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
+            _performBlock({ () -> Void in
+                resetBlock()
+            }, withDelay: 0.9 )
+        } else {
+            resetBlock()
+        }
+        
+        cancelMoodView.active = false
+        
+        
+        _performBlock({
         }, withDelay: 0.5)
         
 //        Analytics.track("mood", action: "set", label: "\(percentage)%")
