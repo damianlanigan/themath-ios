@@ -182,13 +182,12 @@ class MoodViewController: UIViewController,
             cancelMoodView.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
             
         case .Ended:
-            let center = moodCircle.center
-            let tPoint = gesture.translationInView(view)
-            let vSize = view.frame.size
-            let y: CGFloat = 1 - (center.y + tPoint.y) / vSize.height
+            let point = gesture.locationInView(view)
+            let size = view.frame.size
+            let y: CGFloat = 1 - point.y / size.height
             
             currentMood = Int(trunc(y * 100))
-        
+            println(currentMood)
             endMood()
         default:
             return
@@ -239,18 +238,19 @@ class MoodViewController: UIViewController,
                transitionColor = view.colorAtPoint(CGPointMake(100, y))
             }
             
-            UIView.animateWithDuration(0.6, animations: {
+            UIView.animateWithDuration(0.4, animations: {
                 self.moodCircle.backgroundColor = self.transitionColor
+                self.moodCircle.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformMakeScale(22.0, 22.0)
             })
             
             _performBlock({
                 self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
-            }, withDelay: 0.2)
+            }, withDelay: 0.4)
             
             _performBlock({ () -> Void in
                 resetBlock()
-            }, withDelay: 0.9 )
+            }, withDelay: 0.6 )
         } else {
             resetBlock()
         }
