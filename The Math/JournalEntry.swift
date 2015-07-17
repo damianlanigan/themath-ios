@@ -88,9 +88,11 @@ class JournalEntry {
         println("geocoding... \(NSDate())")
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location, completionHandler: { (places: [AnyObject]!, error: NSError!) -> Void in
-            if let place = places[0] as? CLPlacemark {
-                println(place.subLocality)
-                self.geocodedLocationString = place.subLocality
+            if places != nil {
+                if let place = places[0] as? CLPlacemark {
+                    println(place.subLocality)
+                    self.geocodedLocationString = place.subLocality
+                }
             }
             println("finished geocoding... \(NSDate())")
             self.save()

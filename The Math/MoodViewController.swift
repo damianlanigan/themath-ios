@@ -226,7 +226,7 @@ class MoodViewController: UIViewController,
     private func endMood() {
         
         let resetBlock: () -> Void = {
-            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
                 self.gradientContainerView.alpha = 0.0
                 self.lineView.alpha = 0.0
                 self.view.backgroundColor = UIColor.whiteColor()
@@ -235,13 +235,22 @@ class MoodViewController: UIViewController,
                 self.ratingLowImageView.alpha = 0.0
                 self.latestMoodLabel.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformIdentity;
+                self.moodCircle.alpha = 1.0
                 self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
                 }, completion: { (_: Bool) -> Void in
             })
         }
         
         if !cancelMoodView.active {
-            self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
+            let transform = self.moodCircle.transform
+            UIView.animateWithDuration(1.0, animations: {
+                self.moodCircle.transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(5.0, 5.0))
+            })
+            
+            _performBlock({
+                self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
+            }, withDelay: 1.3)
+            
             _performBlock({ () -> Void in
                 resetBlock()
             }, withDelay: 0.9 )
@@ -250,12 +259,6 @@ class MoodViewController: UIViewController,
         }
         
         cancelMoodView.active = false
-        
-        
-        _performBlock({
-        }, withDelay: 0.5)
-        
-//        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     private func updateLatestTimestamp() {
