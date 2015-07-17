@@ -114,6 +114,10 @@ extension UIColor {
     
     // MARK: Utility
     
+    class func moodColorAtPercentage(percentage: CGFloat) -> UIColor {
+        return UIColor.colorAtPercentage(UIColor.mood_startColor(), color2: UIColor.mood_endColor(), perc: percentage)
+    }
+    
     class func colorAtPercentage(color1: UIColor, color2: UIColor, perc: CGFloat) -> UIColor {
         
         var red1: CGFloat = 0.0

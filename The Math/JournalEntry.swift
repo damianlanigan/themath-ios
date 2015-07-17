@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class JournalEntry {
     var categories: [CategoryType] = [CategoryType]()
@@ -18,6 +19,9 @@ class JournalEntry {
     var lng: Double?
     var locationAccuracy: Double?
     var geocodedLocationString: String?
+    lazy var color: UIColor = {
+        return UIColor.moodColorAtPercentage(CGFloat(self.score) / 100)
+    }()
     
     var userGenerated = true
     var commitForSave = false

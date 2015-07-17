@@ -11,6 +11,10 @@
 import UIKit
 import MessageUI
 
+enum MoodTransitions: String {
+    case ToJournal = "MoodToJournalTransition"
+}
+
 class MoodViewController: UIViewController,
     OnboardingViewControllerDelegate,
     SettingsTableViewControllerDelegate,
@@ -21,7 +25,7 @@ class MoodViewController: UIViewController,
     
     let CancelMoodDistanceThreshold: CGFloat = 60.0
     
-//    @IBOutlet weak var latestMoodLabel: CabritoLabel!
+    @IBOutlet weak var latestMoodLabel: CabritoLabel!
     
     private var currentMood = 0
     
@@ -118,7 +122,6 @@ class MoodViewController: UIViewController,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateLatestTimestamp();
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -212,25 +215,17 @@ class MoodViewController: UIViewController,
             self.ratingHighImageView.alpha = 1.0
             self.ratingLowImageView.alpha = 1.0
             self.settingsButton.alpha = 0.0
+            self.latestMoodLabel.alpha = 0.0
             self.view.backgroundColor = UIColor.mood_blueColor()
-//            self.latestMoodLabel.alpha = 0.0
+            self.moodCircle.backgroundColor = UIColor.whiteColor()
+            self.moodCircle.alpha = 0.85
         })
     }
     
     private func endMood() {
         
-        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-            self.gradientContainerView.alpha = 0.0
-            self.lineView.alpha = 0.0
-            self.view.backgroundColor = UIColor.whiteColor()
-            self.ratingHighImageView.alpha = 0.0
-            self.settingsButton.alpha = 1.0
-            self.ratingLowImageView.alpha = 0.0
-            }, completion: { (_: Bool) -> Void in
-        })
-        
         if !cancelMoodView.active {
-            self.performSegueWithIdentifier("MoodToJournalTransition", sender: self)
+            self.performSegueWithIdentifier(MoodTransitions.ToJournal.rawValue, sender: self)
             _performBlock({ () -> Void in
                 self.moodCircle.transform = CGAffineTransformIdentity;
                 }, withDelay: 0.9 )
@@ -239,18 +234,44 @@ class MoodViewController: UIViewController,
             UIView.animateWithDuration(0.3, animations: {
                 self.moodCircle.transform = CGAffineTransformIdentity;
             })
-
         }
         
         cancelMoodView.active = false
+        
+        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            self.gradientContainerView.alpha = 0.0
+            self.lineView.alpha = 0.0
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.ratingHighImageView.alpha = 0.0
+            self.settingsButton.alpha = 1.0
+            self.ratingLowImageView.alpha = 0.0
+            self.latestMoodLabel.alpha = 1.0
+            if let entry = Account.currentUser().latestEntry {
+                self.moodCircle.backgroundColor = entry.color
+                self.moodCircle.alpha = 1.0
+            }
+            }, completion: { (_: Bool) -> Void in
+        })
+        
         
 //        Analytics.track("mood", action: "set", label: "\(percentage)%")
     }
     
     private func updateLatestTimestamp() {
-        Account.currentUser().getLatestMood({
-           println("**got latest mood but not doing anything with it**")
-        })
+        Account.currentUser().getLatestMood { (entry) -> Void in
+            if let entry = entry {
+                let lastMood = "Last mood\n"
+                let timestamp = "\(entry.timestamp.relativeTimeToString())"
+                var string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
+                let color = entry.color
+                let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
+                string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+                self.latestMoodLabel.attributedText = string
+                self.moodCircle.backgroundColor = color
+            } else {
+                self.latestMoodLabel.text = ""
+            }
+        }
     }
 
     
