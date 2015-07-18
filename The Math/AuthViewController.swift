@@ -13,7 +13,7 @@ import UIKit
     optional func userDidSignup()
 }
 
-class AuthViewController: UIViewController,
+class AuthViewController: UITableViewController,
     UITextFieldDelegate {
 
     weak var delegate: AuthViewControllerDelegate?

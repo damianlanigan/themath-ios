@@ -28,6 +28,7 @@ class SignupViewController: AuthViewController {
         focusedTextField = nil
     }
     
+    
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
         // TODO: validation?
         
@@ -55,5 +56,9 @@ class SignupViewController: AuthViewController {
                 self.delegate?.userDidSignup?()
             }
         })
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 0.0
     }
 }
