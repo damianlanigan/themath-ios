@@ -21,7 +21,8 @@ class MoodViewController: UIViewController,
     UIAlertViewDelegate,
     MFMailComposeViewControllerDelegate,
     UINavigationControllerDelegate,
-    UIViewControllerTransitioningDelegate {
+    UIViewControllerTransitioningDelegate,
+    TouchableDelegate {
     
     let CancelMoodDistanceThreshold: CGFloat = 60.0
     
@@ -39,6 +40,7 @@ class MoodViewController: UIViewController,
     private var onMood = true
     private var previousOrientation: UIDeviceOrientation = .Portrait
     private var transitionColor = UIColor.whiteColor()
+    private var moodEnding = false
     
     lazy var topBackgroundGradient: CAGradientLayer = {
        let g = CAGradientLayer()
@@ -114,6 +116,8 @@ class MoodViewController: UIViewController,
         view.addSubview(lineView)
         view.addSubview(cancelMoodView)
         
+        moodCircle.delegate = self
+        
         setup()
     }
 
@@ -181,13 +185,13 @@ class MoodViewController: UIViewController,
             
             cancelMoodView.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
             
+            moodCircle.backgroundColor = colorAtPoint(point)
         case .Ended:
             let point = gesture.locationInView(view)
             let size = view.frame.size
             let y: CGFloat = 1 - point.y / size.height
             
             currentMood = Int(trunc(y * 100))
-            println(currentMood)
             endMood()
         default:
             return
@@ -205,15 +209,22 @@ class MoodViewController: UIViewController,
             self.settingsButton.alpha = 0.0
             self.latestMoodLabel.alpha = 0.0
             self.view.backgroundColor = UIColor.mood_blueColor()
-            self.moodCircle.backgroundColor = UIColor.whiteColor()
+//            self.moodCircle.backgroundColor = UIColor.whiteColor()
             self.moodCircle.alpha = 0.85
         })
     }
     
     private func endMood() {
         
+        if moodEnding {
+            return
+        }
+        
+        moodEnding = true
+        
         let resetBlock: () -> Void = {
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                self.moodEnding = false
                 self.gradientContainerView.alpha = 0.0
                 self.lineView.alpha = 0.0
                 self.view.backgroundColor = UIColor.whiteColor()
@@ -233,10 +244,7 @@ class MoodViewController: UIViewController,
             
             let height = view.frame.size.height
             let y = height - (height * (CGFloat(currentMood) / 100.0))
-            transitionColor = view.colorAtPoint(CGPointMake(0, y))
-            if (transitionColor == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) {
-               transitionColor = view.colorAtPoint(CGPointMake(100, y))
-            }
+            transitionColor = colorAtPoint(CGPointMake(0, y))
             
             UIView.animateWithDuration(0.4, animations: {
                 self.moodCircle.backgroundColor = self.transitionColor
@@ -436,4 +444,25 @@ class MoodViewController: UIViewController,
         
         return nil
     }
+    
+    func colorAtPoint(point: CGPoint) -> UIColor {
+        var color = view.colorAtPoint(CGPointMake(0, point.y))
+        if (transitionColor == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) {
+           color = self.view.colorAtPoint(CGPointMake(100, point.y))
+        }
+        return color
+    }
+    
+    // MARK: <TouchableDelegate>
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        beginMood()
+        cancelMoodView.active = true
+        moodCircle.backgroundColor = colorAtPoint(view.center)
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        endMood()
+    }
+    
 }
