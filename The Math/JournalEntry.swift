@@ -19,12 +19,12 @@ class JournalEntry {
     var lng: Double?
     var locationAccuracy: Double?
     var geocodedLocationString: String?
+    
     lazy var color: UIColor = {
         return UIColor.moodColorAtPercentage(CGFloat(self.score) / 100)
     }()
     
     var userGenerated = true
-    var commitForSave = false
     var location: CLLocation? {
         get {
             if let lat = lat, lng = lng {
@@ -41,6 +41,13 @@ class JournalEntry {
     var hasLocation: Bool {
         return location != nil
     }
+    
+    lazy var formattedTimestamp: String = {
+        let hour = self.timestamp.hour()
+        let minute = self.timestamp.minute()
+        let amPm = hour < 12 || hour == 24 ? "am" : "pm"
+        return "\(hour.twelveHourClock().pad()) : \(minute.pad()) \(amPm)"
+    }()
     
     // MARK: State
     var onSaveCallback: (() -> Void)?

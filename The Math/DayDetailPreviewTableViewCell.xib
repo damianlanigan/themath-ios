@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DayDetailPreviewCellIdentifier" rowHeight="60" id="R22-xj-XmK" customClass="DayDetailPreviewTableViewCell" customModule="HowAmIDoing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R22-xj-XmK" id="3nR-wI-Jve">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday 22, 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIY-xb-7aZ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                        <rect key="frame" x="66" y="19.5" width="119" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6n7-vs-36u" customClass="CircleProgressView" customModule="HowAmIDoing" customModuleProvider="target">
+                        <rect key="frame" x="8" y="7" width="44" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="hPx-DW-lPQ"/>
+                            <constraint firstAttribute="width" constant="44" id="nHA-ME-6po"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                <real key="value" value="0.66000000000000003"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="trackWidth">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
+                                <color key="value" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
+                                <color key="value" red="0.71347320810000003" green="0.8419273558" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="eIY-xb-7aZ" secondAttribute="centerY" id="UR2-gW-Bf1"/>
+                    <constraint firstItem="eIY-xb-7aZ" firstAttribute="leading" secondItem="6n7-vs-36u" secondAttribute="trailing" constant="14" id="Y7y-yd-Awg"/>
+                    <constraint firstItem="6n7-vs-36u" firstAttribute="leading" secondItem="3nR-wI-Jve" secondAttribute="leadingMargin" id="m4V-rT-1FD"/>
+                    <constraint firstAttribute="centerY" secondItem="6n7-vs-36u" secondAttribute="centerY" id="w4S-Vl-kHN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="progressView" destination="6n7-vs-36u" id="mBZ-g7-F1M"/>
+                <outlet property="timestampLabel" destination="eIY-xb-7aZ" id="Adm-rJ-j7B"/>
+            </connections>
+            <point key="canvasLocation" x="183" y="247"/>
+        </tableViewCell>
+    </objects>
+</document>

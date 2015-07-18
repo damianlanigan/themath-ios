@@ -113,8 +113,6 @@ extension NSDate {
         }
     }
     
-    
-    
     // MARK: Comparing Dates
     
     func isEqualToDateIgnoringTime(date: NSDate) -> Bool
@@ -500,5 +498,24 @@ extension NSDate {
     func veryShortMonthToString() -> String {
         let formatter = NSDateFormatter()
         return formatter.veryShortMonthSymbols[self.month()-1] as! String
+    }
+}
+
+extension Int {
+    func twelveHourClock() -> Int {
+        if self == 0 {
+            return 12
+        }
+        if self > 12 {
+            return self - 12
+        }
+        return self
+    }
+    
+    func pad() -> String {
+        if count("\(self)") == 1 {
+            return "0\(self)"
+        }
+        return "\(self)"
     }
 }

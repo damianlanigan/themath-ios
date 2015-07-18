@@ -315,7 +315,7 @@
                                                                     </mask>
                                                                 </variation>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="199" width="400" height="274"/>
+                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
                                                                     <mask key="subviews">
                                                                         <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
@@ -1991,7 +1991,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-bT-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="-599.25"/>
+            <point key="canvasLocation" x="1222" y="-652"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="jXa-Kp-hXe">
@@ -2079,7 +2079,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PleaseWorkCell" id="CrL-ag-ZJY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayDetailPreviewCellIdentifier" rowHeight="60" id="CrL-ag-ZJY" userLabel="DayDetailPreviewTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CrL-ag-ZJY" id="2tp-G9-QtO">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -2166,7 +2166,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueO-N2-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4058" y="-241"/>
+            <point key="canvasLocation" x="3217.5" y="-367.5"/>
         </scene>
         <!--Edit Profile Table View Controller-->
         <scene sceneID="hum-z2-9xc">

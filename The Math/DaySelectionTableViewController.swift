@@ -10,11 +10,19 @@ import UIKit
 
 class DaySelectionTableViewController: UITableViewController {
     
+    private let CellIdentifier = "DayDetailPreviewCellIdentifier"
+    
     var day: ChartDay?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PleaseWorkCell")
+        tableView.registerNib(UINib(nibName: "DayDetailPreviewTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifier)
+        tableView.rowHeight = 60.0
+        tableView.estimatedRowHeight = 60.0
+        
+        if let day = day {
+            navigationItem.title = day.formattedDescription()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,7 +34,6 @@ class DaySelectionTableViewController: UITableViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,10 +48,13 @@ class DaySelectionTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PleaseWorkCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! DayDetailPreviewTableViewCell
 
         if let day = day {
-            cell.textLabel?.text = "\(day.entries[indexPath.row].score)"
+            let entry = day.entries[indexPath.row]
+            
+            cell.timestampLabel.text = entry.formattedTimestamp
+            cell.score = day.score
         }
 
         return cell

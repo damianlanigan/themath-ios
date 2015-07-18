@@ -94,7 +94,6 @@ class JournalViewController: UIViewController,
         
         journalEntry.categories = selections.map { CategoryType(rawValue: $0.capitalizedString )! }
         journalEntry.note = textView.text
-        journalEntry.commitForSave = true
         journalEntry.save { () -> Void in
             // hide spinner
             Account.currentUser().latestEntry = self.journalEntry
