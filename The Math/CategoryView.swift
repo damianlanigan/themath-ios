@@ -18,7 +18,8 @@ class CategoryView: UIView {
         didSet {
             circleView.backgroundColor = selected ? UIColor.whiteColor() : UIColor.clearColor()
             circleView.layer.borderWidth = selected ? 0.0 : 2.0
-            imageView.hidden = !selected
+            imageView.tintColor = selected ? color() : UIColor.whiteColor()
+            nameLabel.textColor = selected ? UIColor.whiteColor() : UIColor.whiteColor().colorWithAlphaComponent(0.60)
         }
     }
     
@@ -50,8 +51,7 @@ class CategoryView: UIView {
         circleView.layer.borderWidth = 2.0
         nameLabel.text = name().capitalizedString
         imageView.image = image()
-        imageView.hidden = true
-        imageView.tintColor = color()
+        imageView.tintColor = UIColor.whiteColor()
     }
     
     override func layoutSubviews() {
