@@ -73,21 +73,7 @@ class MoodViewController: UIViewController,
         return view
     }()
     
-    lazy var cancelMoodView: ScaleDistanceView = {
-        let view = ScaleDistanceView()
-        view.layer.cornerRadius = 35.0
-        view.frame = CGRectMake(0.0, 0.0, 70.0, 70.0)
-        view.center = self.view.center
-        view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.15)
-        
-        let image = UIImage(named: "cancel")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = UIViewContentMode.Center
-        imageView.frame = view.bounds
-        view.addSubview(imageView)
-        
-        return view
-    }()
+    @IBOutlet weak var cancelMoodView: ScaleDistanceView!
     
     lazy var lineView: UIView = {
         let view = UIView()
@@ -210,7 +196,7 @@ class MoodViewController: UIViewController,
             self.settingsButton.alpha = 0.0
             self.latestMoodLabel.alpha = 0.0
             self.view.backgroundColor = UIColor.mood_blueColor()
-//            self.moodCircle.backgroundColor = UIColor.whiteColor()
+            self.cancelMoodView.alpha = 0.3
             self.moodCircle.alpha = 0.85
         })
     }
@@ -231,6 +217,7 @@ class MoodViewController: UIViewController,
             self.ratingHighImageView.alpha = 0.0
             self.settingsButton.alpha = 1.0
             self.ratingLowImageView.alpha = 0.0
+            self.cancelMoodView.alpha = 0.0
             self.moodCircle.transform = CGAffineTransformIdentity;
             self.moodCircle.center = self.view.center
             self.moodCircle.alpha = 1.0
