@@ -54,7 +54,7 @@ class DaySelectionTableViewController: UITableViewController {
             let entry = day.entries[indexPath.row]
             
             cell.timestampLabel.text = entry.formattedTimestamp
-            cell.score = day.score
+            cell.score = entry.score
         }
 
         return cell

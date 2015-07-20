@@ -20,11 +20,6 @@ class RoundableView: UIView {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
         delegate?.touchesBegan()
@@ -32,7 +27,7 @@ class RoundableView: UIView {
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
-        delegate?.touchesEnded();
+        delegate?.touchesEnded()
     }
     
 }

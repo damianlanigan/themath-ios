@@ -21,7 +21,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6n7-vs-36u" customClass="CircleProgressView" customModule="HowAmIDoing" customModuleProvider="target">
                         <rect key="frame" x="8" y="7" width="44" height="44"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="hPx-DW-lPQ"/>
                             <constraint firstAttribute="width" constant="44" id="nHA-ME-6po"/>
@@ -34,7 +34,7 @@
                                 <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
-                                <color key="value" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
                                 <color key="value" red="0.71347320810000003" green="0.8419273558" blue="1" alpha="1" colorSpace="calibratedRGB"/>
