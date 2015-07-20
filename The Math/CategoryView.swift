@@ -16,8 +16,9 @@ class CategoryView: UIView {
     
     var selected: Bool = false {
         didSet {
-            circleView.backgroundColor = selected ? color() : UIColor.clearColor()
+            circleView.backgroundColor = selected ? UIColor.whiteColor() : UIColor.clearColor()
             circleView.layer.borderWidth = selected ? 0.0 : 2.0
+            imageView.hidden = !selected
         }
     }
     
@@ -35,7 +36,8 @@ class CategoryView: UIView {
     }
     
     func image() -> UIImage {
-        return UIImage.imageForCategoryType(category())
+        let i = UIImage.imageForCategoryType(category())
+        return i.imageWithRenderingMode(.AlwaysTemplate)
     }
     
     func category() -> CategoryType {
@@ -48,6 +50,8 @@ class CategoryView: UIView {
         circleView.layer.borderWidth = 2.0
         nameLabel.text = name().capitalizedString
         imageView.image = image()
+        imageView.hidden = true
+        imageView.tintColor = color()
     }
     
     override func layoutSubviews() {
