@@ -28,6 +28,12 @@ class DaySelectionTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
+    
+        if let ip = tableView.indexPathForSelectedRow() {
+            if let cell = tableView.cellForRowAtIndexPath(ip) {
+                cell.setSelected(false, animated: true)
+            }
+        }
     }
     
     func done() {
@@ -55,6 +61,22 @@ class DaySelectionTableViewController: UITableViewController {
             
             cell.timestampLabel.text = entry.formattedTimestamp
             cell.score = entry.score
+            
+            let size = CGSizeMake(36.0, 36.0)
+            let padding = 4
+            let width = UIScreen.mainScreen().bounds.size.width - 80.0
+            for (idx, category) in enumerate(entry.categories) {
+                let image = UIImage.imageForCategoryType(category)
+                let color = UIColor.colorForCategoryType(category)
+                let offset = width - (size.width * CGFloat(idx) +  CGFloat(padding * idx))
+                let frame = CGRectMake(offset, 12.0, size.width, size.height)
+                let view = UIImageView(frame: frame)
+                view.image = image
+                view.layer.cornerRadius = 18.0
+                view.backgroundColor = color
+                
+                cell.contentView.addSubview(view)
+            }
         }
 
         return cell
