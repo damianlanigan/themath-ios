@@ -86,7 +86,7 @@ class ChartDetailView: UIView {
         }
         noteLabel.text = entry.note
         
-        var size = CGSizeMake(32, 32)
+        var size = CGSizeMake(36, 36)
         let padding = 4
         for (idx, category) in enumerate(entry.categories) {
             let image = UIImage.imageForCategoryType(category)
@@ -94,7 +94,7 @@ class ChartDetailView: UIView {
             let frame = CGRectMake(size.width * CGFloat(idx) + CGFloat(padding * idx), 0.0, size.width, size.height)
             let view = UIImageView(frame: frame)
             view.image = image
-            view.layer.cornerRadius = 16.0
+            view.layer.cornerRadius = 18.0
             view.backgroundColor = color
             
             categoryContainerView.addSubview(view)
