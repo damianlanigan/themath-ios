@@ -16,11 +16,13 @@ class OnboardingViewController: UIViewController,
     UIScrollViewDelegate,
     AuthViewControllerDelegate {
     
-    private let OnboardingMoodViewNibName = "OnboardingMoodView"
-    private let OnboardingJournalViewNibName = "OnboardingJournalView"
-    private let OnboardingReflectViewNibName = "OnboardingReflectView"
-    private let OnboardingSignupViewNibName = "OnboardingSignupView"
-    private let OnboardingLocationViewNibName = "OnboardingLocationView"
+    private enum OnboardingViewsNibNames: String {
+        case MoodView = "OnboardingMoodView"
+        case JournalView = "OnboardingJournalView"
+        case ReflectView = "OnboardingReflectView"
+        case SignupView = "OnboardingSignupView"
+        case LocationView = "OnboardingLocationView"
+    }
     
     let numberOfPages: CGFloat = 2.0
     let numberOfSubPages: CGFloat = 5.0
@@ -77,15 +79,20 @@ class OnboardingViewController: UIViewController,
         super.viewDidAppear(animated)
         loadSubContentOnboardingViews()
         subScrollView.delegate = self
+        
+        if subScrollView.contentOffset.y == view.frame.size.height * 3.0 {
+            if LocationCoordinator.authorizationNotDetermined() {
+                subScrollView.setContentOffset(CGPointMake(0.0, view.frame.size.height * 3.0), animated: true)
+            }
+        }
     }
-    
     
     private func onboardingViews() -> [UIView] {
         return [
-            UIView.viewFromNib(OnboardingMoodViewNibName),
-            UIView.viewFromNib(OnboardingJournalViewNibName),
-            UIView.viewFromNib(OnboardingReflectViewNibName),
-            UIView.viewFromNib(OnboardingLocationViewNibName)
+            UIView.viewFromNib(OnboardingViewsNibNames.MoodView.rawValue),
+            UIView.viewFromNib(OnboardingViewsNibNames.JournalView.rawValue),
+            UIView.viewFromNib(OnboardingViewsNibNames.ReflectView.rawValue),
+            UIView.viewFromNib(OnboardingViewsNibNames.LocationView.rawValue)
         ]
     }
     
@@ -99,6 +106,7 @@ class OnboardingViewController: UIViewController,
             view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
             
             if let locationView = view as? OnboardingLocationView {
+                // horrible
                 locationView.allowLocationButton.addTarget(self, action: "setupLocationServices", forControlEvents: .TouchUpInside)
             }
         }
@@ -150,7 +158,10 @@ class OnboardingViewController: UIViewController,
     // updating locations. It will do nothing if permissions
     // are turned off
     func setupLocationServices() {
-        if LocationCoordinator.isActive() || LocationCoordinator.needsRequestAuthorization() {
+        if LocationCoordinator.isActive() {
+            let y = 4.0 * view.frame.size.height
+            subScrollView.setContentOffset(CGPointMake(0.0, y), animated: true)
+        } else if LocationCoordinator.needsRequestAuthorization() {
             println("starting or requesting permissions")
             LocationCoordinator.activate()
             LocationCoordinator.sharedCoordinator.requestAuthorization()

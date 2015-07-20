@@ -26,21 +26,16 @@ class RoundableView: UIView {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        delegate?.touchesBegan(touches, withEvent: event)
+        delegate?.touchesBegan()
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        delegate?.touchesEnded(touches, withEvent: event);
-    }
-    
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        delegate?.touchesMoved(touches, withEvent: event)
+        delegate?.touchesEnded();
     }
     
 }
 
 protocol TouchableDelegate: class {
-    func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
-    func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent)
-    func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)
+    func touchesBegan()
+    func touchesEnded()
 }

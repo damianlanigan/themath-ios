@@ -67,9 +67,9 @@
                                     <constraint firstAttribute="height" constant="60" id="BzJ-C4-zML"/>
                                     <constraint firstAttribute="width" constant="60" id="qWW-Wb-yFt"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.63" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="settings_dark">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="settings_light">
+                                    <color key="titleColor" red="0.75361926689786807" green="0.81267918848572895" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -88,7 +88,7 @@
                                     <segue destination="XBp-4j-f4v" kind="presentation" id="75o-C7-Qkf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading latest mood..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-v2-w1v" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading latest mood..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-v2-w1v" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2760,7 +2760,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
         <image name="linked_venmo" width="28" height="28"/>
         <image name="rating_high_light" width="44" height="44"/>
         <image name="rating_low_dark" width="44" height="44"/>
-        <image name="settings_dark" width="28" height="28"/>
+        <image name="settings_light" width="28" height="28"/>
     </resources>
     <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

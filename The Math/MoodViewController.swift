@@ -138,7 +138,6 @@ class MoodViewController: UIViewController,
                 presentOnboarding()
             }
             
-            updateLatestTimestamp();
             
             _performBlock({ () -> Void in
                 UIView.animateWithDuration(0.2, animations: {
@@ -147,6 +146,8 @@ class MoodViewController: UIViewController,
             }, withDelay: 0.3)
             
         }
+        
+        updateLatestTimestamp();
     }
     
     deinit {
@@ -231,7 +232,6 @@ class MoodViewController: UIViewController,
                 self.ratingHighImageView.alpha = 0.0
                 self.settingsButton.alpha = 1.0
                 self.ratingLowImageView.alpha = 0.0
-                self.latestMoodLabel.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformIdentity;
                 self.moodCircle.center = self.view.center
                 self.moodCircle.alpha = 1.0
@@ -249,7 +249,7 @@ class MoodViewController: UIViewController,
             UIView.animateWithDuration(0.4, animations: {
                 self.moodCircle.backgroundColor = self.transitionColor
                 self.moodCircle.alpha = 1.0
-                self.moodCircle.transform = CGAffineTransformMakeScale(22.0, 22.0)
+                self.moodCircle.transform = CGAffineTransformMakeScale(15.0, 15.0)
             })
             
             _performBlock({
@@ -278,6 +278,7 @@ class MoodViewController: UIViewController,
                 self.latestMoodLabel.attributedText = string
                 UIView.animateWithDuration(0.3, animations: {
                     self.moodCircle.backgroundColor = color
+                    self.latestMoodLabel.alpha = 1.0
                 })
             } else {
                 self.latestMoodLabel.text = ""
@@ -455,13 +456,13 @@ class MoodViewController: UIViewController,
     
     // MARK: <TouchableDelegate>
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    func touchesBegan() {
         beginMood()
         cancelMoodView.active = true
         moodCircle.backgroundColor = colorAtPoint(view.center)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    func touchesEnded() {
         endMood()
     }
     
