@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApS-ki-xXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="207.75"/>
+            <point key="canvasLocation" x="-6" y="219.75"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="0TN-xz-IaK">
@@ -293,6 +293,27 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lsu-cu-crd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                                 <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep track of your mood and find insights to help improve your life" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-7u-Nwi" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="236" id="kUO-JO-Gjx">
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                                                            </constraint>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="18"/>
+                                                                        <color key="textColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="kUO-JO-Gjx"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="kUO-JO-Gjx"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-logo" translatesAutoresizingMaskIntoConstraints="NO" id="IIY-59-PZc">
                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                         <constraints>
@@ -316,28 +337,6 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep track of your mood and find insights to help improve your life" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-7u-Nwi" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="236" id="kUO-JO-Gjx">
-                                                                                <variation key="heightClass=regular-widthClass=compact" constant="300"/>
-                                                                            </constraint>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="18"/>
-                                                                        <color key="textColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                        <variation key="default">
-                                                                            <mask key="constraints">
-                                                                                <exclude reference="kUO-JO-Gjx"/>
-                                                                            </mask>
-                                                                        </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
-                                                                            <mask key="constraints">
-                                                                                <include reference="kUO-JO-Gjx"/>
-                                                                            </mask>
-                                                                        </variation>
-                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -355,8 +354,8 @@
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="subviews">
-                                                                        <exclude reference="IIY-59-PZc"/>
                                                                         <exclude reference="gwS-7u-Nwi"/>
+                                                                        <exclude reference="IIY-59-PZc"/>
                                                                     </mask>
                                                                     <mask key="constraints">
                                                                         <exclude reference="12G-bI-dv5"/>
@@ -366,11 +365,10 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
-                                                                        <include reference="IIY-59-PZc"/>
                                                                         <include reference="gwS-7u-Nwi"/>
+                                                                        <include reference="IIY-59-PZc"/>
                                                                     </mask>
                                                                     <mask key="constraints">
                                                                         <include reference="12G-bI-dv5"/>
