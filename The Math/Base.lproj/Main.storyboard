@@ -826,6 +826,22 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-Xu-b02">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="36" id="1vR-JN-CLQ"/>
+                                                                            <constraint firstAttribute="width" constant="36" id="25c-Tf-dsl"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="1vR-JN-CLQ"/>
+                                                                                <exclude reference="25c-Tf-dsl"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="1vR-JN-CLQ"/>
+                                                                                <include reference="25c-Tf-dsl"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -833,9 +849,27 @@
                                                                     <constraint firstItem="7cv-Xu-b02" firstAttribute="leading" secondItem="fZo-FU-Yqg" secondAttribute="leading" id="6Cv-gQ-dWS"/>
                                                                     <constraint firstItem="7cv-Xu-b02" firstAttribute="top" secondItem="fZo-FU-Yqg" secondAttribute="top" id="BWD-8r-fhi"/>
                                                                     <constraint firstAttribute="width" secondItem="fZo-FU-Yqg" secondAttribute="height" multiplier="1:1" id="OJE-60-clL"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="7cv-Xu-b02" secondAttribute="centerY" id="TLW-OW-eMl"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7cv-Xu-b02" secondAttribute="trailing" id="mwf-nG-0Bs"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="7cv-Xu-b02" secondAttribute="centerX" id="rJT-U0-x3u"/>
                                                                     <constraint firstAttribute="bottom" secondItem="7cv-Xu-b02" secondAttribute="bottom" id="rXz-xl-euS"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="TLW-OW-eMl"/>
+                                                                        <exclude reference="rJT-U0-x3u"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="6Cv-gQ-dWS"/>
+                                                                        <exclude reference="BWD-8r-fhi"/>
+                                                                        <include reference="TLW-OW-eMl"/>
+                                                                        <exclude reference="mwf-nG-0Bs"/>
+                                                                        <include reference="rJT-U0-x3u"/>
+                                                                        <exclude reference="rXz-xl-euS"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyC-g5-m0v" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -888,16 +922,50 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UWi-nU-dVH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="36" id="JaH-jT-N2x"/>
+                                                                            <constraint firstAttribute="width" constant="36" id="wt4-5R-kta"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="JaH-jT-N2x"/>
+                                                                                <exclude reference="wt4-5R-kta"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="JaH-jT-N2x"/>
+                                                                                <include reference="wt4-5R-kta"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="UWi-nU-dVH" secondAttribute="trailing" id="4R0-EE-o9Y"/>
                                                                     <constraint firstItem="UWi-nU-dVH" firstAttribute="top" secondItem="ppZ-E9-3rR" secondAttribute="top" id="57O-NB-RyN"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="UWi-nU-dVH" secondAttribute="centerX" id="OsC-g6-HMI"/>
                                                                     <constraint firstAttribute="width" secondItem="ppZ-E9-3rR" secondAttribute="height" multiplier="1:1" id="Rs0-2l-G5A"/>
                                                                     <constraint firstItem="UWi-nU-dVH" firstAttribute="leading" secondItem="ppZ-E9-3rR" secondAttribute="leading" id="haz-qR-IqD"/>
                                                                     <constraint firstAttribute="bottom" secondItem="UWi-nU-dVH" secondAttribute="bottom" id="mVV-JQ-JRi"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="UWi-nU-dVH" secondAttribute="centerY" id="tTk-vs-3TT"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="OsC-g6-HMI"/>
+                                                                        <exclude reference="tTk-vs-3TT"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="4R0-EE-o9Y"/>
+                                                                        <exclude reference="57O-NB-RyN"/>
+                                                                        <include reference="OsC-g6-HMI"/>
+                                                                        <exclude reference="haz-qR-IqD"/>
+                                                                        <exclude reference="mVV-JQ-JRi"/>
+                                                                        <include reference="tTk-vs-3TT"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDu-Ah-6el" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -950,6 +1018,22 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g9X-P0-AP3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="NE6-0R-FBq"/>
+                                                                            <constraint firstAttribute="height" constant="36" id="kHw-Hh-Zhi"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="NE6-0R-FBq"/>
+                                                                                <exclude reference="kHw-Hh-Zhi"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="NE6-0R-FBq"/>
+                                                                                <include reference="kHw-Hh-Zhi"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -957,9 +1041,27 @@
                                                                     <constraint firstAttribute="width" secondItem="9Po-o6-BSd" secondAttribute="height" multiplier="1:1" id="36r-aC-nYk"/>
                                                                     <constraint firstAttribute="bottom" secondItem="g9X-P0-AP3" secondAttribute="bottom" id="794-XD-cU6"/>
                                                                     <constraint firstAttribute="trailing" secondItem="g9X-P0-AP3" secondAttribute="trailing" id="Sae-jV-8HM"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="g9X-P0-AP3" secondAttribute="centerX" id="ZBt-Tc-mIc"/>
                                                                     <constraint firstItem="g9X-P0-AP3" firstAttribute="leading" secondItem="9Po-o6-BSd" secondAttribute="leading" id="tDz-Qq-QMz"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="g9X-P0-AP3" secondAttribute="centerY" id="xhh-0g-MyC"/>
                                                                     <constraint firstItem="g9X-P0-AP3" firstAttribute="top" secondItem="9Po-o6-BSd" secondAttribute="top" id="ysL-aT-6pd"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="ZBt-Tc-mIc"/>
+                                                                        <exclude reference="xhh-0g-MyC"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="794-XD-cU6"/>
+                                                                        <exclude reference="Sae-jV-8HM"/>
+                                                                        <include reference="ZBt-Tc-mIc"/>
+                                                                        <exclude reference="tDz-Qq-QMz"/>
+                                                                        <include reference="xhh-0g-MyC"/>
+                                                                        <exclude reference="ysL-aT-6pd"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QS-MK-hBT" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -1012,16 +1114,50 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-XH-VKL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="36" id="oCQ-wN-gju"/>
+                                                                            <constraint firstAttribute="width" constant="36" id="s4w-vM-THc"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="oCQ-wN-gju"/>
+                                                                                <exclude reference="s4w-vM-THc"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="oCQ-wN-gju"/>
+                                                                                <include reference="s4w-vM-THc"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="centerY" secondItem="hDI-XH-VKL" secondAttribute="centerY" id="54g-vl-MI3"/>
                                                                     <constraint firstAttribute="trailing" secondItem="hDI-XH-VKL" secondAttribute="trailing" id="Fgf-z6-BVc"/>
                                                                     <constraint firstAttribute="bottom" secondItem="hDI-XH-VKL" secondAttribute="bottom" id="Jov-c5-ril"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="hDI-XH-VKL" secondAttribute="centerX" id="Z53-YL-rXq"/>
                                                                     <constraint firstItem="hDI-XH-VKL" firstAttribute="top" secondItem="dS8-yb-xzS" secondAttribute="top" id="pOl-Ca-dca"/>
                                                                     <constraint firstItem="hDI-XH-VKL" firstAttribute="leading" secondItem="dS8-yb-xzS" secondAttribute="leading" id="tFK-qy-FAZ"/>
                                                                     <constraint firstAttribute="width" secondItem="dS8-yb-xzS" secondAttribute="height" multiplier="1:1" id="wL5-CU-uR9"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="54g-vl-MI3"/>
+                                                                        <exclude reference="Z53-YL-rXq"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="54g-vl-MI3"/>
+                                                                        <exclude reference="Fgf-z6-BVc"/>
+                                                                        <exclude reference="Jov-c5-ril"/>
+                                                                        <include reference="Z53-YL-rXq"/>
+                                                                        <exclude reference="pOl-Ca-dca"/>
+                                                                        <exclude reference="tFK-qy-FAZ"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7y-jY-PY1" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -1074,16 +1210,50 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbA-hC-JMW">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="fYQ-gJ-48a"/>
+                                                                            <constraint firstAttribute="height" constant="36" id="tvd-rP-CQv"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="fYQ-gJ-48a"/>
+                                                                                <exclude reference="tvd-rP-CQv"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="fYQ-gJ-48a"/>
+                                                                                <include reference="tvd-rP-CQv"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="centerY" secondItem="YbA-hC-JMW" secondAttribute="centerY" id="13y-xm-hon"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="YbA-hC-JMW" secondAttribute="centerX" id="4XG-hx-2qr"/>
                                                                     <constraint firstAttribute="width" secondItem="hNQ-iv-GWN" secondAttribute="height" multiplier="1:1" id="Dmn-LL-3UF"/>
                                                                     <constraint firstItem="YbA-hC-JMW" firstAttribute="leading" secondItem="hNQ-iv-GWN" secondAttribute="leading" id="KED-3Y-vBM"/>
                                                                     <constraint firstAttribute="bottom" secondItem="YbA-hC-JMW" secondAttribute="bottom" id="ehb-hh-u5g"/>
                                                                     <constraint firstItem="YbA-hC-JMW" firstAttribute="top" secondItem="hNQ-iv-GWN" secondAttribute="top" id="oXe-Xy-CvN"/>
                                                                     <constraint firstAttribute="trailing" secondItem="YbA-hC-JMW" secondAttribute="trailing" id="uVR-Vz-XJh"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="13y-xm-hon"/>
+                                                                        <exclude reference="4XG-hx-2qr"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="13y-xm-hon"/>
+                                                                        <include reference="4XG-hx-2qr"/>
+                                                                        <exclude reference="KED-3Y-vBM"/>
+                                                                        <exclude reference="ehb-hh-u5g"/>
+                                                                        <exclude reference="oXe-Xy-CvN"/>
+                                                                        <exclude reference="uVR-Vz-XJh"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-62-xOa" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -1136,6 +1306,22 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipq-hU-Fzh">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="mzI-9p-H1c"/>
+                                                                            <constraint firstAttribute="height" constant="36" id="xeg-ij-Na5"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="mzI-9p-H1c"/>
+                                                                                <exclude reference="xeg-ij-Na5"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="mzI-9p-H1c"/>
+                                                                                <include reference="xeg-ij-Na5"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1145,7 +1331,25 @@
                                                                     <constraint firstItem="ipq-hU-Fzh" firstAttribute="leading" secondItem="82G-Ke-SeE" secondAttribute="leading" id="Xdu-sc-Efl"/>
                                                                     <constraint firstAttribute="bottom" secondItem="ipq-hU-Fzh" secondAttribute="bottom" id="XuL-S8-XmS"/>
                                                                     <constraint firstAttribute="width" secondItem="82G-Ke-SeE" secondAttribute="height" multiplier="1:1" id="qBm-08-XML"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="ipq-hU-Fzh" secondAttribute="centerX" id="vN0-IS-6YN"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="ipq-hU-Fzh" secondAttribute="centerY" id="zhM-Hq-tfw"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="vN0-IS-6YN"/>
+                                                                        <exclude reference="zhM-Hq-tfw"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="E48-rA-X3I"/>
+                                                                        <exclude reference="Vhb-4H-2n5"/>
+                                                                        <exclude reference="Xdu-sc-Efl"/>
+                                                                        <exclude reference="XuL-S8-XmS"/>
+                                                                        <include reference="vN0-IS-6YN"/>
+                                                                        <include reference="zhM-Hq-tfw"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGR-09-1Mg" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -1198,6 +1402,22 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HDB-0e-0B0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="36" id="6Pm-et-1ul"/>
+                                                                            <constraint firstAttribute="width" constant="36" id="i7r-DH-P0A"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="6Pm-et-1ul"/>
+                                                                                <exclude reference="i7r-DH-P0A"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="6Pm-et-1ul"/>
+                                                                                <include reference="i7r-DH-P0A"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1205,9 +1425,27 @@
                                                                     <constraint firstAttribute="trailing" secondItem="HDB-0e-0B0" secondAttribute="trailing" id="FMD-QH-Ps5"/>
                                                                     <constraint firstItem="HDB-0e-0B0" firstAttribute="top" secondItem="Bjo-AE-FBk" secondAttribute="top" id="K99-V3-Dag"/>
                                                                     <constraint firstAttribute="width" secondItem="Bjo-AE-FBk" secondAttribute="height" multiplier="1:1" id="bVB-JC-Kf2"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="HDB-0e-0B0" secondAttribute="centerX" id="eKN-LJ-sph"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="HDB-0e-0B0" secondAttribute="centerY" id="eSf-gY-kJh"/>
                                                                     <constraint firstItem="HDB-0e-0B0" firstAttribute="leading" secondItem="Bjo-AE-FBk" secondAttribute="leading" id="nDs-2v-shd"/>
                                                                     <constraint firstAttribute="bottom" secondItem="HDB-0e-0B0" secondAttribute="bottom" id="oZY-bn-YOb"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="eKN-LJ-sph"/>
+                                                                        <exclude reference="eSf-gY-kJh"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="FMD-QH-Ps5"/>
+                                                                        <exclude reference="K99-V3-Dag"/>
+                                                                        <include reference="eKN-LJ-sph"/>
+                                                                        <include reference="eSf-gY-kJh"/>
+                                                                        <exclude reference="nDs-2v-shd"/>
+                                                                        <exclude reference="oZY-bn-YOb"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt9-An-9Uz" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
@@ -1260,16 +1498,50 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kQC-VE-eZe">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="CWY-0h-HWX"/>
+                                                                            <constraint firstAttribute="height" constant="36" id="N8l-bw-qa6"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="CWY-0h-HWX"/>
+                                                                                <exclude reference="N8l-bw-qa6"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="CWY-0h-HWX"/>
+                                                                                <include reference="N8l-bw-qa6"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Doo-qT-rQM" secondAttribute="height" multiplier="1:1" id="Mz6-aX-e7W"/>
                                                                     <constraint firstItem="kQC-VE-eZe" firstAttribute="leading" secondItem="Doo-qT-rQM" secondAttribute="leading" id="T93-V7-XHW"/>
+                                                                    <constraint firstAttribute="centerX" secondItem="kQC-VE-eZe" secondAttribute="centerX" id="VKz-pj-WeM"/>
                                                                     <constraint firstItem="kQC-VE-eZe" firstAttribute="top" secondItem="Doo-qT-rQM" secondAttribute="top" id="luk-UV-UWH"/>
                                                                     <constraint firstAttribute="bottom" secondItem="kQC-VE-eZe" secondAttribute="bottom" id="qHe-1G-kz3"/>
                                                                     <constraint firstAttribute="trailing" secondItem="kQC-VE-eZe" secondAttribute="trailing" id="xqV-xO-IEq"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="kQC-VE-eZe" secondAttribute="centerY" id="ytR-Uw-4hg"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="VKz-pj-WeM"/>
+                                                                        <exclude reference="ytR-Uw-4hg"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="T93-V7-XHW"/>
+                                                                        <include reference="VKz-pj-WeM"/>
+                                                                        <exclude reference="luk-UV-UWH"/>
+                                                                        <exclude reference="qHe-1G-kz3"/>
+                                                                        <exclude reference="xqV-xO-IEq"/>
+                                                                        <include reference="ytR-Uw-4hg"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fja-wr-bTQ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="91" width="97" height="18"/>
