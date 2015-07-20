@@ -52,6 +52,6 @@ class CategoryView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        circleView.layer.cornerRadius = (frame.size.width - 12.0) / 2
+        circleView.layer.cornerRadius = (frame.size.width - 28.0) / 2
     }
 }

@@ -224,20 +224,17 @@ class MoodViewController: UIViewController,
         moodEnding = true
         
         let resetBlock: () -> Void = {
-            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-                self.moodEnding = false
-                self.gradientContainerView.alpha = 0.0
-                self.lineView.alpha = 0.0
-                self.view.backgroundColor = UIColor.whiteColor()
-                self.ratingHighImageView.alpha = 0.0
-                self.settingsButton.alpha = 1.0
-                self.ratingLowImageView.alpha = 0.0
-                self.moodCircle.transform = CGAffineTransformIdentity;
-                self.moodCircle.center = self.view.center
-                self.moodCircle.alpha = 1.0
-                self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
-                }, completion: { (_: Bool) -> Void in
-            })
+            self.moodEnding = false
+            self.gradientContainerView.alpha = 0.0
+            self.lineView.alpha = 0.0
+            self.view.backgroundColor = UIColor.whiteColor()
+            self.ratingHighImageView.alpha = 0.0
+            self.settingsButton.alpha = 1.0
+            self.ratingLowImageView.alpha = 0.0
+            self.moodCircle.transform = CGAffineTransformIdentity;
+            self.moodCircle.center = self.view.center
+            self.moodCircle.alpha = 1.0
+            self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
         }
         
         if !cancelMoodView.active {
@@ -246,7 +243,7 @@ class MoodViewController: UIViewController,
             let y = height - (height * (CGFloat(currentMood) / 100.0))
             transitionColor = colorAtPoint(CGPointMake(0, y))
             
-            UIView.animateWithDuration(0.4, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.moodCircle.backgroundColor = self.transitionColor
                 self.moodCircle.alpha = 1.0
                 self.moodCircle.transform = CGAffineTransformMakeScale(15.0, 15.0)
@@ -258,9 +255,13 @@ class MoodViewController: UIViewController,
             
             _performBlock({ () -> Void in
                 resetBlock()
-            }, withDelay: 0.6 )
+            }, withDelay: 0.9 )
         } else {
-            resetBlock()
+            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
+                resetBlock()
+            }, completion: { (_) -> Void in
+                
+            })
         }
         
         cancelMoodView.active = false
