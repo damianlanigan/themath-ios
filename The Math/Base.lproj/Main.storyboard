@@ -166,19 +166,19 @@
                                 <exclude reference="EYc-v2-w1v"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="JvS-Hb-KRv"/>
+                                <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="IHi-31-i7Z"/>
+                                <exclude reference="feg-gy-zO9"/>
                                 <exclude reference="1jJ-ne-Wf8"/>
                                 <exclude reference="lEb-Bt-cgl"/>
-                                <exclude reference="JjF-Ar-HpQ"/>
-                                <exclude reference="izo-vj-oPh"/>
-                                <exclude reference="IHi-31-i7Z"/>
+                                <exclude reference="ZuE-Ag-SCN"/>
+                                <exclude reference="pyN-dW-vh2"/>
                                 <exclude reference="bkZ-RM-ZPg"/>
                                 <exclude reference="naw-me-eBn"/>
                                 <exclude reference="wXK-87-3Zh"/>
-                                <exclude reference="feg-gy-zO9"/>
-                                <exclude reference="JvS-Hb-KRv"/>
-                                <exclude reference="ZTk-ba-aqZ"/>
-                                <exclude reference="ZuE-Ag-SCN"/>
-                                <exclude reference="pyN-dW-vh2"/>
+                                <exclude reference="JjF-Ar-HpQ"/>
+                                <exclude reference="izo-vj-oPh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -191,19 +191,19 @@
                                 <include reference="EYc-v2-w1v"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="JvS-Hb-KRv"/>
+                                <include reference="ZTk-ba-aqZ"/>
+                                <include reference="IHi-31-i7Z"/>
+                                <include reference="feg-gy-zO9"/>
                                 <include reference="1jJ-ne-Wf8"/>
                                 <include reference="lEb-Bt-cgl"/>
-                                <include reference="JjF-Ar-HpQ"/>
-                                <include reference="izo-vj-oPh"/>
-                                <include reference="IHi-31-i7Z"/>
+                                <exclude reference="ZuE-Ag-SCN"/>
+                                <include reference="pyN-dW-vh2"/>
                                 <include reference="bkZ-RM-ZPg"/>
                                 <include reference="naw-me-eBn"/>
                                 <include reference="wXK-87-3Zh"/>
-                                <include reference="feg-gy-zO9"/>
-                                <include reference="JvS-Hb-KRv"/>
-                                <include reference="ZTk-ba-aqZ"/>
-                                <exclude reference="ZuE-Ag-SCN"/>
-                                <include reference="pyN-dW-vh2"/>
+                                <include reference="JjF-Ar-HpQ"/>
+                                <include reference="izo-vj-oPh"/>
                             </mask>
                         </variation>
                     </view>
@@ -765,6 +765,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Os8-QC-wlX"/>
                                                         </constraints>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="-1" width="400" height="1"/>
+                                                        </variation>
                                                     </view>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM" customClass="CabritoTextView" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="14" y="15" width="372" height="407"/>
@@ -868,6 +871,9 @@
                                                                 <exclude reference="n64-tU-JXE"/>
                                                             </mask>
                                                         </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="-1" width="97" height="109"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="fZo-FU-Yqg" id="VR8-se-Vzc"/>
                                                             <outlet property="imageView" destination="7cv-Xu-b02" id="qKI-SZ-VkZ"/>
@@ -926,6 +932,9 @@
                                                             <mask key="constraints">
                                                                 <exclude reference="y7u-R6-OAv"/>
                                                             </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="97" y="-1" width="97" height="109"/>
                                                         </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="ppZ-E9-3rR" id="fKH-Tb-hal"/>
@@ -986,6 +995,9 @@
                                                                 <exclude reference="smF-8d-N3q"/>
                                                             </mask>
                                                         </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="194" y="-1" width="97" height="109"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="9Po-o6-BSd" id="cL5-Of-Ou0"/>
                                                             <outlet property="imageView" destination="g9X-P0-AP3" id="vsc-rV-8XG"/>
@@ -1045,6 +1057,9 @@
                                                                 <exclude reference="Uy3-SN-w5g"/>
                                                             </mask>
                                                         </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="291" y="-1" width="97" height="109"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="dS8-yb-xzS" id="EMa-aG-ZIs"/>
                                                             <outlet property="imageView" destination="hDI-XH-VKL" id="cQO-tM-3US"/>
@@ -1099,6 +1114,9 @@
                                                             </constraint>
                                                             <constraint firstAttribute="bottom" secondItem="oVo-62-xOa" secondAttribute="bottom" id="zqI-36-1bl"/>
                                                         </constraints>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="118" width="97" height="109"/>
+                                                        </variation>
                                                         <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
                                                                 <exclude reference="IC7-LB-Hud"/>
@@ -1163,6 +1181,9 @@
                                                                 <exclude reference="krn-j1-h58"/>
                                                             </mask>
                                                         </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="97" y="118" width="97" height="109"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="82G-Ke-SeE" id="mtH-xm-uaI"/>
                                                             <outlet property="imageView" destination="ipq-hU-Fzh" id="2TH-W2-WNM"/>
@@ -1222,6 +1243,9 @@
                                                                 <exclude reference="kST-cD-Wcc"/>
                                                             </mask>
                                                         </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="194" y="118" width="97" height="109"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="Bjo-AE-FBk" id="PcM-AE-Ky2"/>
                                                             <outlet property="imageView" destination="HDB-0e-0B0" id="oty-8y-PVA"/>
@@ -1280,6 +1304,9 @@
                                                             <mask key="constraints">
                                                                 <exclude reference="e7V-Q5-E70"/>
                                                             </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="291" y="118" width="97" height="109"/>
                                                         </variation>
                                                         <connections>
                                                             <outlet property="circleView" destination="Doo-qT-rQM" id="Rne-AQ-A2t"/>
@@ -2197,7 +2224,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1Y-iI-4v0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="-474"/>
+            <point key="canvasLocation" x="1860" y="-474"/>
         </scene>
         <!--Day Selection Table View Controller-->
         <scene sceneID="gg2-Eh-sLb">

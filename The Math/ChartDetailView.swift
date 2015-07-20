@@ -20,6 +20,11 @@ class ChartDetailView: UIView {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapContainerView: UIView!
     
+    @IBOutlet weak var moodMessageBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var moodMessageTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var categoryContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var categoryContainerTopConstraint: NSLayoutConstraint!
+    
     var entry: JournalEntry! {
         didSet {
             updateUIForJournalEntry()
@@ -31,6 +36,16 @@ class ChartDetailView: UIView {
         contentViewWidthConstraint.constant = frame.size.width
         mapContainerView.layer.cornerRadius = 10.0
         mapContainerView.clipsToBounds = true
+        
+        if entry.note.isEmpty {
+            moodMessageBottomConstraint.constant = 30
+            moodMessageTopConstraint.constant = 0
+        }
+        
+        if entry.categories.isEmpty {
+            categoryContainerHeightConstraint.constant = 0
+            categoryContainerTopConstraint.constant = 0
+        }
     }
     
     private func updateUIForJournalEntry() {
