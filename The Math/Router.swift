@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Router: URLRequestConvertible {
     
@@ -23,7 +24,7 @@ enum Router: URLRequestConvertible {
     case JournalEntries([String: AnyObject])
     case LatestJournalEntry()
     
-    var method: Method {
+    var method: Alamofire.Method {
         switch self {
         case .SignupAccount:
             return .POST
@@ -55,7 +56,6 @@ enum Router: URLRequestConvertible {
         case .LatestJournalEntry:
             return "/users/self/journal_entries/latest"
         }
-        
     }
     
     var base: String {

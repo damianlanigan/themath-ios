@@ -11,6 +11,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Alamofire
 
 let DEBUG = false
 

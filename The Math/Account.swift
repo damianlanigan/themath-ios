@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainAccess
+import Alamofire
 
 class Account: NSObject {
     

@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import UIKit
+import Alamofire
 
 class JournalEntry {
     var categories: [CategoryType] = [CategoryType]()

@@ -72,7 +72,6 @@
 		8DA1BA901B596EF500198472 /* Colors_Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */; };
 		8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
-		8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB132D61AEAF97600021C40 /* Alamofire.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
 		8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
@@ -191,7 +190,6 @@
 		8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors_Mood.swift; sourceTree = "<group>"; };
 		8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleDistanceView.swift; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
-		8DB132D61AEAF97600021C40 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
 		8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				8D791B661AEC4EFC00E68AB2 /* Account.swift */,
 				8D4149C51AEC53EE000A4D2E /* User.swift */,
 				8DF127491A8ACAEB000B5C4A /* Analytics.swift */,
-				8DB132D61AEAF97600021C40 /* Alamofire.swift */,
 				8D0988251AEC1EEF008A2C33 /* Router.swift */,
 				8DFEFA5B1B0E7487004533A1 /* JournalEntry.swift */,
 				8D47D9BA1B0E96D0005A9ADB /* Vendor.swift */,
@@ -745,7 +742,6 @@
 				8D7A6DCB1AE5B1FE00AC2CD8 /* LoveCategoryView.swift in Sources */,
 				8D2CA3251A83F33A00B1B503 /* LoginViewController.swift in Sources */,
 				8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */,
-				8DB132D71AEAF97600021C40 /* Alamofire.swift in Sources */,
 				E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */,
 				8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */,
 				8D7A6DCF1AE5B2AE00AC2CD8 /* MoneyCategoryView.swift in Sources */,
