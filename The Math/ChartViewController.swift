@@ -31,8 +31,11 @@ class ChartViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadNextChartView()
         for i in 0...2 {
-            loadNextChartView()
+            _performBlock({
+                self.loadNextChartView()
+            }, withDelay: 0.1)
         }
     }
     
@@ -40,18 +43,19 @@ class ChartViewController: UIViewController,
         super.viewDidAppear(animated)
         
         scrollView.delegate = self
-        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
+//        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        ensureContentSize()
         
-        // TODO: This is super shitty and needs to be removed
-        for (idx, coordinator) in enumerate(self.coordinators) {
-            coordinator.view.setNeedsLayout()
-            coordinator.view.layoutIfNeeded()
-            coordinator.view.reloadData()
+        contentViewHeightConstraint.constant = view.frame.size.height
+        contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
+        for (idx, coordinator) in enumerate(coordinators) {
+            let v = coordinator.view
+            v.frame = view.bounds
+            v.frame.origin.x = view.bounds.size.width * CGFloat(idx)
+            
         }
     }
     
@@ -63,29 +67,27 @@ class ChartViewController: UIViewController,
         println("became inactive: \(scope.rawValue)")
     }
     
-    private func ensureContentSize() {
-        contentViewHeightConstraint.constant = view.frame.size.height
-        contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
-        for (idx, coordinator) in enumerate(coordinators) {
-            let v = coordinator.view
-            v.frame = view.bounds
-            v.frame.origin.x = view.bounds.size.width * CGFloat(idx)
-        }
-    }
-    
     private func loadNextChartView() {
         let coordinator = ChartViewModel(scope: scope)
-        coordinator.date = nextDate()
+        coordinator.date = previousDate()
         coordinator.delegate = self
-        coordinators.append(coordinator)
+        
+        coordinators.unshift(coordinator)
         contentView.addSubview(coordinator.view)
         
-        ensureContentSize()
+        let p = scrollView.contentOffset
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        
+        var newP = p
+        newP.x += scrollView.frame.size.width
+        scrollView.setContentOffset(newP, animated: false)
         
         editingScrollView = false
     }
     
-    private func nextDate() -> NSDate {
+    private func previousDate() -> NSDate {
         switch scope {
         case .Day:
             return NSDate().dateBySubtractingDays(coordinators.count).dateAdjustedForLocalTime()
@@ -106,7 +108,8 @@ class ChartViewController: UIViewController,
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let totalWidth = CGFloat(coordinators.count - 1) * view.frame.size.width
         let offsetX = scrollView.contentOffset.x
-        if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
+        if offsetX < view.frame.size.width && !editingScrollView {
+//        if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
             editingScrollView = true
             loadNextChartView()
         }

@@ -45,7 +45,7 @@ class ChartView: UIView, JBChartViewDelegate {
         
         super.init(frame: CGRectZero)
         
-        transform = CGAffineTransformMakeScale(-1.0, 1.0)
+//        transform = CGAffineTransformMakeScale(-1.0, 1.0)
         
         addSubview(chart)
         addSubview(footerView)
