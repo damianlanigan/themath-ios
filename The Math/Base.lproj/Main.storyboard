@@ -308,7 +308,8 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -365,7 +366,8 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -2113,7 +2115,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <string key="text">Your data is never shared to anyone, and is always encrypted.
 
@@ -2415,6 +2417,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                         <outlet property="createAccountButton" destination="5bV-am-dwo" id="iml-Ta-qaG"/>
                         <outlet property="emailField" destination="hVP-Yh-igE" id="Rtd-zM-oV5"/>
                         <outlet property="passwordField" destination="EIL-cP-TCP" id="gGj-OK-nja"/>
+                        <outlet property="subtextLabel" destination="WNQ-Nn-cDE" id="Chb-Sg-IUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-bT-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2572,7 +2575,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                     </view>
                     <navigationItem key="navigationItem" id="IPe-Fa-IFl"/>
                     <connections>
-                        <outlet property="webView" destination="nRP-Vj-CJn" id="bb0-Yb-yJF"/>
+                        <outlet property="webView" destination="nRP-Vj-CJn" id="A6j-tT-bKt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-hf-HH3" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -6,5 +6,6 @@ pod 'KeychainAccess'
 pod 'SwiftLoader'
 pod 'JBChartView'
 pod 'Alamofire', '~> 1.2'
+pod 'TTTAttributedLabel'
 
 # pod 'Reveal-iOS-SDK'

@@ -56,10 +56,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/JBChartView.framework'
   install_framework 'Pods/KeychainAccess.framework'
   install_framework 'Pods/SwiftLoader.framework'
+  install_framework 'Pods/TTTAttributedLabel.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/Alamofire.framework'
   install_framework 'Pods/JBChartView.framework'
   install_framework 'Pods/KeychainAccess.framework'
   install_framework 'Pods/SwiftLoader.framework'
+  install_framework 'Pods/TTTAttributedLabel.framework'
 fi

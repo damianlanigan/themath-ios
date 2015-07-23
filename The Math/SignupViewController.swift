@@ -8,14 +8,47 @@
 
 import UIKit
 import SwiftLoader
+import TTTAttributedLabel
 
-class SignupViewController: AuthViewController {
+class SignupViewController: AuthViewController,
+    TTTAttributedLabelDelegate {
     
     @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var subtextLabel: TTTAttributedLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.949, green:0.980, blue:0.988, alpha: 1)
+        
+        setupTTTAttributedLabel()
+        
+    }
+    
+    func setupTTTAttributedLabel() {
+        let str = subtextLabel.text!
+        let NSStr = NSString(format: "%@", str)
+        let font = UIFont(name: CabritoSansFontName, size: subtextLabel.font.pointSize)!
+        let attrStr = NSMutableAttributedString(string: str)
+        let strRange = NSMakeRange(0, count(str))
+        attrStr.addAttribute(NSFontAttributeName, value: font, range: strRange)
+        attrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: strRange)
+        
+        let privacyRange = NSStr.rangeOfString("Privacy Policy")
+        let termsRange = NSStr.rangeOfString("Terms of Service")
+        
+        let boldFont = UIFont(name: "AvenirNext-DemiBold", size: subtextLabel.font.pointSize)!
+        attrStr.addAttribute(NSFontAttributeName, value: boldFont, range: privacyRange)
+        attrStr.addAttribute(NSFontAttributeName, value: boldFont, range: termsRange)
+        
+        attrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: privacyRange)
+        attrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: termsRange)
+        
+        subtextLabel.addLinkToURL(NSURL(string: "http://howamidoingapp.com/privacy")!, withRange: privacyRange)
+        subtextLabel.addLinkToURL(NSURL(string: "http://howamidoingapp.com/terms")!, withRange: termsRange)
+        
+        subtextLabel.attributedText = attrStr
+        subtextLabel.delegate = self
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,4 +89,16 @@ class SignupViewController: AuthViewController {
             }
         })
     }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        let viewController = WebViewController()
+        viewController.url = url
+        viewController.navigationTitle = "Privacy/TOS"
+        
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [viewController];
+        presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    
 }

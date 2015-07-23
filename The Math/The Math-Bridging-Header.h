@@ -4,6 +4,8 @@
 
 // TOOLTIPS
 
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
+
 //// GOOGLE ANALYTICS
 //#import <GoogleAnalytics-iOS-SDK/GAI.h>
 //#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
