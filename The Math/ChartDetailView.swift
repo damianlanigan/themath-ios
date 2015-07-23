@@ -16,14 +16,16 @@ class ChartDetailView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryContainerView: UIView!
     @IBOutlet weak var noteLabel: UILabel!
-    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapContainerView: UIView!
+    @IBOutlet weak var detailsLabel: CabritoLabel!
     
+    @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var moodMessageBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var moodMessageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var categoryContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var categoryContainerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mapViewHeightConstraint: NSLayoutConstraint!
     
     var entry: JournalEntry! {
         didSet {
@@ -45,6 +47,11 @@ class ChartDetailView: UIView {
         if entry.categories.isEmpty {
             categoryContainerHeightConstraint.constant = 0
             categoryContainerTopConstraint.constant = 0
+        }
+        
+        if entry.location == nil {
+            mapViewHeightConstraint.constant = 0
+            detailsLabel.hidden = true
         }
     }
     
@@ -73,6 +80,7 @@ class ChartDetailView: UIView {
         
         timeLabel.text = "\(weekday) at \(hour):\(minute) \(aORp)"
         dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(offset: 0))"
+        
         if let location = entry.location {
             let v = Vendor(type: VendorType.Location, content: entry.geocodedLocationString!)
             dateLabel.text = "\(dateLabel.text!) • \(entry.geocodedLocationString!)"
@@ -84,6 +92,7 @@ class ChartDetailView: UIView {
             mapView.addAnnotation(annotation)
             
         }
+        
         noteLabel.text = entry.note
         
         var size = CGSizeMake(36, 36)

@@ -23,6 +23,7 @@ enum Router: URLRequestConvertible {
     case AverageScore([String: AnyObject])
     case JournalEntries([String: AnyObject])
     case LatestJournalEntry()
+    case ResetPassword([String: AnyObject])
     
     var method: Alamofire.Method {
         switch self {
@@ -38,6 +39,8 @@ enum Router: URLRequestConvertible {
             return .GET
         case .LatestJournalEntry:
             return .GET
+        case .ResetPassword:
+            return .POST
         }
     }
     
@@ -55,12 +58,16 @@ enum Router: URLRequestConvertible {
             return "/users/self/journal_entries"
         case .LatestJournalEntry:
             return "/users/self/journal_entries/latest"
+        case .ResetPassword:
+            return "/password/reset"
         }
     }
     
     var base: String {
         switch self {
             case .LoginAccount:
+                return Router.baseURLString
+            case .ResetPassword:
                 return Router.baseURLString
             default:
                 return Router.getAPIUrl()
@@ -82,6 +89,8 @@ enum Router: URLRequestConvertible {
             case .AverageScore(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             case .JournalEntries(let parameters):
+                return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+            case .ResetPassword(let parameters):
                 return ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
             default:
                 return mutableURLRequest

@@ -41,7 +41,6 @@ class AuthViewController: UIViewController,
         
         emailField.delegate = self
         passwordField.delegate = self
-        
     }
     
     func cancel() {

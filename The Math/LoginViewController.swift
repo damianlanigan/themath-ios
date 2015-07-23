@@ -19,6 +19,8 @@ class LoginViewController: AuthViewController {
     
     @IBAction func forgotPasswordButtonTapped(sender: UIButton) {
         println("forgot password button tapped")
+        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        Account.currentUser().requestPasswordReset("kavourasm@gmail.com")
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
@@ -43,7 +45,7 @@ class LoginViewController: AuthViewController {
         super.viewWillAppear(animated)
         
         loginButton.layer.cornerRadius = 6.0
-        emailField.becomeFirstResponder()
+//        emailField.becomeFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {

@@ -32,6 +32,10 @@ class InfographViewController: UIViewController,
         orientationLocked = false
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     @IBAction func navigationControl(sender: UISegmentedControl) {
         previouslySelectedSegmentIndex = sender.selectedSegmentIndex
         navigateToViewControllerAtIndex(previouslySelectedSegmentIndex)
@@ -51,6 +55,7 @@ class InfographViewController: UIViewController,
         selectedViewController!.view.hidden = false
         selectedViewController!.becameActive()
         selectedViewController!.view.frame = graphContainer.bounds
+        selectedViewController!.view.setNeedsLayout()
         selectedViewController!.view.layoutIfNeeded()
     }
     

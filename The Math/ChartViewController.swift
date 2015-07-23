@@ -31,10 +31,10 @@ class ChartViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadNextChartView()
-        for i in 0...2 {
+        loadPreviousChartView()
+        for i in 0...1 {
             _performBlock({
-                self.loadNextChartView()
+                self.loadPreviousChartView()
             }, withDelay: 0.1)
         }
     }
@@ -43,7 +43,6 @@ class ChartViewController: UIViewController,
         super.viewDidAppear(animated)
         
         scrollView.delegate = self
-//        scrollView.transform = CGAffineTransformMakeScale(-1.0, 1.0)
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,7 +54,6 @@ class ChartViewController: UIViewController,
             let v = coordinator.view
             v.frame = view.bounds
             v.frame.origin.x = view.bounds.size.width * CGFloat(idx)
-            
         }
     }
     
@@ -67,7 +65,7 @@ class ChartViewController: UIViewController,
         println("became inactive: \(scope.rawValue)")
     }
     
-    private func loadNextChartView() {
+    private func loadPreviousChartView() {
         let coordinator = ChartViewModel(scope: scope)
         coordinator.date = previousDate()
         coordinator.delegate = self
@@ -94,7 +92,7 @@ class ChartViewController: UIViewController,
         case .Week:
             return NSDate().dateBySubtractingDays(coordinators.count * 7).dateAdjustedForLocalTime()
         case .Month:
-            if let m = coordinators.last?.dateValue as? CalendarMonth {
+            if let m = coordinators.first?.dateValue as? CalendarMonth {
                 return m.startDate.dateBySubtractingDays(1)
             }
         default:
@@ -108,10 +106,11 @@ class ChartViewController: UIViewController,
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let totalWidth = CGFloat(coordinators.count - 1) * view.frame.size.width
         let offsetX = scrollView.contentOffset.x
-        if offsetX < view.frame.size.width && !editingScrollView {
-//        if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
+        if offsetX <= view.frame.size.width && !editingScrollView {
             editingScrollView = true
-            loadNextChartView()
+            loadPreviousChartView()
+        } else if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
+            println("load next date")
         }
     }
     

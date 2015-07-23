@@ -243,12 +243,8 @@
                                         <constraint firstAttribute="height" constant="178" id="G3n-to-BKX">
                                             <variation key="heightClass=compact" constant="130"/>
                                         </constraint>
-                                        <constraint firstAttribute="height" constant="200" id="KAg-Pe-rR9">
-                                            <variation key="heightClass=compact" constant="160"/>
-                                        </constraint>
                                         <constraint firstItem="OK1-x9-l8Z" firstAttribute="top" secondItem="12F-GG-nX9" secondAttribute="top" id="KeD-qp-e0U"/>
                                         <constraint firstAttribute="bottom" secondItem="OK1-x9-l8Z" secondAttribute="bottom" id="Rlr-S9-Vvn"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="178" id="gqa-wc-kB0"/>
                                         <constraint firstItem="OK1-x9-l8Z" firstAttribute="leading" secondItem="12F-GG-nX9" secondAttribute="leading" constant="30" id="lhn-QG-8oa">
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
@@ -259,8 +255,6 @@
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="G3n-to-BKX"/>
-                                            <exclude reference="KAg-Pe-rR9"/>
-                                            <exclude reference="gqa-wc-kB0"/>
                                             <exclude reference="Fji-iL-jXR"/>
                                             <exclude reference="KeD-qp-e0U"/>
                                             <exclude reference="Rlr-S9-Vvn"/>
@@ -273,8 +267,6 @@
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="G3n-to-BKX"/>
-                                            <exclude reference="KAg-Pe-rR9"/>
-                                            <exclude reference="gqa-wc-kB0"/>
                                             <include reference="Fji-iL-jXR"/>
                                             <include reference="KeD-qp-e0U"/>
                                             <include reference="Rlr-S9-Vvn"/>
@@ -388,8 +380,10 @@
                 <outlet property="categoryContainerView" destination="nNa-GI-zIm" id="2H2-80-9ON"/>
                 <outlet property="contentViewWidthConstraint" destination="lPQ-dI-3O0" id="Vng-WN-vvZ"/>
                 <outlet property="dateLabel" destination="OMG-sg-zCC" id="6tI-X4-HhZ"/>
+                <outlet property="detailsLabel" destination="TFJ-8S-ca4" id="QOg-7z-TOA"/>
                 <outlet property="mapContainerView" destination="12F-GG-nX9" id="iQG-mC-ODK"/>
                 <outlet property="mapView" destination="OK1-x9-l8Z" id="vHz-Wo-BN3"/>
+                <outlet property="mapViewHeightConstraint" destination="G3n-to-BKX" id="fI7-5R-FTq"/>
                 <outlet property="moodMessageBottomConstraint" destination="XeQ-jG-qzv" id="iGd-K3-ILL"/>
                 <outlet property="moodMessageTopConstraint" destination="19O-pH-SeS" id="bm8-qp-wzs"/>
                 <outlet property="noteLabel" destination="WAj-Rm-Xrb" id="l1d-Mf-BfA"/>
