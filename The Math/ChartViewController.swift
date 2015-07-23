@@ -35,7 +35,7 @@ class ChartViewController: UIViewController,
         for i in 0...1 {
             _performBlock({
                 self.loadPreviousChartView()
-            }, withDelay: 0.1)
+            }, withDelay: 0.3)
         }
     }
     
@@ -59,6 +59,9 @@ class ChartViewController: UIViewController,
     
     func becameActive() {
         println("became active: \(scope.rawValue)")
+        for (idx, coordinator) in enumerate(coordinators) {
+            coordinator.view.reloadData()
+        }
     }
     
     func becameInactive() {
