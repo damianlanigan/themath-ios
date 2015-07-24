@@ -61,6 +61,8 @@ class ChartViewController: UIViewController,
         println("became active: \(scope.rawValue)")
         for (idx, coordinator) in enumerate(coordinators) {
             coordinator.view.reloadData()
+            view.setNeedsLayout()
+            view.layoutIfNeeded()
         }
     }
     

@@ -101,9 +101,6 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_high_light" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-CY-TuO">
                                 <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
-                                <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-On-qM4">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -137,6 +134,9 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
+                                <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -161,9 +161,9 @@
                                 <exclude reference="Okn-LV-a0O"/>
                                 <exclude reference="90V-Oh-iAs"/>
                                 <exclude reference="ujP-CY-TuO"/>
-                                <exclude reference="tU0-tU-fyv"/>
                                 <exclude reference="3lH-On-qM4"/>
                                 <exclude reference="EYc-v2-w1v"/>
+                                <exclude reference="tU0-tU-fyv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="JvS-Hb-KRv"/>
@@ -186,9 +186,9 @@
                                 <include reference="Okn-LV-a0O"/>
                                 <include reference="90V-Oh-iAs"/>
                                 <include reference="ujP-CY-TuO"/>
-                                <include reference="tU0-tU-fyv"/>
                                 <include reference="3lH-On-qM4"/>
                                 <include reference="EYc-v2-w1v"/>
+                                <include reference="tU0-tU-fyv"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="JvS-Hb-KRv"/>

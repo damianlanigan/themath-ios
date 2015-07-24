@@ -70,6 +70,7 @@ class InfographViewController: UIViewController,
             viewController.delegate = self
             viewController.view.hidden = true
             graphContainer!.addSubview(viewController.view)
+            viewController.view.frame = graphContainer.bounds
         }
     }
     
