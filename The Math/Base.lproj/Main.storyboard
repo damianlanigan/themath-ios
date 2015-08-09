@@ -238,7 +238,7 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.77657657861709595" blue="0.9661298394203186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-8K-X6n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -259,7 +259,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="15"/>
                                                         <state key="normal" title="Log in">
-                                                            <color key="titleColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -270,7 +270,7 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
@@ -301,15 +301,14 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="18"/>
-                                                                        <color key="textColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -366,8 +365,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="274"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -413,7 +411,7 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piy-OA-wsK" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="zSl-PG-NEj">
                                                                 <variation key="heightClass=regular-widthClass=compact" constant="42"/>
@@ -421,7 +419,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="15"/>
                                                         <state key="normal" title="I'm new to this">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -432,7 +430,7 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
