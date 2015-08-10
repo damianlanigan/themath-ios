@@ -218,14 +218,16 @@ class JournalViewController: UIViewController,
     // MARK: UITextFieldDelegate
 
     func textViewDidBeginEditing(textView: UITextView) {
-        if textView.text == "Add a note..." {
+        if textView.text == "Give some context to what's happening..." {
             textView.text = ""
+            textView.textColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
         }
     }
     
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Add a note..."
+            textView.text = "Give some context to what's happening..."
+            textView.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         }
     }
     
