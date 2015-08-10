@@ -215,7 +215,7 @@ class JournalViewController: UIViewController,
         }
     }
     
-    // MARK: <UITextFieldDelegate>
+    // MARK: UITextFieldDelegate
 
     func textViewDidBeginEditing(textView: UITextView) {
         if textView.text == "Add a note..." {
@@ -229,14 +229,14 @@ class JournalViewController: UIViewController,
         }
     }
     
-    // MARK: <LocationCoordinatorDelegate>
+    // MARK: LocationCoordinatorDelegate
     
     func locationCoordinator(coordinator: LocationCoordinator, didReceiveLocation location: CLLocation) {
         journalEntry.addLocation(location)
         coordinator.stop() // we only need 1 location
     }
     
-    // MARK: <UIAlertViewDelegate>
+    // MARK: UIAlertViewDelegate
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
