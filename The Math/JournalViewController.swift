@@ -103,7 +103,7 @@ class JournalViewController: UIViewController,
     }
     
     @IBAction func dismissButtonTapped(sender: AnyObject) {
-        let alert = UIAlertView(title: "Are you sure you want to cancel this mood?", message: "", delegate: self, cancelButtonTitle: "No", otherButtonTitles:"Cancel mood")
+        let alert = UIAlertView(title: "Are you sure you want to delete this draft?", message: "", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles:"Delete draft")
         alert.show()
     }
     
