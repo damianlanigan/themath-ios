@@ -99,6 +99,7 @@
 		8DFEFA5C1B0E7487004533A1 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFEFA5B1B0E7487004533A1 /* JournalEntry.swift */; };
 		E5149F5E1B012CDC005AC841 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */; };
 		E567B3C71B0D7CBA00904161 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
+		E5CF64BA1B78428000ADCA4F /* HalfPointLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */; };
 		E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */; };
 		E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE6E1B0CFD3A007D17DB /* Font.swift */; };
 		E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */; };
@@ -217,6 +218,7 @@
 		8DFEFA5B1B0E7487004533A1 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
+		E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfPointLineView.swift; sourceTree = "<group>"; };
 		E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabritoSans-NorMed.otf"; sourceTree = "<group>"; };
 		E5EADE6E1B0CFD3A007D17DB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoLabel.swift; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 		E5EADE721B0CFE94007D17DB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */,
 				8DE6762E1B0D2D42002ECFDF /* Fonts */,
 				8DE6762F1B0D2D52002ECFDF /* Chart */,
 			);
@@ -802,6 +805,7 @@
 				E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */,
 				8DF7C1DB1B0D0F75009EFFAA /* Sequence.swift in Sources */,
 				8D7E030C1B44C65C00D4442F /* DaySelectionTableViewController.swift in Sources */,
+				E5CF64BA1B78428000ADCA4F /* HalfPointLineView.swift in Sources */,
 				8D04CA7F1B31CD1A00DE0FD3 /* OnboardingSignupView.swift in Sources */,
 				8D0988241AEC1C7F008A2C33 /* AlamofireRequest.swift in Sources */,
 				8D7A6DD91AE5B34400AC2CD8 /* ProductivityCategoryView.swift in Sources */,
