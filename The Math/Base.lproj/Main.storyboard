@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -293,7 +292,8 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -350,7 +350,8 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="0.0" y="199" width="400" height="274"/>
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -1712,7 +1713,7 @@
                                     <action selector="saveButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="VOD-mJ-6pn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-6a-v5Q" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-6a-v5Q" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                 <rect key="frame" x="171" y="388" width="58" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -3013,30 +3014,72 @@ By tapping create account you submit that you have read the Privacy Policy and a
                         <sections>
                             <tableViewSection headerTitle="Account" id="uEH-PW-uLF">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="7h7-ve-nUe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7h7-ve-nUe">
                                         <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7h7-ve-nUe" id="8n9-Of-SjX">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linked Accounts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-zw-Kk1" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="11" width="559" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linked_location" translatesAutoresizingMaskIntoConstraints="NO" id="qNb-WI-Fx9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-sC-LjE" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQC-bj-1Qa">
+                                                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="locationSwitchToggled:" destination="QDD-Db-8qc" eventType="valueChanged" id="CyJ-Cg-XFI"/>
+                                                        <action selector="locationSwitchToggled:" destination="vJD-TG-rlJ" eventType="valueChanged" id="qcT-xM-vOY"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ya5-zw-Kk1" secondAttribute="trailing" constant="-8" id="MyA-Kq-7KQ"/>
-                                                <constraint firstItem="ya5-zw-Kk1" firstAttribute="leading" secondItem="8n9-Of-SjX" secondAttribute="leadingMargin" id="cww-ec-dGh"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ya5-zw-Kk1" secondAttribute="bottom" constant="3" id="vZl-kZ-fHb"/>
-                                                <constraint firstItem="ya5-zw-Kk1" firstAttribute="top" secondItem="8n9-Of-SjX" secondAttribute="topMargin" constant="3" id="yW4-zN-rf0"/>
+                                                <constraint firstAttribute="centerY" secondItem="iQC-bj-1Qa" secondAttribute="centerY" id="1cD-C2-RRA"/>
+                                                <constraint firstAttribute="centerY" secondItem="qNb-WI-Fx9" secondAttribute="centerY" id="2Ow-tq-Sss"/>
+                                                <constraint firstAttribute="centerY" secondItem="e9C-sC-LjE" secondAttribute="centerY" id="MIr-fw-UEc"/>
+                                                <constraint firstItem="iQC-bj-1Qa" firstAttribute="leading" secondItem="e9C-sC-LjE" secondAttribute="trailing" constant="8" id="MdG-lc-ExR"/>
+                                                <constraint firstItem="qNb-WI-Fx9" firstAttribute="leading" secondItem="8n9-Of-SjX" secondAttribute="leadingMargin" id="Oby-Um-bEN"/>
+                                                <constraint firstItem="iQC-bj-1Qa" firstAttribute="trailing" secondItem="8n9-Of-SjX" secondAttribute="trailingMargin" id="cKp-vz-iwl"/>
+                                                <constraint firstItem="e9C-sC-LjE" firstAttribute="leading" secondItem="qNb-WI-Fx9" secondAttribute="trailing" constant="8" id="vqg-mm-FzO"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="qNb-WI-Fx9"/>
+                                                    <exclude reference="e9C-sC-LjE"/>
+                                                    <exclude reference="iQC-bj-1Qa"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="2Ow-tq-Sss"/>
+                                                    <exclude reference="Oby-Um-bEN"/>
+                                                    <exclude reference="MIr-fw-UEc"/>
+                                                    <exclude reference="vqg-mm-FzO"/>
+                                                    <exclude reference="1cD-C2-RRA"/>
+                                                    <exclude reference="MdG-lc-ExR"/>
+                                                    <exclude reference="cKp-vz-iwl"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="qNb-WI-Fx9"/>
+                                                    <include reference="e9C-sC-LjE"/>
+                                                    <include reference="iQC-bj-1Qa"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="2Ow-tq-Sss"/>
+                                                    <include reference="Oby-Um-bEN"/>
+                                                    <include reference="MIr-fw-UEc"/>
+                                                    <include reference="vqg-mm-FzO"/>
+                                                    <include reference="1cD-C2-RRA"/>
+                                                    <include reference="MdG-lc-ExR"/>
+                                                    <include reference="cKp-vz-iwl"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="QDD-Db-8qc" kind="show" id="CbY-aO-gbX"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -3144,12 +3187,13 @@ By tapping create account you submit that you have read the Privacy Policy and a
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="dYn-g7-66g"/>
                     <connections>
+                        <outlet property="locationSwitch" destination="iQC-bj-1Qa" id="wRS-GN-Q0T"/>
                         <segue destination="6OS-s3-aeZ" kind="show" identifier="ShowWebController" id="YZS-Xe-hN4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QUI-05-hTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="1105"/>
+            <point key="canvasLocation" x="949.5" y="1104.75"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="dfm-Ax-icj">

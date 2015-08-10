@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol SettingsTableViewControllerDelegate: class {
     func didLogout()
@@ -14,7 +15,11 @@ protocol SettingsTableViewControllerDelegate: class {
 
 class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     
+    @IBOutlet weak var locationSwitch: UISwitch!
+    var previousLocationAuthorizationStatus: CLAuthorizationStatus = .NotDetermined
+    
     weak var delegate: SettingsTableViewControllerDelegate?
+    
     var selectedIdx: Int?
     let titles = ["About", "Privacy Policy", "Terms of Service"]
     let urls = ["http://damianlanigan.github.io/about", "http://damianlanigan.github.io/privacy", "http://damianlanigan.github.io/terms"]
@@ -25,6 +30,22 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         navigationItem.title = "Settings"
         let button = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
         navigationItem.leftBarButtonItem = button
+        
+        setup()
+    }
+    
+    private func setup() {
+        setInitialValues()
+        setupNotificationObservers()
+    }
+    
+    private func setupNotificationObservers() {
+        // This happens when location permissions are selected
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    private func setInitialValues() {
+        locationSwitch.on = LocationCoordinator.isActive()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -36,6 +57,35 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
             }
         }
     }
+    
+    @IBAction func locationSwitchToggled(sender: UISwitch) {
+        if sender.on {
+            if LocationCoordinator.needsRequestAuthorization() {
+                LocationCoordinator.sharedCoordinator.requestAuthorization()
+            } else {
+                if LocationCoordinator.authorizationDenied() {
+                    goToSettings()
+                } else {
+                    LocationCoordinator.activate()
+                }
+            }
+        } else {
+            LocationCoordinator.deactivate()
+        }
+    }
+    
+    private func goToSettings() {
+        switch UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch) {
+        case .OrderedSame, .OrderedDescending:
+            let url = NSURL(string: UIApplicationOpenSettingsURLString)
+            UIApplication.sharedApplication().openURL(url!)
+        case .OrderedAscending:
+            // TODO: capture these people. possibly a little modal. who knows, really?
+            return
+        }
+    }
+    
+    // MARK: UITableView delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -57,7 +107,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // <UIAlertViewDelegate>
+    // UIAlertView deleget
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
