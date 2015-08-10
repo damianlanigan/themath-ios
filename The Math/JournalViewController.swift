@@ -259,13 +259,10 @@ class JournalViewController: UIViewController,
         formatter.dateFormat = "h"
         var hour = formatter.stringFromDate(date)
         
-        formatter.dateFormat = "EEEE"
-        let weekday = formatter.stringFromDate(date)
-        
         formatter.dateFormat = "a"
         let aORp = formatter.stringFromDate(date)
         
-        return "\(weekday) • \(hour):\(minute) \(aORp)"
+        return "\(hour):\(minute) \(aORp)"
     }
 
 

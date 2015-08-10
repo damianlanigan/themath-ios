@@ -292,8 +292,7 @@
                                                                                 <exclude reference="kUO-JO-Gjx"/>
                                                                             </mask>
                                                                         </variation>
-                                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="50" y="232" width="300" height="42"/>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
                                                                                 <include reference="kUO-JO-Gjx"/>
                                                                             </mask>
@@ -350,8 +349,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="199" width="400" height="274"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -780,7 +778,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy" userLabel="Bottom half">
                                                 <rect key="frame" x="0.0" y="328" width="400" height="422"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvZ-k1-yWH">
@@ -793,7 +791,7 @@
                                                             <rect key="frame" x="0.0" y="-1" width="400" height="1"/>
                                                         </variation>
                                                     </view>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a note..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM" customClass="CabritoTextView" customModule="HowAmIDoing" customModuleProvider="target">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Want to give some context to what is happening?" translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM" customClass="CabritoTextView" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="14" y="15" width="372" height="407"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -804,14 +802,25 @@
                                                             <outlet property="delegate" destination="fTm-Vk-pUw" id="NYE-Bd-6pj"/>
                                                         </connections>
                                                     </textView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mf6-bZ-JtH" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="0.080000000000000002" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="centerX" secondItem="mf6-bZ-JtH" secondAttribute="centerX" id="4ca-YY-7jx"/>
                                                     <constraint firstItem="jDb-wj-8uM" firstAttribute="top" secondItem="RvV-eo-xfy" secondAttribute="top" constant="15" id="KaZ-ek-kqT">
                                                         <variation key="heightClass=compact" constant="10"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                                     </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="jDb-wj-8uM" secondAttribute="trailing" constant="14" id="Mph-Fd-Dd9">
                                                         <variation key="heightClass=compact" constant="16"/>
+                                                    </constraint>
+                                                    <constraint firstItem="mf6-bZ-JtH" firstAttribute="top" secondItem="pvZ-k1-yWH" secondAttribute="bottom" constant="10" id="TGm-Ka-6Ks">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                                     </constraint>
                                                     <constraint firstItem="jDb-wj-8uM" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" constant="14" id="UYx-Uc-g7g">
                                                         <variation key="heightClass=compact" constant="16"/>
@@ -820,7 +829,29 @@
                                                     <constraint firstItem="pvZ-k1-yWH" firstAttribute="top" secondItem="RvV-eo-xfy" secondAttribute="top" id="ZUL-Nt-yq9"/>
                                                     <constraint firstAttribute="bottom" secondItem="jDb-wj-8uM" secondAttribute="bottom" id="o7a-QB-7pb"/>
                                                     <constraint firstItem="pvZ-k1-yWH" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" id="qaC-cA-XCP"/>
+                                                    <constraint firstItem="jDb-wj-8uM" firstAttribute="top" secondItem="mf6-bZ-JtH" secondAttribute="bottom" constant="8" id="vNH-Qv-vIR"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="mf6-bZ-JtH"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="vNH-Qv-vIR"/>
+                                                        <exclude reference="4ca-YY-7jx"/>
+                                                        <exclude reference="TGm-Ka-6Ks"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="subviews">
+                                                        <include reference="mf6-bZ-JtH"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="KaZ-ek-kqT"/>
+                                                        <include reference="vNH-Qv-vIR"/>
+                                                        <include reference="4ca-YY-7jx"/>
+                                                        <include reference="TGm-Ka-6Ks"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORY-cW-RfJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
@@ -1658,17 +1689,30 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are any of these affecting your mood?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fh-oe-QR4" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12981376262626265" green="0.12981376262626265" blue="0.12981376262626265" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="6fh-oe-QR4" firstAttribute="top" secondItem="kVq-FT-xpZ" secondAttribute="bottom" constant="2" id="EbY-wO-m3E">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                            </constraint>
                                             <constraint firstItem="RvV-eo-xfy" firstAttribute="top" secondItem="sHr-74-r9g" secondAttribute="bottom" constant="20" id="KA0-ng-iRi">
                                                 <variation key="heightClass=compact" constant="31"/>
                                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                             </constraint>
                                             <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="kVq-FT-xpZ" secondAttribute="bottom" constant="40" id="RGM-YN-i55">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                             </constraint>
+                                            <constraint firstAttribute="centerX" secondItem="6fh-oe-QR4" secondAttribute="centerX" id="Sbn-6t-SX0"/>
                                             <constraint firstAttribute="centerX" secondItem="kVq-FT-xpZ" secondAttribute="centerX" id="WUC-Nz-TM1"/>
+                                            <constraint firstItem="sHr-74-r9g" firstAttribute="top" secondItem="6fh-oe-QR4" secondAttribute="bottom" constant="17" id="bJn-LI-Ca2">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                            </constraint>
                                             <constraint firstItem="ORY-cW-RfJ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" id="cho-5Z-kjW"/>
                                             <constraint firstItem="kVq-FT-xpZ" firstAttribute="top" secondItem="HRk-PQ-j7O" secondAttribute="top" constant="20" id="dhj-t7-GTX"/>
                                             <constraint firstAttribute="height" constant="750" id="eeb-k5-oq8"/>
@@ -1688,6 +1732,27 @@
                                                 <variation key="heightClass=compact" constant="33"/>
                                             </constraint>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="6fh-oe-QR4"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="bJn-LI-Ca2"/>
+                                                <exclude reference="EbY-wO-m3E"/>
+                                                <exclude reference="Sbn-6t-SX0"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="6fh-oe-QR4"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="RGM-YN-i55"/>
+                                                <include reference="bJn-LI-Ca2"/>
+                                                <include reference="EbY-wO-m3E"/>
+                                                <include reference="Sbn-6t-SX0"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -2496,6 +2561,9 @@ By tapping create account you submit that you have read the Privacy Policy and a
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
                                 <rect key="frame" x="0.0" y="84" width="600" height="515"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="85" width="400" height="715"/>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3054,13 +3122,13 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                     <exclude reference="iQC-bj-1Qa"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="2Ow-tq-Sss"/>
-                                                    <exclude reference="Oby-Um-bEN"/>
                                                     <exclude reference="MIr-fw-UEc"/>
                                                     <exclude reference="vqg-mm-FzO"/>
                                                     <exclude reference="1cD-C2-RRA"/>
                                                     <exclude reference="MdG-lc-ExR"/>
                                                     <exclude reference="cKp-vz-iwl"/>
+                                                    <exclude reference="2Ow-tq-Sss"/>
+                                                    <exclude reference="Oby-Um-bEN"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3070,13 +3138,13 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                     <include reference="iQC-bj-1Qa"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="2Ow-tq-Sss"/>
-                                                    <include reference="Oby-Um-bEN"/>
                                                     <include reference="MIr-fw-UEc"/>
                                                     <include reference="vqg-mm-FzO"/>
                                                     <include reference="1cD-C2-RRA"/>
                                                     <include reference="MdG-lc-ExR"/>
                                                     <include reference="cKp-vz-iwl"/>
+                                                    <include reference="2Ow-tq-Sss"/>
+                                                    <include reference="Oby-Um-bEN"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
