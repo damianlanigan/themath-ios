@@ -41,6 +41,7 @@ class MoodViewController: UIViewController,
     private var previousOrientation: UIDeviceOrientation = .Portrait
     private var transitionColor = UIColor.whiteColor()
     private var moodEnding = false
+    private var capturingMood = false
     
     lazy var topBackgroundGradient: CAGradientLayer = {
        let g = CAGradientLayer()
@@ -186,6 +187,7 @@ class MoodViewController: UIViewController,
     }
     
     private func beginMood() {
+        capturingMood = true
         setNeedsStatusBarAppearanceUpdate()
         
         UIView.animateWithDuration(0.3, animations: {
@@ -207,6 +209,7 @@ class MoodViewController: UIViewController,
             return
         }
         
+        capturingMood = false
         moodEnding = true
         
         let resetBlock: () -> Void = {
@@ -252,6 +255,7 @@ class MoodViewController: UIViewController,
         }
         
         cancelMoodView.active = false
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     private func updateLatestTimestamp() {
@@ -343,11 +347,7 @@ class MoodViewController: UIViewController,
     // MARK: UTILITY
 
     override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return capturingMood
     }
 
     override func shouldAutorotate() -> Bool {
