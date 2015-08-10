@@ -47,7 +47,8 @@ class JournalEntry {
         let hour = self.timestamp.hour()
         let minute = self.timestamp.minute()
         let amPm = hour < 12 || hour == 24 ? "am" : "pm"
-        return "\(hour.twelveHourClock().pad()) : \(minute.pad()) \(amPm)"
+        
+        return "\(hour.twelveHourClock()):\(minute.pad()) \(amPm)"
     }()
     
     // MARK: State

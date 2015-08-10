@@ -21,7 +21,7 @@ class DaySelectionTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 60.0
         
         if let day = day {
-            navigationItem.title = day.formattedDescription()
+            navigationItem.title = day.formattedDescriptionWithWeekday()
         }
     }
     

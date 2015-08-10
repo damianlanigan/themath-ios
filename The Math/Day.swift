@@ -26,6 +26,13 @@ class CalendarDay: TimeRepresentable {
         return "\(rawDate.shortMonthToString()) \(rawDate.day(offset: 0)), \(rawDate.year(offset: 0))"
     }
     
+    func formattedDescriptionWithWeekday() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEEE"
+        let weekday = formatter.stringFromDate(rawDate)
+        return "\(weekday) • \(formattedDescription())"
+    }
+    
     var params: [String: AnyObject] {
         return [
             "start_datetime" : rawDate.dateAtStartOfDay(),
