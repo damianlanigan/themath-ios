@@ -249,44 +249,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVm-BZ-8Aj" userLabel="Title Screen">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-R9-r3u" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
-                                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="zC1-fF-EfJ">
-                                                                <variation key="heightClass=regular-widthClass=compact" constant="42"/>
-                                                            </constraint>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="15"/>
-                                                        <state key="normal" title="Log in">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="9"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="zC1-fF-EfJ"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
-                                                            <mask key="constraints">
-                                                                <include reference="zC1-fF-EfJ"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <connections>
-                                                            <segue destination="Lgr-ll-z7b" kind="presentation" id="BbU-uW-Xx6"/>
-                                                        </connections>
-                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UD3-0T-O21">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                         <subviews>
@@ -411,7 +373,7 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piy-OA-wsK" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="zSl-PG-NEj">
                                                                 <variation key="heightClass=regular-widthClass=compact" constant="42"/>
@@ -419,7 +381,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="15"/>
                                                         <state key="normal" title="I'm new to this">
-                                                            <color key="titleColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -430,7 +392,7 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
@@ -445,6 +407,44 @@
                                                         </variation>
                                                         <connections>
                                                             <action selector="getStartedButtonTapped:" destination="ho3-mI-dwm" eventType="touchUpInside" id="CbP-Au-IDx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-R9-r3u" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
+                                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="zC1-fF-EfJ">
+                                                                <variation key="heightClass=regular-widthClass=compact" constant="42"/>
+                                                            </constraint>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="CabritoSans-NorMed" family="Cabrito Sans" pointSize="15"/>
+                                                        <state key="normal" title="Log in">
+                                                            <color key="titleColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="9"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="zC1-fF-EfJ"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="zC1-fF-EfJ"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <segue destination="Lgr-ll-z7b" kind="presentation" id="BbU-uW-Xx6"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -477,9 +477,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="subviews">
-                                                        <exclude reference="ahU-R9-r3u"/>
                                                         <exclude reference="UD3-0T-O21"/>
                                                         <exclude reference="piy-OA-wsK"/>
+                                                        <exclude reference="ahU-R9-r3u"/>
                                                     </mask>
                                                     <mask key="constraints">
                                                         <exclude reference="Lnp-RU-Ayg"/>
@@ -496,9 +496,9 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <mask key="subviews">
-                                                        <include reference="ahU-R9-r3u"/>
                                                         <include reference="UD3-0T-O21"/>
                                                         <include reference="piy-OA-wsK"/>
+                                                        <include reference="ahU-R9-r3u"/>
                                                     </mask>
                                                     <mask key="constraints">
                                                         <include reference="Lnp-RU-Ayg"/>
