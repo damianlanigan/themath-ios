@@ -8,4 +8,4 @@ pod 'JBChartView'
 pod 'Alamofire', '~> 1.2'
 pod 'TTTAttributedLabel'
 
-pod 'Reveal-iOS-SDK'
+# pod 'Reveal-iOS-SDK'
