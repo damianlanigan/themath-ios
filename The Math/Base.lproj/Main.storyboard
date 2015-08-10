@@ -823,12 +823,14 @@
                                                     </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="jDb-wj-8uM" secondAttribute="trailing" constant="14" id="Mph-Fd-Dd9">
                                                         <variation key="heightClass=compact" constant="16"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstItem="mf6-bZ-JtH" firstAttribute="top" secondItem="pvZ-k1-yWH" secondAttribute="bottom" constant="10" id="TGm-Ka-6Ks">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                                     </constraint>
                                                     <constraint firstItem="jDb-wj-8uM" firstAttribute="leading" secondItem="RvV-eo-xfy" secondAttribute="leading" constant="14" id="UYx-Uc-g7g">
                                                         <variation key="heightClass=compact" constant="16"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                     </constraint>
                                                     <constraint firstAttribute="trailing" secondItem="pvZ-k1-yWH" secondAttribute="trailing" id="VaI-oB-GSY"/>
                                                     <constraint firstItem="pvZ-k1-yWH" firstAttribute="top" secondItem="RvV-eo-xfy" secondAttribute="top" id="ZUL-Nt-yq9"/>
