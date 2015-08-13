@@ -225,6 +225,7 @@ class MoodViewController: UIViewController,
             self.moodCircle.center = self.view.center
             self.moodCircle.alpha = 1.0
             self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
+            self.latestMoodLabel.alpha = 1.0
         }
         
         if !cancelMoodView.active {
@@ -274,6 +275,7 @@ class MoodViewController: UIViewController,
                 })
             } else {
                 self.latestMoodLabel.text = "Hold down to start recording your mood"
+                self.latestMoodLabel.alpha = 1.0
             }
         }
     }
@@ -354,6 +356,8 @@ class MoodViewController: UIViewController,
         if let viewController = presentedViewController as? InfographViewController {
             return !viewController.orientationLocked
         } else if let viewController = presentedViewController as? NonRotatingNavigationController {
+            return false
+        } else if capturingMood {
             return false
         }
         return onMood
