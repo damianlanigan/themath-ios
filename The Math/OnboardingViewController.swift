@@ -14,6 +14,7 @@ protocol OnboardingViewControllerDelegate: class {
 
 class OnboardingViewController: UIViewController,
     UIScrollViewDelegate,
+    UIAlertViewDelegate,
     AuthViewControllerDelegate {
     
     private enum OnboardingViewsNibNames: String {
@@ -25,7 +26,9 @@ class OnboardingViewController: UIViewController,
     }
     
     let numberOfPages: CGFloat = 2.0
-    let numberOfSubPages: CGFloat = 5.0
+    lazy var numberOfSubPages: CGFloat = {
+        return CGFloat(self.onboardingViews.count + 1)
+    }()
     
     weak var delegate: OnboardingViewControllerDelegate?
     
@@ -45,6 +48,7 @@ class OnboardingViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
         xAxis.minimumRelativeValue = -14
         xAxis.maximumRelativeValue = 14
@@ -77,6 +81,9 @@ class OnboardingViewController: UIViewController,
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        setupNotificationObservers()
+        
         loadSubContentOnboardingViews()
         subScrollView.delegate = self
         
@@ -87,20 +94,30 @@ class OnboardingViewController: UIViewController,
         }
     }
     
-    private func onboardingViews() -> [UIView] {
-        return [
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    var onboardingViews: [UIView] = {
+        var views: [UIView] = [
             UIView.viewFromNib(OnboardingViewsNibNames.MoodView.rawValue),
             UIView.viewFromNib(OnboardingViewsNibNames.JournalView.rawValue),
-            UIView.viewFromNib(OnboardingViewsNibNames.ReflectView.rawValue),
-            UIView.viewFromNib(OnboardingViewsNibNames.LocationView.rawValue)
+            UIView.viewFromNib(OnboardingViewsNibNames.ReflectView.rawValue)
         ]
-    }
+        
+        if (!LocationCoordinator.isActive()) {
+            views.append(UIView.viewFromNib(OnboardingViewsNibNames.LocationView.rawValue))
+        }
+        
+        return views
+    }()
     
     private func loadSubContentOnboardingViews() {
         
         subContentView.backgroundColor = UIColor.onboardingBackgroundColor()
         
-        for (idx, view) in enumerate(onboardingViews()) {
+        for (idx, view) in enumerate(onboardingViews) {
             view.frame = self.view.bounds
             subContentView.addSubview(view)
             view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
@@ -116,7 +133,7 @@ class OnboardingViewController: UIViewController,
         _addContentViewController(signupViewController)
         subContentView.addSubview(signupViewController.view)
         signupViewController.view.frame = view.bounds
-        signupViewController.view.frame.origin.y += view.frame.size.height * 4.0
+        signupViewController.view.frame.origin.y += view.frame.size.height * (numberOfSubPages - 1)
     }
     
     private func layoutDots() {
@@ -158,17 +175,25 @@ class OnboardingViewController: UIViewController,
     // updating locations. It will do nothing if permissions
     // are turned off
     func setupLocationServices() {
-        if LocationCoordinator.isActive() {
-            let y = 4.0 * view.frame.size.height
-            subScrollView.setContentOffset(CGPointMake(0.0, y), animated: true)
+        if LocationCoordinator.isInactive() {
+            LocationCoordinator.activate()
+            scrollToSignup()
+        } else if LocationCoordinator.isActive() {
+            scrollToSignup()
         } else if LocationCoordinator.needsRequestAuthorization() {
             println("starting or requesting permissions")
             LocationCoordinator.activate()
             LocationCoordinator.sharedCoordinator.requestAuthorization()
         } else {
             LocationCoordinator.deactivate()
-            println("we don't have location permissions")
+            let alert = UIAlertView(title: "Location Permissions", message: "You need to go to settings", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles:"Settings")
+            alert.show()
         }
+    }
+    
+    private func scrollToSignup() {
+        let y = (numberOfSubPages - 1) * view.frame.size.height
+        subScrollView.setContentOffset(CGPointMake(0.0, y), animated: true)
     }
     
     // MARK: Notifications
@@ -253,6 +278,15 @@ class OnboardingViewController: UIViewController,
     
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
+    // MARK: UIAlertViewDelegate
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            delegate.navigateToSettings()
+        }
     }
     
 }

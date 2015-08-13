@@ -98,6 +98,11 @@ class LocationCoordinator: NSObject,
         return authorizationGranted() && active
     }
     
+    class func isInactive() -> Bool {
+        let active = NSUserDefaults.standardUserDefaults().boolForKey(UserLocationEnabledKey) == true
+        return authorizationGranted() && !active
+    }
+    
     class func status() -> CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
     }

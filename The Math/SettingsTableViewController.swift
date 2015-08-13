@@ -44,6 +44,16 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
+    func applicationDidBecomeActive() {
+        if LocationCoordinator.authorizationGranted() {
+            LocationCoordinator.activate()
+        } else {
+            LocationCoordinator.deactivate()
+        }
+        
+        locationSwitch.setOn(LocationCoordinator.isActive(), animated: true)
+    }
+    
     private func setInitialValues() {
         locationSwitch.on = LocationCoordinator.isActive()
     }
@@ -64,24 +74,14 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
                 LocationCoordinator.sharedCoordinator.requestAuthorization()
             } else {
                 if LocationCoordinator.authorizationDenied() {
-                    goToSettings()
+                    let alert = UIAlertView(title: "Location Permissions", message: "You need to go to settings", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles:"Settings")
+                    alert.show()
                 } else {
                     LocationCoordinator.activate()
                 }
             }
         } else {
             LocationCoordinator.deactivate()
-        }
-    }
-    
-    private func goToSettings() {
-        switch UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch) {
-        case .OrderedSame, .OrderedDescending:
-            let url = NSURL(string: UIApplicationOpenSettingsURLString)
-            UIApplication.sharedApplication().openURL(url!)
-        case .OrderedAscending:
-            // TODO: capture these people. possibly a little modal. who knows, really?
-            return
         }
     }
     
@@ -110,11 +110,15 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     // UIAlertView deleget
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
+        // this is horrible
+        if alertView.buttonTitleAtIndex(buttonIndex) == "Log out" && buttonIndex == 1 {
             Account.sharedAccount().logout({
                 println("logged out")
                 self.delegate?.didLogout()
             })
+        } else {
+            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            delegate.navigateToSettings()
         }
     }
     

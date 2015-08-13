@@ -52,5 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: CabritoSansFontName, size: 17)!]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: CabritoSansFontName, size: 17)!], forState: .Normal)
     }
+    
+    func navigateToSettings() {
+        switch UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch) {
+        case .OrderedSame, .OrderedDescending:
+            let url = NSURL(string: UIApplicationOpenSettingsURLString)
+            UIApplication.sharedApplication().openURL(url!)
+        case .OrderedAscending:
+            // TODO: capture these people. possibly a little modal. who knows, really?
+            return
+        }
+    }
 }
 

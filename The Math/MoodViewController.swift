@@ -273,7 +273,7 @@ class MoodViewController: UIViewController,
                     self.latestMoodLabel.alpha = 1.0
                 })
             } else {
-                self.latestMoodLabel.text = ""
+                self.latestMoodLabel.text = "Hold down to start recording your mood"
             }
         }
     }
