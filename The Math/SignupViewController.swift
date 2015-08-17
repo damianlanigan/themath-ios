@@ -91,14 +91,20 @@ class SignupViewController: AuthViewController,
     }
     
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        let viewController = WebViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
         viewController.url = url
         viewController.navigationTitle = "Privacy/TOS"
         
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController];
         presentViewController(navigationController, animated: true, completion: nil)
+        
+        viewController.navigationItem.leftBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
     }
     
+    func dismiss() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

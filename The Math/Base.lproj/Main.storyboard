@@ -336,8 +336,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="277"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -760,13 +759,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-PQ-j7O" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="750"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday • 9:40 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVq-FT-xpZ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Saturday • 9:40 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVq-FT-xpZ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                                 <rect key="frame" x="138" y="20" width="124" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy" userLabel="Bottom half">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-eo-xfy" userLabel="Bottom half">
                                                 <rect key="frame" x="0.0" y="328" width="400" height="422"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvZ-k1-yWH" customClass="HalfPointLineView" customModule="HowAmIDoing" customModuleProvider="target">
@@ -782,7 +781,7 @@
                                                             <outlet property="heightContstraint" destination="Os8-QC-wlX" id="U4X-DO-nuF"/>
                                                         </connections>
                                                     </view>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Give some context to what's happening..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Give some context to what's happening..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
                                                         <rect key="frame" x="14" y="15" width="372" height="407"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -869,7 +868,7 @@
                                                     <action selector="dismissButtonTapped:" destination="fTm-Vk-pUw" eventType="touchUpInside" id="6nh-l7-iFF"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-74-r9g" userLabel="Category Container View">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-74-r9g" userLabel="Category Container View">
                                                 <rect key="frame" x="6" y="80" width="388" height="228"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAE-Sy-OpA" customClass="LoveCategoryView" customModule="HowAmIDoing" customModuleProvider="target">
@@ -1878,8 +1877,7 @@
                                                 <exclude reference="Gkf-PL-uRs"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="11" y="220" width="378" height="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="Gkf-PL-uRs"/>
                                             </mask>
@@ -1996,8 +1994,7 @@
                                                 <exclude reference="l6i-Md-Hj3"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="146" width="400" height="44"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="RTn-c3-d6j"/>
                                             </mask>
@@ -2030,9 +2027,6 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="15" y="289" width="258" height="29"/>
-                                        </variation>
                                         <connections>
                                             <action selector="forgotPasswordButtonTapped:" destination="8P5-Gh-dQP" eventType="touchUpInside" id="aDR-yN-IeA"/>
                                         </connections>
@@ -2650,33 +2644,49 @@ By tapping create account you submit that you have read the Privacy Policy and a
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRP-Vj-CJn">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhy-9J-OFa">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nRP-Vj-CJn" firstAttribute="top" secondItem="GJr-Cu-TuA" secondAttribute="top" id="43b-Xt-Jas"/>
-                            <constraint firstItem="nRP-Vj-CJn" firstAttribute="leading" secondItem="GJr-Cu-TuA" secondAttribute="leading" id="JXa-w1-Tuc"/>
-                            <constraint firstAttribute="trailing" secondItem="nRP-Vj-CJn" secondAttribute="trailing" id="dtp-T0-64P"/>
-                            <constraint firstItem="P82-qP-CHu" firstAttribute="top" secondItem="nRP-Vj-CJn" secondAttribute="bottom" id="fDy-Zs-kY4"/>
-                            <constraint firstItem="P82-qP-CHu" firstAttribute="top" secondItem="nRP-Vj-CJn" secondAttribute="bottom" id="x7l-NO-N9t"/>
+                            <constraint firstItem="qhy-9J-OFa" firstAttribute="top" secondItem="GJr-Cu-TuA" secondAttribute="top" id="JX1-Bo-NgL"/>
+                            <constraint firstItem="P82-qP-CHu" firstAttribute="top" secondItem="qhy-9J-OFa" secondAttribute="bottom" id="Ple-y7-mkz"/>
+                            <constraint firstItem="qhy-9J-OFa" firstAttribute="leading" secondItem="GJr-Cu-TuA" secondAttribute="leading" id="WhD-Sh-AYx"/>
+                            <constraint firstAttribute="trailing" secondItem="qhy-9J-OFa" secondAttribute="trailing" id="y47-aX-yr4"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qhy-9J-OFa"/>
+                            </mask>
                             <mask key="constraints">
-                                <exclude reference="x7l-NO-N9t"/>
+                                <exclude reference="JX1-Bo-NgL"/>
+                                <exclude reference="WhD-Sh-AYx"/>
+                                <exclude reference="y47-aX-yr4"/>
+                                <exclude reference="Ple-y7-mkz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qhy-9J-OFa"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="JX1-Bo-NgL"/>
+                                <include reference="WhD-Sh-AYx"/>
+                                <include reference="y47-aX-yr4"/>
+                                <include reference="Ple-y7-mkz"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="IPe-Fa-IFl"/>
                     <connections>
-                        <outlet property="webView" destination="nRP-Vj-CJn" id="A6j-tT-bKt"/>
+                        <outlet property="webView" destination="qhy-9J-OFa" id="UAJ-e3-pIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-hf-HH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="1513"/>
+            <point key="canvasLocation" x="1966.5" y="1500"/>
         </scene>
         <!--Chart Detail View Controller-->
         <scene sceneID="XfP-Wd-hVN">

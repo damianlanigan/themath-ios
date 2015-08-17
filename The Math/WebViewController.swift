@@ -15,16 +15,13 @@ class WebViewController: UIViewController {
     var url: NSURL!
     var navigationTitle: String!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         webView.loadRequest(NSURLRequest(URL: url))
         navigationItem.title = navigationTitle
+    
     }
 
 }
