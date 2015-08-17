@@ -67,6 +67,12 @@ class CalendarMonth: TimeRepresentable {
                             comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
                             comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
                             let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                            
+                            let before = timestamp.compare(self.startDate) == NSComparisonResult.OrderedAscending
+                            let after = timestamp.compare(self.endDate) == NSComparisonResult.OrderedDescending
+                            if before || after {
+                                continue
+                            }
                             let day = ChartDay(date: timestamp, score: score)
                             days.append(day)
                         }

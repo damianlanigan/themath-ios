@@ -72,6 +72,11 @@ class CalendarWeek: TimeRepresentable {
                             comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
                             comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
                             let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                            let before = timestamp.compare(self.calendarDays.monday.rawDate) == NSComparisonResult.OrderedAscending
+                            let after = timestamp.compare(self.calendarDays.sunday.rawDate) == NSComparisonResult.OrderedDescending
+                            if before || after {
+                                continue
+                            }
                             let day = ChartDay(date: timestamp, score: score)
                             days.append(day)
                         }
