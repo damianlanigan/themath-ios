@@ -16,13 +16,13 @@
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="onboarding_02" translatesAutoresizingMaskIntoConstraints="NO" id="kWJ-sZ-D0a">
                             <rect key="frame" x="0.0" y="-322" width="192" height="322"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko4-Et-uyu" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko4-Et-uyu">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-xl-iHJ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-xl-iHJ">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="236" id="Dj1-KI-vGt">
@@ -32,7 +32,7 @@
                             <string key="text">Write your self a quick note to recall the moment later: Why were you stressed? Why did you feel good?
 
 Use the Categories to help understand how your moods relate to different areas of your life.</string>
-                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -51,7 +51,9 @@ Use the Categories to help understand how your moods relate to different areas o
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="ko4-Et-uyu" secondAttribute="trailing" constant="8" id="AxW-v4-oki"/>
                         <constraint firstAttribute="centerX" secondItem="kWJ-sZ-D0a" secondAttribute="centerX" id="Fgw-JC-G2y"/>
-                        <constraint firstItem="UuV-xl-iHJ" firstAttribute="top" secondItem="ko4-Et-uyu" secondAttribute="bottom" constant="8" id="Mrr-jI-mpF"/>
+                        <constraint firstItem="UuV-xl-iHJ" firstAttribute="top" secondItem="ko4-Et-uyu" secondAttribute="bottom" constant="8" id="Mrr-jI-mpF">
+                            <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                        </constraint>
                         <constraint firstItem="kWJ-sZ-D0a" firstAttribute="top" secondItem="HJ0-HY-Zld" secondAttribute="top" id="Rhi-Wh-zuc"/>
                         <constraint firstItem="ko4-Et-uyu" firstAttribute="top" secondItem="kWJ-sZ-D0a" secondAttribute="bottom" constant="12" id="UKy-7W-xgb"/>
                         <constraint firstAttribute="bottom" secondItem="UuV-xl-iHJ" secondAttribute="bottom" id="k1J-0k-ahG">
@@ -77,7 +79,8 @@ Use the Categories to help understand how your moods relate to different areas o
                             <exclude reference="vzz-zD-6Q1"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="0.0" y="140.5" width="400" height="519.5"/>
                         <mask key="subviews">
                             <include reference="kWJ-sZ-D0a"/>
                             <include reference="ko4-Et-uyu"/>

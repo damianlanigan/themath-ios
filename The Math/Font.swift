@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let CabritoSansFontName = "CabritoSans-NorMed"
+let CabritoSansFontName = "HelveticaNeue"
 
 extension UIFont {
     class func cabrito() -> UIFont {

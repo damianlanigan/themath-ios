@@ -95,7 +95,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         }
         
         if indexPath.section == 2 {
-            let alert = UIAlertView(title: "Logout?", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
+            let alert = UIAlertView(title: "Logout", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
             alert.show()
         }
         
