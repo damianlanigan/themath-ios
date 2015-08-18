@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         
         setupFabric()
-//        setupAnalytics()
+        setupAnalytics()
         setupGlobalUI()
 //
         let applicationId = DEBUG ?

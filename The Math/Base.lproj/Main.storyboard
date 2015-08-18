@@ -2545,13 +2545,6 @@ By tapping create account you submit that you have read the Privacy Policy and a
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
-                                <rect key="frame" x="0.0" y="84" width="600" height="515"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="85" width="400" height="715"/>
-                                </variation>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="btq-JQ-AdL">
                                 <rect key="frame" x="181" y="40" width="238" height="29"/>
                                 <constraints>
@@ -2571,6 +2564,13 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                     <action selector="navigationControl:" destination="grH-6b-2HV" eventType="valueChanged" id="cbI-C6-54h"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWU-uu-icG">
+                                <rect key="frame" x="0.0" y="84" width="600" height="515"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="85" width="400" height="715"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

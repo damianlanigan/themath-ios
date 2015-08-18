@@ -22,13 +22,27 @@ class ChartView: UIView, JBChartViewDelegate {
         return c
     }()
     
+    lazy var footerLabelCount: Int = {
+        return self.footerView.subviews.filter { $0.isKindOfClass(UILabel.self) }.count
+    }()
+    
     lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "pudge"
         label.frame = CGRectMake(0, 0, 200, 17)
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = .Center
         label.textColor = UIColor.lightGrayColor()
         label.font = UIFont(name: "AvenirNext-Medium", size: 12.0)
+        return label
+    }()
+    
+    lazy var emptyLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRectMake(0, 0, 200, 17)
+        label.text = "No saved moods"
+        label.textAlignment = .Center
+        label.textColor = UIColor.lightGrayColor()
+        label.hidden = true
+        label.center = self.center
         return label
     }()
     
@@ -45,12 +59,11 @@ class ChartView: UIView, JBChartViewDelegate {
         
         super.init(frame: CGRectZero)
         
-//        transform = CGAffineTransformMakeScale(-1.0, 1.0)
-        
         addSubview(chart)
         addSubview(footerView)
         addSubview(loader)
         addSubview(timeLabel)
+        addSubview(emptyLabel)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -60,6 +73,7 @@ class ChartView: UIView, JBChartViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         loader.center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
+        emptyLabel.center = center
         
         // date label height = 17
         // footer height = 20
@@ -67,8 +81,7 @@ class ChartView: UIView, JBChartViewDelegate {
         let padding: CGFloat = scope == CalendarScope.Month ? 14.0 : (scope == CalendarScope.Day ? 12.0 : 0.0)
         footerView.frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
         
-        var labelCount = footerView.subviews.filter { $0.isKindOfClass(UILabel.self) }.count
-        let labelWidth = footerView.frame.size.width / CGFloat(labelCount)
+        let labelWidth = footerView.frame.size.width / CGFloat(footerLabelCount)
         for (idx, view) in enumerate(footerView.subviews) {
             if let label = view as? UILabel {
                 label.textColor = UIColor.grayColor()
