@@ -91,9 +91,9 @@ class Account: NSObject {
     
     private func setAuthorizationHeader() {
         if let token = accessToken {
-            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?["Authorization"] = "Bearer \(token)"
+//            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?["Authorization"] = "Bearer \(token)"
             println("set authorization header")
-            println("\(Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders)")
+//            println("\(Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders)")
         }
     }
     

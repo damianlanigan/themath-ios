@@ -78,6 +78,10 @@ enum Router: URLRequestConvertible {
         let URL = NSURL(string: base)!
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
+        mutableURLRequest.setValue("0a5589d35f67d7aa81a3d2224a7db91433029ad9ccee7af7c1fac9da3e13b98d", forHTTPHeaderField: "X-Application-Id")
+        if let token = Account.sharedAccount().accessToken {
+          mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         
         switch self {
             case .LoginAccount(let parameters):
