@@ -5,7 +5,7 @@ use_frameworks!
 pod 'KeychainAccess'
 pod 'SwiftLoader'
 pod 'JBChartView'
-pod 'Alamofire', '~> 1.2'
+pod 'Alamofire', '~> 1.3'
 pod 'TTTAttributedLabel'
 
 # pod 'Reveal-iOS-SDK'
