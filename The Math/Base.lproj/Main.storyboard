@@ -170,20 +170,20 @@
                                 <exclude reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="JvS-Hb-KRv"/>
+                                <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="IHi-31-i7Z"/>
+                                <exclude reference="feg-gy-zO9"/>
                                 <exclude reference="1jJ-ne-Wf8"/>
                                 <exclude reference="lEb-Bt-cgl"/>
-                                <exclude reference="IHi-31-i7Z"/>
-                                <exclude reference="JjF-Ar-HpQ"/>
-                                <exclude reference="izo-vj-oPh"/>
-                                <exclude reference="bkZ-RM-ZPg"/>
-                                <exclude reference="naw-me-eBn"/>
-                                <exclude reference="wXK-87-3Zh"/>
-                                <exclude reference="feg-gy-zO9"/>
                                 <exclude reference="ZuE-Ag-SCN"/>
                                 <exclude reference="dw7-Kc-77y"/>
                                 <exclude reference="pyN-dW-vh2"/>
-                                <exclude reference="JvS-Hb-KRv"/>
-                                <exclude reference="ZTk-ba-aqZ"/>
+                                <exclude reference="bkZ-RM-ZPg"/>
+                                <exclude reference="naw-me-eBn"/>
+                                <exclude reference="wXK-87-3Zh"/>
+                                <exclude reference="JjF-Ar-HpQ"/>
+                                <exclude reference="izo-vj-oPh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -196,20 +196,20 @@
                                 <include reference="3lH-On-qM4"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="JvS-Hb-KRv"/>
+                                <include reference="ZTk-ba-aqZ"/>
+                                <include reference="IHi-31-i7Z"/>
+                                <include reference="feg-gy-zO9"/>
                                 <include reference="1jJ-ne-Wf8"/>
                                 <include reference="lEb-Bt-cgl"/>
-                                <include reference="IHi-31-i7Z"/>
-                                <include reference="JjF-Ar-HpQ"/>
-                                <include reference="izo-vj-oPh"/>
-                                <include reference="bkZ-RM-ZPg"/>
-                                <include reference="naw-me-eBn"/>
-                                <include reference="wXK-87-3Zh"/>
-                                <include reference="feg-gy-zO9"/>
                                 <exclude reference="ZuE-Ag-SCN"/>
                                 <include reference="dw7-Kc-77y"/>
                                 <exclude reference="pyN-dW-vh2"/>
-                                <include reference="JvS-Hb-KRv"/>
-                                <include reference="ZTk-ba-aqZ"/>
+                                <include reference="bkZ-RM-ZPg"/>
+                                <include reference="naw-me-eBn"/>
+                                <include reference="wXK-87-3Zh"/>
+                                <include reference="JjF-Ar-HpQ"/>
+                                <include reference="izo-vj-oPh"/>
                             </mask>
                         </variation>
                     </view>
@@ -333,8 +333,7 @@
                                                                         <exclude reference="fhA-7l-FvH"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="198" width="400" height="278"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
                                                                     <mask key="subviews">
                                                                         <include reference="gwS-7u-Nwi"/>
                                                                         <include reference="IIY-59-PZc"/>
@@ -3040,7 +3039,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leZ-WD-p0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="398"/>
+            <point key="canvasLocation" x="2605.5" y="412.5"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="QgN-CS-YL3">
@@ -3190,9 +3189,6 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_about" translatesAutoresizingMaskIntoConstraints="NO" id="E13-cO-OGI">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
