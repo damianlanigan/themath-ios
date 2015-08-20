@@ -3111,61 +3111,59 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linked_location" translatesAutoresizingMaskIntoConstraints="NO" id="qNb-WI-Fx9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <rect key="frame" x="15" y="8" width="28" height="28"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mood Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-sC-LjE">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQC-bj-1Qa">
-                                                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                                    <rect key="frame" x="536" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="locationSwitchToggled:" destination="QDD-Db-8qc" eventType="valueChanged" id="CyJ-Cg-XFI"/>
                                                         <action selector="locationSwitchToggled:" destination="vJD-TG-rlJ" eventType="valueChanged" id="qcT-xM-vOY"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mood Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-sC-LjE">
+                                                    <rect key="frame" x="51" y="11" width="116" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="iQC-bj-1Qa" secondAttribute="centerY" id="1cD-C2-RRA"/>
                                                 <constraint firstAttribute="centerY" secondItem="qNb-WI-Fx9" secondAttribute="centerY" id="2Ow-tq-Sss"/>
+                                                <constraint firstAttribute="centerY" secondItem="iQC-bj-1Qa" secondAttribute="centerY" id="3fq-17-tOk"/>
+                                                <constraint firstItem="e9C-sC-LjE" firstAttribute="leading" secondItem="qNb-WI-Fx9" secondAttribute="trailing" constant="8" id="BMl-i9-l4q"/>
+                                                <constraint firstAttribute="centerY" secondItem="qNb-WI-Fx9" secondAttribute="centerY" id="BcB-f6-eqd"/>
                                                 <constraint firstAttribute="centerY" secondItem="e9C-sC-LjE" secondAttribute="centerY" id="MIr-fw-UEc"/>
                                                 <constraint firstItem="iQC-bj-1Qa" firstAttribute="leading" secondItem="e9C-sC-LjE" secondAttribute="trailing" constant="8" id="MdG-lc-ExR"/>
                                                 <constraint firstItem="qNb-WI-Fx9" firstAttribute="leading" secondItem="8n9-Of-SjX" secondAttribute="leadingMargin" id="Oby-Um-bEN"/>
+                                                <constraint firstItem="qNb-WI-Fx9" firstAttribute="leading" secondItem="8n9-Of-SjX" secondAttribute="leading" constant="15" id="Sd4-sb-s8O"/>
+                                                <constraint firstAttribute="trailing" secondItem="iQC-bj-1Qa" secondAttribute="trailing" constant="15" id="ZIG-YU-k0a"/>
                                                 <constraint firstItem="iQC-bj-1Qa" firstAttribute="trailing" secondItem="8n9-Of-SjX" secondAttribute="trailingMargin" id="cKp-vz-iwl"/>
+                                                <constraint firstAttribute="centerY" secondItem="e9C-sC-LjE" secondAttribute="centerY" id="dFp-V1-YtV"/>
+                                                <constraint firstItem="e9C-sC-LjE" firstAttribute="leading" secondItem="qNb-WI-Fx9" secondAttribute="trailing" constant="8" id="igg-GD-Zsq"/>
                                                 <constraint firstItem="e9C-sC-LjE" firstAttribute="leading" secondItem="qNb-WI-Fx9" secondAttribute="trailing" constant="8" id="vqg-mm-FzO"/>
                                             </constraints>
                                             <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="qNb-WI-Fx9"/>
-                                                    <exclude reference="e9C-sC-LjE"/>
-                                                    <exclude reference="iQC-bj-1Qa"/>
-                                                </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="2Ow-tq-Sss"/>
+                                                    <exclude reference="Oby-Um-bEN"/>
                                                     <exclude reference="MIr-fw-UEc"/>
+                                                    <exclude reference="igg-GD-Zsq"/>
                                                     <exclude reference="vqg-mm-FzO"/>
                                                     <exclude reference="1cD-C2-RRA"/>
                                                     <exclude reference="MdG-lc-ExR"/>
                                                     <exclude reference="cKp-vz-iwl"/>
-                                                    <exclude reference="2Ow-tq-Sss"/>
-                                                    <exclude reference="Oby-Um-bEN"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="qNb-WI-Fx9"/>
-                                                    <include reference="e9C-sC-LjE"/>
-                                                    <include reference="iQC-bj-1Qa"/>
-                                                </mask>
                                                 <mask key="constraints">
+                                                    <include reference="2Ow-tq-Sss"/>
+                                                    <include reference="Oby-Um-bEN"/>
                                                     <include reference="MIr-fw-UEc"/>
                                                     <include reference="vqg-mm-FzO"/>
                                                     <include reference="1cD-C2-RRA"/>
                                                     <include reference="MdG-lc-ExR"/>
                                                     <include reference="cKp-vz-iwl"/>
-                                                    <include reference="2Ow-tq-Sss"/>
-                                                    <include reference="Oby-Um-bEN"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3181,15 +3179,15 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_about" translatesAutoresizingMaskIntoConstraints="NO" id="E13-cO-OGI">
+                                                    <rect key="frame" x="15" y="8" width="28" height="28"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJx-7n-cVg">
-                                                    <rect key="frame" x="8" y="11" width="559" height="21"/>
+                                                    <rect key="frame" x="51" y="12" width="46.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_about" translatesAutoresizingMaskIntoConstraints="NO" id="E13-cO-OGI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="SJx-7n-cVg" firstAttribute="leading" secondItem="E13-cO-OGI" secondAttribute="trailing" constant="8" id="1PP-Ub-rLj"/>
@@ -3197,27 +3195,31 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                     <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                                 </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="SJx-7n-cVg" secondAttribute="centerY" id="Bic-dJ-hPP"/>
+                                                <constraint firstItem="SJx-7n-cVg" firstAttribute="leading" secondItem="E13-cO-OGI" secondAttribute="trailing" constant="8" id="Lom-nv-7yp"/>
+                                                <constraint firstAttribute="centerY" secondItem="SJx-7n-cVg" secondAttribute="centerY" id="LzH-KP-75K"/>
+                                                <constraint firstAttribute="centerY" secondItem="E13-cO-OGI" secondAttribute="centerY" id="Mr1-BX-Jbe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="SJx-7n-cVg" secondAttribute="bottom" constant="3" id="dlx-Ah-UxR"/>
+                                                <constraint firstItem="SJx-7n-cVg" firstAttribute="leading" secondItem="E13-cO-OGI" secondAttribute="trailing" constant="8" id="fiD-0d-LSH"/>
                                                 <constraint firstItem="SJx-7n-cVg" firstAttribute="top" secondItem="He4-de-EKL" secondAttribute="topMargin" constant="3" id="kVM-Oe-ODO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="SJx-7n-cVg" secondAttribute="trailing" constant="-8" id="qPj-lL-XPn">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="-44"/>
                                                 </constraint>
+                                                <constraint firstItem="E13-cO-OGI" firstAttribute="leading" secondItem="He4-de-EKL" secondAttribute="leading" constant="15" id="r2o-gb-lLB"/>
                                                 <constraint firstAttribute="centerY" secondItem="E13-cO-OGI" secondAttribute="centerY" id="xen-Vv-3q2"/>
                                             </constraints>
                                             <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="E13-cO-OGI"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="xen-Vv-3q2"/>
                                                     <exclude reference="1PP-Ub-rLj"/>
+                                                    <exclude reference="5Nl-x8-8Qc"/>
                                                     <exclude reference="Bic-dJ-hPP"/>
+                                                    <exclude reference="dlx-Ah-UxR"/>
+                                                    <exclude reference="fiD-0d-LSH"/>
+                                                    <exclude reference="kVM-Oe-ODO"/>
+                                                    <exclude reference="qPj-lL-XPn"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="E13-cO-OGI"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="xen-Vv-3q2"/>
                                                     <include reference="1PP-Ub-rLj"/>
@@ -3235,15 +3237,15 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-SZ-Oju">
+                                                    <rect key="frame" x="15" y="8" width="28" height="28"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7L-He-TJH">
-                                                    <rect key="frame" x="8" y="11" width="559" height="21"/>
+                                                    <rect key="frame" x="51" y="11.5" width="107.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-SZ-Oju">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" id="0um-YG-Edm"/>
@@ -3252,22 +3254,29 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 <constraint firstAttribute="bottomMargin" secondItem="R7L-He-TJH" secondAttribute="bottom" constant="3" id="6uq-Jx-1Mr"/>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="top" secondItem="ePT-9H-8sZ" secondAttribute="topMargin" constant="3" id="CRu-li-249"/>
                                                 <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" id="DMk-Js-aKb"/>
+                                                <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="Kln-Zz-9Ch"/>
+                                                <constraint firstAttribute="centerY" secondItem="R7L-He-TJH" secondAttribute="centerY" id="O3L-qv-kX0"/>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="Qve-hV-qNC"/>
+                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" constant="15" id="RyI-u2-9HD"/>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="SaQ-U9-VNM"/>
                                                 <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="XWf-1m-gpz"/>
                                                 <constraint firstAttribute="centerY" secondItem="R7L-He-TJH" secondAttribute="centerY" id="cga-nx-reN"/>
                                                 <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="daQ-sb-Frf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="R7L-He-TJH" secondAttribute="trailing" constant="-44" id="fb9-Yw-9aL"/>
+                                                <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="mb6-d7-r1D"/>
+                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leading" constant="15" id="mrc-IR-oSQ"/>
                                             </constraints>
                                             <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="Hvy-SZ-Oju"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="2jJ-r3-ctH"/>
                                                     <exclude reference="DMk-Js-aKb"/>
+                                                    <exclude reference="RyI-u2-9HD"/>
                                                     <exclude reference="XWf-1m-gpz"/>
                                                     <exclude reference="daQ-sb-Frf"/>
+                                                    <exclude reference="0um-YG-Edm"/>
+                                                    <exclude reference="21B-Yh-eVy"/>
+                                                    <exclude reference="6uq-Jx-1Mr"/>
+                                                    <exclude reference="CRu-li-249"/>
                                                     <exclude reference="Qve-hV-qNC"/>
                                                     <exclude reference="SaQ-U9-VNM"/>
                                                     <exclude reference="cga-nx-reN"/>
@@ -3275,9 +3284,6 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="Hvy-SZ-Oju"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="2jJ-r3-ctH"/>
                                                     <include reference="DMk-Js-aKb"/>
@@ -3302,21 +3308,25 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_terms" translatesAutoresizingMaskIntoConstraints="NO" id="0pT-zT-swy">
+                                                    <rect key="frame" x="15" y="8" width="28" height="28"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8M-jk-zrI">
-                                                    <rect key="frame" x="8" y="11" width="559" height="21"/>
+                                                    <rect key="frame" x="51" y="11.5" width="127.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_terms" translatesAutoresizingMaskIntoConstraints="NO" id="0pT-zT-swy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0pT-zT-swy" firstAttribute="leading" secondItem="BVB-ne-TMs" secondAttribute="leadingMargin" id="3u8-CH-ras"/>
+                                                <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="5Jg-93-rV3"/>
+                                                <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="BrR-hw-oJZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X8M-jk-zrI" secondAttribute="trailing" constant="-8" id="Fiz-Mk-0v9"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="I3F-1r-xh2"/>
+                                                <constraint firstAttribute="centerY" secondItem="X8M-jk-zrI" secondAttribute="centerY" id="INq-Gl-2Rq"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="BVB-ne-TMs" secondAttribute="leadingMargin" id="IdH-wZ-t86"/>
+                                                <constraint firstItem="0pT-zT-swy" firstAttribute="leading" secondItem="BVB-ne-TMs" secondAttribute="leading" constant="15" id="Ln7-bJ-E5u"/>
                                                 <constraint firstAttribute="centerY" secondItem="X8M-jk-zrI" secondAttribute="centerY" id="MHx-Pz-DRp"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="azg-zC-yl8"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="cTJ-YA-dQQ"/>
@@ -3327,24 +3337,22 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="yzy-wa-YJH"/>
                                             </constraints>
                                             <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="0pT-zT-swy"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="3u8-CH-ras"/>
                                                     <exclude reference="hHk-Wj-BHY"/>
                                                     <exclude reference="yzy-wa-YJH"/>
+                                                    <exclude reference="Fiz-Mk-0v9"/>
                                                     <exclude reference="I3F-1r-xh2"/>
+                                                    <exclude reference="IdH-wZ-t86"/>
                                                     <exclude reference="MHx-Pz-DRp"/>
                                                     <exclude reference="azg-zC-yl8"/>
                                                     <exclude reference="cTJ-YA-dQQ"/>
                                                     <exclude reference="n1g-lI-pYy"/>
+                                                    <exclude reference="pFQ-0g-haE"/>
+                                                    <exclude reference="r5E-i7-lAj"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="0pT-zT-swy"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="3u8-CH-ras"/>
                                                     <exclude reference="hHk-Wj-BHY"/>
@@ -3374,7 +3382,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7b-Yb-ZAw">
-                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                    <rect key="frame" x="270.5" y="11.5" width="59" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.77657657861709595" blue="0.9661298394203186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -3382,10 +3390,20 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="W7b-Yb-ZAw" secondAttribute="bottom" constant="3" id="Nsk-tC-gAR"/>
+                                                <constraint firstAttribute="centerY" secondItem="W7b-Yb-ZAw" secondAttribute="centerY" id="SLV-Iv-a1h"/>
                                                 <constraint firstItem="W7b-Yb-ZAw" firstAttribute="top" secondItem="Pfq-F5-dmb" secondAttribute="topMargin" constant="3" id="ZbG-Zd-Zoe"/>
                                                 <constraint firstItem="W7b-Yb-ZAw" firstAttribute="leading" secondItem="Pfq-F5-dmb" secondAttribute="leadingMargin" id="iU7-LG-fl1"/>
+                                                <constraint firstAttribute="centerX" secondItem="W7b-Yb-ZAw" secondAttribute="centerX" id="orB-bu-Gal"/>
                                                 <constraint firstItem="W7b-Yb-ZAw" firstAttribute="trailing" secondItem="Pfq-F5-dmb" secondAttribute="trailingMargin" id="yNc-jv-1Tv"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Nsk-tC-gAR"/>
+                                                    <exclude reference="ZbG-Zd-Zoe"/>
+                                                    <exclude reference="iU7-LG-fl1"/>
+                                                    <exclude reference="yNc-jv-1Tv"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

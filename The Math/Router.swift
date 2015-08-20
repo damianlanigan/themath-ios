@@ -11,9 +11,9 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     
-    static let baseURLString = DEBUG ? "http://localhost:3000" : "http://themath-api.herokuapp.com"
+    static let baseURLString = "http://themath-api.herokuapp.com"
     static let urlProtocol = "http://"
-    static let urlDomain = DEBUG ? "localhost:3000" : "themath-api.herokuapp.com"
+    static let urlDomain = "themath-api.herokuapp.com"
     static let apiPath = "/api"
     static let apiVersion = "/v1"
 

@@ -11,9 +11,7 @@
 		27A542AF1A48BA4300CC7CA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542AE1A48BA4300CC7CA6 /* Category.swift */; };
 		27A713CD1A48754600344431 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A713CC1A48754600344431 /* JournalViewController.swift */; };
 		27D411C31A48710F008ACC14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411C21A48710F008ACC14 /* AppDelegate.swift */; };
-		27D411C81A48710F008ACC14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C61A48710F008ACC14 /* Main.storyboard */; };
 		27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C91A48710F008ACC14 /* Images.xcassets */; };
-		27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D411CB1A48710F008ACC14 /* LaunchScreen.xib */; };
 		27D411D91A48710F008ACC14 /* The_MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411D81A48710F008ACC14 /* The_MathTests.swift */; };
 		27D411E51A48715D008ACC14 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E41A48715D008ACC14 /* UIViewController.swift */; };
 		27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D411E61A487315008ACC14 /* MoodViewController.swift */; };
@@ -29,6 +27,9 @@
 		8D0CE7741B07C000006850CD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CE7731B07C000006850CD /* WebViewController.swift */; };
 		8D0CE7761B07C152006850CD /* VendorAccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CE7751B07C152006850CD /* VendorAccountsTableViewController.swift */; };
 		8D23220E1B59DB3B0005FA5D /* DayDetailPreviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D23220D1B59DB3B0005FA5D /* DayDetailPreviewTableViewCell.xib */; };
+		8D250E171B8639310061E7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D411C61A48710F008ACC14 /* Main.storyboard */; };
+		8D250E181B8639370061E7E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D411CB1A48710F008ACC14 /* LaunchScreen.xib */; };
+		8D250E191B8639410061E7E9 /* ChartDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE676281B0D2966002ECFDF /* ChartDetailView.xib */; };
 		8D25D49F1B06E6AE00859DCB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25D49E1B06E6AE00859DCB /* String.swift */; };
 		8D28301D1A7988CF00DCB705 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28301C1A7988CF00DCB705 /* OnboardingViewController.swift */; };
 		8D2CA3211A83F2F900B1B503 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CA3201A83F2F900B1B503 /* AuthViewController.swift */; };
@@ -78,7 +79,6 @@
 		8DD9595F1B59AFD600B9B1FD /* DayDetailPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD9595E1B59AFD600B9B1FD /* DayDetailPreviewTableViewCell.swift */; };
 		8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */; };
 		8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BD1A8ABD2200B03144 /* Fabric.framework */; };
-		8DE676291B0D2966002ECFDF /* ChartDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE676281B0D2966002ECFDF /* ChartDetailView.xib */; };
 		8DE6762B1B0D2988002ECFDF /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6762A1B0D2988002ECFDF /* ChartDetailView.swift */; };
 		8DE6762D1B0D2999002ECFDF /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6762C1B0D2999002ECFDF /* ChartDetailViewController.swift */; };
 		8DE676331B0D305A002ECFDF /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE676321B0D305A002ECFDF /* CircleProgressView.swift */; };
@@ -646,17 +646,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D250E191B8639410061E7E9 /* ChartDetailView.xib in Resources */,
+				8D250E181B8639370061E7E9 /* LaunchScreen.xib in Resources */,
+				8D250E171B8639310061E7E9 /* Main.storyboard in Resources */,
 				8D9138721AE85CC10090C53C /* BarView.xib in Resources */,
 				8D8D8D391B20B265008F37BE /* OnboardingReflectView.xib in Resources */,
 				8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */,
 				8D47D9B71B0E947A005A9ADB /* ChartDetailVendorView.xib in Resources */,
-				27D411C81A48710F008ACC14 /* Main.storyboard in Resources */,
 				E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */,
 				8D8D8D341B20B249008F37BE /* OnboardingMoodView.xib in Resources */,
-				27D411CD1A48710F008ACC14 /* LaunchScreen.xib in Resources */,
 				8D8D8D371B20B25E008F37BE /* OnboardingJournalView.xib in Resources */,
 				8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */,
-				8DE676291B0D2966002ECFDF /* ChartDetailView.xib in Resources */,
 				8D23220E1B59DB3B0005FA5D /* DayDetailPreviewTableViewCell.xib in Resources */,
 				27D411CA1A48710F008ACC14 /* Images.xcassets in Resources */,
 			);
