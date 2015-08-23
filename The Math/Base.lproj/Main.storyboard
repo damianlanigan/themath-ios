@@ -2448,24 +2448,24 @@
                                         <exclude reference="cIW-FZ-YLc"/>
                                         <exclude reference="gaR-pW-wtR"/>
                                         <exclude reference="nmg-Dc-Jpz"/>
-                                        <exclude reference="67U-Co-4Oz"/>
-                                        <exclude reference="Ffn-Ex-DHf"/>
-                                        <exclude reference="L9N-AF-Dex"/>
-                                        <exclude reference="62g-Xl-5sM"/>
-                                        <exclude reference="kcQ-L0-FFK"/>
-                                        <exclude reference="Ue1-CG-1z5"/>
-                                        <exclude reference="fre-jq-mLg"/>
-                                        <exclude reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <exclude reference="JPp-wu-Foq"/>
                                         <exclude reference="YKq-u5-06p"/>
                                         <exclude reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
+                                        <exclude reference="62g-Xl-5sM"/>
+                                        <exclude reference="kcQ-L0-FFK"/>
                                         <exclude reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <exclude reference="Tae-4R-NlR"/>
                                         <exclude reference="xjw-jA-eLd"/>
+                                        <exclude reference="Ue1-CG-1z5"/>
+                                        <exclude reference="fre-jq-mLg"/>
+                                        <exclude reference="h0G-Ss-CRe"/>
+                                        <exclude reference="67U-Co-4Oz"/>
+                                        <exclude reference="Ffn-Ex-DHf"/>
+                                        <exclude reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -2488,24 +2488,24 @@
                                         <exclude reference="cIW-FZ-YLc"/>
                                         <include reference="gaR-pW-wtR"/>
                                         <include reference="nmg-Dc-Jpz"/>
-                                        <include reference="67U-Co-4Oz"/>
-                                        <include reference="Ffn-Ex-DHf"/>
-                                        <include reference="L9N-AF-Dex"/>
-                                        <include reference="62g-Xl-5sM"/>
-                                        <include reference="kcQ-L0-FFK"/>
-                                        <include reference="Ue1-CG-1z5"/>
-                                        <include reference="fre-jq-mLg"/>
-                                        <include reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <include reference="JPp-wu-Foq"/>
                                         <include reference="YKq-u5-06p"/>
                                         <include reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
+                                        <include reference="62g-Xl-5sM"/>
+                                        <include reference="kcQ-L0-FFK"/>
                                         <include reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <include reference="Tae-4R-NlR"/>
                                         <include reference="xjw-jA-eLd"/>
+                                        <include reference="Ue1-CG-1z5"/>
+                                        <include reference="fre-jq-mLg"/>
+                                        <include reference="h0G-Ss-CRe"/>
+                                        <include reference="67U-Co-4Oz"/>
+                                        <include reference="Ffn-Ex-DHf"/>
+                                        <include reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -3274,10 +3274,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-SZ-Oju">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="settings_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-SZ-Oju">
                                                     <rect key="frame" x="15" y="8" width="28" height="28"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7L-He-TJH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7L-He-TJH">
                                                     <rect key="frame" x="51" y="11.5" width="107.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3310,7 +3310,6 @@
                                                 <mask key="constraints">
                                                     <exclude reference="2jJ-r3-ctH"/>
                                                     <exclude reference="DMk-Js-aKb"/>
-                                                    <exclude reference="RyI-u2-9HD"/>
                                                     <exclude reference="XWf-1m-gpz"/>
                                                     <exclude reference="daQ-sb-Frf"/>
                                                     <exclude reference="0um-YG-Edm"/>
