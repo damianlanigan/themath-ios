@@ -17,17 +17,17 @@ extension UIColor {
     
     // top color
     class func mood_endColor() -> UIColor {
-        return UIColor(red:80/255.0, green:255/255.0, blue:247/255.0, alpha: 1)
+        return UIColor(red:1.000, green:0.678, blue:0.992, alpha: 1)
     }
     
     // middle color / background
     class func mood_blueColor() -> UIColor {
-        return UIColor(red:59/255.0, green:194/255.0, blue:247/255.0, alpha: 1)
+        return UIColor(red:0.333, green:0.322, blue:0.843, alpha: 1)
     }
     
     // bottom color
     class func mood_startColor() -> UIColor {
-        return UIColor(red:36/255.0, green:43/255.0, blue:67/255.0, alpha: 1)
+        return UIColor(red:0.165, green:0.141, blue:0.192, alpha: 1)
     }
     
     // probably shouldnt be here

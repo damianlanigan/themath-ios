@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -147,13 +147,17 @@
                             <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="3lH-On-qM4" secondAttribute="bottom" constant="20" id="JvS-Hb-KRv">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="tU0-tU-fyv" secondAttribute="bottom" constant="20" id="ZTk-ba-aqZ"/>
+                            <constraint firstItem="6a3-RQ-uH2" firstAttribute="top" secondItem="tU0-tU-fyv" secondAttribute="bottom" constant="20" id="ZTk-ba-aqZ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="3lH-On-qM4" firstAttribute="trailing" secondItem="dMA-By-fQC" secondAttribute="trailingMargin" id="ZuE-Ag-SCN"/>
                             <constraint firstAttribute="centerY" secondItem="90V-Oh-iAs" secondAttribute="centerY" id="bkZ-RM-ZPg"/>
                             <constraint firstAttribute="centerX" secondItem="3lH-On-qM4" secondAttribute="centerX" id="dw7-Kc-77y"/>
                             <constraint firstAttribute="centerX" secondItem="tU0-tU-fyv" secondAttribute="centerX" id="feg-gy-zO9"/>
                             <constraint firstAttribute="centerY" secondItem="Okn-LV-a0O" secondAttribute="centerY" id="izo-vj-oPh"/>
-                            <constraint firstItem="ujP-CY-TuO" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="8" id="lEb-Bt-cgl"/>
+                            <constraint firstItem="ujP-CY-TuO" firstAttribute="top" secondItem="vfV-EI-tAv" secondAttribute="bottom" constant="8" id="lEb-Bt-cgl">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="90V-Oh-iAs" firstAttribute="top" secondItem="EYc-v2-w1v" secondAttribute="bottom" constant="24" id="naw-me-eBn"/>
                             <constraint firstAttribute="trailing" secondItem="3lH-On-qM4" secondAttribute="trailing" id="pyN-dW-vh2">
                                 <variation key="heightClass=regular-widthClass=compact" constant="170"/>
@@ -244,7 +248,7 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-8K-X6n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -387,7 +391,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <state key="normal" title="I'm new to this">
-                                                            <color key="titleColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -425,7 +429,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <state key="normal" title="Log in">
-                                                            <color key="titleColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -663,7 +667,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117647059999998" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lZP-zk-Wtj" firstAttribute="top" secondItem="3Vf-8K-X6n" secondAttribute="bottom" id="BRx-CY-cj3"/>
                             <constraint firstAttribute="trailing" secondItem="3Vf-8K-X6n" secondAttribute="trailing" id="CQ0-Qf-M8l"/>
@@ -1860,7 +1864,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg0-pX-v4H" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Gkf-PL-uRs"/>
                                         </constraints>
@@ -2207,11 +2211,8 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="TTTAttributedLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By tapping create account you submit that you have read the Privacy Policy and agree to the Terms of Service." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <string key="text">Your data is never shared to anyone, and is always encrypted.
-
-By tapping create account you submit that you have read the Privacy Policy and agree to the Terms of Service.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2342,7 +2343,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LMp-oQ-3ag"/>
                                         </constraints>
@@ -2371,20 +2372,30 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                             <action selector="createAccountButtonTapped:" destination="oNh-u3-zVN" eventType="touchUpInside" id="9b0-JA-YRb"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account to save your moods. Your data is never shared to anyone, and is always encrypted." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dq-QJ-11z">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97020000219345093" green="0.97901993989944458" blue="0.9800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WNQ-Nn-cDE" secondAttribute="trailing" constant="11" id="1Iz-Zt-ZkU"/>
+                                    <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="7Dq-QJ-11z" secondAttribute="bottom" constant="5" id="2nI-em-4Wy"/>
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="top" secondItem="euI-RX-ipl" secondAttribute="bottom" constant="24" id="62g-Xl-5sM">
                                         <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                                     </constraint>
                                     <constraint firstItem="euI-RX-ipl" firstAttribute="top" secondItem="KxO-UT-QjV" secondAttribute="bottom" constant="8" id="67U-Co-4Oz">
                                         <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                     </constraint>
+                                    <constraint firstItem="7Dq-QJ-11z" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="10" id="6XO-aa-Gsr">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="37"/>
+                                    </constraint>
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="ROe-F2-Dbv" secondAttribute="top" constant="33" id="Cd6-bK-br9">
                                         <variation key="heightClass=regular-widthClass=compact" constant="34"/>
                                     </constraint>
                                     <constraint firstItem="euI-RX-ipl" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" id="Ffn-Ex-DHf"/>
+                                    <constraint firstAttribute="centerX" secondItem="7Dq-QJ-11z" secondAttribute="centerX" id="ICS-03-zVQ"/>
                                     <constraint firstAttribute="trailing" secondItem="WNQ-Nn-cDE" secondAttribute="trailing" constant="11" id="JPp-wu-Foq"/>
                                     <constraint firstItem="5bV-am-dwo" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="K4L-8r-HF7"/>
                                     <constraint firstAttribute="trailing" secondItem="euI-RX-ipl" secondAttribute="trailing" id="L9N-AF-Dex"/>
@@ -2394,6 +2405,10 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                         <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                     </constraint>
                                     <constraint firstItem="WNQ-Nn-cDE" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="YKq-u5-06p"/>
+                                    <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="7Dq-QJ-11z" secondAttribute="bottom" constant="5" id="cIW-FZ-YLc"/>
+                                    <constraint firstItem="7Dq-QJ-11z" firstAttribute="top" secondItem="ROe-F2-Dbv" secondAttribute="top" constant="8" id="evL-Id-dWz">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="32"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="NtO-C5-XDb" secondAttribute="trailing" id="fre-jq-mLg"/>
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="15" id="gaR-pW-wtR">
                                         <variation key="heightClass=regular-widthClass=compact" constant="10"/>
@@ -2402,7 +2417,13 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="15" id="kcQ-L0-FFK">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
                                     </constraint>
+                                    <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="7Dq-QJ-11z" secondAttribute="bottom" constant="5" id="nmg-Dc-Jpz">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                    </constraint>
                                     <constraint firstItem="WNQ-Nn-cDE" firstAttribute="top" secondItem="NtO-C5-XDb" secondAttribute="bottom" constant="22" id="pER-u0-bLm"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Dq-QJ-11z" secondAttribute="trailing" constant="-392" id="rnT-jk-HEv">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="37"/>
+                                    </constraint>
                                     <constraint firstItem="WNQ-Nn-cDE" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="x8C-xU-H0K"/>
                                     <constraint firstAttribute="trailing" secondItem="5bV-am-dwo" secondAttribute="trailing" constant="11" id="xjw-jA-eLd"/>
                                     <constraint firstAttribute="centerX" secondItem="WNQ-Nn-cDE" secondAttribute="centerX" id="yJZ-WA-UbU"/>
@@ -2415,28 +2436,36 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                         <exclude reference="euI-RX-ipl"/>
                                         <exclude reference="NtO-C5-XDb"/>
                                         <exclude reference="5bV-am-dwo"/>
+                                        <exclude reference="7Dq-QJ-11z"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="6XO-aa-Gsr"/>
+                                        <exclude reference="ICS-03-zVQ"/>
+                                        <exclude reference="evL-Id-dWz"/>
+                                        <exclude reference="rnT-jk-HEv"/>
+                                        <exclude reference="2nI-em-4Wy"/>
                                         <exclude reference="Cd6-bK-br9"/>
+                                        <exclude reference="cIW-FZ-YLc"/>
                                         <exclude reference="gaR-pW-wtR"/>
+                                        <exclude reference="nmg-Dc-Jpz"/>
+                                        <exclude reference="67U-Co-4Oz"/>
+                                        <exclude reference="Ffn-Ex-DHf"/>
+                                        <exclude reference="L9N-AF-Dex"/>
+                                        <exclude reference="62g-Xl-5sM"/>
+                                        <exclude reference="kcQ-L0-FFK"/>
+                                        <exclude reference="Ue1-CG-1z5"/>
+                                        <exclude reference="fre-jq-mLg"/>
+                                        <exclude reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <exclude reference="JPp-wu-Foq"/>
                                         <exclude reference="YKq-u5-06p"/>
                                         <exclude reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
-                                        <exclude reference="62g-Xl-5sM"/>
-                                        <exclude reference="kcQ-L0-FFK"/>
                                         <exclude reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <exclude reference="Tae-4R-NlR"/>
                                         <exclude reference="xjw-jA-eLd"/>
-                                        <exclude reference="Ue1-CG-1z5"/>
-                                        <exclude reference="fre-jq-mLg"/>
-                                        <exclude reference="h0G-Ss-CRe"/>
-                                        <exclude reference="67U-Co-4Oz"/>
-                                        <exclude reference="Ffn-Ex-DHf"/>
-                                        <exclude reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -2447,28 +2476,36 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                         <include reference="euI-RX-ipl"/>
                                         <include reference="NtO-C5-XDb"/>
                                         <include reference="5bV-am-dwo"/>
+                                        <include reference="7Dq-QJ-11z"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="Cd6-bK-br9"/>
+                                        <include reference="6XO-aa-Gsr"/>
+                                        <include reference="ICS-03-zVQ"/>
+                                        <include reference="evL-Id-dWz"/>
+                                        <include reference="rnT-jk-HEv"/>
+                                        <exclude reference="2nI-em-4Wy"/>
+                                        <exclude reference="Cd6-bK-br9"/>
+                                        <exclude reference="cIW-FZ-YLc"/>
                                         <include reference="gaR-pW-wtR"/>
+                                        <include reference="nmg-Dc-Jpz"/>
+                                        <include reference="67U-Co-4Oz"/>
+                                        <include reference="Ffn-Ex-DHf"/>
+                                        <include reference="L9N-AF-Dex"/>
+                                        <include reference="62g-Xl-5sM"/>
+                                        <include reference="kcQ-L0-FFK"/>
+                                        <include reference="Ue1-CG-1z5"/>
+                                        <include reference="fre-jq-mLg"/>
+                                        <include reference="h0G-Ss-CRe"/>
                                         <exclude reference="1Iz-Zt-ZkU"/>
                                         <include reference="JPp-wu-Foq"/>
                                         <include reference="YKq-u5-06p"/>
                                         <include reference="pER-u0-bLm"/>
                                         <exclude reference="x8C-xU-H0K"/>
                                         <exclude reference="yJZ-WA-UbU"/>
-                                        <include reference="62g-Xl-5sM"/>
-                                        <include reference="kcQ-L0-FFK"/>
                                         <include reference="K4L-8r-HF7"/>
                                         <exclude reference="NqD-Jq-i7h"/>
                                         <include reference="Tae-4R-NlR"/>
                                         <include reference="xjw-jA-eLd"/>
-                                        <include reference="Ue1-CG-1z5"/>
-                                        <include reference="fre-jq-mLg"/>
-                                        <include reference="h0G-Ss-CRe"/>
-                                        <include reference="67U-Co-4Oz"/>
-                                        <include reference="Ffn-Ex-DHf"/>
-                                        <include reference="L9N-AF-Dex"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -2514,7 +2551,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-bT-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="-600"/>
+            <point key="canvasLocation" x="873" y="-600"/>
         </scene>
         <!--Non Rotating Navigation Controller-->
         <scene sceneID="jXa-Kp-hXe">
@@ -3253,18 +3290,21 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" id="2jJ-r3-ctH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="R7L-He-TJH" secondAttribute="bottom" constant="3" id="6uq-Jx-1Mr"/>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="top" secondItem="ePT-9H-8sZ" secondAttribute="topMargin" constant="3" id="CRu-li-249"/>
-                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" id="DMk-Js-aKb"/>
-                                                <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="Kln-Zz-9Ch"/>
-                                                <constraint firstAttribute="centerY" secondItem="R7L-He-TJH" secondAttribute="centerY" id="O3L-qv-kX0"/>
+                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" id="DMk-Js-aKb">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                                                </constraint>
                                                 <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="Qve-hV-qNC"/>
-                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leadingMargin" constant="15" id="RyI-u2-9HD"/>
-                                                <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="SaQ-U9-VNM"/>
+                                                <constraint firstItem="R7L-He-TJH" firstAttribute="leading" secondItem="Hvy-SZ-Oju" secondAttribute="trailing" constant="8" id="SaQ-U9-VNM">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-232"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="XWf-1m-gpz"/>
                                                 <constraint firstAttribute="centerY" secondItem="R7L-He-TJH" secondAttribute="centerY" id="cga-nx-reN"/>
-                                                <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="daQ-sb-Frf"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="R7L-He-TJH" secondAttribute="trailing" constant="-44" id="fb9-Yw-9aL"/>
-                                                <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="mb6-d7-r1D"/>
-                                                <constraint firstItem="Hvy-SZ-Oju" firstAttribute="leading" secondItem="ePT-9H-8sZ" secondAttribute="leading" constant="15" id="mrc-IR-oSQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="Hvy-SZ-Oju" secondAttribute="centerY" id="daQ-sb-Frf">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-42.25"/>
+                                                </constraint>
+                                                <constraint firstAttribute="trailingMargin" secondItem="R7L-He-TJH" secondAttribute="trailing" constant="-44" id="fb9-Yw-9aL">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-208"/>
+                                                </constraint>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -3384,7 +3424,7 @@ By tapping create account you submit that you have read the Privacy Policy and a
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7b-Yb-ZAw">
                                                     <rect key="frame" x="270.5" y="11.5" width="59" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.77657657861709595" blue="0.9661298394203186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3450,12 +3490,12 @@ By tapping create account you submit that you have read the Privacy Policy and a
         <image name="linked_location" width="28" height="28"/>
         <image name="linked_music" width="28" height="28"/>
         <image name="linked_venmo" width="28" height="28"/>
-        <image name="rating_high_light" width="44" height="44"/>
-        <image name="rating_low_dark" width="44" height="44"/>
+        <image name="rating_high_light" width="30" height="30"/>
+        <image name="rating_low_dark" width="30" height="30"/>
         <image name="settings_about" width="28" height="28"/>
         <image name="settings_light" width="28" height="28"/>
         <image name="settings_privacy" width="28" height="28"/>
         <image name="settings_terms" width="28" height="28"/>
     </resources>
-    <color key="tintColor" red="0.1333333333" green="0.73333333329999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
