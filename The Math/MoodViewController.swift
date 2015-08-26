@@ -18,7 +18,6 @@ enum MoodTransitions: String {
 class MoodViewController: UIViewController,
     OnboardingViewControllerDelegate,
     SettingsTableViewControllerDelegate,
-    UIAlertViewDelegate,
     UIViewControllerTransitioningDelegate,
     TouchableDelegate {
     
@@ -40,47 +39,7 @@ class MoodViewController: UIViewController,
     private var moodEnding = false
     private var capturingMood = false
     
-    lazy var topBackgroundGradient: CAGradientLayer = {
-       let g = CAGradientLayer()
-        g.colors = [
-            UIColor.mood_endColor().CGColor,
-            UIColor.mood_endColor().colorWithAlphaComponent(0.0).CGColor
-        ]
-        g.locations = [0.0, 0.5]
-        g.frame = self.view.bounds
-        return g
-    }()
-    
-    lazy var bottomBackgroundGradient: CAGradientLayer = {
-       let g = CAGradientLayer()
-        g.colors = [
-            UIColor.mood_startColor().colorWithAlphaComponent(0.0).CGColor,
-            UIColor.mood_startColor().CGColor
-        ]
-        g.locations = [0.5, 1.0]
-        g.frame = self.view.bounds
-        return g
-    }()
-    
-    lazy var gradientContainerView: UIView = {
-        let view = UIView()
-        view.alpha = 0.0
-        view.frame = self.view.bounds
-        view.layer.addSublayer(self.topBackgroundGradient)
-        view.layer.addSublayer(self.bottomBackgroundGradient)
-        return view
-    }()
-    
     @IBOutlet weak var cancelMoodView: ScaleDistanceView!
-    
-    lazy var lineView: UIView = {
-        let view = UIView()
-        view.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, 1.0)
-        view.center = self.view.center
-        view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15)
-        view.alpha = 0.0
-        return view
-    }()
     
     lazy var infographViewController: InfographViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -96,10 +55,15 @@ class MoodViewController: UIViewController,
         view.alpha = 0.0
         view.backgroundColor = UIColor.whiteColor()
         
-        view.addSubview(gradientContainerView)
-        view.addSubview(lineView)
-        view.addSubview(cancelMoodView)
+        gradientView.backgroundColor = UIColor.mood_blueColor()
+        gradientView.fromColor = UIColor.mood_endColor()
+        gradientView.toColor = UIColor.mood_startColor()
         
+        moodCircle.layer.shadowOpacity = 0.2
+        moodCircle.layer.shadowOffset = CGSizeMake(0.0, 6.0)
+        moodCircle.layer.shadowColor = UIColor.blackColor().CGColor
+        moodCircle.layer.shadowRadius = 5.0
+        moodCircle.backgroundColor = UIColor.mood_blueColor()
         moodCircle.delegate = self
         
         setup()
@@ -110,18 +74,11 @@ class MoodViewController: UIViewController,
         if firstAppearance {
             firstAppearance = false
             
-            moodCircle.layer.shadowOpacity = 0.2
-            moodCircle.layer.shadowOffset = CGSizeMake(0.0, 6.0)
-            moodCircle.layer.shadowColor = UIColor.blackColor().CGColor
-            moodCircle.layer.shadowRadius = 5.0
-            moodCircle.backgroundColor = UIColor.mood_blueColor()
-            
             // THIS CALL SETS THE ACCESS TOKEN FOR AUTHENTICATED
             // API REQUESTS
             if !Account.sharedAccount().isAuthenticated() {
                 presentOnboarding()
             }
-            
             
             _performBlock({ () -> Void in
                 UIView.animateWithDuration(0.2, animations: {
@@ -188,7 +145,6 @@ class MoodViewController: UIViewController,
         setNeedsStatusBarAppearanceUpdate()
         
         UIView.animateWithDuration(0.3, animations: {
-            self.gradientContainerView.alpha = 1.0
             self.gradientView.alpha = 1.0
             self.settingsButton.alpha = 0.0
             self.latestMoodLabel.alpha = 0.0
@@ -207,9 +163,9 @@ class MoodViewController: UIViewController,
         capturingMood = false
         moodEnding = true
         
+        // this is all bullshit
         let resetBlock: () -> Void = {
             self.moodEnding = false
-            self.gradientContainerView.alpha = 0.0
             self.view.backgroundColor = UIColor.whiteColor()
             self.gradientView.alpha = 0.0;
             self.settingsButton.alpha = 1.0
@@ -354,13 +310,6 @@ class MoodViewController: UIViewController,
     func didFinishOnboarding(viewController: OnboardingViewController) {
         onMood = true
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // MARK: <UIAlertViewDelegate>
-    
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        dismissViewControllerAnimated(true, completion: nil)
-        onMood = true
     }
     
     // MARK: <SettingsTableViewControllerDelegate>

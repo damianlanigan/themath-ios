@@ -9,13 +9,45 @@
 import UIKit
 
 class GradientView: UIView {
+    
+    lazy var topGradientLayer: CAGradientLayer = {
+        let g = CAGradientLayer()
+        g.locations = [0.0, 0.5]
+        return g
+    }()
+    
+    lazy var bottomGradientLayer: CAGradientLayer = {
+        let g = CAGradientLayer()
+        g.locations = [0.5, 1.0]
+        return g
+    }()
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    var fromColor: UIColor = UIColor.clearColor() {
+        didSet {
+            topGradientLayer.colors = [
+                fromColor.CGColor,
+                fromColor.colorWithAlphaComponent(0.0).CGColor
+            ]
+        }
     }
-    */
-
+    
+    var toColor: UIColor = UIColor.clearColor() {
+        didSet {
+            bottomGradientLayer.colors = [
+                toColor.colorWithAlphaComponent(0.0).CGColor,
+                toColor.CGColor
+            ]
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.addSublayer(topGradientLayer)
+        layer.addSublayer(bottomGradientLayer)
+    }
+    
+    override func layoutSubviews() {
+        bottomGradientLayer.frame = bounds
+        topGradientLayer.frame = bounds
+    }
 }

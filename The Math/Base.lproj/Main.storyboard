@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-TU-Qo2" customClass="GradientView" customModule="HowAmIDoing" customModuleProvider="target">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-TU-Qo2" customClass="GradientView" customModule="HowAmIDoing" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jo6-2j-Wi5" userLabel="Line" customClass="HalfPointLineView" customModule="HowAmIDoing" customModuleProvider="target">
@@ -50,10 +50,10 @@
                                             <outlet property="heightContstraint" destination="Ob7-Bh-hwl" id="8m1-K3-UR4"/>
                                         </connections>
                                     </view>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_high_light" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-CY-TuO">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="rating_high_light" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-CY-TuO">
                                         <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="rating_low_dark" translatesAutoresizingMaskIntoConstraints="NO" id="tU0-tU-fyv">
                                         <rect key="frame" x="0.0" y="-44" width="44" height="44"/>
                                     </imageView>
                                 </subviews>
@@ -285,8 +285,6 @@
                         <outlet property="gradientView" destination="FLc-TU-Qo2" id="GV2-qm-rvn"/>
                         <outlet property="latestMoodLabel" destination="EYc-v2-w1v" id="F5L-vA-clp"/>
                         <outlet property="moodCircle" destination="90V-Oh-iAs" id="e7A-Y6-bId"/>
-                        <outlet property="ratingHighImageView" destination="ujP-CY-TuO" id="bPt-VY-p8D"/>
-                        <outlet property="ratingLowImageView" destination="tU0-tU-fyv" id="EZW-X6-z2U"/>
                         <outlet property="settingsButton" destination="3lH-On-qM4" id="qR3-5f-rdU"/>
                         <segue destination="fTm-Vk-pUw" kind="presentation" identifier="MoodToJournalTransition" id="ZGI-oe-XJA"/>
                         <segue destination="grH-6b-2HV" kind="presentation" identifier="PresentInfograph" id="5sG-9v-HXh"/>
@@ -3257,12 +3255,13 @@
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="2Ow-tq-Sss"/>
-                                                    <include reference="Oby-Um-bEN"/>
+                                                    <exclude reference="BcB-f6-eqd"/>
+                                                    <exclude reference="Oby-Um-bEN"/>
                                                     <include reference="MIr-fw-UEc"/>
-                                                    <include reference="vqg-mm-FzO"/>
-                                                    <include reference="1cD-C2-RRA"/>
+                                                    <exclude reference="vqg-mm-FzO"/>
+                                                    <exclude reference="1cD-C2-RRA"/>
                                                     <include reference="MdG-lc-ExR"/>
-                                                    <include reference="cKp-vz-iwl"/>
+                                                    <exclude reference="cKp-vz-iwl"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -3444,6 +3443,7 @@
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="cTJ-YA-dQQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="hHk-Wj-BHY"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X8M-jk-zrI" secondAttribute="trailing" constant="-44" id="n1g-lI-pYy"/>
+                                                <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="n4b-Zi-GPj"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="top" secondItem="BVB-ne-TMs" secondAttribute="topMargin" constant="3" id="pFQ-0g-haE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="X8M-jk-zrI" secondAttribute="bottom" constant="3" id="r5E-i7-lAj"/>
                                                 <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="yzy-wa-YJH"/>
@@ -3452,6 +3452,7 @@
                                                 <mask key="constraints">
                                                     <exclude reference="3u8-CH-ras"/>
                                                     <exclude reference="hHk-Wj-BHY"/>
+                                                    <exclude reference="n4b-Zi-GPj"/>
                                                     <exclude reference="yzy-wa-YJH"/>
                                                     <exclude reference="Fiz-Mk-0v9"/>
                                                     <exclude reference="I3F-1r-xh2"/>
@@ -3466,16 +3467,19 @@
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="3u8-CH-ras"/>
+                                                    <exclude reference="3u8-CH-ras"/>
+                                                    <exclude reference="BrR-hw-oJZ"/>
                                                     <exclude reference="hHk-Wj-BHY"/>
-                                                    <include reference="yzy-wa-YJH"/>
+                                                    <include reference="n4b-Zi-GPj"/>
+                                                    <exclude reference="yzy-wa-YJH"/>
+                                                    <exclude reference="5Jg-93-rV3"/>
                                                     <exclude reference="Fiz-Mk-0v9"/>
-                                                    <include reference="I3F-1r-xh2"/>
+                                                    <exclude reference="I3F-1r-xh2"/>
                                                     <exclude reference="IdH-wZ-t86"/>
-                                                    <include reference="MHx-Pz-DRp"/>
+                                                    <exclude reference="MHx-Pz-DRp"/>
                                                     <include reference="azg-zC-yl8"/>
                                                     <exclude reference="cTJ-YA-dQQ"/>
-                                                    <include reference="n1g-lI-pYy"/>
+                                                    <exclude reference="n1g-lI-pYy"/>
                                                     <exclude reference="pFQ-0g-haE"/>
                                                     <exclude reference="r5E-i7-lAj"/>
                                                 </mask>
