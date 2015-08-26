@@ -71,6 +71,7 @@
 		8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */; };
 		8DA1BA8E1B596EB600198472 /* Colors_Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1BA8D1B596EB600198472 /* Colors_Category.swift */; };
 		8DA1BA901B596EF500198472 /* Colors_Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */; };
+		8DAD3B3A1B8D6FA6006D2D7E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAD3B391B8D6FA6006D2D7E /* GradientView.swift */; };
 		8DB03A2B1B4324D700D39BF8 /* ScaleDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */; };
 		8DB088601B0CEE3C000C1AB9 /* Chartable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */; };
 		8DCAED7D1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */; };
@@ -189,6 +190,7 @@
 		8D9D4A8F1B3201E3007E4A72 /* OnboardingLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLocationView.xib; sourceTree = "<group>"; };
 		8DA1BA8D1B596EB600198472 /* Colors_Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors_Category.swift; sourceTree = "<group>"; };
 		8DA1BA8F1B596EF500198472 /* Colors_Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors_Mood.swift; sourceTree = "<group>"; };
+		8DAD3B391B8D6FA6006D2D7E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8DB03A2A1B4324D700D39BF8 /* ScaleDistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleDistanceView.swift; sourceTree = "<group>"; };
 		8DB0885F1B0CEE3C000C1AB9 /* Chartable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chartable.swift; sourceTree = "<group>"; };
 		8DCAED7C1A8FD6D30078CE28 /* SignupCategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCategorySelectionViewController.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */,
+				8DAD3B391B8D6FA6006D2D7E /* GradientView.swift */,
 				8DE6762E1B0D2D42002ECFDF /* Fonts */,
 				8DE6762F1B0D2D52002ECFDF /* Chart */,
 			);
@@ -769,6 +772,7 @@
 				8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */,
 				8DF7C1D11B0D0F75009EFFAA /* Array.swift in Sources */,
 				8D39EB6F1B0D738200D01504 /* LocationCoordinator.swift in Sources */,
+				8DAD3B3A1B8D6FA6006D2D7E /* GradientView.swift in Sources */,
 				8D25D49F1B06E6AE00859DCB /* String.swift in Sources */,
 				E5EADE741B0D0080007D17DB /* CabritoButton.swift in Sources */,
 				27D411E71A487315008ACC14 /* MoodViewController.swift in Sources */,

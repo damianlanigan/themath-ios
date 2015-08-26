@@ -19,8 +19,6 @@ class MoodViewController: UIViewController,
     OnboardingViewControllerDelegate,
     SettingsTableViewControllerDelegate,
     UIAlertViewDelegate,
-    MFMailComposeViewControllerDelegate,
-    UINavigationControllerDelegate,
     UIViewControllerTransitioningDelegate,
     TouchableDelegate {
     
@@ -28,9 +26,8 @@ class MoodViewController: UIViewController,
     
     @IBOutlet weak var latestMoodLabel: CabritoLabel!
 
+    @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var moodCircle: RoundableView!
-    @IBOutlet weak var ratingHighImageView: UIImageView!
-    @IBOutlet weak var ratingLowImageView: UIImageView!
     @IBOutlet weak var settingsButton: UIButton!
     
     // MARK: state
@@ -191,10 +188,8 @@ class MoodViewController: UIViewController,
         setNeedsStatusBarAppearanceUpdate()
         
         UIView.animateWithDuration(0.3, animations: {
-            self.lineView.alpha = 1.0
             self.gradientContainerView.alpha = 1.0
-            self.ratingHighImageView.alpha = 1.0
-            self.ratingLowImageView.alpha = 1.0
+            self.gradientView.alpha = 1.0
             self.settingsButton.alpha = 0.0
             self.latestMoodLabel.alpha = 0.0
             self.view.backgroundColor = UIColor.mood_blueColor()
@@ -215,11 +210,9 @@ class MoodViewController: UIViewController,
         let resetBlock: () -> Void = {
             self.moodEnding = false
             self.gradientContainerView.alpha = 0.0
-            self.lineView.alpha = 0.0
             self.view.backgroundColor = UIColor.whiteColor()
-            self.ratingHighImageView.alpha = 0.0
+            self.gradientView.alpha = 0.0;
             self.settingsButton.alpha = 1.0
-            self.ratingLowImageView.alpha = 0.0
             self.cancelMoodView.alpha = 0.0
             self.moodCircle.transform = CGAffineTransformIdentity;
             self.moodCircle.center = self.view.center
@@ -278,26 +271,6 @@ class MoodViewController: UIViewController,
                 self.latestMoodLabel.alpha = 1.0
             }
         }
-    }
-
-    
-    // MARK: IBACTION
-    
-    @IBAction func replayOnboardingButtonTapped(sender: UIButton) {
-        let alert = UIAlertView(title: "Settings", message: "", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles: "Replay tutorial", "Send feedback")
-        alert.show()
-    }
-    
-    
-    //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-    
-    private func showFeedbackEmail() {
-        let viewController = MFMailComposeViewController()
-        viewController.mailComposeDelegate = self
-        viewController.setSubject("HowAmIDoing Feedback")
-        viewController.setToRecipients(["usehowamidoing@gmail.com"])
-        presentViewController(viewController, animated: true, completion: nil)
-        onMood = false
     }
     
     // MARK: NAVIGATION
@@ -382,18 +355,6 @@ class MoodViewController: UIViewController,
         onMood = true
         dismissViewControllerAnimated(true, completion: nil)
     }
-  
-    // MARK: <UIAlertViewDelegate>
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
-            presentOnboarding()
-            Analytics.track("onboarding", action: "replayed", label: "")
-        } else if buttonIndex == 2 {
-            showFeedbackEmail()
-            Analytics.track("send feedback", action: "tapped", label: "")
-        }
-    }
     
     // MARK: <UIAlertViewDelegate>
     
@@ -457,5 +418,4 @@ class MoodViewController: UIViewController,
     func touchesEnded() {
         endMood()
     }
-    
 }
