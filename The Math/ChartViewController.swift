@@ -115,7 +115,7 @@ class ChartViewController: UIViewController,
             editingScrollView = true
             loadPreviousChartView()
         } else if offsetX > totalWidth - view.frame.size.width && !editingScrollView {
-            println("load next date")
+//            println("load next date")
         }
     }
     

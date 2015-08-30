@@ -25,8 +25,8 @@ class MoodViewController: UIViewController,
     
     @IBOutlet weak var latestMoodLabel: CabritoLabel!
 
-    @IBOutlet weak var gradientView: GradientView!
-    @IBOutlet weak var moodCircle: RoundableView!
+    @IBOutlet weak var backgroundGradientView: GradientView!
+    @IBOutlet weak var touchMoodCircleView: RoundableView!
     @IBOutlet weak var settingsButton: UIButton!
     
     // MARK: state
@@ -39,7 +39,7 @@ class MoodViewController: UIViewController,
     private var moodEnding = false
     private var capturingMood = false
     
-    @IBOutlet weak var cancelMoodView: ScaleDistanceView!
+    @IBOutlet weak var viewToCancelMood: ScaleDistanceView!
     
     lazy var infographViewController: InfographViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -55,16 +55,16 @@ class MoodViewController: UIViewController,
         view.alpha = 0.0
         view.backgroundColor = UIColor.whiteColor()
         
-        gradientView.backgroundColor = UIColor.mood_blueColor()
-        gradientView.fromColor = UIColor.mood_endColor()
-        gradientView.toColor = UIColor.mood_startColor()
+        backgroundGradientView.backgroundColor = UIColor.mood_blueColor()
+        backgroundGradientView.fromColor = UIColor.mood_endColor()
+        backgroundGradientView.toColor = UIColor.mood_startColor()
         
-        moodCircle.layer.shadowOpacity = 0.2
-        moodCircle.layer.shadowOffset = CGSizeMake(0.0, 6.0)
-        moodCircle.layer.shadowColor = UIColor.blackColor().CGColor
-        moodCircle.layer.shadowRadius = 5.0
-        moodCircle.backgroundColor = UIColor.mood_blueColor()
-        moodCircle.delegate = self
+        touchMoodCircleView.layer.shadowOpacity = 0.2
+        touchMoodCircleView.layer.shadowOffset = CGSizeMake(0.0, 6.0)
+        touchMoodCircleView.layer.shadowColor = UIColor.blackColor().CGColor
+        touchMoodCircleView.layer.shadowRadius = 5.0
+        touchMoodCircleView.backgroundColor = UIColor.mood_blueColor()
+        touchMoodCircleView.delegate = self
         
         setup()
     }
@@ -110,7 +110,7 @@ class MoodViewController: UIViewController,
     
     private func setupGestureRecognizers() {
         let gesture = UIPanGestureRecognizer(target: self, action: "panMoodCircle:")
-        moodCircle.addGestureRecognizer(gesture)
+        touchMoodCircleView.addGestureRecognizer(gesture)
     }
     
     func panMoodCircle(gesture: UIPanGestureRecognizer) {
@@ -120,14 +120,14 @@ class MoodViewController: UIViewController,
             beginMood()
         case .Changed:
             let point = gesture.locationInView(view)
-            moodCircle.center = point
+            touchMoodCircleView.center = point
             
             let xDist = fabs(view.center.x - point.x)
             let yDist = fabs(view.center.y - point.y)
             
-            cancelMoodView.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
+            viewToCancelMood.active = xDist < CancelMoodDistanceThreshold && yDist < CancelMoodDistanceThreshold
             
-            moodCircle.backgroundColor = colorAtPoint(point)
+            touchMoodCircleView.backgroundColor = colorAtPoint(point)
         case .Ended:
             let point = gesture.locationInView(view)
             let size = view.frame.size
@@ -145,12 +145,12 @@ class MoodViewController: UIViewController,
         setNeedsStatusBarAppearanceUpdate()
         
         UIView.animateWithDuration(0.3, animations: {
-            self.gradientView.alpha = 1.0
+            self.backgroundGradientView.alpha = 1.0
             self.settingsButton.alpha = 0.0
             self.latestMoodLabel.alpha = 0.0
             self.view.backgroundColor = UIColor.mood_blueColor()
-            self.cancelMoodView.alpha = 0.3
-            self.moodCircle.alpha = 0.85
+            self.viewToCancelMood.alpha = 0.3
+            self.touchMoodCircleView.alpha = 0.85
         })
     }
     
@@ -167,26 +167,25 @@ class MoodViewController: UIViewController,
         let resetBlock: () -> Void = {
             self.moodEnding = false
             self.view.backgroundColor = UIColor.whiteColor()
-            self.gradientView.alpha = 0.0;
+            self.backgroundGradientView.alpha = 0.0;
             self.settingsButton.alpha = 1.0
-            self.cancelMoodView.alpha = 0.0
-            self.moodCircle.transform = CGAffineTransformIdentity;
-            self.moodCircle.center = self.view.center
-            self.moodCircle.alpha = 1.0
-            self.moodCircle.backgroundColor = UIColor.mood_latestMoodColor()
-            self.latestMoodLabel.alpha = 1.0
+            self.viewToCancelMood.alpha = 0.0
+            self.touchMoodCircleView.transform = CGAffineTransformIdentity;
+            self.touchMoodCircleView.center = self.view.center
+            self.touchMoodCircleView.alpha = 1.0
+            self.touchMoodCircleView.backgroundColor = UIColor.mood_latestMoodColor()
         }
         
-        if !cancelMoodView.active {
+        if !viewToCancelMood.active {
             
             let height = view.frame.size.height
             let y = height - (height * (CGFloat(currentMood) / 100.0))
             transitionColor = colorAtPoint(CGPointMake(0, y))
             
             UIView.animateWithDuration(0.2, animations: {
-                self.moodCircle.backgroundColor = self.transitionColor
-                self.moodCircle.alpha = 1.0
-                self.moodCircle.transform = CGAffineTransformMakeScale(15.0, 15.0)
+                self.touchMoodCircleView.backgroundColor = self.transitionColor
+                self.touchMoodCircleView.alpha = 1.0
+//                self.moodCircle.transform = CGAffineTransformMakeScale(15.0, 15.0)
             })
             
             _performBlock({
@@ -202,10 +201,11 @@ class MoodViewController: UIViewController,
             }, completion: { (_) -> Void in
                 
             })
+            latestMoodLabel.alpha = 1.0
+            setNeedsStatusBarAppearanceUpdate()
         }
         
-        cancelMoodView.active = false
-        setNeedsStatusBarAppearanceUpdate()
+        viewToCancelMood.active = false
     }
     
     private func updateLatestTimestamp() {
@@ -219,7 +219,7 @@ class MoodViewController: UIViewController,
                 string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
                 self.latestMoodLabel.attributedText = string
                 UIView.animateWithDuration(0.3, animations: {
-                    self.moodCircle.backgroundColor = color
+                    self.touchMoodCircleView.backgroundColor = color
                     self.latestMoodLabel.alpha = 1.0
                 })
             } else {
@@ -360,8 +360,8 @@ class MoodViewController: UIViewController,
     
     func touchesBegan() {
         beginMood()
-        cancelMoodView.active = true
-        moodCircle.backgroundColor = colorAtPoint(view.center)
+        viewToCancelMood.active = true
+        touchMoodCircleView.backgroundColor = colorAtPoint(view.center)
     }
     
     func touchesEnded() {

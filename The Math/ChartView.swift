@@ -10,7 +10,7 @@
 import UIKit
 import JBChartView
 
-class ChartView: UIView, JBChartViewDelegate {
+class ChartView: UIView {
     
     var scope: CalendarScope = .Undefined
     weak var model: ChartViewModel!
@@ -42,7 +42,6 @@ class ChartView: UIView, JBChartViewDelegate {
         label.textAlignment = .Center
         label.textColor = UIColor.lightGrayColor()
         label.hidden = true
-        label.center = self.center
         return label
     }()
     
@@ -72,7 +71,8 @@ class ChartView: UIView, JBChartViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        loader.center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
+        let center = CGPointMake(frame.width / 2.0, frame.height / 2.0)
+        loader.center = center
         emptyLabel.center = center
         
         // date label height = 17
@@ -94,6 +94,10 @@ class ChartView: UIView, JBChartViewDelegate {
             }
         }
         timeLabel.center.x = frame.size.width / 2.0
+    }
+    
+    func showEmptyState() {
+        emptyLabel.hidden = false
     }
     
     func reloadData() {

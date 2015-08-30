@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ChartDetailView: UIView {
+class JournalEntryView: UIView {
 
     @IBOutlet weak var progressView: CircleProgressView!
     @IBOutlet weak var timeLabel: UILabel!
@@ -18,7 +18,7 @@ class ChartDetailView: UIView {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapContainerView: UIView!
-    @IBOutlet weak var detailsLabel: CabritoLabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var moodMessageBottomConstraint: NSLayoutConstraint!
@@ -108,23 +108,6 @@ class ChartDetailView: UIView {
             
             categoryContainerView.addSubview(view)
         }
-        
-//        var vendors = [Vendor]()
-//        if let location = entry.lat {
-//            let v = Vendor(type: VendorType.Location, content: entry.locationString!)
-//            vendors.append(v)
-//        }
-//        
-//        for (idx, vendor) in enumerate(vendors) {
-//            let v = UIView.viewFromNib("ChartDetailVendorView") as! ChartDetailVendorView
-//            v.vendorTitleLabel.text = vendor.title
-//            v.vendorImage.image = vendor.image
-//            v.vendorContentLabel.text = vendor.content
-//            
-//            let width: CGFloat = 278.0
-//            v.frame = CGRectMake(CGFloat(idx) * width, 0.0, width, vendorInformationContainerView.frame.size.height)
-//            vendorInformationContainerView.addSubview(v)
-//        }
         
     }
     

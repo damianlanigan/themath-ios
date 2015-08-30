@@ -84,7 +84,7 @@ class DaySelectionTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let day = day {
-            let viewController = ChartDetailViewController()
+            let viewController = WhatTheAbsoluteFuck()
             viewController.entry = day.entries[indexPath.row]
             navigationController?.pushViewController(viewController, animated: true)
         }

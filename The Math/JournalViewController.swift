@@ -35,6 +35,7 @@ class JournalViewController: UIViewController,
     var mood: Int = 0
     var location: CLLocation?
     
+    private let MessagePlaceholderText = "Give some context to what's happening..."
     // Vendor
     
     /////////
@@ -81,7 +82,6 @@ class JournalViewController: UIViewController,
     // MARK: IBAction
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
-        // show spinner
         SwiftLoader.show(animated: true)
         textView.resignFirstResponder()
         var selections = categoryViews.filter({ $0.selected }).map({ $0.name() })
@@ -93,9 +93,8 @@ class JournalViewController: UIViewController,
         }
         
         journalEntry.categories = selections.map { CategoryType(rawValue: $0.capitalizedString )! }
-        journalEntry.note = textView.text
+        journalEntry.note = textView.text == MessagePlaceholderText ? "" : textView.text
         journalEntry.save { () -> Void in
-            // hide spinner
             Account.currentUser().latestEntry = self.journalEntry
             SwiftLoader.hide()
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -218,7 +217,7 @@ class JournalViewController: UIViewController,
     // MARK: UITextFieldDelegate
 
     func textViewDidBeginEditing(textView: UITextView) {
-        if textView.text == "Give some context to what's happening..." {
+        if textView.text == MessagePlaceholderText {
             textView.text = ""
             textView.textColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
         }
@@ -226,7 +225,7 @@ class JournalViewController: UIViewController,
     
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Give some context to what's happening..."
+            textView.text = MessagePlaceholderText
             textView.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         }
     }
@@ -252,19 +251,8 @@ class JournalViewController: UIViewController,
     
     private func currentDateTimeFormatted() -> String {
         let formatter = NSDateFormatter()
-        let date = NSDate()
-        
-        formatter.dateFormat = "mm"
-        var minute = formatter.stringFromDate(date)
-        minute = count(minute) < 2 ? "0\(minute)" : minute
-        
-        formatter.dateFormat = "h"
-        var hour = formatter.stringFromDate(date)
-        
-        formatter.dateFormat = "a"
-        let aORp = formatter.stringFromDate(date)
-        
-        return "\(hour):\(minute) \(aORp)"
+        formatter.dateFormat = "hh:mm a"
+        return formatter.stringFromDate(NSDate())
     }
 
 

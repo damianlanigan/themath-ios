@@ -74,7 +74,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
                 LocationCoordinator.sharedCoordinator.requestAuthorization()
             } else {
                 if LocationCoordinator.authorizationDenied() {
-                    let alert = UIAlertView(title: "Location Permissions", message: "You need to go to settings", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles:"Settings")
+                    let alert = UIAlertView(title: "Open Settings", message: "Tap Location and turn on 'While Using the App'", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles:"Settings")
                     alert.show()
                 } else {
                     LocationCoordinator.activate()

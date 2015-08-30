@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ChartDetailViewController: UIViewController {
+class WhatTheAbsoluteFuck: UIViewController {
     
     var entry: JournalEntry!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Mood"
@@ -20,7 +20,7 @@ class ChartDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let v = UIView.viewFromNib("ChartDetailView") as! ChartDetailView
+        let v = UIView.viewFromNib("JournalEntryView") as! JournalEntryView
         v.entry = entry
         view.addSubview(v)
         
@@ -30,7 +30,7 @@ class ChartDetailViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         for v in view.subviews {
-            if let v = v as? ChartDetailView {
+            if let v = v as? JournalEntryView {
                 v.frame = view.bounds
             }
         }

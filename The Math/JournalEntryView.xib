@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChartDetailView" customModule="HowAmIDoing" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JournalEntryView" customModule="HowAmIDoing" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -402,18 +402,18 @@
             <connections>
                 <outlet property="categoryContainerHeightConstraint" destination="jdJ-BL-WX8" id="k6C-id-LyF"/>
                 <outlet property="categoryContainerTopConstraint" destination="Ctr-So-HOC" id="hYT-uO-m9x"/>
-                <outlet property="categoryContainerView" destination="nNa-GI-zIm" id="2H2-80-9ON"/>
+                <outlet property="categoryContainerView" destination="nNa-GI-zIm" id="G7C-G6-eaw"/>
                 <outlet property="contentViewWidthConstraint" destination="lPQ-dI-3O0" id="Vng-WN-vvZ"/>
-                <outlet property="dateLabel" destination="OMG-sg-zCC" id="6tI-X4-HhZ"/>
-                <outlet property="detailsLabel" destination="TFJ-8S-ca4" id="QOg-7z-TOA"/>
-                <outlet property="mapContainerView" destination="12F-GG-nX9" id="iQG-mC-ODK"/>
-                <outlet property="mapView" destination="OK1-x9-l8Z" id="vHz-Wo-BN3"/>
+                <outlet property="dateLabel" destination="OMG-sg-zCC" id="cOl-Pz-HZM"/>
+                <outlet property="detailsLabel" destination="TFJ-8S-ca4" id="Fcx-WT-91b"/>
+                <outlet property="mapContainerView" destination="12F-GG-nX9" id="oSy-dj-UVi"/>
+                <outlet property="mapView" destination="OK1-x9-l8Z" id="ShF-r0-w6x"/>
                 <outlet property="mapViewHeightConstraint" destination="G3n-to-BKX" id="fI7-5R-FTq"/>
                 <outlet property="moodMessageBottomConstraint" destination="XeQ-jG-qzv" id="iGd-K3-ILL"/>
                 <outlet property="moodMessageTopConstraint" destination="g4a-si-sPu" id="8c5-kY-1Vv"/>
-                <outlet property="noteLabel" destination="WAj-Rm-Xrb" id="l1d-Mf-BfA"/>
-                <outlet property="progressView" destination="pLz-gx-ZOP" id="p4K-pU-Ubw"/>
-                <outlet property="timeLabel" destination="kX9-B7-qyn" id="8k5-m3-WTF"/>
+                <outlet property="noteLabel" destination="WAj-Rm-Xrb" id="ZoN-bq-6Qf"/>
+                <outlet property="progressView" destination="pLz-gx-ZOP" id="v4U-L0-rcS"/>
+                <outlet property="timeLabel" destination="kX9-B7-qyn" id="745-M8-hZj"/>
             </connections>
             <point key="canvasLocation" x="221" y="169"/>
         </view>

@@ -49,7 +49,7 @@ class CalendarDay: TimeRepresentable {
                     var entries: [JournalEntry] = [JournalEntry]()
                     for d in data {
                         let entry = JournalEntry.fromJSONRequest(d)
-                        entries.append(entry)
+                        entries.insert(entry, atIndex: 0)
                     }
                     chartable.entries = entries
                     

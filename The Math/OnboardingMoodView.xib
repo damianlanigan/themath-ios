@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -11,41 +11,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxG-vJ-Npb">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="77" width="600" height="445"/>
                     <subviews>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="onboarding_01" translatesAutoresizingMaskIntoConstraints="NO" id="pSU-nY-Lbw">
-                            <rect key="frame" x="0.0" y="-322" width="192" height="322"/>
+                            <rect key="frame" x="203" y="0.0" width="194" height="330"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8g-fr-JUp">
-                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="8" y="342" width="584" height="23"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your mood by holding the blue button. The better your mood, the further up the screen you move your finger." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kow-pK-2tn">
-                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="160" y="373" width="280" height="72"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="300" id="YM3-3J-Edb">
+                                <constraint firstAttribute="width" constant="280" id="YM3-3J-Edb">
                                     <variation key="heightClass=regular-widthClass=compact" constant="257"/>
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="YM3-3J-Edb"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="YM3-3J-Edb"/>
-                                </mask>
-                            </variation>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="pSU-nY-Lbw" firstAttribute="top" secondItem="jxG-vJ-Npb" secondAttribute="top" id="3rx-Ug-fNw"/>
+                        <constraint firstAttribute="centerX" secondItem="Kow-pK-2tn" secondAttribute="centerX" id="Awl-Rx-z7I"/>
                         <constraint firstItem="Kow-pK-2tn" firstAttribute="leading" secondItem="jxG-vJ-Npb" secondAttribute="leading" constant="8" id="Jxo-Jl-XJW"/>
                         <constraint firstItem="D8g-fr-JUp" firstAttribute="top" secondItem="pSU-nY-Lbw" secondAttribute="bottom" constant="12" id="NOU-Su-yAy"/>
                         <constraint firstItem="Kow-pK-2tn" firstAttribute="top" secondItem="D8g-fr-JUp" secondAttribute="bottom" constant="8" id="SR4-dd-PjT">
@@ -61,41 +52,10 @@
                         <constraint firstAttribute="centerX" secondItem="pSU-nY-Lbw" secondAttribute="centerX" id="xbx-ld-lOy"/>
                     </constraints>
                     <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="pSU-nY-Lbw"/>
-                            <exclude reference="D8g-fr-JUp"/>
-                            <exclude reference="Kow-pK-2tn"/>
-                        </mask>
                         <mask key="constraints">
-                            <exclude reference="NOU-Su-yAy"/>
-                            <exclude reference="Uw3-un-ZRL"/>
-                            <exclude reference="fM4-em-xDZ"/>
                             <exclude reference="Jxo-Jl-XJW"/>
-                            <exclude reference="SR4-dd-PjT"/>
-                            <exclude reference="ZCV-WR-yLM"/>
                             <exclude reference="bTj-iq-yQL"/>
                             <exclude reference="lDV-5V-afK"/>
-                            <exclude reference="3rx-Ug-fNw"/>
-                            <exclude reference="xbx-ld-lOy"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="pSU-nY-Lbw"/>
-                            <include reference="D8g-fr-JUp"/>
-                            <include reference="Kow-pK-2tn"/>
-                        </mask>
-                        <mask key="constraints">
-                            <include reference="NOU-Su-yAy"/>
-                            <include reference="Uw3-un-ZRL"/>
-                            <include reference="fM4-em-xDZ"/>
-                            <exclude reference="Jxo-Jl-XJW"/>
-                            <include reference="SR4-dd-PjT"/>
-                            <include reference="ZCV-WR-yLM"/>
-                            <exclude reference="bTj-iq-yQL"/>
-                            <include reference="lDV-5V-afK"/>
-                            <include reference="3rx-Ug-fNw"/>
-                            <include reference="xbx-ld-lOy"/>
                         </mask>
                     </variation>
                 </view>
@@ -107,28 +67,6 @@
                 <constraint firstItem="jxG-vJ-Npb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UPS-rr-dYs"/>
                 <constraint firstAttribute="trailing" secondItem="jxG-vJ-Npb" secondAttribute="trailing" id="iQE-1b-y3V"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="jxG-vJ-Npb"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="IKO-O9-23q"/>
-                    <exclude reference="MoH-b3-GNO"/>
-                    <exclude reference="UPS-rr-dYs"/>
-                    <exclude reference="iQE-1b-y3V"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="subviews">
-                    <include reference="jxG-vJ-Npb"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="IKO-O9-23q"/>
-                    <include reference="MoH-b3-GNO"/>
-                    <include reference="UPS-rr-dYs"/>
-                    <include reference="iQE-1b-y3V"/>
-                </mask>
-            </variation>
         </view>
     </objects>
     <resources>
