@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CdC-KQ-2Ua">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -842,7 +842,7 @@
                                                             <outlet property="heightContstraint" destination="Os8-QC-wlX" id="U4X-DO-nuF"/>
                                                         </connections>
                                                     </view>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Give some context to what's happening..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Give some context to what's going on..." translatesAutoresizingMaskIntoConstraints="NO" id="jDb-wj-8uM">
                                                         <rect key="frame" x="14" y="15" width="372" height="410"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2847,7 +2847,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection id="uEH-PW-uLF">
+                            <tableViewSection footerTitle="Attach the location of where you recorded moods for later context." id="uEH-PW-uLF">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="7h7-ve-nUe">
                                         <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -3083,7 +3083,9 @@
                                                 <constraint firstAttribute="centerY" secondItem="0pT-zT-swy" secondAttribute="centerY" id="BrR-hw-oJZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X8M-jk-zrI" secondAttribute="trailing" constant="-8" id="Fiz-Mk-0v9"/>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="0pT-zT-swy" secondAttribute="trailing" constant="8" id="I3F-1r-xh2"/>
-                                                <constraint firstAttribute="centerY" secondItem="X8M-jk-zrI" secondAttribute="centerY" id="INq-Gl-2Rq"/>
+                                                <constraint firstAttribute="centerY" secondItem="X8M-jk-zrI" secondAttribute="centerY" id="INq-Gl-2Rq">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
                                                 <constraint firstItem="X8M-jk-zrI" firstAttribute="leading" secondItem="BVB-ne-TMs" secondAttribute="leadingMargin" id="IdH-wZ-t86"/>
                                                 <constraint firstItem="0pT-zT-swy" firstAttribute="leading" secondItem="BVB-ne-TMs" secondAttribute="leading" constant="15" id="Ln7-bJ-E5u"/>
                                                 <constraint firstAttribute="centerY" secondItem="X8M-jk-zrI" secondAttribute="centerY" id="MHx-Pz-DRp"/>
@@ -3148,13 +3150,15 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7b-Yb-ZAw">
                                                     <rect key="frame" x="270.5" y="11.5" width="59" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.98363703489303589" green="0.12879380583763123" blue="0.3483850359916687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="W7b-Yb-ZAw" secondAttribute="bottom" constant="3" id="Nsk-tC-gAR"/>
-                                                <constraint firstAttribute="centerY" secondItem="W7b-Yb-ZAw" secondAttribute="centerY" id="SLV-Iv-a1h"/>
+                                                <constraint firstAttribute="centerY" secondItem="W7b-Yb-ZAw" secondAttribute="centerY" id="SLV-Iv-a1h">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
                                                 <constraint firstItem="W7b-Yb-ZAw" firstAttribute="top" secondItem="Pfq-F5-dmb" secondAttribute="topMargin" constant="3" id="ZbG-Zd-Zoe"/>
                                                 <constraint firstItem="W7b-Yb-ZAw" firstAttribute="leading" secondItem="Pfq-F5-dmb" secondAttribute="leadingMargin" id="iU7-LG-fl1"/>
                                                 <constraint firstAttribute="centerX" secondItem="W7b-Yb-ZAw" secondAttribute="centerX" id="orB-bu-Gal"/>
