@@ -44,7 +44,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
-    func applicationDidBecomeActive() {
+    @objc private func applicationDidBecomeActive() {
         if LocationCoordinator.authorizationGranted() {
             LocationCoordinator.activate()
         } else {
@@ -75,6 +75,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
             } else {
                 if LocationCoordinator.authorizationDenied() {
                     let alert = UIAlertView(title: "Open Settings", message: "Tap Location and turn on 'While Using the App'", delegate: self, cancelButtonTitle: "Dismiss", otherButtonTitles:"Settings")
+                    alert.tag = 1
                     alert.show()
                 } else {
                     LocationCoordinator.activate()
@@ -95,7 +96,8 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         }
         
         if indexPath.section == 2 {
-            let alert = UIAlertView(title: "Logout", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
+            let alert = UIAlertView(title: "Log out", message: "Are you sure?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Log out")
+            alert.tag = 2
             alert.show()
         }
         
@@ -110,16 +112,21 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     // UIAlertView deleget
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        // this is horrible
-        if alertView.buttonTitleAtIndex(buttonIndex) == "Logout" && buttonIndex == 1 {
-            Account.sharedAccount().logout({
-                println("logged out")
-                self.delegate?.didLogout()
-            })
-        } else {
-            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            delegate.navigateToSettings()
+        if alertView.tag == 1 {
+            if buttonIndex == 1 {
+                let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                delegate.navigateToSettings()
+            }
+        } else if alertView.tag == 2 {
+            if buttonIndex == 1 {
+                Account.sharedAccount().logout({
+                    println("logged out")
+                    self.delegate?.didLogout()
+                })
+            }
         }
+        
+        applicationDidBecomeActive()
     }
     
 }
