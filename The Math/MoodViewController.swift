@@ -185,7 +185,6 @@ class MoodViewController: UIViewController,
             UIView.animateWithDuration(0.2, animations: {
                 self.touchMoodCircleView.backgroundColor = self.transitionColor
                 self.touchMoodCircleView.alpha = 1.0
-//                self.moodCircle.transform = CGAffineTransformMakeScale(15.0, 15.0)
             })
             
             _performBlock({
@@ -198,9 +197,8 @@ class MoodViewController: UIViewController,
         } else {
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .AllowUserInteraction, animations: {
                 resetBlock()
-            }, completion: { (_) -> Void in
-                
-            })
+            }, completion: { (_) -> Void in })
+            
             latestMoodLabel.alpha = 1.0
             setNeedsStatusBarAppearanceUpdate()
         }
