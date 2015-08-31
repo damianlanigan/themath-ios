@@ -111,7 +111,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         // this is horrible
-        if alertView.buttonTitleAtIndex(buttonIndex) == "Log out" && buttonIndex == 1 {
+        if alertView.buttonTitleAtIndex(buttonIndex) == "Logout" && buttonIndex == 1 {
             Account.sharedAccount().logout({
                 println("logged out")
                 self.delegate?.didLogout()
