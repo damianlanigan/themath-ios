@@ -24,8 +24,11 @@ class User: NSObject {
         }
     }
     
-    func requestPasswordReset(email: String) {
+    func requestPasswordReset(email: String, success: () -> Void) {
         request(Router.ResetPassword(["email" : email])).responseJSON { (request, response, data, error) in
+            if error == nil {
+                success()
+            }
         }
     }
 }

@@ -46,13 +46,15 @@ class LoginViewController: AuthViewController {
     
     
     @IBAction func forgotPasswordButtonTapped(sender: UIButton) {
-        println("forgot password button tapped")
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if email.isEmpty {
             let alert = UIAlertView(title: "Email address", message: "Enter the email address for your account", delegate: nil, cancelButtonTitle: "Dismiss")
             alert.show()
         } else {
-            Account.currentUser().requestPasswordReset(email)
+            Account.currentUser().requestPasswordReset(email) {
+                let alert = UIAlertView(title: "Reset password", message: "You will receive an email with instructions to reset your password.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+            }
         }
     }
     
