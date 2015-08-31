@@ -62,8 +62,6 @@ class SignupViewController: AuthViewController,
     }
     
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
-        // TODO: validation?
-        
         let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let password = passwordField.text
         
@@ -72,15 +70,22 @@ class SignupViewController: AuthViewController,
         
         SwiftLoader.show(animated: true)
         Account.sharedAccount().signup(params, callback: { (success, error) -> () in
+            SwiftLoader.hide()
+            var map = [
+                "email" : "Please enter a valid email address",
+                "password" : "Please enter a valid password"
+            ]
             var message = ""
             if let error = error {
                 for (key, values) in error {
-                    message += key + "\n"
-                    for value in values {
-                        message += " " + value + "\n"
+                    if key == "confirmation_email" {
+                        continue
+                    }
+                    
+                    if let t = map[key] {
+                        message += t + "\n"
                     }
                 }
-                SwiftLoader.hide()
                 let alert = UIAlertView(title: "Something's wrong", message: message, delegate: nil, cancelButtonTitle: "Dismiss")
                 alert.show()
             } else if success {
