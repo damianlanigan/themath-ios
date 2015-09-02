@@ -100,7 +100,6 @@
 		E5149F5E1B012CDC005AC841 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */; };
 		E567B3C71B0D7CBA00904161 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A542B01A48BAFA00CC7CA6 /* Colors.swift */; };
 		E5CF64BA1B78428000ADCA4F /* HalfPointLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */; };
-		E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */; };
 		E5EADE6F1B0CFD3A007D17DB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE6E1B0CFD3A007D17DB /* Font.swift */; };
 		E5EADE711B0CFE88007D17DB /* CabritoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */; };
 		E5EADE741B0D0080007D17DB /* CabritoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EADE731B0D0080007D17DB /* CabritoButton.swift */; };
@@ -219,7 +218,6 @@
 		B49602A05B8896501A44F70E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E5149F5D1B012CDC005AC841 /* OnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		E5CF64B91B78428000ADCA4F /* HalfPointLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfPointLineView.swift; sourceTree = "<group>"; };
-		E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabritoSans-NorMed.otf"; sourceTree = "<group>"; };
 		E5EADE6E1B0CFD3A007D17DB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		E5EADE701B0CFE88007D17DB /* CabritoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoLabel.swift; sourceTree = "<group>"; };
 		E5EADE731B0D0080007D17DB /* CabritoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabritoButton.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 		27D411C01A48710F008ACC14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E5EADE6C1B0CFACF007D17DB /* CabritoSans-NorMed.otf */,
 				27D411C11A48710F008ACC14 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -653,7 +650,6 @@
 				8D8D8D391B20B265008F37BE /* OnboardingReflectView.xib in Resources */,
 				8D9D4A901B3201E3007E4A72 /* OnboardingLocationView.xib in Resources */,
 				8D47D9B71B0E947A005A9ADB /* ChartDetailVendorView.xib in Resources */,
-				E5EADE6D1B0CFAE7007D17DB /* CabritoSans-NorMed.otf in Resources */,
 				8D8D8D341B20B249008F37BE /* OnboardingMoodView.xib in Resources */,
 				8D8D8D371B20B25E008F37BE /* OnboardingJournalView.xib in Resources */,
 				8D95FE1C1B30E97300B26158 /* OnboardingSignupView.xib in Resources */,

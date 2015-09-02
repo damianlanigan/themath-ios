@@ -172,7 +172,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading latest mood..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-v2-w1v" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading latest mood..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-v2-w1v" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,7 +308,7 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-95-F3B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.48332506418228149" green="0.41267403960227966" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-8K-X6n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -443,7 +443,7 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piy-OA-wsK" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                        <color key="backgroundColor" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="zSl-PG-NEj">
                                                                 <variation key="heightClass=regular-widthClass=compact" constant="42"/>
@@ -451,7 +451,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <state key="normal" title="I'm new to this">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleColor" red="0.48332506418228149" green="0.41267403960227966" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -500,7 +500,7 @@
                                                                 <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.66309183835983276" green="0.99308902025222778" blue="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
@@ -1924,7 +1924,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg0-pX-v4H" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.48435992002487183" green="0.41367873549461365" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Gkf-PL-uRs"/>
                                         </constraints>
@@ -2101,7 +2101,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97415274381637573" green="0.98096650838851929" blue="0.9815642237663269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.9608883261680603" green="0.95785802602767944" blue="0.97402709722518921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Pmz-Fk-MG9" firstAttribute="top" secondItem="kg0-pX-v4H" secondAttribute="bottom" constant="86" id="2wW-Wh-pTl">
                                         <variation key="heightClass=regular-widthClass=compact" constant="29"/>
@@ -2113,14 +2113,16 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="34"/>
                                     </constraint>
                                     <constraint firstItem="IMO-Zx-cmy" firstAttribute="top" secondItem="Hqq-f2-VVW" secondAttribute="bottom" constant="24" id="7LK-RD-p0N">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="18"/>
                                     </constraint>
                                     <constraint firstItem="kg0-pX-v4H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Uh-6S-rJl" secondAttribute="leading" constant="15" id="BGD-M6-K51">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="SBX-qE-Eby" secondAttribute="trailing" id="LdP-zi-7sM"/>
                                     <constraint firstItem="SBX-qE-Eby" firstAttribute="leading" secondItem="5Uh-6S-rJl" secondAttribute="leading" id="PWf-dO-aCC"/>
-                                    <constraint firstItem="Hqq-f2-VVW" firstAttribute="top" secondItem="i2v-9e-v6n" secondAttribute="bottom" constant="6" id="VR6-Ur-3N5"/>
+                                    <constraint firstItem="Hqq-f2-VVW" firstAttribute="top" secondItem="i2v-9e-v6n" secondAttribute="bottom" constant="6" id="VR6-Ur-3N5">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="Hqq-f2-VVW" secondAttribute="trailing" id="YW2-dY-sog"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kg0-pX-v4H" secondAttribute="trailing" constant="15" id="f2E-WL-u7N">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
@@ -2129,7 +2131,9 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                                     </constraint>
                                     <constraint firstItem="Hqq-f2-VVW" firstAttribute="leading" secondItem="5Uh-6S-rJl" secondAttribute="leading" id="hjH-N8-8Ja"/>
-                                    <constraint firstItem="SBX-qE-Eby" firstAttribute="top" secondItem="IMO-Zx-cmy" secondAttribute="bottom" constant="6" id="iT5-bZ-Fhk"/>
+                                    <constraint firstItem="SBX-qE-Eby" firstAttribute="top" secondItem="IMO-Zx-cmy" secondAttribute="bottom" constant="6" id="iT5-bZ-Fhk">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                    </constraint>
                                     <constraint firstItem="i2v-9e-v6n" firstAttribute="leading" secondItem="5Uh-6S-rJl" secondAttribute="leading" constant="15" id="j5L-av-UUw">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
                                     </constraint>
@@ -2256,7 +2260,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-F2-Dbv">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-F2-Dbv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT8-8h-fiZ" customClass="CabritoLabel" customModule="HowAmIDoing" customModuleProvider="target">
@@ -2273,7 +2277,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By tapping create account you submit that you have read the Privacy Policy and agree to the Terms of Service." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-Nn-cDE" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2403,7 +2407,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-am-dwo" customClass="OnboardingButton" customModule="HowAmIDoing" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.48435992002487183" green="0.41367873549461365" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LMp-oQ-3ag"/>
                                         </constraints>
@@ -2438,15 +2442,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97020000219345093" green="0.97901993989944458" blue="0.9800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.9609033465385437" green="0.95650321245193481" blue="0.97289103269577026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WNQ-Nn-cDE" secondAttribute="trailing" constant="11" id="1Iz-Zt-ZkU"/>
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="7Dq-QJ-11z" secondAttribute="bottom" constant="5" id="2nI-em-4Wy"/>
                                     <constraint firstItem="cT8-8h-fiZ" firstAttribute="top" secondItem="euI-RX-ipl" secondAttribute="bottom" constant="24" id="62g-Xl-5sM">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="18"/>
                                     </constraint>
                                     <constraint firstItem="euI-RX-ipl" firstAttribute="top" secondItem="KxO-UT-QjV" secondAttribute="bottom" constant="8" id="67U-Co-4Oz">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                                     </constraint>
                                     <constraint firstItem="7Dq-QJ-11z" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="10" id="6XO-aa-Gsr">
                                         <variation key="heightClass=regular-widthClass=compact" constant="37"/>
@@ -2462,7 +2466,7 @@
                                     <constraint firstItem="5bV-am-dwo" firstAttribute="top" secondItem="NtO-C5-XDb" secondAttribute="bottom" constant="26" id="NqD-Jq-i7h"/>
                                     <constraint firstItem="5bV-am-dwo" firstAttribute="top" secondItem="WNQ-Nn-cDE" secondAttribute="bottom" constant="22" id="Tae-4R-NlR"/>
                                     <constraint firstItem="NtO-C5-XDb" firstAttribute="top" secondItem="cT8-8h-fiZ" secondAttribute="bottom" constant="6" id="Ue1-CG-1z5">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                                     </constraint>
                                     <constraint firstItem="WNQ-Nn-cDE" firstAttribute="leading" secondItem="ROe-F2-Dbv" secondAttribute="leading" constant="11" id="YKq-u5-06p"/>
                                     <constraint firstItem="KxO-UT-QjV" firstAttribute="top" secondItem="7Dq-QJ-11z" secondAttribute="bottom" constant="5" id="cIW-FZ-YLc"/>
@@ -2669,9 +2673,14 @@
                         <constraints>
                             <constraint firstItem="G7H-aS-xew" firstAttribute="top" secondItem="KWU-uu-icG" secondAttribute="bottom" constant="1" id="6fu-iz-CYS"/>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="20" id="6nC-T0-Hlm"/>
-                            <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12"/>
+                            <constraint firstItem="btq-JQ-AdL" firstAttribute="top" secondItem="Bw1-9S-81v" secondAttribute="bottom" constant="20" id="7dt-4N-s12">
+                                <variation key="heightClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="KWU-uu-icG" secondAttribute="trailing" id="T8M-2h-nzn"/>
-                            <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="16" id="XWi-O0-psN"/>
+                            <constraint firstItem="KWU-uu-icG" firstAttribute="top" secondItem="btq-JQ-AdL" secondAttribute="bottom" constant="16" id="XWi-O0-psN">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="KWU-uu-icG" firstAttribute="leading" secondItem="uGE-RN-fM3" secondAttribute="leading" id="dt1-m6-PRn"/>
                             <constraint firstAttribute="centerX" secondItem="btq-JQ-AdL" secondAttribute="centerX" id="jD3-Tu-I5S"/>
                         </constraints>
@@ -2845,7 +2854,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jrc-BY-AMN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.9608883261680603" green="0.95785802602767944" blue="0.97402709722518921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection footerTitle="Attach the location of where you recorded moods for later context." id="uEH-PW-uLF">
                                 <cells>
@@ -2988,6 +2997,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="51" y="12" width="108" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-SZ-Oju">
                                                     <rect key="frame" x="16" y="8" width="28" height="28"/>
@@ -3221,5 +3233,5 @@
         <image name="settings_privacy" width="28" height="28"/>
         <image name="settings_terms" width="28" height="28"/>
     </resources>
-    <color key="tintColor" red="0.33429068326950073" green="0.30444824695587158" blue="0.85630404949188232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.48435992002487183" green="0.41367873549461365" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

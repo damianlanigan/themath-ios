@@ -10,26 +10,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxG-vJ-Npb">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jxG-vJ-Npb">
                     <rect key="frame" x="0.0" y="77" width="600" height="445"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="onboarding_01" translatesAutoresizingMaskIntoConstraints="NO" id="pSU-nY-Lbw">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="onboarding_01" translatesAutoresizingMaskIntoConstraints="NO" id="pSU-nY-Lbw">
                             <rect key="frame" x="203" y="0.0" width="194" height="330"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8g-fr-JUp">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8g-fr-JUp">
                             <rect key="frame" x="8" y="342" width="584" height="23"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your mood by holding the blue button. The better your mood, the further up the screen you move your finger." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kow-pK-2tn">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Record your mood by holding the center button. The better your mood, the further up the screen you move your finger." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kow-pK-2tn">
                             <rect key="frame" x="160" y="373" width="280" height="72"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="280" id="YM3-3J-Edb">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="257"/>
+                                    <variation key="heightClass=regular-widthClass=compact" constant="310"/>
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -44,7 +45,7 @@
                         </constraint>
                         <constraint firstAttribute="trailing" secondItem="D8g-fr-JUp" secondAttribute="trailing" constant="8" id="Uw3-un-ZRL"/>
                         <constraint firstAttribute="bottom" secondItem="Kow-pK-2tn" secondAttribute="bottom" id="ZCV-WR-yLM">
-                            <variation key="heightClass=regular-widthClass=compact" constant="13"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="23"/>
                         </constraint>
                         <constraint firstAttribute="trailing" secondItem="Kow-pK-2tn" secondAttribute="trailing" constant="8" id="bTj-iq-yQL"/>
                         <constraint firstItem="D8g-fr-JUp" firstAttribute="leading" secondItem="jxG-vJ-Npb" secondAttribute="leading" constant="8" id="fM4-em-xDZ"/>
@@ -59,17 +60,44 @@
                         </mask>
                     </variation>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="QWS-Hv-hVy">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.96437889337539673" green="0.9725680947303772" blue="0.97660666704177856" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.48332506418228149" green="0.41267403960227966" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="jxG-vJ-Npb" secondAttribute="centerX" id="IKO-O9-23q"/>
                 <constraint firstAttribute="centerY" secondItem="jxG-vJ-Npb" secondAttribute="centerY" id="MoH-b3-GNO"/>
                 <constraint firstItem="jxG-vJ-Npb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UPS-rr-dYs"/>
+                <constraint firstAttribute="bottom" secondItem="QWS-Hv-hVy" secondAttribute="bottom" id="WIh-5D-XG6">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="jxG-vJ-Npb" secondAttribute="trailing" id="iQE-1b-y3V"/>
+                <constraint firstAttribute="centerX" secondItem="QWS-Hv-hVy" secondAttribute="centerX" id="kbM-wz-cEC"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="QWS-Hv-hVy"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="WIh-5D-XG6"/>
+                    <exclude reference="kbM-wz-cEC"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="QWS-Hv-hVy"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="WIh-5D-XG6"/>
+                    <include reference="kbM-wz-cEC"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
         <image name="onboarding_01" width="194" height="330"/>
+        <image name="onboarding_arrow" width="16" height="20"/>
     </resources>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -19,18 +19,18 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko4-Et-uyu">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-xl-iHJ">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a note and attach categories to better understand how your moods affect different aspects of your life." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-xl-iHJ">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="236" id="Dj1-KI-vGt">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="286"/>
+                                    <variation key="heightClass=regular-widthClass=compact" constant="310"/>
                                 </constraint>
                             </constraints>
-                            <string key="text">Write a quick note to recall the moment later. Use the Categories to help understand how your moods relate to different areas of your life.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -49,12 +49,12 @@
                         <constraint firstAttribute="trailing" secondItem="ko4-Et-uyu" secondAttribute="trailing" constant="8" id="AxW-v4-oki"/>
                         <constraint firstAttribute="centerX" secondItem="kWJ-sZ-D0a" secondAttribute="centerX" id="Fgw-JC-G2y"/>
                         <constraint firstItem="UuV-xl-iHJ" firstAttribute="top" secondItem="ko4-Et-uyu" secondAttribute="bottom" constant="8" id="Mrr-jI-mpF">
-                            <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                         </constraint>
                         <constraint firstItem="kWJ-sZ-D0a" firstAttribute="top" secondItem="HJ0-HY-Zld" secondAttribute="top" id="Rhi-Wh-zuc"/>
                         <constraint firstItem="ko4-Et-uyu" firstAttribute="top" secondItem="kWJ-sZ-D0a" secondAttribute="bottom" constant="12" id="UKy-7W-xgb"/>
                         <constraint firstAttribute="bottom" secondItem="UuV-xl-iHJ" secondAttribute="bottom" id="k1J-0k-ahG">
-                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="21"/>
                         </constraint>
                         <constraint firstAttribute="centerX" secondItem="UuV-xl-iHJ" secondAttribute="centerX" id="kq7-H1-bFz"/>
                         <constraint firstItem="ko4-Et-uyu" firstAttribute="leading" secondItem="HJ0-HY-Zld" secondAttribute="leading" constant="8" id="vzz-zD-6Q1"/>
@@ -94,39 +94,53 @@
                         </mask>
                     </variation>
                 </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="onboarding_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="j2w-Fs-kek">
+                    <rect key="frame" x="0.0" y="-20" width="16" height="20"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.96437889337539673" green="0.9725680947303772" blue="0.97660666704177856" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.57226580381393433" green="0.40873545408248901" blue="0.91151756048202515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="j2w-Fs-kek" secondAttribute="centerX" id="DBw-zE-pjU"/>
                 <constraint firstItem="HJ0-HY-Zld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OUi-PE-Cis"/>
                 <constraint firstAttribute="trailing" secondItem="HJ0-HY-Zld" secondAttribute="trailing" id="W2G-Lb-okB"/>
+                <constraint firstAttribute="bottom" secondItem="j2w-Fs-kek" secondAttribute="bottom" id="a32-8t-Tgu">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                </constraint>
                 <constraint firstAttribute="centerY" secondItem="HJ0-HY-Zld" secondAttribute="centerY" id="jrm-nq-O5b"/>
                 <constraint firstAttribute="centerX" secondItem="HJ0-HY-Zld" secondAttribute="centerX" id="qcs-WT-bMM"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="HJ0-HY-Zld"/>
+                    <exclude reference="j2w-Fs-kek"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="OUi-PE-Cis"/>
                     <exclude reference="W2G-Lb-okB"/>
                     <exclude reference="jrm-nq-O5b"/>
                     <exclude reference="qcs-WT-bMM"/>
+                    <exclude reference="DBw-zE-pjU"/>
+                    <exclude reference="a32-8t-Tgu"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="HJ0-HY-Zld"/>
+                    <include reference="j2w-Fs-kek"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="OUi-PE-Cis"/>
                     <include reference="W2G-Lb-okB"/>
                     <include reference="jrm-nq-O5b"/>
                     <include reference="qcs-WT-bMM"/>
+                    <include reference="DBw-zE-pjU"/>
+                    <include reference="a32-8t-Tgu"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="onboarding_02" width="194" height="330"/>
+        <image name="onboarding_arrow" width="16" height="20"/>
     </resources>
 </document>

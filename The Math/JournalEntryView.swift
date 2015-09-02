@@ -36,7 +36,7 @@ class JournalEntryView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentViewWidthConstraint.constant = frame.size.width
-        mapContainerView.layer.cornerRadius = 10.0
+        mapContainerView.layer.cornerRadius = 6.0
         mapContainerView.clipsToBounds = true
         
         if entry.note.isEmpty {

@@ -19,6 +19,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHJ-7l-VT2">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate your phone to see how your mood has changed over time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Was-AZ-sBc">
@@ -29,7 +30,7 @@
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -47,13 +48,15 @@
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="J2N-AA-4Ye" secondAttribute="centerX" id="BFS-QH-IcZ"/>
                         <constraint firstItem="XHJ-7l-VT2" firstAttribute="leading" secondItem="OkW-4c-9tX" secondAttribute="leading" constant="8" id="DWC-Lv-Odv"/>
-                        <constraint firstItem="Was-AZ-sBc" firstAttribute="top" secondItem="XHJ-7l-VT2" secondAttribute="bottom" constant="8" id="Fpq-yd-fnx"/>
+                        <constraint firstItem="Was-AZ-sBc" firstAttribute="top" secondItem="XHJ-7l-VT2" secondAttribute="bottom" constant="8" id="Fpq-yd-fnx">
+                            <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                        </constraint>
                         <constraint firstItem="J2N-AA-4Ye" firstAttribute="top" secondItem="OkW-4c-9tX" secondAttribute="top" id="UcU-OL-20B"/>
                         <constraint firstAttribute="centerX" secondItem="Was-AZ-sBc" secondAttribute="centerX" id="UuE-O9-i0g"/>
                         <constraint firstItem="XHJ-7l-VT2" firstAttribute="top" secondItem="J2N-AA-4Ye" secondAttribute="bottom" constant="12" id="ifO-TG-ARh"/>
                         <constraint firstAttribute="trailing" secondItem="XHJ-7l-VT2" secondAttribute="trailing" constant="8" id="pqf-mP-Nti"/>
                         <constraint firstAttribute="bottom" secondItem="Was-AZ-sBc" secondAttribute="bottom" id="zCk-4v-sZF">
-                            <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                         </constraint>
                     </constraints>
                     <variation key="default">
@@ -91,39 +94,53 @@
                         </mask>
                     </variation>
                 </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="onboarding_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="tOh-FL-hur">
+                    <rect key="frame" x="0.0" y="-20" width="16" height="20"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.96437889337539673" green="0.9725680947303772" blue="0.97660666704177856" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.7518308162689209" green="0.51686525344848633" blue="0.94965404272079468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="OkW-4c-9tX" secondAttribute="centerY" id="4bp-84-p8p"/>
                 <constraint firstAttribute="centerX" secondItem="OkW-4c-9tX" secondAttribute="centerX" id="Di7-cI-Iri"/>
+                <constraint firstAttribute="centerX" secondItem="tOh-FL-hur" secondAttribute="centerX" id="ITJ-OS-tPo"/>
                 <constraint firstAttribute="trailing" secondItem="OkW-4c-9tX" secondAttribute="trailing" id="hIE-k4-uBn"/>
+                <constraint firstAttribute="bottom" secondItem="tOh-FL-hur" secondAttribute="bottom" id="i4d-kc-sx6">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                </constraint>
                 <constraint firstItem="OkW-4c-9tX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j6u-se-5LQ"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="OkW-4c-9tX"/>
+                    <exclude reference="tOh-FL-hur"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="4bp-84-p8p"/>
                     <exclude reference="Di7-cI-Iri"/>
                     <exclude reference="hIE-k4-uBn"/>
                     <exclude reference="j6u-se-5LQ"/>
+                    <exclude reference="ITJ-OS-tPo"/>
+                    <exclude reference="i4d-kc-sx6"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="OkW-4c-9tX"/>
+                    <include reference="tOh-FL-hur"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="4bp-84-p8p"/>
                     <include reference="Di7-cI-Iri"/>
                     <include reference="hIE-k4-uBn"/>
                     <include reference="j6u-se-5LQ"/>
+                    <include reference="ITJ-OS-tPo"/>
+                    <include reference="i4d-kc-sx6"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="onboarding_03" width="320" height="192"/>
+        <image name="onboarding_arrow" width="16" height="20"/>
     </resources>
 </document>
