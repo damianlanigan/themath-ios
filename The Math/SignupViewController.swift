@@ -67,13 +67,12 @@ class SignupViewController: AuthViewController,
         
         let params = ["signup" : ["email" : email, "password" : password]]
         
-        
         SwiftLoader.show(animated: true)
         Account.sharedAccount().signup(params, callback: { (success, error) -> () in
             SwiftLoader.hide()
             var map = [
                 "email" : "Please enter a valid email address",
-                "password" : "Please enter a valid password"
+                "password" : "Password must contain at least 6 characters"
             ]
             var message = ""
             if let error = error {

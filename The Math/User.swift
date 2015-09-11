@@ -14,21 +14,24 @@ class User: NSObject {
     var latestEntry: JournalEntry?
     
     func getLatestMood(completion: (entry: JournalEntry?) -> Void) {
-//        request(Router.LatestJournalEntry()).responseJSON { (request, response, data, error) in
-//            if let data = data as? [String: AnyObject] {
-//                self.latestEntry = JournalEntry.fromJSONRequest(data)
-//                completion(entry: self.latestEntry)
-//            } else {
-//                completion(entry: nil)
-//            }
-//        }
+        request(Router.LatestJournalEntry()).responseJSON { (_, _, result: Result<AnyObject>) -> Void in
+            if result.isSuccess {
+                if let _ = result.value as? [String : AnyObject] {
+                    self.latestEntry = JournalEntry.fromJSONRequest(result.value as! [String : AnyObject])
+                    completion(entry: self.latestEntry)
+                } else {
+                    completion(entry: nil)
+                }
+
+            } else {
+                completion(entry: nil)
+            }
+        }
     }
     
-    func requestPasswordReset(email: String, success: () -> Void) {
-//        request(Router.ResetPassword(["email" : email])).responseJSON { (request, response, data, error) in
-//            if error == nil {
-//                success()
-//            }
-//        }
+    func requestPasswordReset(email: String, completion: (success: Bool) -> Void) {
+        request(Router.ResetPassword(["email" : email])).responseJSON { (_, _, result: Result<AnyObject>) -> Void in
+            completion(success: result.isSuccess)
+        }
     }
 }

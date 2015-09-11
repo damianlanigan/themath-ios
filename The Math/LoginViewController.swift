@@ -21,7 +21,7 @@ class LoginViewController: AuthViewController {
         super.viewWillAppear(animated)
         
         loginButton.layer.cornerRadius = 6.0
-//        emailField.becomeFirstResponder()
+        emailField.becomeFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,9 +51,11 @@ class LoginViewController: AuthViewController {
             let alert = UIAlertView(title: "Email address", message: "Enter the email address for your account", delegate: nil, cancelButtonTitle: "Dismiss")
             alert.show()
         } else {
-            Account.currentUser().requestPasswordReset(email) {
-                let alert = UIAlertView(title: "Reset password", message: "You will receive an email with instructions to reset your password.", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+            Account.currentUser().requestPasswordReset(email) { (success) in
+                if success {
+                    let alert = UIAlertView(title: "Reset password", message: "You will receive an email with instructions to reset your password.", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                }
             }
         }
     }
@@ -64,7 +66,7 @@ class LoginViewController: AuthViewController {
         let params = ["email" : email, "password" : password, "grant_type" : "password"]
         
         SwiftLoader.show(animated: true);
-        Account.sharedAccount().login(params, callback: { (success, error) -> () in
+        Account.sharedAccount().login(params, callback: { (success) -> () in
             if success {
                 SwiftLoader.hide()
                 self.delegate?.userDidLogin?()

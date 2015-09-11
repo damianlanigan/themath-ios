@@ -41,55 +41,51 @@ class Account: NSObject {
         return Single.instance
     }
     
-    override init() {
-        super.init()
-        setAuthorizationHeader()
-    }
-    
     func signup(params: [String: AnyObject], callback: ((Bool, [String:[String]]?)) -> ()) {
         
         request(Router.SignupAccount(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
-            
+            if result.isSuccess {
+                if let token = result.value!["access_token"] as? String {
+                    self.setAccessToken(token)
+                    callback((true, nil))
+                } else {
+                    callback((false, result.value!["errors"] as! [String: [String]]))
+                }
+            } else {
+                print("there")
+                callback((false, result.value!["errors"] as! [String: [String]]))
+            }
         }
         
-//        request(Router.SignupAccount(params)).responseJSON { (request, response, data, error) in
-//            if let data = data as? [String: AnyObject] {
-//                if let errors = data["errors"] as? [String: [String]] {
-//                    callback((false, errors))
-//                } else {
-//                    self.setAccessToken(data["access_token"] as? String)
-//                    callback((true, nil))
-//                }
-//            }
-//        }
     }
     
-    func login(params: [String: AnyObject], callback: ((Bool, [String:[String]]?)) -> ()) {
+    func login(params: [String: AnyObject], callback: (Bool) -> ()) {
 
-        request(Router.LoginAccount(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
-        
+        request(Router.LoginAccount(params)).responseJSON { (_, _, result: Result<AnyObject>) -> Void in
+            
+            // TODO: this should throw an error, not just butt out
+            
+            if result.isSuccess {
+                if let token = result.value!["access_token"] as? String {
+                    self.setAccessToken(token)
+                    callback(true)
+                } else {
+                    callback(false)
+                }
+            } else {
+                print("there")
+                callback(false)
+            }
         }
-        
-//        request(Router.LoginAccount(params)).responseJSON { (request, response, data, error) in
-//            if let response = response {
-//                if response.statusCode != 200 {
-//                    callback((false, nil))
-//                } else {
-//                    if let data = data as? [String: AnyObject] {
-//                        self.setAccessToken(data["access_token"] as? String)
-//                        callback((true, nil))
-//                    }
-//                }
-//            } else {
-//                callback((false, nil))
-//            }
-//        }
     }
     
     func isAuthenticated() -> Bool {
         let keychain = Keychain(service: AccountKeychainService)
         do {
-            try keychain.get(AccountAccessTokenKeychainKey)
+            let token = try keychain.get(AccountAccessTokenKeychainKey)
+            if token == nil {
+                return false
+            }
             return true
         } catch {
             return false
@@ -101,23 +97,19 @@ class Account: NSObject {
         if let token = token {
             do {
                 try keychain.set(token, key: AccountAccessTokenKeychainKey)
-                setAuthorizationHeader()
-            } catch {}
+                print("set access token")
+            } catch {
+                print("failed to set access token")
+            }
         } else {
             do {
                 try keychain.remove(AccountAccessTokenKeychainKey)
-            } catch {}
+                print("removed access token")
+            } catch {
+                print("failed to remove access token")
+            }
         }
     }
-    
-    private func setAuthorizationHeader() {
-        if let _ = accessToken {
-//            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?["Authorization"] = "Bearer \(token)"
-            print("set authorization header")
-//            println("\(Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders)")
-        }
-    }
-    
     
     func logout(completion: () -> Void) {
         setAccessToken(nil)
