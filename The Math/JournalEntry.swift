@@ -118,7 +118,7 @@ class JournalEntry {
             "score" : score,
             "timestamp" : timestamp,
             "categories" : categories.map { $0.rawValue },
-            "note" : note == "Add a note..." ? "" : note
+            "note" : note == "Give some context to what's going on..." ? "" : note
         ]
         
         if let lat = lat, lng = lng, acc = locationAccuracy {

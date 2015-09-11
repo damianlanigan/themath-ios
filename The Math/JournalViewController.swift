@@ -35,7 +35,7 @@ class JournalViewController: UIViewController,
     var mood: Int = 0
     var location: CLLocation?
     
-    private let MessagePlaceholderText = "Give some context to what's happening..."
+    private let MessagePlaceholderText = "Give some context to what's going on..."
     // Vendor
     
     /////////
