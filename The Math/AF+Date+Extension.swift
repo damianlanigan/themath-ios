@@ -6,7 +6,7 @@
 //  Created by Melvin Rivera on 7/15/14.
 //  Copyright (c) 2014. All rights reserved.
 //
-
+/*
 import Foundation
 
 enum DateFormat {
@@ -24,9 +24,9 @@ extension NSDate {
     private class func yearInSeconds() -> Double { return 31556926 }
     
     // MARK: Components
-    private class func componentFlags() -> NSCalendarUnit { return NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond  | NSCalendarUnit.CalendarUnitWeekday | NSCalendarUnit.CalendarUnitWeekdayOrdinal | NSCalendarUnit.CalendarUnitWeekOfYear }
+    private class func componentFlags() -> NSCalendarUnit { return .Year | .Month | .Day | .WeekOfYear | .Hour | NSCalendarUnit.Minute | NSCalendarUnit.Second  | NSCalendarUnit.Weekday | NSCalendarUnit.WeekdayOrdinal }
     
-    private class func components(#fromDate: NSDate) -> NSDateComponents! {
+    private class func components(fromDate fromDate: NSDate) -> NSDateComponents! {
         return NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: fromDate)
     }
     
@@ -257,7 +257,7 @@ extension NSDate {
     
     func dateAtStartOfDay() -> NSDate
     {
-        var components = self.components()
+        let components = self.components()
         components.hour = 0
         components.minute = 0
         components.second = 0
@@ -266,7 +266,7 @@ extension NSDate {
     
     func dateAtEndOfDay() -> NSDate
     {
-        var components = self.components()
+        let components = self.components()
         components.hour = 23
         components.minute = 59
         components.second = 59
@@ -275,7 +275,7 @@ extension NSDate {
     
     func dateAtStartOfWeek() -> NSDate
     {
-        let flags :NSCalendarUnit = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitWeekday
+        let flags :NSCalendarUnit = NSCalendarUnit.Year | NSCalendarUnit.Month | NSCalendarUnit.WeekOfYear | NSCalendarUnit.Weekday
         var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.weekday = 1 // Sunday
         components.hour = 0
@@ -386,7 +386,7 @@ extension NSDate {
         return self.toString(dateStyle: .ShortStyle, timeStyle: .ShortStyle, doesRelativeDateFormatting: false)
     }
     
-    func toString(#format: DateFormat) -> String
+    func toString(format format: DateFormat) -> String
     {
         var dateFormat: String
         switch format {
@@ -408,7 +408,7 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
-    func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, doesRelativeDateFormatting: Bool = false) -> String
+    func toString(dateStyle dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, doesRelativeDateFormatting: Bool = false) -> String
     {
         let formatter = NSDateFormatter()
         formatter.dateStyle = dateStyle
@@ -519,3 +519,4 @@ extension Int {
         return "\(self)"
     }
 }
+*/

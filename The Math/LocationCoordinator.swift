@@ -47,8 +47,9 @@ class LocationCoordinator: NSObject,
     
     // MARK: <CLLocationManagerDelegate>
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if let location = locations[0] as? CLLocation {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
+            let location = locations[0]
             if abs(location.timestamp.timeIntervalSinceNow) < TimeThreshold {
                 if location.horizontalAccuracy <= AccuracyThreshold {
                     delegate?.locationCoordinator(self, didReceiveLocation: location)
@@ -56,7 +57,7 @@ class LocationCoordinator: NSObject,
             }
         }
     }
-    
+        
     // MARK: Helpers
     
     func requestAuthorization() {
@@ -65,7 +66,7 @@ class LocationCoordinator: NSObject,
                 manager.requestWhenInUseAuthorization()
             }
         } else {
-            println("we're already getting location")
+            print("we're already getting location")
         }
     }
     

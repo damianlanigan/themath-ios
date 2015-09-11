@@ -10,7 +10,7 @@ import UIKit
 import EventKit
 
 class CalendarCoordinator: NSObject {
-    
+    /*
     static let sharedCoordinator = CalendarCoordinator()
     
     var eventStore = EKEventStore()
@@ -69,4 +69,5 @@ class CalendarCoordinator: NSObject {
     class func status() -> EKAuthorizationStatus {
         return EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)
     }
+    */
 }

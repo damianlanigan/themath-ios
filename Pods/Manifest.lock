@@ -1,33 +1,50 @@
 PODS:
+  - AFDateHelper (3.1.0)
   - Alamofire (2.0.0)
+  - ExSwift (0.1.9)
   - JBChartView (2.8.15)
   - KeychainAccess (1.2.1)
   - SwiftLoader (0.2.2)
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
+  - AFDateHelper
   - Alamofire (~> 2.0)
+  - ExSwift (from `https://github.com/ayn/ExSwift.git`, branch `Swift-2.0`)
   - JBChartView
   - KeychainAccess (from `https://github.com/kishikawakatsumi/KeychainAccess.git`,
     branch `swift-2.0`)
-  - SwiftLoader
+  - SwiftLoader (from `https://github.com/mikekavouras/SwiftLoader.git`)
   - TTTAttributedLabel
 
 EXTERNAL SOURCES:
+  ExSwift:
+    :branch: Swift-2.0
+    :git: https://github.com/ayn/ExSwift.git
   KeychainAccess:
     :branch: swift-2.0
     :git: https://github.com/kishikawakatsumi/KeychainAccess.git
+  SwiftLoader:
+    :git: https://github.com/mikekavouras/SwiftLoader.git
 
 CHECKOUT OPTIONS:
+  ExSwift:
+    :commit: 7040447ac05419eae131ecc6c45cef9afb28dc80
+    :git: https://github.com/ayn/ExSwift.git
   KeychainAccess:
     :commit: d1799b703b6b58e2d6ad7becb3cde620a20fcce2
     :git: https://github.com/kishikawakatsumi/KeychainAccess.git
+  SwiftLoader:
+    :commit: 0136accf1aa6e3bcb836ed1695eaba91317c0288
+    :git: https://github.com/mikekavouras/SwiftLoader.git
 
 SPEC CHECKSUMS:
+  AFDateHelper: 346694fc5861bdef77d8115e3825182a3fc697d2
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  ExSwift: 66c4dcef758ad184556954610ecadcabad3c1b36
   JBChartView: d77d6a713a32547b24ccfaeba90958e7274f0c9d
   KeychainAccess: 2ffa8b1b7130263bb7fe90b359d778696fc2d8ce
-  SwiftLoader: 9c5e547ae8e00b1c1079139492d6a273c7f73171
+  SwiftLoader: 326b122faa2b17e66d6906cc06806ce2faac2682
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.38.2

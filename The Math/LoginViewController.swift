@@ -27,11 +27,11 @@ class LoginViewController: AuthViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        var string = NSMutableAttributedString(string: "Forgot your password? Reset Password")
+        let string = NSMutableAttributedString(string: "Forgot your password? Reset Password")
         let regularFont = UIFont(name: "AvenirNext-Regular", size: 13)!
         let boldFont = UIFont(name: "AvenirNext-DemiBold", size: 13)!
-        let regularRange = NSMakeRange(0, count("Forgot your password?"))
-        let boldRange = NSMakeRange(regularRange.length, count(" Reset Password"))
+        let regularRange = NSMakeRange(0, "Forgot your password?".characters.count)
+        let boldRange = NSMakeRange(regularRange.length, " Reset Password".characters.count)
         
         string.addAttributes([
             NSFontAttributeName : regularFont
@@ -46,7 +46,7 @@ class LoginViewController: AuthViewController {
     
     
     @IBAction func forgotPasswordButtonTapped(sender: UIButton) {
-        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let email = emailField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if email.isEmpty {
             let alert = UIAlertView(title: "Email address", message: "Enter the email address for your account", delegate: nil, cancelButtonTitle: "Dismiss")
             alert.show()
@@ -59,8 +59,8 @@ class LoginViewController: AuthViewController {
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let password = passwordField.text
+        let email = emailField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let password = passwordField.text!
         let params = ["email" : email, "password" : password, "grant_type" : "password"]
         
         SwiftLoader.show(animated: true);

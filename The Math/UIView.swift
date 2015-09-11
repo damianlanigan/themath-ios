@@ -18,8 +18,8 @@ extension UIView {
     func colorAtPoint(point: CGPoint) -> UIColor {
         let pixel = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
         var colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace, bitmapInfo)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
+        let context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace, UInt32(bitmapInfo))
         
         CGContextTranslateCTM(context, -point.x, -point.y)
         layer.renderInContext(context)

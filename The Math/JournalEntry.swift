@@ -68,7 +68,7 @@ class JournalEntry {
     
     private func actuallySave() {
         // TODO: HANDLE ERROR
-        println("ACTUALLY SAVING")
+        print("ACTUALLY SAVING")
         request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
             if let data = data as? [String: AnyObject] {
                 if let errors = data["errors"] as? [String: [String]] {
@@ -85,7 +85,7 @@ class JournalEntry {
     // MARK: Vendor
     
     func addLocation(location: CLLocation) {
-        println("setting location... \(NSDate())")
+        print("setting location... \(NSDate())")
         lat = location.coordinate.latitude
         lng = location.coordinate.longitude
         locationAccuracy = location.horizontalAccuracy
@@ -94,22 +94,23 @@ class JournalEntry {
     }
     
     private func geocode() {
-        println("geocoding... \(NSDate())")
+        print("geocoding... \(NSDate())")
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location, completionHandler: { (places: [AnyObject]!, error: NSError!) -> Void in
-            if places != nil {
-                if let place = places[0] as? CLPlacemark {
-                    println(place.subLocality)
-                    self.geocodedLocationString = place.subLocality
+        geocoder.reverseGeocodeLocation(location!) { (places: [CLPlacemark]?, error:NSError?) -> Void in
+            if let places = places {
+                if places.count > 0 {
+                    print(places[0].subLocality)
+                    self.geocodedLocationString = places[0].subLocality
                 }
             }
-            println("finished geocoding... \(NSDate())")
+            print("finished geocoding... \(NSDate())")
             self.save()
-        })
+
+        }
     }
     
     func delete() {
-        println("delete this post")
+        print("delete this post")
     }
     
     private func asJSON() -> [String: AnyObject] {

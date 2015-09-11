@@ -20,9 +20,9 @@ public class ExSwift {
     /**
         Creates a wrapper that, executes function only after being called n times.
     
-        :param: n No. of times the wrapper has to be called before function is invoked
-        :param: function Function to wrap
-        :returns: Wrapper function
+        - parameter n: No. of times the wrapper has to be called before function is invoked
+        - parameter function: Function to wrap
+        - returns: Wrapper function
     */
     public class func after <P, T> (n: Int, function: (P...) -> T) -> ((P...) -> T?) {
         
@@ -48,11 +48,11 @@ public class ExSwift {
     /**
         Creates a wrapper that, executes function only after being called n times
     
-        :param: n No. of times the wrapper has to be called before function is invoked
-        :param: function Function to wrap
-        :returns: Wrapper function
+        - parameter n: No. of times the wrapper has to be called before function is invoked
+        - parameter function: Function to wrap
+        - returns: Wrapper function
     */
-    public class func after <T> (n: Int, function: Void -> T) -> (Void -> T?) {
+    /*public class func after <T> (n: Int, function: Void -> T) -> (Void -> T?) {
         func callAfter (args: Any?...) -> T {
             return function()
         }
@@ -60,14 +60,14 @@ public class ExSwift {
         let f = ExSwift.after(n, function: callAfter)
         
         return { f([nil]) }
-    }
+    }*/
     
     /**
         Creates a wrapper function that invokes function once.
         Repeated calls to the wrapper function will return the value of the first call.
     
-        :param: function Function to wrap
-        :returns: Wrapper function
+        - parameter function: Function to wrap
+        - returns: Wrapper function
     */
     public class func once <P, T> (function: (P...) -> T) -> ((P...) -> T) {
         
@@ -94,25 +94,25 @@ public class ExSwift {
         Creates a wrapper function that invokes function once. 
         Repeated calls to the wrapper function will return the value of the first call.
     
-        :param: function Function to wrap
-        :returns: Wrapper function
+        - parameter function: Function to wrap
+        - returns: Wrapper function
     */
-    public class func once <T> (function: Void -> T) -> (Void -> T) {
+    /*public class func once <T> (function: Void -> T) -> (Void -> T) {
         let f = ExSwift.once {
             (params: Any?...) -> T in
             return function()
         }
         
         return { f([nil]) }
-    }
+    }*/
     
     /**
         Creates a wrapper that, when called, invokes function with any additional 
         partial arguments prepended to those provided to the new function.
 
-        :param: function Function to wrap
-        :param: parameters Arguments to prepend
-        :returns: Wrapper function
+        - parameter function: Function to wrap
+        - parameter parameters: Arguments to prepend
+        - returns: Wrapper function
     */
     public class func partial <P, T> (function: (P...) -> T, _ parameters: P...) -> ((P...) -> T) {
         typealias Function = [P] -> T
@@ -127,9 +127,9 @@ public class ExSwift {
         Creates a wrapper (without any parameter) that, when called, invokes function
         automatically passing parameters as arguments.
     
-        :param: function Function to wrap
-        :param: parameters Arguments to pass to function
-        :returns: Wrapper function
+        - parameter function: Function to wrap
+        - parameter parameters: Arguments to pass to function
+        - returns: Wrapper function
     */
     public class func bind <P, T> (function: (P...) -> T, _ parameters: P...) -> (Void -> T) {
         typealias Function = [P] -> T
@@ -143,8 +143,8 @@ public class ExSwift {
     /**
         Creates a wrapper for function that caches the result of function's invocations.
         
-        :param: function Function with one parameter to cache
-        :returns: Wrapper function
+        - parameter function: Function with one parameter to cache
+        - returns: Wrapper function
     */
     public class func cached <P: Hashable, R> (function: P -> R) -> (P -> R) {
         var cache = [P:R]()
@@ -165,9 +165,9 @@ public class ExSwift {
     /**
         Creates a wrapper for function that caches the result of function's invocations.
         
-        :param: function Function to cache
-        :param: hash Parameters based hashing function that computes the key used to store each result in the cache
-        :returns: Wrapper function
+        - parameter function: Function to cache
+        - parameter hash: Parameters based hashing function that computes the key used to store each result in the cache
+        - returns: Wrapper function
     */
     public class func cached <P: Hashable, R> (function: (P...) -> R, hash: ((P...) -> P)) -> ((P...) -> R) {
         typealias Function = [P] -> R
@@ -194,8 +194,8 @@ public class ExSwift {
     /**
         Creates a wrapper for function that caches the result of function's invocations.
     
-        :param: function Function to cache
-        :returns: Wrapper function
+        - parameter function: Function to cache
+        - returns: Wrapper function
     */
     public class func cached <P: Hashable, R> (function: (P...) -> R) -> ((P...) -> R) {
         return cached(function, hash: { (params: P...) -> P in return params[0] })
@@ -204,11 +204,11 @@ public class ExSwift {
     /**
         Utility method to return an NSRegularExpression object given a pattern.
         
-        :param: pattern Regex pattern
-        :param: ignoreCase If true the NSRegularExpression is created with the NSRegularExpressionOptions.CaseInsensitive flag
-        :returns: NSRegularExpression object
+        - parameter pattern: Regex pattern
+        - parameter ignoreCase: If true the NSRegularExpression is created with the NSRegularExpressionOptions.CaseInsensitive flag
+        - returns: NSRegularExpression object
     */
-    internal class func regex (pattern: String, ignoreCase: Bool = false) -> NSRegularExpression? {
+    internal class func regex (pattern: String, ignoreCase: Bool = false) throws -> NSRegularExpression? {
         
         var options = NSRegularExpressionOptions.DotMatchesLineSeparators.rawValue
         
@@ -216,13 +216,10 @@ public class ExSwift {
             options = NSRegularExpressionOptions.CaseInsensitive.rawValue | options
         }
 
-        var error: NSError? = nil
-        let regex = NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions(rawValue: options), error: &error)
-            
-        return (error == nil) ? regex : nil
+        return try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions(rawValue: options))
         
     }
-    
+
 }
 
 func <=> <T: Comparable>(lhs: T, rhs: T) -> Int {
@@ -248,30 +245,28 @@ extension ExSwift {
     */
     internal class func bridgeObjCObject <T, S> (object: S) -> [T] {
         var result = [T]()
-        let reflection = reflect(object)
+        let reflection = Mirror(reflecting: object)
+        let mirrorChildrenCollection = AnyRandomAccessCollection(reflection.children)
         
         //  object has an Objective-C type
         if let obj = object as? T {
             //  object has type T
             result.append(obj)
-        } else if reflection.disposition == .ObjCObject {
+        } else if reflection.subjectType == NSArray.self {
             
-            var bridgedValue: T!?
-
             //  If it is an NSArray, flattening will produce the expected result
             if let array = object as? NSArray {
                 result += array.flatten()
-            } else if let bridged = reflection.value as? T {
+            } else if let bridged = mirrorChildrenCollection as? T {
                 result.append(bridged)
             }
-        } else if reflection.disposition == .IndexContainer {
+            
+        } else if object is Array<T> {
             //  object is a native Swift array
             
             //  recursively convert each item
-            (0..<reflection.count).each {
-                let ref = reflection[$0].1
-
-                result += Ex.bridgeObjCObject(ref.value)
+            for (_, value) in mirrorChildrenCollection! {
+                result += Ex.bridgeObjCObject(value)
             }
             
         }

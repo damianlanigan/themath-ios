@@ -50,7 +50,7 @@ class ChartViewController: UIViewController,
         
         contentViewHeightConstraint.constant = view.frame.size.height
         contentViewWidthConstraint.constant = view.frame.size.width * CGFloat(coordinators.count)
-        for (idx, coordinator) in enumerate(coordinators) {
+        for (idx, coordinator) in coordinators.enumerate() {
             let v = coordinator.view
             v.frame = view.bounds
             v.frame.origin.x = view.bounds.size.width * CGFloat(idx)
@@ -58,8 +58,8 @@ class ChartViewController: UIViewController,
     }
     
     func becameActive() {
-        println("became active: \(scope.rawValue)")
-        for (idx, coordinator) in enumerate(coordinators) {
+        print("became active: \(scope.rawValue)")
+        for coordinator in coordinators {
             coordinator.view.reloadData()
             view.setNeedsLayout()
             view.layoutIfNeeded()
@@ -67,7 +67,7 @@ class ChartViewController: UIViewController,
     }
     
     func becameInactive() {
-        println("became inactive: \(scope.rawValue)")
+        print("became inactive: \(scope.rawValue)")
     }
     
     private func loadPreviousChartView() {
@@ -75,7 +75,7 @@ class ChartViewController: UIViewController,
         coordinator.date = previousDate()
         coordinator.delegate = self
         
-        coordinators.unshift(coordinator)
+        coordinators.insert(coordinator, atIndex: 0)
         contentView.addSubview(coordinator.view)
         
         let p = scrollView.contentOffset

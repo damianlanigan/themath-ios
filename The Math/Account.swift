@@ -18,7 +18,12 @@ class Account: NSObject {
     var accessToken: String? {
         get {
             let keychain = Keychain(service: AccountKeychainService)
-            return keychain.get(AccountAccessTokenKeychainKey)
+            do {
+                let token = try keychain.get(AccountAccessTokenKeychainKey)
+                return token
+            } catch {
+                return nil
+            }
         }
     }
     
@@ -73,29 +78,36 @@ class Account: NSObject {
     
     func isAuthenticated() -> Bool {
         let keychain = Keychain(service: AccountKeychainService)
-        if let token = keychain.get(AccountAccessTokenKeychainKey) {
+        do {
+            try keychain.get(AccountAccessTokenKeychainKey)
             return true
+        } catch {
+            return false
         }
-        return false
     }
     
     private func setAccessToken(token: String?) {
         let keychain = Keychain(service: AccountKeychainService)
         if let token = token {
-            keychain.set(token, key: AccountAccessTokenKeychainKey)
-            setAuthorizationHeader()
+            do {
+                try keychain.set(token, key: AccountAccessTokenKeychainKey)
+                setAuthorizationHeader()
+            } catch {}
         } else {
-            keychain.remove(AccountAccessTokenKeychainKey)
+            do {
+                try keychain.remove(AccountAccessTokenKeychainKey)
+            } catch {}
         }
     }
     
     private func setAuthorizationHeader() {
-        if let token = accessToken {
+        if let _ = accessToken {
 //            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?["Authorization"] = "Bearer \(token)"
-            println("set authorization header")
+            print("set authorization header")
 //            println("\(Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders)")
         }
     }
+    
     
     func logout(completion: () -> Void) {
         setAccessToken(nil)

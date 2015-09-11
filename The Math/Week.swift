@@ -38,12 +38,12 @@ class CalendarWeek: TimeRepresentable {
     func formattedDescription() -> String {
         let monday = calendarDays.monday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
         let sunday = calendarDays.sunday.rawDate.dateAdjustedForLocalTime().dateAtStartOfDay()
-        let startMonth = monday.month(offset: 0)
-        let endMonth = sunday.month(offset: 0)
+        let startMonth = monday.month(0)
+        let endMonth = sunday.month(0)
         if startMonth == endMonth {
-            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.day(offset:0)), \(monday.year(offset: 0))"
+            return "\(monday.shortMonthToString()) \(monday.day(0)) - \(sunday.day(0)), \(monday.year(0))"
         } else {
-            return "\(monday.shortMonthToString()) \(monday.day(offset: 0)) - \(sunday.shortMonthToString()) \(sunday.day(offset: 0)), \(sunday.year(offset: 0))"
+            return "\(monday.shortMonthToString()) \(monday.day(0)) - \(sunday.shortMonthToString()) \(sunday.day(0)), \(sunday.year(0))"
         }
     }
     
@@ -102,21 +102,20 @@ class ChartWeek: CalendarWeek, Chartable {
     }
     
     private func padWeek() {
-        let calendar = NSCalendar.currentCalendar()
         let dates = days.map { $0.rawDate.withoutTime() }
         
         var _days = days
         
         for i in 0..<7 {
             let d = calendarDays.monday.rawDate.dateByAddingDays(i).withoutTime()
-            if find(dates, d) == nil {
+            if dates.indexOf(d) > 0 {
                 _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
             }
         }
         
         if _days.count != days.count {
             days = _days
-            days.sort({
+            days.sortInPlace({
                 $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
             })
         }
