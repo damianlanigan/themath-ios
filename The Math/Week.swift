@@ -58,40 +58,33 @@ class CalendarWeek: TimeRepresentable {
     
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            request(Router.AverageScore(params)).responseJSON(completionHandler: { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
+        request(Router.AverageScore(params)).responseJSON(completionHandler: { (_, _, result: Result<AnyObject>) -> Void in
+            if let data = result.value! as? Array<Dictionary<String,Int>> {
+                let chartable = ChartWeek(date: self.calendarDays.monday.rawDate)
                 
-            })
-//            request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-//                if let data = data as? Array<Dictionary<String,Int>> {
-//                    let chartable = ChartWeek(date: self.calendarDays.monday.rawDate)
-//                    
-//                    var days = [ChartDay]()
-//                    for d in data {
-//                        for (date, score) in d {
-//                            let comps = NSDateComponents()
-//                            let parts = split(date) { $0 == "-" }
-//                            comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-//                            comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-//                            comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-//                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-//                            let before = timestamp.compare(self.calendarDays.monday.rawDate) == NSComparisonResult.OrderedAscending
-//                            let after = timestamp.compare(self.calendarDays.sunday.rawDate) == NSComparisonResult.OrderedDescending
-//                            if before || after {
-//                                continue
-//                            }
-//                            let day = ChartDay(date: timestamp, score: score)
-//                            days.append(day)
-//                        }
-//                    }
-//
-//                    chartable.days = days
-//                    
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        completion(result: chartable)
-//                    })
-//                }
-//            }
+                var days = [ChartDay]()
+                for d in data {
+                    for (date, score) in d {
+                        let comps = NSDateComponents()
+                        let parts = date.componentsSeparatedByString("-")
+                        comps.setValue(Int(parts[0])!, forComponent: .Year)
+                        comps.setValue(Int(parts[1])!, forComponent: .Month)
+                        comps.setValue(Int(parts[2])!, forComponent: .Day)
+                        let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+                        let before = timestamp.compare(self.calendarDays.monday.rawDate) == NSComparisonResult.OrderedAscending
+                        let after = timestamp.compare(self.calendarDays.sunday.rawDate) == NSComparisonResult.OrderedDescending
+                        if before || after {
+                            continue
+                        }
+                        let day = ChartDay(date: timestamp, score: score)
+                        days.append(day)
+                    }
+                }
+
+                chartable.days = days
+
+                completion(result: chartable)
+            }
         })
     }
 }
@@ -111,7 +104,7 @@ class ChartWeek: CalendarWeek, Chartable {
         
         for i in 0..<7 {
             let d = calendarDays.monday.rawDate.dateByAddingDays(i).withoutTime()
-            if dates.indexOf(d) > 0 {
+            if dates.indexOf(d) < 0 {
                 _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
             }
         }

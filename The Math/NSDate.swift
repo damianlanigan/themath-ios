@@ -81,33 +81,39 @@ extension NSDate {
     }
     
     func dateAtStartOfDay() -> NSDate {
-        components().hour = 0
-        components().minute = 0
-        components().second = 0
-        return NSCalendar.currentCalendar().dateFromComponents(components())!
+        let components = self.components()
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return NSCalendar.currentCalendar().dateFromComponents(components)!
     }
     
     func dateAtEndOfDay() -> NSDate {
-        components().hour = 23
-        components().minute = 59
-        components().second = 59
-        return NSCalendar.currentCalendar().dateFromComponents(components())!
+        let components = self.components()
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        return NSCalendar.currentCalendar().dateFromComponents(components)!
     }
     
     func dateAtStartOfWeek() -> NSDate {
-        components().weekday = 1 // Sunday
-        components().hour = 0
-        components().minute = 0
-        components().second = 0
-        return NSCalendar.currentCalendar().dateFromComponents(components())!
+        let flags:NSCalendarUnit = [.Year, .Month, .WeekOfYear, .Weekday]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        components.weekday = 1 // Sunday
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return NSCalendar.currentCalendar().dateFromComponents(components)!
     }
     
     func dateAtEndOfWeek() -> NSDate {
-        components().weekday = 7 // Sunday
-        components().hour = 0
-        components().minute = 0
-        components().second = 0
-        return NSCalendar.currentCalendar().dateFromComponents(components())!
+        let flags:NSCalendarUnit = [.Year, .Month, .WeekOfYear, .Weekday]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        components.weekday = 7 // Sunday
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return NSCalendar.currentCalendar().dateFromComponents(components)!
     }
 
     func withoutTime() -> NSDate {

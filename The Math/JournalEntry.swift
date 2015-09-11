@@ -67,25 +67,25 @@ class JournalEntry {
     }
     
     private func actuallySave() {
+        
         // TODO: HANDLE ERROR
+        
         print("ACTUALLY SAVING")
         
         let params = ["journal_entry" : asJSON()]
         request(Router.CreateJournalEntry(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
-            
+            if result.isSuccess {
+                if let data = result.value! as? [String: AnyObject] {
+                    if let _ = data["errors"] as? [String: [String]] {
+                        print("something went wrong")
+                    } else {
+                        if let callback = self.onSaveCallback {
+                            callback()
+                        }
+                    }
+                }
+            }
         }
-        
-//        request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
-//            if let data = data as? [String: AnyObject] {
-//                if let errors = data["errors"] as? [String: [String]] {
-//                    println("something went wrong")
-//                } else {
-//                    if let callback = self.onSaveCallback {
-//                        callback()
-//                    }
-//                }
-//            }
-//        }
     }
     
     // MARK: Vendor
@@ -111,7 +111,6 @@ class JournalEntry {
             }
             print("finished geocoding... \(NSDate())")
             self.save()
-
         }
     }
     

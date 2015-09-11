@@ -54,40 +54,38 @@ class CalendarMonth: TimeRepresentable {
     }
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-//            request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-//                if let data = data as? Array<Dictionary<String,Int>> {
-//                    
-//                    var days = [ChartDay]()
-//                    for d in data {
-//                        for (date, score) in d {
-//                            let comps = NSDateComponents()
-//                            let parts = split(date) { $0 == "-" }
-//                            comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-//                            comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-//                            comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-//                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-//                            
-//                            let before = timestamp.compare(self.startDate) == NSComparisonResult.OrderedAscending
-//                            let after = timestamp.compare(self.endDate) == NSComparisonResult.OrderedDescending
-//                            if before || after {
-//                                continue
-//                            }
-//                            let day = ChartDay(date: timestamp, score: score)
-//                            days.append(day)
-//                        }
-//                    }
-//                
-//                    
-//                    let chartable = ChartMonth(date: self.startDate)
-//                    chartable.days = days
-//                    
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        completion(result: chartable)
-//                    })
-//                }
-//            }
-        })
+        
+        request(Router.AverageScore(params)).responseJSON { (_, _, result: Result<AnyObject>) -> Void in
+            if result.isSuccess {
+                if let data = result.value! as? Array<Dictionary<String,Int>> {
+
+                    var days = [ChartDay]()
+                    for d in data {
+                        for (date, score) in d {
+                            let comps = NSDateComponents()
+                            let parts = date.componentsSeparatedByString("-")
+                            comps.setValue(Int(parts[0])!, forComponent: .Year)
+                            comps.setValue(Int(parts[1])!, forComponent: .Month)
+                            comps.setValue(Int(parts[2])!, forComponent: .Day)
+                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+
+                            let before = timestamp.compare(self.startDate) == NSComparisonResult.OrderedAscending
+                            let after = timestamp.compare(self.endDate) == NSComparisonResult.OrderedDescending
+                            if before || after {
+                                continue
+                            }
+                            let day = ChartDay(date: timestamp, score: score)
+                            days.append(day)
+                        }
+                    }
+
+                    let chartable = ChartMonth(date: self.startDate)
+                    chartable.days = days
+                    
+                    completion(result: chartable)
+                }
+            }
+        }
     }
 }
 
@@ -101,12 +99,11 @@ class ChartMonth: CalendarMonth, Chartable {
     
     private func padMonth() {
         let dates = days.map { $0.rawDate.withoutTime() }
-        
         var _days = days
         
         for i in 0..<dayCount {
             let d = startDate.dateByAddingDays(i).withoutTime()
-            if dates.indexOf(d) > 0 {
+            if dates.indexOf(d) < 0 {
                 _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
             }
         }

@@ -64,27 +64,21 @@ class CalendarDay: TimeRepresentable {
     }
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            
-            request(Router.JournalEntries(params)).responseJSON(completionHandler: { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
-                
-            })
-            
-//            request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
-//                if let data = data as? Array<Dictionary<String,AnyObject>> {
-//                    let chartable = ChartDay(date: self.rawDate)
-//                    var entries: [JournalEntry] = [JournalEntry]()
-//                    for d in data {
-//                        let entry = JournalEntry.fromJSONRequest(d)
-//                        entries.insert(entry, atIndex: 0)
-//                    }
-//                    chartable.entries = entries
-//                    
-//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                        completion(result: chartable)
-//                    })
-//                }
-//            }
+        request(Router.JournalEntries(params)).responseJSON(completionHandler: { (_, _, result: Result<AnyObject>) -> Void in
+            if result.isSuccess {
+                if let data = result.value! as? Array<Dictionary<String,AnyObject>> {
+                    let chartable = ChartDay(date: self.rawDate)
+                    var entries: [JournalEntry] = [JournalEntry]()
+                    for d in data {
+                        let entry = JournalEntry.fromJSONRequest(d)
+                        entries.insert(entry, atIndex: 0)
+                    }
+                    
+                    chartable.entries = entries
+
+                    completion(result: chartable)
+                }
+            }
         })
     }
 }
@@ -133,8 +127,7 @@ class ChartDay: CalendarDay, Chartable {
         
         let hours = chartHours.map { $0.hour }
         for i in 0..<25 {
-            if hours.indexOf(i) >= 0 {
-                
+            if hours.indexOf(i) < 0 {
                 let j = JournalEntry()
                 j.score = ChartDayMinimumDayAverage
                 let c = NSCalendar.currentCalendar().components([.Year, .Month, .Day], fromDate: rawDate)
