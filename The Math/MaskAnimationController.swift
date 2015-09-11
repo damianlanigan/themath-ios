@@ -16,7 +16,7 @@ class MaskAnimationController:  NSObject,
     var fromViewController: UIViewController?
     var context: UIViewControllerContextTransitioning?
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.45
     }
     
@@ -34,8 +34,8 @@ class MaskAnimationController:  NSObject,
         if presenting {
             fromViewController!.view.userInteractionEnabled = false
             toViewController!.view.userInteractionEnabled = false
-            containerView.addSubview(toViewController!.view)
-            containerView.bringSubviewToFront(toViewController!.view)
+            containerView!.addSubview(toViewController!.view)
+            containerView!.bringSubviewToFront(toViewController!.view)
             toViewController!.view.alpha = 0.0
             UIView.animateWithDuration(0.45, animations: {
 //                (self.fromViewController! as! MoodViewController).contentView.transform = CGAffineTransformMakeScale(10.5, 10.5)
@@ -52,16 +52,16 @@ class MaskAnimationController:  NSObject,
             var buttonFrame = (fromViewController! as! JournalViewController).isCancelled ? CGRectMake(0, 0, 70, 70) : CGRectMake(0, 0, 160, 160)
             buttonFrame.origin.x = toViewController!.view.center.x - (buttonFrame.size.width / 2.0)
             buttonFrame.origin.y = toViewController!.view.center.y - (buttonFrame.size.width / 2.0)
-            var circleMaskPathFinal  = UIBezierPath(ovalInRect: buttonFrame)
-            var extremePoint = CGPoint(x: toViewController!.view.center.x - 0, y: toViewController!.view.center.y - CGRectGetHeight(fromViewController!.view.bounds))
-            var radius = sqrt((extremePoint.x * extremePoint.x) + (extremePoint.y * extremePoint.y))
-            var circleMaskPathInitial = UIBezierPath(ovalInRect: CGRectInset(buttonFrame, -radius, -radius))
+            let circleMaskPathFinal  = UIBezierPath(ovalInRect: buttonFrame)
+            let extremePoint = CGPoint(x: toViewController!.view.center.x - 0, y: toViewController!.view.center.y - CGRectGetHeight(fromViewController!.view.bounds))
+            let radius = sqrt((extremePoint.x * extremePoint.x) + (extremePoint.y * extremePoint.y))
+            let circleMaskPathInitial = UIBezierPath(ovalInRect: CGRectInset(buttonFrame, -radius, -radius))
             
-            var maskLayer = CAShapeLayer()
+            let maskLayer = CAShapeLayer()
             maskLayer.path = circleMaskPathFinal.CGPath
             fromViewController!.view.layer.mask = maskLayer
             
-            var maskLayerAnimation = CABasicAnimation(keyPath: "path")
+            let maskLayerAnimation = CABasicAnimation(keyPath: "path")
             maskLayerAnimation.fromValue = circleMaskPathInitial.CGPath
             maskLayerAnimation.toValue = circleMaskPathFinal.CGPath
             maskLayerAnimation.duration = transitionDuration(context!)
@@ -80,7 +80,7 @@ class MaskAnimationController:  NSObject,
                 if let viewController = fromViewController as? JournalViewController {
                     viewController.fadeOutInitial(duration, completion: { () -> Void in
                         let delay = 1.0 * Double(NSEC_PER_SEC)
-                        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                         viewController.saved()
                         dispatch_after(time, dispatch_get_main_queue(), {
                             buttonFrame.size = CGSizeMake(70.0, 70.0)

@@ -10,7 +10,8 @@ import UIKit
 import EventKit
 
 class CalendarSelectionTableViewController: UITableViewController {
-    
+ 
+    /*
     private let CellIdentifier = "CalendarSelectionCell"
     
     var calendars: [String: [EKCalendar]] {
@@ -58,4 +59,5 @@ class CalendarSelectionTableViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         println(calendar.title)
     }
+    */
 }

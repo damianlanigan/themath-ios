@@ -69,17 +69,23 @@ class JournalEntry {
     private func actuallySave() {
         // TODO: HANDLE ERROR
         print("ACTUALLY SAVING")
-        request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
-            if let data = data as? [String: AnyObject] {
-                if let errors = data["errors"] as? [String: [String]] {
-                    println("something went wrong")
-                } else {
-                    if let callback = self.onSaveCallback {
-                        callback()
-                    }
-                }
-            }
+        
+        let params = ["journal_entry" : asJSON()]
+        request(Router.CreateJournalEntry(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
+            
         }
+        
+//        request(Router.CreateJournalEntry(["journal_entry" : asJSON()])).responseJSON { (request, response, data, error) in
+//            if let data = data as? [String: AnyObject] {
+//                if let errors = data["errors"] as? [String: [String]] {
+//                    println("something went wrong")
+//                } else {
+//                    if let callback = self.onSaveCallback {
+//                        callback()
+//                    }
+//                }
+//            }
+//        }
     }
     
     // MARK: Vendor
@@ -142,10 +148,10 @@ class JournalEntry {
         
         // LOCATION NOT TRANSLATING TO TYPE
         if let lat = json["lat"] as? String {
-            entry.lat = lat.doubleValue()
+            entry.lat = (lat as NSString).doubleValue
         }
         if let lng = json["lng"] as? String {
-            entry.lng = lng.doubleValue()
+            entry.lng = (lng as NSString).doubleValue
         }
         
         entry.geocodedLocationString = json["location_string"] as? String

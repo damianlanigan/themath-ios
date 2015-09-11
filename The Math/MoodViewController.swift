@@ -211,9 +211,9 @@ class MoodViewController: UIViewController,
             if let entry = entry {
                 let lastMood = "Last mood\n"
                 let timestamp = "\(entry.timestamp.relativeTimeToString())"
-                var string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
+                let string = NSMutableAttributedString(string: "\(lastMood) \(timestamp)")
                 let color = entry.color
-                let range = NSMakeRange(count(lastMood), count(" \(timestamp)"))
+                let range = NSMakeRange(lastMood.characters.count, " \(timestamp)".characters.count)
                 string.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
                 self.latestMoodLabel.attributedText = string
                 UIView.animateWithDuration(0.3, animations: {
@@ -250,7 +250,7 @@ class MoodViewController: UIViewController,
             UIView.animateWithDuration(0.2, animations: {
                 self.view.alpha = 0.0
             })
-            if let viewController = presentedViewController as? InfographViewController {
+            if let _ = presentedViewController as? InfographViewController {
                 
             } else {
                 performSegueWithIdentifier("PresentInfograph", sender: self)
@@ -282,7 +282,7 @@ class MoodViewController: UIViewController,
     override func shouldAutorotate() -> Bool {
         if let viewController = presentedViewController as? InfographViewController {
             return !viewController.orientationLocked
-        } else if let viewController = presentedViewController as? NonRotatingNavigationController {
+        } else if let _ = presentedViewController as? NonRotatingNavigationController {
             return false
         } else if capturingMood {
             return false
@@ -321,12 +321,12 @@ class MoodViewController: UIViewController,
     // MARK: <UIViewControllerTransitioningDelegate>
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let viewController = presented as? JournalViewController {
+        if let _ = presented as? JournalViewController {
             onMood = false
             let animator = MaskAnimationController()
             animator.presenting = true
             return animator
-        } else if let viewController = presented as? InfographViewController {
+        } else if let _ = presented as? InfographViewController {
             let animator = FadeAnimationController()
             animator.presenting = true
             return animator
@@ -337,9 +337,9 @@ class MoodViewController: UIViewController,
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         onMood = true
-        if let viewController = dismissed as? JournalViewController {
+        if let _ = dismissed as? JournalViewController {
             return MaskAnimationController()
-        } else if let viewController = dismissed as? InfographViewController {
+        } else if let _ = dismissed as? InfographViewController {
             return FadeAnimationController()
         }
         

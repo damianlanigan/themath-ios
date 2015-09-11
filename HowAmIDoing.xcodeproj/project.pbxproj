@@ -78,8 +78,6 @@
 		8DD17BCD1AEA9EE800F69892 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */; };
 		8DD79CAD1A7C1F2D007E504A /* InfographViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */; };
 		8DD9595F1B59AFD600B9B1FD /* DayDetailPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD9595E1B59AFD600B9B1FD /* DayDetailPreviewTableViewCell.swift */; };
-		8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */; };
-		8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE280BD1A8ABD2200B03144 /* Fabric.framework */; };
 		8DE6762D1B0D2999002ECFDF /* JournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6762C1B0D2999002ECFDF /* JournalEntryViewController.swift */; };
 		8DE676331B0D305A002ECFDF /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE676321B0D305A002ECFDF /* CircleProgressView.swift */; };
 		8DEEF6851AE561BA00996D35 /* MaskAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEEF6841AE561BA00996D35 /* MaskAnimationController.swift */; };
@@ -185,7 +183,6 @@
 		8DD17BCC1AEA9EE800F69892 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8DD79CAC1A7C1F2D007E504A /* InfographViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfographViewController.swift; sourceTree = "<group>"; };
 		8DD9595E1B59AFD600B9B1FD /* DayDetailPreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDetailPreviewTableViewCell.swift; sourceTree = "<group>"; };
-		8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8DE280BD1A8ABD2200B03144 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		8DE6762C1B0D2999002ECFDF /* JournalEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntryViewController.swift; sourceTree = "<group>"; };
 		8DE676321B0D305A002ECFDF /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
@@ -208,8 +205,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DE280BE1A8ABD2200B03144 /* Crashlytics.framework in Frameworks */,
-				8DE280BF1A8ABD2200B03144 /* Fabric.framework in Frameworks */,
 				3CA0CB536367D6C733B6BAC5 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +222,6 @@
 		03AB71A64CC21D0A2B5A4514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8DE280BC1A8ABD2200B03144 /* Crashlytics.framework */,
 				8DE280BD1A8ABD2200B03144 /* Fabric.framework */,
 				47385D201AF9733A85DAB206 /* Pods.framework */,
 			);
@@ -536,7 +530,6 @@
 				27D411BA1A48710F008ACC14 /* Frameworks */,
 				27D411BB1A48710F008ACC14 /* Resources */,
 				C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */,
-				8DE280BB1A8ABCE200B03144 /* ShellScript */,
 				14BC22CEF7E99EA2D1D692DD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -664,19 +657,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		8DE280BB1A8ABCE200B03144 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 6269cd422f0592884da208d04a5215b3c1c0c1b9 4399a2698828ab36d83cb0c5f0a51ca80dbfb17b2dfc8fe168b7c1860ee902b8";
 		};
 		C9F7C27B4BEEE655AE87294E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

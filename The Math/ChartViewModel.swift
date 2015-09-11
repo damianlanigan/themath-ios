@@ -46,7 +46,7 @@ class ChartViewModel: NSObject,
             self.chartableDateValue = result
             self.view.loader.stopAnimating()
             self.view.reloadData()
-            var sum = result.values.map { ($0 as! ChartDay).score }.reduce(0, combine: +)
+            let sum = result.values.map { ($0 as! ChartDay).score }.reduce(0, combine: +)
             if sum == 0 {
                 self.view.showEmptyState()
             }

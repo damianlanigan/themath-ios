@@ -47,33 +47,43 @@ class Account: NSObject {
     }
     
     func signup(params: [String: AnyObject], callback: ((Bool, [String:[String]]?)) -> ()) {
-        request(Router.SignupAccount(params)).responseJSON { (request, response, data, error) in
-            if let data = data as? [String: AnyObject] {
-                if let errors = data["errors"] as? [String: [String]] {
-                    callback((false, errors))
-                } else {
-                    self.setAccessToken(data["access_token"] as? String)
-                    callback((true, nil))
-                }
-            }
+        
+        request(Router.SignupAccount(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
+            
         }
+        
+//        request(Router.SignupAccount(params)).responseJSON { (request, response, data, error) in
+//            if let data = data as? [String: AnyObject] {
+//                if let errors = data["errors"] as? [String: [String]] {
+//                    callback((false, errors))
+//                } else {
+//                    self.setAccessToken(data["access_token"] as? String)
+//                    callback((true, nil))
+//                }
+//            }
+//        }
     }
     
     func login(params: [String: AnyObject], callback: ((Bool, [String:[String]]?)) -> ()) {
-        request(Router.LoginAccount(params)).responseJSON { (request, response, data, error) in
-            if let response = response {
-                if response.statusCode != 200 {
-                    callback((false, nil))
-                } else {
-                    if let data = data as? [String: AnyObject] {
-                        self.setAccessToken(data["access_token"] as? String)
-                        callback((true, nil))
-                    }
-                }
-            } else {
-                callback((false, nil))
-            }
+
+        request(Router.LoginAccount(params)).responseJSON { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
+        
         }
+        
+//        request(Router.LoginAccount(params)).responseJSON { (request, response, data, error) in
+//            if let response = response {
+//                if response.statusCode != 200 {
+//                    callback((false, nil))
+//                } else {
+//                    if let data = data as? [String: AnyObject] {
+//                        self.setAccessToken(data["access_token"] as? String)
+//                        callback((true, nil))
+//                    }
+//                }
+//            } else {
+//                callback((false, nil))
+//            }
+//        }
     }
     
     func isAuthenticated() -> Bool {

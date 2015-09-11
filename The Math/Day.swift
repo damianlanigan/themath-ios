@@ -9,6 +9,28 @@
 import Foundation
 import UIKit
 import Alamofire
+import ExSwift
+
+extension Array {
+    func groupBy <U> (groupingFunction group: (Element) -> U) -> [U: Array] {
+        
+        var result = [U: Array]()
+        
+        for item in self {
+            
+            let groupKey = group(item)
+            
+            // If element has already been added to dictionary, append to it. If not, create one.
+            if result[groupKey] != nil {
+                result[groupKey]! += [item]
+            } else {
+                result[groupKey] = [item]
+            }
+        }
+        
+        return result
+    }
+}
 
 class CalendarDay: TimeRepresentable {
     
@@ -23,7 +45,7 @@ class CalendarDay: TimeRepresentable {
     }
     
     func formattedDescription() -> String {
-        return "\(rawDate.shortMonthToString()) \(rawDate.day(offset: 0)), \(rawDate.year(offset: 0))"
+        return "\(rawDate.shortMonthToString()) \(rawDate.day(0)), \(rawDate.year(0))"
     }
     
     func formattedDescriptionWithWeekday() -> String {
@@ -43,21 +65,26 @@ class CalendarDay: TimeRepresentable {
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
-                if let data = data as? Array<Dictionary<String,AnyObject>> {
-                    let chartable = ChartDay(date: self.rawDate)
-                    var entries: [JournalEntry] = [JournalEntry]()
-                    for d in data {
-                        let entry = JournalEntry.fromJSONRequest(d)
-                        entries.insert(entry, atIndex: 0)
-                    }
-                    chartable.entries = entries
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        completion(result: chartable)
-                    })
-                }
-            }
+            
+            request(Router.JournalEntries(params)).responseJSON(completionHandler: { (request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<AnyObject>) -> Void in
+                
+            })
+            
+//            request(Router.JournalEntries(params)).responseJSON { (request, response, data, error) in
+//                if let data = data as? Array<Dictionary<String,AnyObject>> {
+//                    let chartable = ChartDay(date: self.rawDate)
+//                    var entries: [JournalEntry] = [JournalEntry]()
+//                    for d in data {
+//                        let entry = JournalEntry.fromJSONRequest(d)
+//                        entries.insert(entry, atIndex: 0)
+//                    }
+//                    chartable.entries = entries
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                        completion(result: chartable)
+//                    })
+//                }
+//            }
         })
     }
 }
@@ -70,7 +97,7 @@ class ChartDay: CalendarDay, Chartable {
     private var _score: Int!
     var score: Int {
         if _score == nil {
-            var scores: [Int] = self.entries.map { $0.score }
+            let scores: [Int] = self.entries.map { $0.score }
             let sum = scores.reduce(0, combine: +)
             return self.entries.count > 0 ? sum / self.entries.count : ChartDayMinimumDayAverage
         }
@@ -96,7 +123,7 @@ class ChartDay: CalendarDay, Chartable {
        // 0...23 [count: Int, score: Int]
         
         var chartHours = [ChartHour]()
-        let groupedByHour = entries.groupBy { $0.timestamp.hour(offset: 0) }
+        let groupedByHour = entries.groupBy { $0.timestamp.hour(0) }
         for (key, value) in groupedByHour {
             let h = ChartHour()
             h.entries = value
@@ -104,14 +131,14 @@ class ChartDay: CalendarDay, Chartable {
             chartHours.append(h)
         }
         
-        var hours = chartHours.map { $0.hour }
+        let hours = chartHours.map { $0.hour }
         for i in 0..<25 {
-            if find(hours, i) == nil {
+            if hours.indexOf(i) >= 0 {
                 
                 let j = JournalEntry()
                 j.score = ChartDayMinimumDayAverage
-                let c = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: rawDate)
-                c.setValue(i, forComponent: .CalendarUnitHour)
+                let c = NSCalendar.currentCalendar().components([.Year, .Month, .Day], fromDate: rawDate)
+                c.setValue(i, forComponent: .Hour)
                 j.timestamp = NSCalendar.currentCalendar().dateFromComponents(c)
                 j.userGenerated = false
                 
@@ -125,7 +152,7 @@ class ChartDay: CalendarDay, Chartable {
         
         if self.hours.count != chartHours.count {
             self.hours = chartHours
-            self.hours.sort({
+            self.hours.sortInPlace({
                 $0.hour < $1.hour
             })
         }

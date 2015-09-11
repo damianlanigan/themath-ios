@@ -19,30 +19,30 @@ class CalendarMonth: TimeRepresentable {
     init(date: NSDate) {
         
         let calendar = NSCalendar.currentCalendar()
-        let range = calendar.rangeOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: date)
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
         dayCount = range.length
         
-        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: date)
-        components.setValue(1, forComponent: .CalendarUnitDay)
+        let components = calendar.components([.Year, .Month], fromDate: date)
+        components.setValue(1, forComponent: .Day)
         
         startDate = calendar.dateFromComponents(components)
         endDate = startDate.dateByAddingDays(dayCount - 1)
     }
     
     func previous() -> CalendarMonth {
-        let components = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: startDate)
-        components.setValue(components.month + 1, forComponent: .CalendarUnitMonth)
+        let components = NSCalendar.currentCalendar().components([.Year, .Month], fromDate: startDate)
+        components.setValue(components.month + 1, forComponent: .Month)
         return CalendarMonth(date: NSCalendar.currentCalendar().dateFromComponents(components)!)
     }
     
     func next() -> CalendarMonth {
-        let components = NSCalendar.currentCalendar().components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: startDate)
-        components.setValue(components.month - 1, forComponent: .CalendarUnitMonth)
+        let components = NSCalendar.currentCalendar().components([.Year, .Month], fromDate: startDate)
+        components.setValue(components.month - 1, forComponent: .Month)
         return CalendarMonth(date: NSCalendar.currentCalendar().dateFromComponents(components)!)
     }
     
     func formattedDescription() -> String {
-        return "\(startDate.monthToString()), \(startDate.year(offset: 0))"
+        return "\(startDate.monthToString()), \(startDate.year(0))"
     }
     
     var params: [String: AnyObject] {
@@ -55,38 +55,38 @@ class CalendarMonth: TimeRepresentable {
     
     func fetchChartableRepresentation(completion: (result: Chartable) -> Void) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
-                if let data = data as? Array<Dictionary<String,Int>> {
-                    
-                    var days = [ChartDay]()
-                    for d in data {
-                        for (date, score) in d {
-                            let comps = NSDateComponents()
-                            let parts = split(date) { $0 == "-" }
-                            comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
-                            comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
-                            comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
-                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
-                            
-                            let before = timestamp.compare(self.startDate) == NSComparisonResult.OrderedAscending
-                            let after = timestamp.compare(self.endDate) == NSComparisonResult.OrderedDescending
-                            if before || after {
-                                continue
-                            }
-                            let day = ChartDay(date: timestamp, score: score)
-                            days.append(day)
-                        }
-                    }
-                
-                    
-                    let chartable = ChartMonth(date: self.startDate)
-                    chartable.days = days
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
-                        completion(result: chartable)
-                    })
-                }
-            }
+//            request(Router.AverageScore(params)).responseJSON { (request, response, data, error) in
+//                if let data = data as? Array<Dictionary<String,Int>> {
+//                    
+//                    var days = [ChartDay]()
+//                    for d in data {
+//                        for (date, score) in d {
+//                            let comps = NSDateComponents()
+//                            let parts = split(date) { $0 == "-" }
+//                            comps.setValue(parts[0].toInt()!, forComponent: .CalendarUnitYear)
+//                            comps.setValue(parts[1].toInt()!, forComponent: .CalendarUnitMonth)
+//                            comps.setValue(parts[2].toInt()!, forComponent: .CalendarUnitDay)
+//                            let timestamp = NSCalendar.currentCalendar().dateFromComponents(comps)!
+//                            
+//                            let before = timestamp.compare(self.startDate) == NSComparisonResult.OrderedAscending
+//                            let after = timestamp.compare(self.endDate) == NSComparisonResult.OrderedDescending
+//                            if before || after {
+//                                continue
+//                            }
+//                            let day = ChartDay(date: timestamp, score: score)
+//                            days.append(day)
+//                        }
+//                    }
+//                
+//                    
+//                    let chartable = ChartMonth(date: self.startDate)
+//                    chartable.days = days
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        completion(result: chartable)
+//                    })
+//                }
+//            }
         })
     }
 }
@@ -100,21 +100,20 @@ class ChartMonth: CalendarMonth, Chartable {
     }
     
     private func padMonth() {
-        let calendar = NSCalendar.currentCalendar()
         let dates = days.map { $0.rawDate.withoutTime() }
         
         var _days = days
         
         for i in 0..<dayCount {
             let d = startDate.dateByAddingDays(i).withoutTime()
-            if find(dates, d) == nil {
+            if dates.indexOf(d) > 0 {
                 _days.append(ChartDay(date: d, score: ChartDayMinimumDayAverage))
             }
         }
         
         if _days.count != days.count {
             days = _days
-            days.sort({
+            days.sortInPlace({
                 $0.rawDate.compare($1.rawDate) == NSComparisonResult.OrderedAscending
             })
         }

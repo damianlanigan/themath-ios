@@ -61,7 +61,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let idx = selectedIdx {
             if let viewController = segue.destinationViewController as? WebViewController {
-                println(idx)
+                print(idx)
                 viewController.navigationTitle = titles[idx]
                 viewController.url = NSURL(string: urls[idx])
             }
@@ -120,7 +120,7 @@ class SettingsTableViewController: UITableViewController, UIAlertViewDelegate {
         } else if alertView.tag == 2 {
             if buttonIndex == 1 {
                 Account.sharedAccount().logout({
-                    println("logged out")
+                    print("logged out")
                     self.delegate?.didLogout()
                 })
             }

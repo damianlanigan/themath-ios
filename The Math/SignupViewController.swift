@@ -29,7 +29,7 @@ class SignupViewController: AuthViewController,
         let NSStr = NSString(format: "%@", str)
         let font = UIFont(name: CabritoSansFontName, size: subtextLabel.font.pointSize)!
         let attrStr = NSMutableAttributedString(string: str)
-        let strRange = NSMakeRange(0, count(str))
+        let strRange = NSMakeRange(0, str.characters.count)
         attrStr.addAttribute(NSFontAttributeName, value: font, range: strRange)
         attrStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range: strRange)
         
@@ -62,8 +62,8 @@ class SignupViewController: AuthViewController,
     }
     
     @IBAction func createAccountButtonTapped(sender: AnyObject) {
-        let email = emailField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let password = passwordField.text
+        let email = emailField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let password = passwordField.text!
         
         let params = ["signup" : ["email" : email, "password" : password]]
         
@@ -77,7 +77,7 @@ class SignupViewController: AuthViewController,
             ]
             var message = ""
             if let error = error {
-                for (key, values) in error {
+                for (key, _) in error {
                     if key == "confirmation_email" {
                         continue
                     }

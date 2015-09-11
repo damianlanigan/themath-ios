@@ -32,7 +32,7 @@ class ChartViewController: UIViewController,
         super.viewDidLoad()
         
         loadPreviousChartView()
-        for i in 0...1 {
+        for _ in 0...1 {
             _performBlock({
                 self.loadPreviousChartView()
             }, withDelay: 0.3)

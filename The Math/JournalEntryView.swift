@@ -67,10 +67,10 @@ class JournalEntryView: UIView {
         
         formatter.dateFormat = "mm"
         var minute = formatter.stringFromDate(date)
-        minute = count(minute) < 2 ? "0\(minute)" : minute
+        minute = (minute.characters.count < 2) ? "0\(minute)" : minute
         
         formatter.dateFormat = "h"
-        var hour = formatter.stringFromDate(date)
+        let hour = formatter.stringFromDate(date)
         
         formatter.dateFormat = "EEEE"
         let weekday = formatter.stringFromDate(date)
@@ -79,10 +79,9 @@ class JournalEntryView: UIView {
         let aORp = formatter.stringFromDate(date)
         
         timeLabel.text = "\(weekday) at \(hour):\(minute) \(aORp)"
-        dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(offset: 0))"
+        dateLabel.text = "\(date.monthToString()) \(date.day()), \(date.year(0))"
         
         if let location = entry.location {
-            let v = Vendor(type: VendorType.Location, content: entry.geocodedLocationString!)
             dateLabel.text = "\(dateLabel.text!) • \(entry.geocodedLocationString!)"
             
             mapView.centerCoordinate = location.coordinate
@@ -95,9 +94,9 @@ class JournalEntryView: UIView {
         
         noteLabel.text = entry.note
         
-        var size = CGSizeMake(36, 36)
+        let size = CGSizeMake(36, 36)
         let padding = 4
-        for (idx, category) in enumerate(entry.categories) {
+        for (idx, category) in entry.categories.enumerate() {
             let image = UIImage.imageForCategoryType(category)
             let color = UIColor.colorForCategoryType(category)
             let frame = CGRectMake(size.width * CGFloat(idx) + CGFloat(padding * idx), 0.0, size.width, size.height)

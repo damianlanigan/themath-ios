@@ -28,8 +28,7 @@ class DaySelectionTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
-    
-        if let ip = tableView.indexPathForSelectedRow() {
+        if let ip = tableView.indexPathForSelectedRow {
             if let cell = tableView.cellForRowAtIndexPath(ip) {
                 cell.setSelected(false, animated: true)
             }
@@ -65,7 +64,7 @@ class DaySelectionTableViewController: UITableViewController {
             let size = CGSizeMake(36.0, 36.0)
             let padding = 4
             let width = UIScreen.mainScreen().bounds.size.width - 80.0
-            for (idx, category) in enumerate(entry.categories) {
+            for (idx, category) in entry.categories.enumerate() {
                 let image = UIImage.imageForCategoryType(category)
                 let color = UIColor.colorForCategoryType(category)
                 let offset = width - (size.width * CGFloat(idx) +  CGFloat(padding * idx))

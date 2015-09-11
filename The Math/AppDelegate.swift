@@ -9,8 +9,6 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
 import Alamofire
 
 @UIApplicationMain
@@ -22,19 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.backgroundColor = UIColor.whiteColor()
         
-//        setupFabric()
-        setupAnalytics()
         setupGlobalUI()
 
         return true
-    }
-
-    private func setupFabric() {
-        Fabric.with([Crashlytics()])
-    }
-
-    private func setupAnalytics() {
-        
     }
     
     private func setupGlobalUI() {

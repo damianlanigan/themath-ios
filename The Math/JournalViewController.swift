@@ -84,7 +84,7 @@ class JournalViewController: UIViewController,
     @IBAction func saveButtonTapped(sender: AnyObject) {
         SwiftLoader.show(animated: true)
         textView.resignFirstResponder()
-        var selections = categoryViews.filter({ $0.selected }).map({ $0.name() })
+        let selections = categoryViews.filter({ $0.selected }).map({ $0.name() })
         
         if let location = location {
             journalEntry.lat = location.coordinate.latitude
@@ -127,11 +127,11 @@ class JournalViewController: UIViewController,
     // are turned off
     private func setupLocationServices() {
         if LocationCoordinator.isActive() {
-            println("starting or requesting permissions")
+            print("starting or requesting permissions")
             LocationCoordinator.sharedCoordinator.delegate = self
             LocationCoordinator.sharedCoordinator.start()
         } else {
-            println("we don't have location permissions")
+            print("we don't have location permissions")
         }
     }
     
@@ -140,7 +140,7 @@ class JournalViewController: UIViewController,
         cachedScrollViewHeight = scrollView.contentSize.height
         let info = notification.userInfo
         if let info = info {
-            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
+            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
                 if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
                     
                     let height = keyboardSize.size.height
@@ -169,7 +169,7 @@ class JournalViewController: UIViewController,
     func keyboardWillHide(notification: NSNotification!) {
         let info = notification.userInfo
         if let info = info {
-            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() {
+            if let _ = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
                 if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
                     saveButtonBottomConstraint.constant = 0
                     scrollView.contentSize.height = cachedScrollViewHeight

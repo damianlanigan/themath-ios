@@ -1,4 +1,4 @@
-//  
+//
 //
 //  ChartView.swift
 //  HowAmIDoing
@@ -66,7 +66,7 @@ class ChartView: UIView {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override func layoutSubviews() {
@@ -82,7 +82,7 @@ class ChartView: UIView {
         footerView.frame = CGRectMake(padding, chart.frame.size.height + chart.frame.origin.y + 1, frame.size.width - (padding * 2.0), 20.0)
         
         let labelWidth = footerView.frame.size.width / CGFloat(footerLabelCount)
-        for (idx, view) in enumerate(footerView.subviews) {
+        for (idx, view) in footerView.subviews.enumerate() {
             if let label = view as? UILabel {
                 label.textColor = UIColor.grayColor()
                 
@@ -125,7 +125,7 @@ class ChartView: UIView {
         let v = UIView()
         var labels = [UILabel]()
         
-        var hours = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+        let hours = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
         
         for i in hours {
             let l = ChartFooterLabel()
@@ -167,7 +167,7 @@ class ChartView: UIView {
             l.textColor = UIColor.lightGrayColor()
             
             let date = month.startDate.dateByAddingDays(i)
-            var day = "\(date.day())"
+            let day = "\(date.day())"
             l.text = day
             
             v.addSubview(l)

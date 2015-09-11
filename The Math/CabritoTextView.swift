@@ -12,7 +12,7 @@ class CabritoTextView: UITextView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        font = UIFont(name: CabritoSansFontName, size: font.pointSize)
+        font = UIFont(name: CabritoSansFontName, size: font!.pointSize)
     }
 
 }

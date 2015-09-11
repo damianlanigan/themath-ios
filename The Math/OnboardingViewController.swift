@@ -117,7 +117,7 @@ class OnboardingViewController: UIViewController,
         
         subContentView.backgroundColor = UIColor.onboardingBackgroundColor()
         
-        for (idx, view) in enumerate(onboardingViews) {
+        for (idx, view) in onboardingViews.enumerate() {
             view.frame = self.view.bounds
             subContentView.addSubview(view)
             view.frame.origin.y += self.view.frame.size.height * CGFloat(idx)
@@ -143,7 +143,7 @@ class OnboardingViewController: UIViewController,
             UIImageView(image: UIImage(named: "dots_dark")!)
         ]
         
-        for (idx, image) in enumerate(dots) {
+        for (idx, image) in dots.enumerate() {
             let offset = (idx * 16) + 6
             
             let xAxis = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
@@ -181,7 +181,7 @@ class OnboardingViewController: UIViewController,
         } else if LocationCoordinator.isActive() {
             scrollToSignup()
         } else if LocationCoordinator.needsRequestAuthorization() {
-            println("starting or requesting permissions")
+            print("starting or requesting permissions")
             LocationCoordinator.activate()
             LocationCoordinator.sharedCoordinator.requestAuthorization()
         } else {
@@ -276,8 +276,8 @@ class OnboardingViewController: UIViewController,
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Portrait
     }
     
     // MARK: UIAlertViewDelegate
