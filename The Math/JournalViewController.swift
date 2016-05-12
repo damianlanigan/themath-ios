@@ -12,6 +12,11 @@ import UIKit
 import CoreLocation
 import SwiftLoader
 
+enum EntryState {
+    case Active
+    case Canceled
+}
+
 class JournalViewController: UIViewController,
     UITextViewDelegate,
     UIAlertViewDelegate,
@@ -29,7 +34,7 @@ class JournalViewController: UIViewController,
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var savedLabel: UILabel!
     
-    var isCancelled = false
+    var state: EntryState = .Active
     var transitionColor: UIColor?
     var cachedScrollViewHeight: CGFloat = 0.0
     var mood: Int = 0
@@ -137,49 +142,47 @@ class JournalViewController: UIViewController,
     
     // MARK: Notifications
     func keyboardWillShow(notification: NSNotification!) {
+        
         cachedScrollViewHeight = scrollView.contentSize.height
-        let info = notification.userInfo
-        if let info = info {
-            if let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
-                if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
-                    
-                    let height = keyboardSize.size.height
-                    saveButtonBottomConstraint.constant = height
-                    
-                    var bounds = scrollView.bounds
-                    let animation = CABasicAnimation(keyPath: "bounds")
-                    animation.duration = animationDuration
-                    animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                    animation.fromValue = NSValue(CGRect: bounds)
-                    bounds.origin.y = height / 2.0
-                    animation.toValue = NSValue(CGRect: bounds)
-                    
-                    scrollView.contentSize.height = cachedScrollViewHeight + height
-                    scrollView.layer.addAnimation(animation, forKey: "bounds")
-                    scrollView.bounds = bounds;
-                    
-                    UIView.animateWithDuration(animationDuration, animations: {
-                        self.view.layoutIfNeeded()
-                    })
-                }
-            }
+        
+        guard let info = notification.userInfo,
+            let keyboardSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue,
+            let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else {
+                return
         }
+                    
+        let height = keyboardSize.size.height
+        saveButtonBottomConstraint.constant = height
+        
+        var bounds = scrollView.bounds
+        let animation = CABasicAnimation(keyPath: "bounds")
+        animation.duration = animationDuration
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.fromValue = NSValue(CGRect: bounds)
+        bounds.origin.y = height / 2.0
+        animation.toValue = NSValue(CGRect: bounds)
+        
+        scrollView.contentSize.height = cachedScrollViewHeight + height
+        scrollView.layer.addAnimation(animation, forKey: "bounds")
+        scrollView.bounds = bounds;
+        
+        UIView.animateWithDuration(animationDuration, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func keyboardWillHide(notification: NSNotification!) {
-        let info = notification.userInfo
-        if let info = info {
-            if let _ = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
-                if let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
-                    saveButtonBottomConstraint.constant = 0
-                    scrollView.contentSize.height = cachedScrollViewHeight
-                    cachedScrollViewHeight = 0.0
-                    UIView.animateWithDuration(animationDuration, animations: {
-                        self.view.layoutIfNeeded()
-                    })
-                }
-            }
+        guard let info = notification.userInfo,
+            let animationDuration: Double = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else {
+                return
         }
+        
+        saveButtonBottomConstraint.constant = 0
+        scrollView.contentSize.height = cachedScrollViewHeight
+        cachedScrollViewHeight = 0.0
+        UIView.animateWithDuration(animationDuration, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     // MARK: Exit transition animations
@@ -197,7 +200,7 @@ class JournalViewController: UIViewController,
         UIView.animateWithDuration(duration, animations: {
             self.scrollView.backgroundColor = UIColor.mood_latestMoodColor()
             self.savedLabel.alpha = 0.0
-            if self.isCancelled {
+            if self.state == .Canceled {
                 self.contentView.alpha = 0.0
                 self.contentView.transform = CGAffineTransformMakeScale(0.92, 0.92)
             }
@@ -241,7 +244,7 @@ class JournalViewController: UIViewController,
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
-            isCancelled = true
+            state = .Canceled
             textView.resignFirstResponder()
             dismissViewControllerAnimated(true, completion: nil)
         }

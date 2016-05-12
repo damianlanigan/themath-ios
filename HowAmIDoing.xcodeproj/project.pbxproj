@@ -37,7 +37,7 @@
 		8D4149C61AEC53EE000A4D2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4149C51AEC53EE000A4D2E /* User.swift */; };
 		8D47D9B71B0E947A005A9ADB /* ChartDetailVendorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D47D9B61B0E947A005A9ADB /* ChartDetailVendorView.xib */; };
 		8D47D9BB1B0E96D0005A9ADB /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47D9BA1B0E96D0005A9ADB /* Vendor.swift */; };
-		8D4DC79F1BA32B66004AC261 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DC79E1BA32B66004AC261 /* NSDate.swift */; settings = {ASSET_TAGS = (); }; };
+		8D4DC79F1BA32B66004AC261 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DC79E1BA32B66004AC261 /* NSDate.swift */; };
 		8D59B2801A7D4EE7007A29BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59B27F1A7D4EE7007A29BB /* UIView.swift */; };
 		8D791B671AEC4EFC00E68AB2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D791B661AEC4EFC00E68AB2 /* Account.swift */; };
 		8D7A6DC91AE5AB6400AC2CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7A6DC81AE5AB6400AC2CD8 /* CategoryView.swift */; };
@@ -568,7 +568,6 @@
 				TargetAttributes = {
 					27D411BC1A48710F008ACC14 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 8979A5Q5P5;
 					};
 					27D411D11A48710F008ACC14 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -897,6 +896,7 @@
 					"$(inherited)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouars.HowAmIDoing;
 				PRODUCT_NAME = HowAmIDoing;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "The Math/The Math-Bridging-Header.h";
@@ -936,6 +936,7 @@
 					"$(inherited)",
 				);
 				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikekavouars.HowAmIDoing;
 				PRODUCT_NAME = HowAmIDoing;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "The Math/The Math-Bridging-Header.h";

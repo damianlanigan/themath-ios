@@ -9,6 +9,13 @@
 import Foundation
 import Alamofire
 
+typealias JSON = [String: AnyObject]
+
+enum ResultType<T> {
+    case Success(T)
+    case Failure(String)
+}
+
 enum Router: URLRequestConvertible {
     
     static let baseURLString = "http://themath-api.herokuapp.com"
